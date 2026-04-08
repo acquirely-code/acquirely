@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 33% 98%;
+    --foreground: 223 52% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 223 52% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 223 52% 11%;
+    --primary: 189 95% 66%;
+    --primary-foreground: 223 52% 11%;
+    --secondary: 214 32% 93%;
+    --secondary-foreground: 223 47% 19%;
+    --muted: 214 32% 95%;
+    --muted-foreground: 215 18% 47%;
+    --accent: 214 32% 93%;
+    --accent-foreground: 223 47% 19%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 28% 89%;
+    --input: 214 28% 89%;
+    --ring: 189 95% 66%;
+    --radius: 1rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  ::selection {
+    background: rgba(103, 232, 249, 0.45);
+    color: #0f172a;
+  }
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/static/Montserrat-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "opensans";
+  src: url("./fonts/opensans/OpenSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GilroyMedium";
+  src: url("./fonts/Gilroy-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GilroyLight";
+  src: url("./fonts/Gilroy-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CharterSerif";
+  src: url("./fonts/CharterRegular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "KievitSerif";
+  src: url("./fonts/KievitSerif-Book.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "hevelticneu";
+  src: url("./fonts/helvetica-neue-5/HelveticaNeueThin.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "arial";
+  src: url("./fonts/arial/ARIAL.TTF") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
