@@ -69,15 +69,15 @@ export default function CtaBreakPastSection() {
             {/* Right: Links & Scroll to Top */}
             <div className="flex flex-col sm:flex-row items-center gap-6 order-1 md:order-2 text-[14px] text-white/90">
               <div className="flex items-center gap-2">
-                <Link href="#" className="hover:text-white transition">
+                <Link href="privacypolicy" className="hover:text-white transition">
                   Privacy Policy
                 </Link>
                 <span className="text-white/50">|</span>
-                <Link href="#" className="hover:text-white transition">
+                <Link href="privacypolicy" className="hover:text-white transition">
                   Terms & Conditions
                 </Link>
                 <span className="text-white/50">|</span>
-                <Link href="#" className="hover:text-white transition">
+                <Link href="privacypolicy" className="hover:text-white transition">
                   Contact Us
                 </Link>
               </div>
