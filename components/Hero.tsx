@@ -6,7 +6,6 @@ import dynamic from 'next/dynamic';
 import { 
   ArrowRight,  
   Star,
-
   UserRoundPlus,
 } from "lucide-react";
 
@@ -25,6 +24,7 @@ const WistiaPlayer = dynamic(() => import('@/components/WistiaPlayer'), {
     <div className="w-full rounded-lg bg-white/10 animate-pulse" style={{ paddingTop: '56.25%' }} />
   ),
 });
+
 // --- Main Component ---
 export default function AgencyLandingPage() {
   return (
@@ -36,32 +36,48 @@ export default function AgencyLandingPage() {
             <Image src={logo} alt="Brand Logo" width={100} height={24} className="h-6 w-auto" />
           </div>
 
-          <div className="mt-10 grid gap-10 lg:mt-[43px] lg:grid-cols-[598px_1fr] lg:items-start">
-            <div className="max-w-[598px]">
-              <div className="inline-flex min-h-[34px] max-w-full items-center gap-3 border border-[#4338CA] bg-[#312E81] px-[10px] py-2 text-[10px] font-semibold uppercase tracking-[1.2px] text-[#A5B4FC] sm:text-[12px]">
+          {/* Grid Layout Update: 
+            Changed to a unified grid where we manually assign row/col positions for desktop, 
+            allowing flex-order to control the mobile flow naturally.
+          */}
+          <div className="mt-10 grid grid-cols-1 lg:mt-[43px] lg:grid-cols-[598px_1fr] lg:items-start lg:gap-x-10">
+            
+            {/* 1. BADGE & HEADING (Top on Mobile, Top-Left on Desktop) */}
+            <div className="order-1 flex max-w-[598px] flex-col lg:col-start-1 lg:row-start-1">
+              <div className="inline-flex w-fit min-h-[34px] max-w-full items-center gap-3 border border-[#4338CA] bg-[#312E81] px-[10px] py-2 text-[10px] font-semibold uppercase tracking-[1.2px] text-[#A5B4FC] sm:text-[12px]">
                 <span className="h-2 w-2 rounded-full bg-[#34D399]" />
                 Accepting 2 new d2c brands this month
               </div>
 
-              <h1 className="mt-6 text-[30px] font-Montserrat leading-[1.3] lg:tracking-[-0.5px] text-white sm:text-[40px] lg:text-[48px] lg:leading-[48px]">
+              <h1 className="mt-6 text-[30px] font-Montserrat leading-[1.3] text-white sm:text-[40px] lg:text-[48px] lg:leading-[48px] lg:tracking-[-0.5px]">
                 <span className="block">Scale Your Brand from</span>
                 <span className="block bg-[linear-gradient(90deg,#818CF8_0%,#C084FC_25%,#F97316_80%)] bg-clip-text text-transparent">
                    ₹3L to ₹1cr+ on Meta
                 </span>
-             
                 <span className="">Profitably</span>
               </h1>
+            </div>
 
-              <p className="mt-8 max-w-[598px] text-[16px] font-opensans leading-7 text-white/90 sm:text-[17px] lg:mt-11 lg:text-[18px] lg:leading-[29px]">
+            {/* 2. VIDEO (Middle on Mobile, Right side on Desktop) */}
+            <div className="order-2 mt-8 relative w-full lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-0 lg:ml-14 lg:pt-[99px]">
+              <div className="overflow-hidden rounded-xl shadow-2xl">
+                <WistiaPlayer mediaId="nm2ou94x6d" />
+              </div>
+            </div>
+
+            {/* 3. PARAGRAPH, CTA & SOCIAL PROOF (Bottom on Mobile, Bottom-Left on Desktop) */}
+            <div className="order-3 flex max-w-[598px] flex-col lg:col-start-1 lg:row-start-2">
+              <p className="mt-8 max-w-[598px] font-opensans text-[16px] leading-7 text-white/90 sm:text-[17px] lg:mt-11 lg:text-[18px] lg:leading-[29px]">
                 We don't just run Meta Ads campaigns. We build performance marketing systems. Our A3 Flywheel Model identifies winning creatives, scales them strategically, and stabilizes ROAS.
               </p>
 
-              <Link target="_blank" href="https://forms.acquirely.in/acquirely/form/AcquirelyLeads/formperma/2doC7L65w0M6PnuFIVX6g4BgwS3fzMDJYLwncK3fEeo" className="mt-8 inline-flex min-h-[56px] w-full max-w-[351px] font-opensans items-center justify-center gap-2 bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-5 text-center text-[16px] leading-6 text-white transition hover:brightness-110 sm:text-[18px]">
+              <Link target="_blank" href="https://forms.acquirely.in/acquirely/form/AcquirelyLeads/formperma/2doC7L65w0M6PnuFIVX6g4BgwS3fzMDJYLwncK3fEeo" className="mt-8 inline-flex min-h-[56px] w-full max-w-[351px] items-center justify-center gap-2 bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-5 text-center font-opensans text-[16px] leading-6 text-white transition hover:brightness-110 sm:text-[18px] lg:mt-8">
                 Book Your Growth Diagnosis Call
                 <ArrowRight className="h-4 w-4" />
               </Link>
+              <div className="mt-8 lg:hidden" />
 
-              <div className="mt-6 px-3 flex flex-col gap-5">
+              <div className="mt-6 flex flex-col gap-5 px-3">
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
                   <div className="flex items-center">
                     {[Client1, Client2, Client3, Client4].map((client, index) => (
@@ -79,28 +95,13 @@ export default function AgencyLandingPage() {
                       <span className="text-[14px] font-semibold text-white">4.9/5</span>
                     </div>
                   </div>
-                  {/* <div className="flex items-center gap-2.5 border-l-0 border-[#334155] pl-0 sm:border-l sm:pl-5">
-                    <Image src={checkericon} alt="Check Icon" className="h-8 w-8" />
-                    <p className="text-[12px] leading-4 text-[#CBD5E1]">Results guaranteed<br />or full refund</p>
-                  </div> */}
                 </div>
               </div>
             </div>
 
-            {/* Video Section - Now Visible on Mobile */}
-            <div className="relative w-full pt-2 lg:ml-14 lg:pt-[99px]">
-              <div className="overflow-hidden rounded-xl shadow-2xl">
-                <WistiaPlayer mediaId="nm2ou94x6d" />
-              </div>
-            </div>
           </div>
         </div>
       </section>
-
-
-
-
- 
     </main>
   );
 }
