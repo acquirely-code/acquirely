@@ -71,15 +71,15 @@ export default function CostBreakdownSection() {
                 
                 {/* Table Header */}
                 <div className="grid grid-cols-2 text-center">
-                  <div className="flex flex-col items-start justify-center border-b border-r border-[#E5E5E5] bg-[#F9FAFB] px-2 py-4 md:px-6 md:py-5">
-                    <span className="font-montserrat text-[9px] font-bold tracking-[0.5px] text-[#A3A3A3] md:text-[12px] md:tracking-[1.2px]">ROLE</span>
+                  <div className="flex  items-start justify-center border-b border-r border-[#E5E5E5] bg-[#F9FAFB] px-2 py-4 md:px-6 md:py-5">
+                    <span className="font-Montserrat text-[12px]  tracking-[0.5px] text-[#A3A3A3] md:text-[12px] md:tracking-[1.2px]">ROLE</span>
                   </div>
 
                   <div className="relative flex flex-col items-center justify-center border-b border-[#6366F1] bg-[#496690] px-2 py-4 md:px-6 md:py-5">
                     <div className="absolute top-2 md:top-4 left-1/2 z-[10] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-[#34D399] px-1.5 py-0.5 text-[6px] font-bold uppercase text-[#064E3B] shadow-md md:px-3 md:py-1 md:text-[8px]">
                       Best Value
                     </div>
-                    <p className="font-montserrat text-[11px] font-bold md:mt-2 text-white md:text-[14px]">Our Agency</p>
+                    <p className="font-Montserrat text-[11px] font-bold md:mt-2 text-white md:text-[14px]">Our Agency</p>
                     <p className="hidden font-open-sans text-[10px] text-[#C7D2FE] md:block">Full-service team</p>
                   </div>
                 </div>
