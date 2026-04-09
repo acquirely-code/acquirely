@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { BarChart3, Lightbulb, Play, TrendingUp } from "lucide-react";
 import Image from "next/image";
 import growth from "@/app/assests/growth.png";
@@ -175,6 +178,8 @@ function AlertTriangleLike() {
 }
 
 export default function FlywheelProofSection() {
+  const [isMobileVideoPlaying, setIsMobileVideoPlaying] = useState(false);
+
   return (
     <section className="bg-white">
       <div className="mx-auto max-w-[1440px] px-5 py-2 md:py-16 sm:px-6 lg:px-20 lg:py-[96px]">
@@ -241,12 +246,27 @@ export default function FlywheelProofSection() {
               </div>
             </div>
 
-            {/* Mobile-Only Meta Ads Manager Image */}
+            {/* Mobile-Only Meta Ads Manager Video Trigger */}
             <div className="relative mt-12 mb-4 block lg:hidden">
-              <Image src={metaadsmanager} alt="Meta Ads Manager" className="h-[190px] w-full rounded-lg object-cover" />
-              <div className="absolute left-1/2 top-1/2 grid h-[63px] w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/95 shadow-lg">
-                <Play className="ml-1 h-8 w-8 fill-black text-black" />
-              </div>
+              {!isMobileVideoPlaying ? (
+                <div 
+                  className="relative cursor-pointer group" 
+                  onClick={() => setIsMobileVideoPlaying(true)}
+                >
+                  <Image src={metaadsmanager} alt="Meta Ads Manager" className="h-[190px] w-full rounded-lg object-cover" />
+                  <div className="absolute left-1/2 top-1/2 grid h-[63px] w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/95 shadow-lg transition-transform group-hover:scale-105">
+                    <Play className="ml-1 h-8 w-8 fill-black text-black" />
+                  </div>
+                </div>
+              ) : (
+                <video
+                  src="/video.mp4"
+                  autoPlay
+                  controls
+                  playsInline
+                  className="h-[190px] w-full rounded-lg object-cover"
+                />
+              )}
             </div>
 
             <h3 className="mt-4 lg:mt-12 text-[26px] font-bold leading-7 text-black">Results After 90 Days</h3>
@@ -276,13 +296,15 @@ export default function FlywheelProofSection() {
           </div>
 
           <div className="relative min-h-0 lg:min-h-[920px] flex flex-col">
-            {/* Desktop-Only Meta Ads Manager Image */}
-            <div className="relative hidden lg:block lg:order-last lg:mt-0 mt-8">
-              <Image src={metaadsmanager} alt="Meta Ads Manager" className="md:h-[306px] h-[150px] w-full rounded-lg " />
-              <div className="absolute left-1/2 top-1/2 grid h-[53px] w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/95 shadow-lg">
-                <Play className="ml-1 h-8 w-8 fill-black text-black" />
-              </div>
-            </div>
+            {/* Desktop-Only Meta Ads Manager Video */}
+            <video
+              src="/video.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="relative hidden lg:block lg:order-last lg:mt-0 mt-8 md:h-[306px] h-[150px] w-full rounded-lg object-cover"
+            />
             
             <div className="mt-4 lg:mt-0 grid gap-4 lg:contents">
               <Image src={group} alt="Shopify Dashboard" className="md:h-[561px] h-[300px] w-full lg:absolute lg:right-0 lg:top-[393px] lg:w-[511px] rounded-lg object-cover" />
