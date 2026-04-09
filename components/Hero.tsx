@@ -43,15 +43,13 @@ export default function AgencyLandingPage() {
                 Accepting 2 new d2c brands this month
               </div>
 
-              <h1 className="mt-6 text-[30px] font-Montserrat leading-[1.1] lg:tracking-[-0.5px] text-white sm:text-[40px] lg:text-[48px] lg:leading-[48px]">
+              <h1 className="mt-6 text-[30px] font-Montserrat leading-[1.3] lg:tracking-[-0.5px] text-white sm:text-[40px] lg:text-[48px] lg:leading-[48px]">
                 <span className="block">Scale Your Brand from</span>
                 <span className="block bg-[linear-gradient(90deg,#818CF8_0%,#C084FC_25%,#F97316_80%)] bg-clip-text text-transparent">
-                  Rs. 3L to Rs. 50L+ Monthly
+                   ₹3L to ₹1cr+ on Meta
                 </span>
-                <span className="block bg-[linear-gradient(90deg,#818CF8_0%,#C084FC_100%)] bg-clip-text text-transparent">
-                  Ad Spend
-                </span>
-                <span className="block">on Meta - Profitably</span>
+             
+                <span className="">Profitably</span>
               </h1>
 
               <p className="mt-8 max-w-[598px] text-[16px] font-opensans leading-7 text-white/90 sm:text-[17px] lg:mt-11 lg:text-[18px] lg:leading-[29px]">
@@ -63,7 +61,7 @@ export default function AgencyLandingPage() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
 
-              <div className="mt-6 flex flex-col gap-5">
+              <div className="mt-6 px-3 flex flex-col gap-5">
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
                   <div className="flex items-center">
                     {[Client1, Client2, Client3, Client4].map((client, index) => (
@@ -81,10 +79,10 @@ export default function AgencyLandingPage() {
                       <span className="text-[14px] font-semibold text-white">4.9/5</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2.5 border-l-0 border-[#334155] pl-0 sm:border-l sm:pl-5">
+                  {/* <div className="flex items-center gap-2.5 border-l-0 border-[#334155] pl-0 sm:border-l sm:pl-5">
                     <Image src={checkericon} alt="Check Icon" className="h-8 w-8" />
                     <p className="text-[12px] leading-4 text-[#CBD5E1]">Results guaranteed<br />or full refund</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

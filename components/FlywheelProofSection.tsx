@@ -243,7 +243,7 @@ export default function FlywheelProofSection() {
 
             {/* Mobile-Only Meta Ads Manager Image */}
             <div className="relative mt-12 mb-4 block lg:hidden">
-              <Image src={metaadsmanager} alt="Meta Ads Manager" className="h-[316px] w-full rounded-lg object-cover" />
+              <Image src={metaadsmanager} alt="Meta Ads Manager" className="h-[190px] w-full rounded-lg object-cover" />
               <div className="absolute left-1/2 top-1/2 grid h-[63px] w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/95 shadow-lg">
                 <Play className="ml-1 h-8 w-8 fill-black text-black" />
               </div>
@@ -278,14 +278,14 @@ export default function FlywheelProofSection() {
           <div className="relative min-h-0 lg:min-h-[920px] flex flex-col">
             {/* Desktop-Only Meta Ads Manager Image */}
             <div className="relative hidden lg:block lg:order-last lg:mt-0 mt-8">
-              <Image src={metaadsmanager} alt="Meta Ads Manager" className="md:h-[306px] h-[250px] w-full rounded-lg " />
-              <div className="absolute left-1/2 top-1/2 grid h-[63px] w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/95 shadow-lg">
+              <Image src={metaadsmanager} alt="Meta Ads Manager" className="md:h-[306px] h-[150px] w-full rounded-lg " />
+              <div className="absolute left-1/2 top-1/2 grid h-[53px] w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/95 shadow-lg">
                 <Play className="ml-1 h-8 w-8 fill-black text-black" />
               </div>
             </div>
             
             <div className="mt-4 lg:mt-0 grid gap-4 lg:contents">
-              <Image src={group} alt="Shopify Dashboard" className="md:h-[561px] h-[550px] w-full lg:absolute lg:right-0 lg:top-[393px] lg:w-[511px] rounded-lg object-cover" />
+              <Image src={group} alt="Shopify Dashboard" className="md:h-[561px] h-[300px] w-full lg:absolute lg:right-0 lg:top-[393px] lg:w-[511px] rounded-lg object-cover" />
             </div>
           </div>
         </div>

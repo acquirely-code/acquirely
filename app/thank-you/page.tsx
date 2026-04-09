@@ -4,6 +4,11 @@ import Image from "next/image";
 import logo from "@/app/assests/logo.png";
 import success from "@/app/assests/SuccessIcon.png";
 
+
+export const metadata = {
+  title: "Done For You - Thank You",
+};
+
 export default function ThankYouPage() {
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-indigo-100">
@@ -27,7 +32,7 @@ export default function ThankYouPage() {
             </h1>
 
             {/* Subtext */}
-            <p className="mx-auto max-w-[666px] text-[18px] leading-[28px] text-white sm:text-[20px]">
+            <p className="mx-auto max-w-[766px] text-[18px] leading-[28px] text-white sm:text-[20px]">
               We've received your request. Please check your email for the calendar
               invite. Our team will reach out within 24 hours to confirm your
               scheduled call.

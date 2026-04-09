@@ -38,9 +38,9 @@ const flywheelPhases = [
 
 function FlywheelDiagramPlaceholder() {
   return (
-    <div className="rounded-[14px] bg-white p-3 md:shadow-[0px_0px_4px_rgba(0,0,0,0.18)] sm:p-5">
+    <div className="rounded-[14px]  bg-white p-3 md:shadow-[0px_0px_4px_rgba(0,0,0,0.18)] sm:p-5">
     
-     <Image src={flywheelmodel} alt="Flywheel Model" />
+     <Image className="md:h-full h-[240px]" src={flywheelmodel} alt="Flywheel Model" />
       
     </div>
   );

@@ -16,55 +16,56 @@ const additionalFeatures = [
 
 export default function PricingSection() {
   return (
-    <section className="bg-white md:py-8 py-4 px-5 sm:px-6 lg:py-24 font-sans">
+    <section className="bg-white px-4 py-8 font-sans md:py-16 lg:py-24">
       <div className="mx-auto max-w-[866px]">
         
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <div className="inline-flex h-[34px] items-center gap-2 rounded-[4px] border border-[#CFD5FD] bg-[#EDEFFF] px-3">
+        <div className="mb-8 text-center md:mb-12">
+          <div className="inline-flex h-[30px] items-center gap-2 rounded-[4px] border border-[#CFD5FD] bg-[#EDEFFF] px-3 md:h-[34px]">
             <span className="h-2 w-2 rounded-full bg-[#5332E2]" />
-            <span className="text-[12px] font-semibold uppercase tracking-[1.2px] text-[#5332E2]">
+            <span className="text-[10px] font-semibold uppercase tracking-[1.2px] text-[#5332E2] md:text-[12px]">
               Pricing
             </span>
           </div>
 
-          <h2 className="mt-6 text-[32px] font-Montserrat leading-tight tracking-tight sm:text-[40px]">
+          <h2 className="mt-4 font-Montserrat text-[28px] font-bold leading-tight tracking-tight md:mt-6 md:text-[36px] lg:text-[40px]">
             <span className="bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text text-transparent">
               Transparent, Performance-
             </span>
+            <br className="block sm:hidden" />
             <span className="text-black">Aligned Pricing</span>
           </h2>
 
-          <p className="mx-auto font-opensans mt-4 max-w-[663px] text-[18px] leading-[28px] text-[#7B8BA0]">
+          <p className="mx-auto mt-3 max-w-[663px] font-opensans text-[15px] leading-[24px] text-[#7B8BA0] md:mt-4 md:text-[18px] md:leading-[28px]">
             Both plans include the full A3 Flywheel system. The difference is how fast you
             want to move and how much direct support you need.
           </p>
         </div>
 
         {/* Top Price Cards */}
-        <div className="grid gap-6 sm:grid-cols-2 mb-12">
-          <div className="flex flex-col items-center justify-center rounded-[8px] bg-[#F4F7FF] py-10 px-6 text-center">
-            <p className="text-[18px] text-[#7B8BA0] mb-2">For ₹3L–₹10L ad spend</p>
-            <p className="text-[45px] font-bold leading-[45px] text-black mb-2">₹75,000</p>
-            <p className="text-[24px] text-[#7B8BA0]">+ GST</p>
+        <div className="mb-10 grid gap-4 sm:grid-cols-2 md:mb-12 md:gap-6">
+          <div className="flex flex-col items-center justify-center rounded-[8px] bg-[#F4F7FF] px-4 py-8 text-center md:px-6 md:py-10">
+            <p className="mb-1 text-[14px] text-[#7B8BA0] md:mb-2 md:text-[18px]">For ₹3L–₹10L ad spend</p>
+            <p className="mb-1 text-[32px] font-bold leading-tight text-black md:mb-2 md:text-[45px] md:leading-[45px]">₹75,000</p>
+            <p className="text-[16px] text-[#7B8BA0] md:text-[24px]">+ GST</p>
           </div>
           
-          <div className="flex flex-col items-center justify-center rounded-[8px] bg-[#F0FFF5] py-10 px-6 text-center">
-            <p className="text-[18px] text-[#7B8BA0] mb-2">For ₹10L+ ad spend</p>
-            <p className="text-[45px] font-bold leading-[45px] text-black mb-2">10%</p>
-            <p className="text-[24px] text-[#7B8BA0]">of total ad spend</p>
+          <div className="flex flex-col items-center justify-center rounded-[8px] bg-[#F0FFF5] px-4 py-8 text-center md:px-6 md:py-10">
+            <p className="mb-1 text-[14px] text-[#7B8BA0] md:mb-2 md:text-[18px]">For ₹10L+ ad spend</p>
+            <p className="mb-1 text-[32px] font-bold leading-tight text-black md:mb-2 md:text-[45px] md:leading-[45px]">10%</p>
+            <p className="text-[16px] text-[#7B8BA0] md:text-[24px]">of total ad spend</p>
           </div>
         </div>
 
         {/* Compare to Hiring In-House */}
-        <div className="rounded-[23px] border border-[#E5E5E5] bg-white p-8 sm:p-12 shadow-[0_0_4px_rgba(0,0,0,0.05)]">
-          <h3 className="text-[28px] sm:text-[32px] font-semibold text-black mb-8">
+        <div className="rounded-[23px] border border-[#E5E5E5] bg-white p-5 shadow-[0_0_4px_rgba(0,0,0,0.05)] md:p-8 lg:p-12">
+          <h3 className="mb-6 text-[22px] font-semibold text-black md:mb-8 md:text-[28px] lg:text-[32px]">
             Compare That to Hiring In-House
           </h3>
           
-          <div className="space-y-3">
+          <div className="space-y-2 md:space-y-3">
             {/* Table Header */}
-            <div className="flex justify-between px-4 pb-2 text-[14px] font-medium tracking-[2px] text-[#ACACC3] uppercase">
+            <div className="flex justify-between px-2 pb-2 text-[11px] font-medium uppercase tracking-[1.5px] text-[#ACACC3] md:px-4 md:text-[14px] md:tracking-[2px]">
               <span>Role</span>
               <span>Monthly Cost</span>
             </div>
@@ -73,24 +74,24 @@ export default function PricingSection() {
             {inHouseRoles.map((item, index) => (
               <div 
                 key={index} 
-                className="flex justify-between items-center rounded-[6px] bg-[#FAFAFA] px-5 py-4"
+                className="flex items-center justify-between rounded-[6px] bg-[#FAFAFA] px-3 py-3 md:px-5 md:py-4"
               >
-                <span className="text-[18px] sm:text-[20px] text-black">{item.role}</span>
-                <span className="text-[18px] sm:text-[20px] font-Montserrat text-black">{item.cost}</span>
+                <span className="text-[14px] text-black md:text-[18px] lg:text-[20px]">{item.role}</span>
+                <span className="font-Montserrat text-[14px] font-medium text-black md:text-[18px] lg:text-[20px]">{item.cost}</span>
               </div>
             ))}
           </div>
 
           {/* Total Row */}
-          <div className="mt-8 flex flex-col sm:flex-row sm:items-center justify-between rounded-[6px] bg-[#FFF4F4] px-6 py-6 sm:py-8">
-            <span className="text-[24px] sm:text-[28px] font-bold text-[#B91C1C] mb-2 sm:mb-0">
+          <div className="mt-6 flex flex-col justify-between rounded-[6px] bg-[#FFF4F4] px-4 py-5 sm:flex-row sm:items-center md:mt-8 md:px-6 md:py-8">
+            <span className="mb-2 text-[18px] font-bold text-[#B91C1C] sm:mb-0 md:text-[24px] lg:text-[28px]">
               Total In-House Cost
             </span>
             <div className="text-left sm:text-right">
-              <span className="block text-[32px] sm:text-[40px] font-bold leading-[1] text-[#B91C1C] mb-1">
+              <span className="mb-1 block text-[28px] font-bold leading-[1] text-[#B91C1C] md:text-[36px] lg:text-[40px]">
                 ₹2.2L+
               </span>
-              <span className="block text-[16px] sm:text-[18px] text-[#B91C1C]">
+              <span className="block text-[14px] text-[#B91C1C] md:text-[16px] lg:text-[18px]">
                 per month
               </span>
             </div>
@@ -98,18 +99,18 @@ export default function PricingSection() {
         </div>
 
         {/* What It Doesn't Include */}
-        <div className="mt-16 text-center">
-          <h4 className="text-[22px] sm:text-[24px] font-bold text-black mb-10">
+        <div className="mt-12 text-center md:mt-16">
+          <h4 className="mb-8 text-[18px] font-bold text-black md:mb-10 md:text-[22px] lg:text-[24px]">
             And that still doesn't include:
           </h4>
           
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-4 md:gap-8">
             {additionalFeatures.map((feature, index) => (
               <div key={index} className="flex flex-col items-center">
-                <div className="flex h-[45px] w-[46px] items-center justify-center rounded-[6px] bg-[#DBFCE7] mb-5">
-                  <Check className="h-6 w-6 text-[#22C68D]" strokeWidth={3} />
+                <div className="mb-3 flex h-[40px] w-[40px] items-center justify-center rounded-[6px] bg-[#DBFCE7] md:mb-5 md:h-[45px] md:w-[46px]">
+                  <Check className="h-5 w-5 text-[#22C68D] md:h-6 md:w-6" strokeWidth={3} />
                 </div>
-                <p className="whitespace-pre-line text-[18px] sm:text-[20px] leading-[28px] text-black">
+                <p className="whitespace-pre-line text-[15px] leading-[22px] text-black md:text-[18px] md:leading-[28px] lg:text-[20px]">
                   {feature}
                 </p>
               </div>
@@ -118,11 +119,11 @@ export default function PricingSection() {
         </div>
 
         {/* The Real Risk Box */}
-        <div className="mt-16 rounded-r-[8px] border-l-[4px] border-[#2D4CFF] bg-[#F4F7FF] px-8 py-7">
-          <h5 className="mb-1 text-[18px] sm:text-[20px] font-bold text-black">
+        <div className="mt-12 rounded-r-[8px] border-l-[4px] border-[#2D4CFF] bg-[#F4F7FF] px-5 py-5 md:mt-16 md:px-8 md:py-7">
+          <h5 className="mb-1 text-[16px] font-bold text-black md:text-[18px] lg:text-[20px]">
             The real risk?
           </h5>
-          <p className="text-[15px] sm:text-[16px] text-black">
+          <p className="text-[14px] text-black md:text-[15px] lg:text-[16px]">
             Continuing with an agency that spends budget but never learns from the data.
           </p>
         </div>
