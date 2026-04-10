@@ -51,10 +51,10 @@ export default function AgencyLandingPage() {
 
               <h1 className="mt-6 text-[30px] font-Montserrat font-bold leading-[1.3] text-white sm:text-[40px] lg:text-[48px] lg:leading-[48px] lg:tracking-[-0.5px]">
                 <span className="block">Scale Your Brand from</span>
-                <span className="block bg-[linear-gradient(90deg,#818CF8_0%,#C084FC_25%,#F97316_80%)] bg-clip-text text-transparent">
-                   ₹10L to ₹1Cr+ on Meta
+                <span className=" bg-[linear-gradient(90deg,#818CF8_0%,#C084FC_25%,#F97316_80%)] bg-clip-text text-transparent">
+                   ₹10L to ₹1Cr+ Monthly on Meta
                 </span>
-                <span className="">Profitably</span>
+                <span className=""> Profitably</span>
               </h1>
             </div>
 

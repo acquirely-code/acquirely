@@ -37,44 +37,34 @@ const trustCards = [
 
 const faqItems = [
   {
-    question: "What makes AgencyPro different from hiring a full-time marketing team?",
+    question: "How quickly can results be seen?",
     answer:
-      "A full-time marketing hire costs $60K-$120K/year in salary alone - before benefits, tools, management overhead, and ramp-up time. With AgencyPro, you get a full team of specialists (strategists, creatives, media buyers, analysts) for a fraction of that cost, with zero hiring risk. We're also fully accountable to results. If performance dips, we fix it - no HR conversations needed. You stay focused on product and operations while we own the growth engine.",
+      "Initial winners typically appear within 3–6 weeks, followed by structured scaling.",
   },
   {
-    question: "How quickly will I see results after onboarding?",
+    question: "How soon do campaigns launch?",
     answer:
-      "Most brands start seeing clearer data, stronger creative learnings, and measurable efficiency improvements within the first 30 days. Revenue compounding usually becomes more visible across the first 60 to 90 days.",
+      "Campaigns usually go live within 5–7 days after onboarding.",
   },
   {
-    question: "Do you work with brands at all revenue stages, or only established DTC companies?",
+    question: "What if ROAS targets aren’t met?",
     answer:
-      "We work best with brands that already have traction and are serious about scaling. If you're still validating your product, we'll usually tell you honestly if it's too early.",
+      "We continuously optimise strategy, creatives, and scaling systems rather than just adjusting ads.",
   },
   {
-    question: "What channels do you manage, and can I choose which ones?",
+    question: "Are creatives included?",
     answer:
-      "Yes. We primarily focus on Meta, but depending on fit we also support Google, YouTube, funnel optimization, and related growth systems.",
+      "We guide the creative strategy and testing framework. Execution can be structured separately.",
   },
   {
-    question: "How does your pricing work? Are there long-term contracts?",
+    question: "Do you offer SEO or organic social media?",
     answer:
-      "Our pricing is structured around the package you choose plus ad-spend alignment where applicable. There are no heavy lock-ins, and the model is designed to stay performance-oriented.",
+      "No. Our focus is purely paid performance marketing and Meta Ads scaling systems.",
   },
   {
-    question: "Who owns the ad accounts, creative assets, and data?",
+    question: "Do you run international campaigns?",
     answer:
-      "You do. We build and operate inside your ecosystem so your accounts, data, and learnings stay with your brand.",
-  },
-  {
-    question: "How much of my time will this require each week?",
-    answer:
-      "Usually very little once setup is complete. Expect strategic reviews, approvals, and occasional alignment calls, but not daily management overhead.",
-  },
-  {
-    question: "What happens if I'm not happy with the results?",
-    answer:
-      "That's exactly why the section is built around accountability. If performance misses agreed benchmarks, we work with you to course-correct and honor the guarantee structure we've outlined.",
+      "Yes — including US, UAE, and UK markets.",
   },
 ];
 
@@ -182,30 +172,6 @@ export default function FaqSection() {
               </div>
             );
           })}
-        </div>
-
-        <div className="mx-auto mt-10 flex max-w-[940px] flex-col gap-6 rounded-2xl bg-[#496690] px-5 py-7 text-white sm:px-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-[430px]">
-            <h3 className="text-[28px] font-bold leading-tight sm:text-[34px]">Still have questions?</h3>
-            <p className="mt-2 text-[14px] leading-6 text-white/80">
-              Our team of DTC specialists is happy to walk you through anything. No sales pressure - just honest answers.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Link
-              target="_blank" href="https://forms.acquirely.in/acquirely/form/AcquirelyLeads/formperma/2doC7L65w0M6PnuFIVX6g4BgwS3fzMDJYLwncK3fEeo"
-              className="inline-flex h-11 items-center justify-center rounded-md bg-white px-5 text-[13px] font-medium text-[#4F46E5] transition hover:bg-slate-100"
-            >
-              Chat with Us
-            </Link>
-            <Link
-              href="#"
-              className="inline-flex h-11 items-center justify-center rounded-md bg-black px-5 text-[13px] font-medium text-white transition hover:bg-neutral-800"
-            >
-              View Pricing
-            </Link>
-          </div>
         </div>
       </div>
     </section>

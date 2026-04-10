@@ -10,7 +10,7 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Scaling Brands That Matter.",
+  title: "Acquirely - Scaling Brands That Matter.",
   description:
     "Scale your ecommerce brand with top Meta Ads performance marketing. Predictable ROAS, proven results.",
 };
