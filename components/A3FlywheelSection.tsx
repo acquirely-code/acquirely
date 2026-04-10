@@ -1,5 +1,7 @@
+"use client";
 import flywheelmodel from "@/app/assests/flywheelmodel.png";
 import Image from "next/image";
+import { useState } from "react";
 const flywheelPhases = [
   {
     code: "A1",
@@ -37,12 +39,32 @@ const flywheelPhases = [
 ];
 
 function FlywheelDiagramPlaceholder() {
+  const [isZoomed, setIsZoomed] = useState(false);
+
   return (
-    <div className="rounded-[14px]  bg-white p-3 md:shadow-[0px_0px_4px_rgba(0,0,0,0.18)] sm:p-5">
-    
-     <Image className="md:h-full h-[240px]" src={flywheelmodel} alt="Flywheel Model" />
-      
-    </div>
+    <>
+      <div className="rounded-[14px] bg-white p-3 md:shadow-[0px_0px_4px_rgba(0,0,0,0.18)] sm:p-5 cursor-pointer" onClick={() => setIsZoomed(true)}>
+        <Image className="md:h-full h-[240px]" src={flywheelmodel} alt="Flywheel Model" />
+      </div>
+
+      {isZoomed && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 p-4" onClick={() => setIsZoomed(false)}>
+          <div className="relative max-w-4xl max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
+            <Image 
+              src={flywheelmodel} 
+              alt="Flywheel Model Zoomed" 
+              className="w-full h-auto"
+            />
+            <button 
+              onClick={() => setIsZoomed(false)}
+              className="absolute top-4 right-4 text-white text-2xl font-bold bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
