@@ -6,9 +6,7 @@ import Image from "next/image";
 import growth from "@/app/assests/growth.png";
 import chart from "@/app/assests/charts.png";
 import ruppe from "@/app/assests/ruppe.png";
-import shopifydashboard from "@/app/assests/shopifydashboard.png";
 import group from "@/app/assests/group.png";
-import campaigns2 from "@/app/assests/campaigns2.png";
 import metaadsmanager from "@/app/assests/metadsmanager.png";
 import { StaticImageData } from "next/image";
 
@@ -390,7 +388,7 @@ export default function FlywheelProofSection() {
                       </div>
                       <div className="flex-1 w-full overflow-hidden">
                         <h4 className="text-[16px] sm:text-[18px] font-semibold leading-7 text-black mb-2">Strategy Implemented:</h4>
-                        <div className="text-[14px] sm:text-[15px] font-medium leading-[22px] text-[#7B8BA0] sm:text-[16px]">
+                        <div className="text-[14px]  font-medium leading-[22px] text-[#7B8BA0] sm:text-[16px]">
                           {study.strategy}
                         </div>
                       </div>
@@ -404,9 +402,9 @@ export default function FlywheelProofSection() {
                     "{study.testimonial}"
                   </p>
                   <p className="mt-4 text-[18px] sm:text-[22px] font-semibold leading-8 sm:leading-10 text-white">{study.author}</p>
-                  <div className="mt-1 flex items-center gap-1 text-[#FFA227]">
+                  <div className="mt-1 text-[28px] flex items-center gap-1 text-[#FFA227]">
                     {Array.from({ length: 5 }).map((_, i) => (
-                      <span key={i}>*</span>
+                      <span className="text-[28px] sm:text-[20px]" key={i}>*</span>
                     ))}
                   </div>
                 </div>

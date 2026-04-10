@@ -2,8 +2,7 @@ import Link from "next/link";
 import kunalmandal from "@/app/assests/kunalmondal.png";
 import mausamarora from "@/app/assests/mausamarora.png";
 import Image, { StaticImageData } from "next/image";
-import { Linkedin } from "lucide-react";
-import { ChevronDown, Clock3, Instagram, ShieldCheck, TrendingUp } from "lucide-react";
+import {Clock3, Instagram, ShieldCheck, TrendingUp } from "lucide-react";
 
 const trustCards = [
   {
