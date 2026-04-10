@@ -51,7 +51,7 @@ export default function ThankYouPage() {
           <div className="flex flex-col gap-6">
             {/* Card 1 */}
             <div className="rounded-2xl border border-[#E5E5E5] bg-white p-8 shadow-sm sm:p-10">
-              <h3 className="mb-4 font-Montserrat text-[20px]  leading-[28px] text-[#171717]">
+              <h3 className="mb-4 font-Montserrat font-semibold text-[20px]  leading-[28px] text-[#171717]">
                 1. Brand & Performance Review
               </h3>
               <p className="text-[16px] leading-[28px] text-[#525252] sm:text-[18px]">

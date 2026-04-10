@@ -1,6 +1,6 @@
 import Link from "next/link";
-import kunalmandal from "@/app/assests/kunalmandal .png";
-import mausamarora from "@/app/assests/mausam arora.png";
+import kunalmandal from "@/app/assests/kunalmondal.png";
+import mausamarora from "@/app/assests/mausamarora.png";
 import Image, { StaticImageData } from "next/image";
 import { Linkedin } from "lucide-react";
 
