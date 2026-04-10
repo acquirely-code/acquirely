@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { BarChart3, Lightbulb, Play, TrendingUp } from "lucide-react";
+import { BarChart3, Lightbulb, Play, TrendingUp, ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
 import growth from "@/app/assests/growth.png";
 import chart from "@/app/assests/charts.png";
@@ -76,6 +76,36 @@ const metricsBottom = [
     label: "Conv. Rate",
     value: "4.8%",
     note: "+3.1x from 1.5%",
+  },
+];
+
+// Data for the newly added case studies
+const additionalCaseStudies = [
+  {
+    title: "Children’s Clothing Brand - Modish",
+    problem: "Launched campaigns with a ROAS of 1.43, struggling to reach breakeven while scaling daily ad spend.",
+    strategy: (
+      <ul className="space-y-2 ml-1">
+        <li><strong>A1:</strong> Rapid creative testing across offers, visuals, and audience segments.</li>
+        <li><strong>A2:</strong> Stabilised ROAS at breakeven (2.34) then scaled daily budget from ₹2K to ₹15K.</li>
+        <li><strong>A3:</strong> Ongoing optimisation based on day‑parting and creative fatigue monitoring.</li>
+      </ul>
+    ),
+    testimonial: "They didn’t just run ads—they built a testing and scaling engine for us. Our ROAS improved to breakeven and we could finally scale with confidence.",
+    author: "Founder, Modish",
+  },
+  {
+    title: "Footwear Brand - No Strain",
+    problem: "Meta Ads account stuck at 1.57 ROAS for two years, relying mostly on catalogue ads. Scaling attempts failed despite strong product demand.",
+    strategy: (
+      <ul className="space-y-2 ml-1">
+        <li><strong>A1:</strong> Replaced catalogue‑only approach with angle‑based creative testing (comfort, durability, lifestyle).</li>
+        <li><strong>A2:</strong> Identified winning combinations and scaled budgets while maintaining ROAS.</li>
+        <li><strong>A3:</strong> Continuous budget reallocation to high‑performing creatives and time slots.</li>
+      </ul>
+    ),
+    testimonial: "Our Meta Ads were stuck for years. Their structured testing approach finally helped us break the plateau and scale.",
+    author: "Founder, No Strain",
   },
 ];
 
@@ -179,10 +209,12 @@ function AlertTriangleLike() {
 
 export default function FlywheelProofSection() {
   const [isMobileVideoPlaying, setIsMobileVideoPlaying] = useState(false);
+  const [showMoreCaseStudies, setShowMoreCaseStudies] = useState(false);
 
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-[1440px] px-5 py-2 md:py-16 sm:px-6 lg:px-20 lg:py-[96px]">
+      <div className="mx-auto max-w-[1440px] px-5 py-2 md:py-16 sm:px-6 lg:px-20 lg:py-[8px]">
+        {/* Top Header Section */}
         <div className="mx-auto max-w-[757px] text-center">
           <h2 className="text-[31px] font-Montserrat leading-[1.08] text-black sm:text-[36px] lg:text-[40px] lg:leading-[44px]">
             Why the Flywheel Wins Every Time
@@ -198,6 +230,7 @@ export default function FlywheelProofSection() {
           ))}
         </div>
 
+        {/* Real Results Header */}
         <div className="md:mt-[90px] mt-8 text-center">
           <div className="inline-flex h-[34px] items-center gap-2 rounded-[4px] border border-[#CFD5FD] bg-[#EDEFFF] px-[18px]">
             <span className="h-2 w-2 rounded-full bg-[#5332E2]" />
@@ -210,33 +243,34 @@ export default function FlywheelProofSection() {
           </h2>
         </div>
 
+        {/* Main Case Study */}
         <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,534px)_minmax(0,621px)] lg:items-start lg:justify-center">
           <div>
-            <h3 className="text-[26px] font-opensans leading-7 text-black">Case Study: Gaming Brand</h3>
+            <h3 className="text-[26px] font-opensans leading-7 text-black">Case Study 1: Gaming Brand</h3>
 
             <div className="mt-11 space-y-[18px]">
-              <div className="rounded-2xl border border-[#F87171] bg-white p-6">
-                <div className="flex items-start gap-5">
-                  <div className="grid h-11 w-[46px] place-items-center rounded-md bg-[#FFEDED]">
+              <div className="rounded-2xl border border-[#F87171] bg-white p-5 sm:p-6">
+                <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
+                  <div className="grid h-11 w-[46px] place-items-center rounded-md bg-[#FFEDED] shrink-0">
                     <AlertTriangleLike />
                   </div>
-                  <div>
+                  <div className="flex-1 w-full">
                     <h4 className="text-[18px] font-semibold leading-7 text-black">Problem:</h4>
-                    <p className="text-[15px] font-semibold leading-6 text-[#7B8BA0] sm:text-[16px] sm:leading-[22px]">
+                    <p className="mt-1 text-[14px] font-semibold leading-6 text-[#7B8BA0] sm:text-[16px] sm:leading-[22px]">
                       Revenue stuck at Rs.5L per month with ROAS 2.5
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-[#FFCD29] bg-white p-6">
-                <div className="flex items-start gap-5">
-                  <div className="grid h-[45px] w-[46px] place-items-center rounded-md bg-[#FFFBEE]">
+              <div className="rounded-2xl border border-[#FFCD29] bg-white p-5 sm:p-6">
+                <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
+                  <div className="grid h-[45px] w-[46px] place-items-center rounded-md bg-[#FFFBEE] shrink-0">
                     <Lightbulb className="h-6 w-6 fill-[#FFCD29] text-[#FFCD29]" />
                   </div>
-                  <div>
+                  <div className="flex-1 w-full">
                     <h4 className="text-[18px] font-semibold leading-7 text-black">Strategy Implemented:</h4>
-                    <p className="text-[15px] font-semibold leading-6 text-[#7B8BA0] sm:text-[16px] sm:leading-[22px]">
+                    <p className="mt-1 text-[14px] font-semibold leading-6 text-[#7B8BA0] sm:text-[16px] sm:leading-[22px]">
                       A3 Flywheel Model + Structured Creative
                       <br />
                       Testing Engine
@@ -282,11 +316,11 @@ export default function FlywheelProofSection() {
               </div>
             </div>
 
-            <div className="mt-9 rounded-[14px] bg-[#496690] px-6 py-7">
-              <p className="max-w-[481px] text-[18px] font-light leading-[25px] text-white">
+            <div className="mt-9 rounded-[14px] bg-[#496690] px-5 sm:px-6 py-6 sm:py-7">
+              <p className="max-w-[481px] text-[16px] sm:text-[18px] font-light leading-[24px] sm:leading-[25px] text-white">
                 "Finally an agency that thinks in systems, not campaigns. We stopped guessing and started scaling."
               </p>
-              <p className="mt-4 text-[22px] font-semibold leading-10 text-white">Founder, Gaming Brand</p>
+              <p className="mt-4 text-[20px] sm:text-[22px] font-semibold leading-8 sm:leading-10 text-white">Founder, Gaming Brand</p>
               <div className="mt-1 flex items-center gap-1 text-[#FFA227]">
                 {Array.from({ length: 5 }).map((_, index) => (
                   <span key={index}>*</span>
@@ -311,6 +345,75 @@ export default function FlywheelProofSection() {
             </div>
           </div>
         </div>
+
+        {/* --- EXPLORE CASE STUDIES TOGGLE --- */}
+        <div className="mt-16 sm:mt-20 border-t border-black/10 pt-10 text-center">
+          <button
+            onClick={() => setShowMoreCaseStudies(!showMoreCaseStudies)}
+            className="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full bg-[#5652E9] px-6 sm:px-8 py-4 text-[15px] sm:text-[16px] font-bold text-white shadow-lg transition-transform hover:scale-105"
+          >
+            {showMoreCaseStudies ? "Hide Case Studies" : "Explore More Case Studies"}
+            {showMoreCaseStudies ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+          </button>
+        </div>
+
+        {/* --- EXPANDABLE ADDITIONAL CASE STUDIES --- */}
+        {showMoreCaseStudies && (
+          <div className="mt-12 sm:mt-16 grid grid-cols-1 gap-12 lg:gap-10 lg:grid-cols-2 animate-in fade-in slide-in-from-bottom-8 duration-500">
+            {additionalCaseStudies.map((study, index) => (
+              <div key={index} className="flex flex-col">
+                <h3 className="text-[22px] sm:text-[26px] font-opensans leading-7 text-black mb-6 sm:mb-11 text-center sm:text-left">
+                  {study.title}
+                </h3>
+
+                <div className="space-y-[16px] sm:space-y-[18px] flex-grow">
+                  {/* Problem Box */}
+                  <div className="rounded-2xl border border-[#F87171] bg-white p-5 sm:p-6">
+                    <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
+                      <div className="grid h-11 w-[46px] place-items-center rounded-md bg-[#FFEDED] shrink-0">
+                        <AlertTriangleLike />
+                      </div>
+                      <div className="flex-1 w-full">
+                        <h4 className="text-[16px] sm:text-[18px] font-semibold leading-7 text-black">Problem:</h4>
+                        <p className="mt-1 text-[14px] sm:text-[15px] font-medium leading-[22px] text-[#7B8BA0] sm:text-[16px]">
+                          {study.problem}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Strategy Box */}
+                  <div className="rounded-2xl border border-[#FFCD29] bg-white p-5 sm:p-6">
+                    <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
+                      <div className="grid h-[45px] w-[46px] place-items-center rounded-md bg-[#FFFBEE] shrink-0">
+                        <Lightbulb className="h-6 w-6 fill-[#FFCD29] text-[#FFCD29]" />
+                      </div>
+                      <div className="flex-1 w-full overflow-hidden">
+                        <h4 className="text-[16px] sm:text-[18px] font-semibold leading-7 text-black mb-2">Strategy Implemented:</h4>
+                        <div className="text-[14px] sm:text-[15px] font-medium leading-[22px] text-[#7B8BA0] sm:text-[16px]">
+                          {study.strategy}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Testimonial Box */}
+                <div className="mt-6 sm:mt-9 rounded-[14px] bg-[#496690] px-5 sm:px-6 py-6 sm:py-7">
+                  <p className="text-[16px] sm:text-[18px] font-light leading-[24px] sm:leading-[25px] text-white">
+                    "{study.testimonial}"
+                  </p>
+                  <p className="mt-4 text-[18px] sm:text-[22px] font-semibold leading-8 sm:leading-10 text-white">{study.author}</p>
+                  <div className="mt-1 flex items-center gap-1 text-[#FFA227]">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <span key={i}>*</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

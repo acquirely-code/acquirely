@@ -55,7 +55,8 @@
   font-family: "Montserrat";
   src: url("./fonts/static/Montserrat-ExtraBold.ttf") format("truetype");
   font-weight: 800;
-  font-style: normal;
+  font-style: ExtraBold;
+
 }
 
 @font-face {

@@ -8,6 +8,7 @@ import PricingSection from "@/components/PricingSection";
 
 import CtaBreakPastSection from "./CtaBreakPastSection";
 import Hero from "@/components/Hero"
+import ScalingFrameworkSection from "./ScalingFrameworkSection";
 
 
 
@@ -21,9 +22,10 @@ export default function AgencyLandingPage() {
       <A3FlywheelSection />
       <FlywheelProofSection />
       <PricingSection />
-      <CostBreakdownSection />
+      {/* <CostBreakdownSection /> */}
       <FoundersSection />
       <FaqSection />
+      <ScalingFrameworkSection />
       <CtaBreakPastSection/>
     </main>
   );
