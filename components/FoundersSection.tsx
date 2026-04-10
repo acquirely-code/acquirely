@@ -3,7 +3,38 @@ import kunalmandal from "@/app/assests/kunalmondal.png";
 import mausamarora from "@/app/assests/mausamarora.png";
 import Image, { StaticImageData } from "next/image";
 import { Linkedin } from "lucide-react";
+import { ChevronDown, Clock3, Instagram, ShieldCheck, TrendingUp } from "lucide-react";
 
+const trustCards = [
+  {
+    title: "90-Day Guarantee",
+    description: "If we don't improve your ROAS by 30%+ in 90 days, we work for free until we do.",
+    icon: ShieldCheck,
+    iconBg: "bg-[#DCFCE7]",
+    iconColor: "text-[#22C55E]",
+  },
+  {
+    title: "No Lock-in Contract",
+    description: "Cancel anytime with 30 days notice. No hidden fees or penalties.",
+    icon: Clock3,
+    iconBg: "bg-[#DBEAFE]",
+    iconColor: "text-[#3B82F6]",
+  },
+  {
+    title: "Performance-Based",
+    description: "Our fees are tied to your ad spend - we only grow when you grow.",
+    icon: Instagram,
+    iconBg: "bg-[#F3E8FF]",
+    iconColor: "text-[#A855F7]",
+  },
+  {
+    title: "ROI Transparency",
+    description: "Real-time dashboard access. Know exactly where every rupee is going.",
+    icon: TrendingUp,
+    iconBg: "bg-[#FEF3C7]",
+    iconColor: "text-[#F59E0B]",
+  },
+];
 const founders = [
   {
     name: "Mausam Arora",
@@ -32,6 +63,31 @@ const founders = [
     ],
   },
 ];
+
+
+function TrustCard({
+  title,
+  description,
+  icon: Icon,
+  iconBg,
+  iconColor,
+}: {
+  title: string;
+  description: string;
+  icon: typeof ShieldCheck;
+  iconBg: string;
+  iconColor: string;
+}) {
+  return (
+    <div className="rounded-xl bg-[#FAFAFA] px-4 py-5 text-center">
+      <div className={`mx-auto grid h-10 w-10 place-items-center rounded-lg ${iconBg}`}>
+        <Icon className={`h-5 w-5 ${iconColor}`} />
+      </div>
+      <h3 className="mt-4 text-[18px] font-semibold leading-6 text-[#171717]">{title}</h3>
+      <p className="mt-2 text-[12px] leading-[18px] text-[#737373]">{description}</p>
+    </div>
+  );
+}
 
 function FounderCard({
   name,
@@ -118,9 +174,34 @@ function FounderCard({
 export default function FoundersSection() {
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-[1440px] px-5 py-16 sm:px-6 lg:px-16 lg:py-20">
-        <div className="text-center">
-          <div className="inline-flex h-[26px] items-center gap-2 rounded-[4px] border border-[#CFD5FD] bg-[#EDEFFF] px-3">
+       <div className="text-center pt-8">
+                <div className="inline-flex h-[34px] items-center gap-2  rounded-[4px] border border-[#CFD5FD] bg-[#EDEFFF] px-4">
+                  <span className="h-2 w-2 rounded-full bg-[#5332E2]" />
+                  <span className="text-[11px] font-semibold uppercase tracking-[1.2px] text-[#5332E2] sm:text-[12px]">
+                    Zero risk commitment
+                  </span>
+                </div>
+      
+                <h2 className="mt-7 text-[32px] font-Montserrat  leading-[1.05] text-[#171717] sm:text-[38px] lg:text-[44px]">
+                  <span className="block">Built on Accountability</span>
+                  <span className="block bg-[linear-gradient(90deg,#818CF8_0%,#F59E0B_45%,#F87171_100%)] bg-clip-text text-transparent">
+                    Not Empty Promises
+                  </span>
+                </h2>
+                <p className="mx-auto  font-opensans mt-5 max-w-[620px] text-[14px] leading-6 text-[#94A3B8]">
+                  We don't offer unrealistic guarantees. But we do take full responsibility for results.
+                </p>
+              </div>
+      
+              <div className="mx-auto mt-12 grid max-w-[1120px] gap-4 md:grid-cols-2 lg:grid-cols-4">
+                {trustCards.map((card) => (
+                  <TrustCard key={card.title} {...card} />
+                ))}
+              </div>
+      
+      <div className="mx-auto max-w-[1440px] px-5 py-16 pt-8 sm:px-6 lg:px-4 lg:py-4">
+        <div className="text-center md:pt-16">
+          <div className="inline-flex h-[26px] items-center gap-2  rounded-[4px] border border-[#CFD5FD] bg-[#EDEFFF] px-3">
             <span className="h-2 w-2 rounded-full bg-[#5332E2]" />
             <span className="text-[10px] font-bold uppercase tracking-[1.2px] text-[#5332E2]">
               Meet the founders
