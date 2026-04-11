@@ -24,12 +24,13 @@ export default function RootLayout({
   return (
   <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen bg-[#f7f9fc] text-slate-950 antialiased">
+        <GoogleTagManager gtmId="GTM-WJVQR59V" />
         {children}
         <Analytics />
         <SpeedInsights />
       </body>
       {/* Add the component here at the end of the body */}
-      <GoogleTagManager gtmId="GTM-WJVQR59V" />
+      
     </html>
   );
 }
