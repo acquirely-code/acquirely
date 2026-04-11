@@ -104,7 +104,7 @@ export default function CtaBreakPastSection() {
           </div>
 
           {/* Bottom Row: Powered By in the Right Corner */}
-          <div className="flex justify-center md:justify-end mt-2 md:mt-0">
+          {/* <div className="flex justify-center md:justify-end mt-2 md:mt-0">
             <p className="font-open-sans text-[13px] tracking-wide text-[#4B5563]">
               Powered by{" "}
               <a
@@ -115,7 +115,7 @@ export default function CtaBreakPastSection() {
                 ScaleSaaS
               </a>
             </p>
-          </div>
+          </div> */}
 
         </div>
       </div>

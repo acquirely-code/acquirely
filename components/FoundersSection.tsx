@@ -125,7 +125,7 @@ function FounderCard({
             <p className="mt-1 text-[13px] text-gray-300 md:text-[14px]">{role}</p>
           </div>
           <Link 
-          target="_blank"
+         
             href={Linkedin} 
             className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/20 backdrop-blur-md transition-colors hover:bg-white/30"
             aria-label={`${name}'s LinkedIn`}
