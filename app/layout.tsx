@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
+import { GoogleTagManager } from '@next/third-parties/google'; // Import the official component
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -21,31 +22,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* Google Tag Manager Script */}
-        <Script id="google-tag-manager" strategy="afterInteractive">
-          {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-WJVQR59V');
-          `}
-        </Script>
-      </head>
+  <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen bg-[#f7f9fc] text-slate-950 antialiased">
-        {/* Google Tag Manager (noscript) */}
-        <noscript
-          dangerouslySetInnerHTML={{
-            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJVQR59V" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-          }}
-        />
-        
         {children}
         <Analytics />
         <SpeedInsights />
       </body>
+      {/* Add the component here at the end of the body */}
+      <GoogleTagManager gtmId="GTM-WJVQR59V" />
     </html>
   );
 }
