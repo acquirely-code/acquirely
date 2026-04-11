@@ -28,7 +28,6 @@ export default function CtaBreakPastSection() {
         {/* CTA Button */}
         <div className="mt-12 flex items-center justify-center gap-2">
           <Link
-            target="_blank"
             href="https://forms.acquirely.in/acquirely/form/AcquirelyLeads/formperma/2doC7L65w0M6PnuFIVX6g4BgwS3fzMDJYLwncK3fEeo"
           >
             <button className="flex items-center gap-2.5 rounded border-2 border-white bg-white px-6 py-3.5 shadow-[0_4px_18px_rgba(15,23,42,0.1)] transition hover:bg-white/90">
@@ -110,7 +109,6 @@ export default function CtaBreakPastSection() {
               Powered by{" "}
               <a
                 href="https://saasscale.in/"
-                target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-[#818CF8] transition-colors hover:text-[#F97316]"
               >
