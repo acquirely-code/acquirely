@@ -7,28 +7,28 @@ import {Clock3, Instagram, ShieldCheck, TrendingUp } from "lucide-react";
 const trustCards = [
   {
     title: "90-Day Guarantee",
-    description: "If we don't improve your ROAS by 30%+ in 90 days, we work for free until we do.",
+    description: "We give your campaigns 75–90 days tostabilise and show real performance improvement.  No rushed decisions only data-backed evaluation.",
     icon: ShieldCheck,
     iconBg: "bg-[#DCFCE7]",
     iconColor: "text-[#22C55E]",
   },
   {
-    title: "No Lock-in Contract",
-    description: "Cancel anytime with 30 days notice. No hidden fees or penalties.",
+    title: "If Results Don't Improve",
+    description: "If there’s no consistent ROAS growthafter the period—despite proper spendand support—we take responsibility..",
     icon: Clock3,
     iconBg: "bg-[#DBEAFE]",
     iconColor: "text-[#3B82F6]",
   },
   {
-    title: "Performance-Based",
-    description: "Our fees are tied to your ad spend - we only grow when you grow.",
+    title: "No Lock-In Contract",
+    description: "No long-term commitments. If it’s not working, you’re freeto walk away no obligations.",
     icon: Instagram,
     iconBg: "bg-[#F3E8FF]",
     iconColor: "text-[#A855F7]",
   },
   {
-    title: "ROI Transparency",
-    description: "Real-time dashboard access. Know exactly where every rupee is going.",
+    title: "Simple Rule",
+    description: "We either work one extra monthfor free to improve results OR part ways with full campaignlearnings transferred.",
     icon: TrendingUp,
     iconBg: "bg-[#FEF3C7]",
     iconColor: "text-[#F59E0B]",
@@ -42,10 +42,11 @@ const founders = [
     mainimage: mausamarora,
     Linkedin: "https://in.linkedin.com/in/mausamarora",
     description:
-      "Mausam architects high-conversion funnels for founders who need results without bloated teams or endless experiments. His playbook blends deep GTM thinking with ruthless execution that unlocks scale.",
+      "Mausam spent 12 years inside education — building curricula, publishing 300+ books, and reaching 2,000+ schools. That journey taught him one thing: great products don't grow themselves. He built Acquirely to turn scattered ad spend into acquisition systems that compound.",
     bullets: [
-      "Managed ₹30Cr+ annual ad spend",
-      "Specialises in growth strategy, funnel optimisation, and scaling systems",
+      "Founder-level understanding of what happens before and after the click",
+      "Managed ₹30Cr+ in annual ad spend",
+      "Specialises in funnel strategy, GTM thinking, and scaling systems"
     ],
   },
   {
@@ -55,10 +56,11 @@ const founders = [
     mainimage: kunalmandal,
     Linkedin: "https://in.linkedin.com/in/kunal-meta-ads",
     description:
-      "Kunal has battle-tested hundreds of ad variations across sectors — spotting patterns, plugging leaks, and turning cold traffic into paying customers with freakish consistency.",
+      "Kunal has managed over ₹30Cr in ad spend across 30+ brands in E-Commerce, EdTech, and Real Estate. He builds acquisition systems that drive predictable revenue, not just traffic. His hands-on approach ensures the A3 Flywheel runs without friction.",
     bullets: [
       "Hands-on Meta Ads strategist",
-      "Focus: Creative testing engines, data signals, ROAS optimisation",
+      "Full-funnel acquisition systems using Google & Meta",
+      "ROAS-focused scaling without wasted spend"
     ],
   },
 ];

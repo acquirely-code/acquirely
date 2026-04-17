@@ -88,9 +88,7 @@ export default function A3FlywheelSection() {
           </h2>
 
           <p className="mx-auto font-opensans mt-5 max-w-[662px] text-[16px] leading-7 text-[#7B8BA0] sm:text-[18px]">
-            Most brands approach advertising without a structured scaling framework.
-            Instead of a system, they rely on random actions that don't compound growth.
-            Here's what actually happens:
+            After analysing ₹30Cr+ in Meta ad spend, we developed a structured paid acquisition framework designed for sustainable scaling.
           </p>
         </div>
 

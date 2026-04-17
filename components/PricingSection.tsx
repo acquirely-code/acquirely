@@ -107,8 +107,9 @@ export default function PricingSection() {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-4 md:gap-8">
             {additionalFeatures.map((feature, index) => (
               <div key={index} className="flex flex-col items-center">
-                <div className="mb-3 flex h-[40px] w-[40px] items-center justify-center rounded-[6px] bg-[#DBFCE7] md:mb-5 md:h-[45px] md:w-[46px]">
-                  <Check className="h-5 w-5 text-[#22C68D] md:h-6 md:w-6" strokeWidth={3} />
+                <div className="mb-3 flex h-[40px] w-[40px] items-center justify-center rounded-[6px] bg-[#FBDEDE] md:mb-5 md:h-[45px] md:w-[46px]">
+                  <p className="text-[20px] font-bold text-[#F87171]">X</p>
+                 
                 </div>
                 <p className="whitespace-pre-line text-[15px] leading-[22px] text-black md:text-[18px] md:leading-[28px] lg:text-[20px]">
                   {feature}

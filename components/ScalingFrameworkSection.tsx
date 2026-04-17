@@ -3,28 +3,28 @@ import { Package, RefreshCw, Maximize, BarChart3 } from "lucide-react";
 const levers = [
   {
     title: "Strong Product-Market Fit",
-    description: "A product people genuinely want, with clear demand and repeat purchase potential.",
+    description: "Your product must already be validated with real demand before scaling.",
     icon: Package,
     iconBg: "bg-[#DBFCE7]",
     iconColor: "text-[#00A63E]",
   },
   {
     title: "Continuous Creative Testing",
-    description: "Testing multiple ad creatives consistently to find what truly converts and scales.",
+    description: "Winning ads don’t last forever constant testing keeps performance growing.",
     icon: RefreshCw,
     iconBg: "bg-[#DBEAFE]",
     iconColor: "text-[#155DFC]",
   },
   {
-    title: "Structured Scaling Framework",
-    description: "A proven system like the A3 Flywheel that allows predictable and sustainable growth.",
+    title: "Structured Scaling System",
+    description: "A clear framework (like A3 Flywheel) ensures stable and predictable growth.",
     icon: Maximize,
     iconBg: "bg-[#F3E8FF]",
     iconColor: "text-[#9810FA]",
   },
   {
     title: "Data-Driven Decisions",
-    description: "Scaling based on real performance data, not guesswork or assumptions.",
+    description: "Every move is backed by data not guess work. This is where most brands struggle and where westep in.",
     icon: BarChart3,
     iconBg: "bg-[#FEF3C6]",
     iconColor: "text-[#E17100]",

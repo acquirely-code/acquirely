@@ -12,6 +12,7 @@ import {
 // --- Assets (Ensure these paths match your project) ---
 import logo from "@/app/assests/logo.png";
 import checkericon from "@/app/assests/checkricon.png";
+import { Check } from "lucide-react";
 import Client1 from "@/app/assests/Client1.jpg";
 import Client2 from "@/app/assests/Client2.jpg";
 import Client3 from "@/app/assests/Client3.jpg";
@@ -67,9 +68,14 @@ export default function AgencyLandingPage() {
 
             {/* 3. PARAGRAPH, CTA & SOCIAL PROOF (Bottom on Mobile, Bottom-Left on Desktop) */}
             <div className="order-3 flex max-w-[598px] flex-col lg:col-start-1 lg:row-start-2">
-              <p className="mt-8 max-w-[598px] font-opensans text-[16px] leading-7 text-white/90 sm:text-[17px] lg:mt-11 lg:text-[18px] lg:leading-[29px]">
-                We don't just run Meta Ads campaigns. We build performance marketing systems. Our A3 Flywheel Model identifies winning creatives, scales them strategically, and stabilizes ROAS.
-              </p>
+               <div className="flex  gap-2">
+                 <Check className="mt-2"  width={20}  />  <p className="mt-2 font-opensans text-[16px] leading-7 text-white/90 sm:text-[17px] lg:mt-2 lg:text-[18px] lg:leading-[29px]">
+           We don’t just run Meta Ads campaigns. We build performance marketing systems.</p> 
+               </div>
+
+          <div className="flex  gap-2 ">
+             <Check className="mt-2" width={30}  />     <p className="mt-2  font-opensans text-[16px] leading-7 text-white/90 sm:text-[17px] lg:mt-2 lg:text-[18px] lg:leading-[29px]"> Our A3 Flywheel Model identifies winning creatives, scales them strategically, and stabilizes ROAS, even during Meta algorithm changes              </p>
+          </div>
 
               <Link href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" className="mt-8 inline-flex min-h-[56px] w-full max-w-[351px] items-center justify-center gap-2 bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-5 text-center font-opensans text-[16px] leading-6 text-white transition hover:brightness-110 sm:text-[18px] lg:mt-8">
                 Book Your Growth Diagnosis Call

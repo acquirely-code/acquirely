@@ -64,9 +64,7 @@ export default function GrowthSystemProblemSection() {
           </h2>
 
           <p className="mx-auto font-opensans  mt-5 max-w-[662px] text-[16px] leading-7 text-[#7B8BA0] sm:text-[18px]">
-            Most brands approach advertising without a structured scaling framework.
-            Instead of a system, they rely on random actions that don't compound growth.
-            Here's what actually happens:
+            Most brands approach advertising without a structured scaling framework. Here’s what actually Happens
           </p>
         </div>
 
