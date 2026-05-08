@@ -257,10 +257,10 @@ function CaseStudyCard({
 }) {
   return (
     <div className="rounded-2xl border border-[#E2E8F0] bg-white shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]">
-      <div className="border-b border-[#E2E8F0] bg-[rgba(248,250,252,0.3)] px-6 py-6 sm:px-8">
-        <h3 className="text-xl font-bold text-[#1F2937] sm:text-2xl">{title}</h3>
+      <div className="border-b border-[#E2E8F0] bg-[rgba(248,250,252,0.3)] px-4 py-5 sm:px-8 sm:py-6">
+        <h3 className="text-lg font-bold text-[#1F2937] sm:text-2xl">{title}</h3>
       </div>
-      <div className="grid gap-8 px-6 py-6 sm:px-8 md:grid-cols-[minmax(0,559px)_minmax(280px,1fr)] md:items-start">
+      <div className="grid gap-6 px-4 py-5 sm:gap-8 sm:px-8 sm:py-6 md:grid-cols-[minmax(0,559px)_minmax(280px,1fr)] md:items-start">
         <div className="overflow-hidden rounded-2xl border border-[#E2E8F0]">
           <div className="grid grid-cols-[1.5fr_1fr_1.2fr] bg-white text-left">
             <div className="border-b border-[#E2E8F0] px-4 py-4 text-xs font-bold uppercase tracking-[0.6px] text-[#64748B] sm:px-6">
@@ -287,10 +287,10 @@ function CaseStudyCard({
           ))}
         </div>
 
-        <div className="rounded-2xl border-l-4 border-[#2563EB] bg-[rgba(37,99,235,0.05)] px-6 py-8">
+        <div className="rounded-2xl border-l-4 border-[#2563EB] bg-[rgba(37,99,235,0.05)] px-5 py-6 sm:px-6 sm:py-8">
           <Quote className="mb-5 h-9 w-9 text-[#BEDBFF]" strokeWidth={2.5} />
-          <p className="font-['Open_Sans'] text-base italic leading-[1.62] text-[#1F2937] sm:text-lg">{quote}</p>
-          <p className="mt-5 text-base font-bold text-[#1F2937] sm:text-lg">{author}</p>
+          <p className="font-['Open_Sans'] text-sm italic leading-6 text-[#1F2937] sm:text-lg sm:leading-[1.62]">{quote}</p>
+          <p className="mt-4 text-sm font-bold text-[#1F2937] sm:mt-5 sm:text-lg">{author}</p>
         </div>
       </div>
     </div>
@@ -316,7 +316,7 @@ function PricingCard({
 }) {
   return (
     <div
-      className={`relative flex h-full flex-col justify-between rounded-3xl bg-white p-8 shadow-sm ${
+      className={`relative flex h-full flex-col justify-between rounded-3xl bg-white p-5 shadow-sm sm:p-8 ${
         featured
           ? "border-2 border-[#007BFF] shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1),0_8px_10px_-6px_rgba(0,0,0,0.1)]"
           : "border border-[#E2E8F0]"
@@ -331,8 +331,8 @@ function PricingCard({
       <div>
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <h3 className="text-2xl font-bold text-[#0F172B]">{title}</h3>
-            <p className="mt-1 text-base font-bold text-[#007BFF]">{price}</p>
+            <h3 className="text-xl font-bold text-[#0F172B] sm:text-2xl">{title}</h3>
+            <p className="mt-1 text-sm font-bold text-[#007BFF] sm:text-base">{price}</p>
           </div>
           <div
             className={`rounded-full px-3 py-1 text-xs font-bold uppercase tracking-[0.6px] ${
@@ -343,7 +343,7 @@ function PricingCard({
           </div>
         </div>
 
-        <p className="mt-8 font-['Open_Sans'] text-base text-[#1E293B]">{bestFor}</p>
+        <p className="mt-6 font-['Open_Sans'] text-sm text-[#1E293B] sm:mt-8 sm:text-base">{bestFor}</p>
 
         <div className="mt-10">
           <div className="text-sm font-bold uppercase tracking-[1.4px] text-[#90A1B9]">What&apos;s Included:</div>
@@ -351,7 +351,7 @@ function PricingCard({
             {features.map((feature) => (
               <div key={feature} className="flex items-start gap-3">
                 <CheckBullet />
-                <span className="font-['Open_Sans'] text-base text-[#1E293B]">{feature}</span>
+                <span className="font-['Open_Sans'] text-sm text-[#1E293B] sm:text-base">{feature}</span>
               </div>
             ))}
           </div>
@@ -360,7 +360,7 @@ function PricingCard({
 
       <button
         type="button"
-        className={`mt-10 inline-flex h-14 w-full items-center justify-center rounded-xl text-base font-bold ${
+        className={`mt-8 inline-flex h-12 w-full items-center justify-center rounded-xl text-sm font-bold sm:mt-10 sm:h-14 sm:text-base ${
           featured
             ? "bg-gradient-to-r from-[#007BFF] to-[#6366F1] text-white shadow-[0_10px_15px_-3px_#BEDBFF,0_4px_6px_-4px_#BEDBFF]"
             : "border-2 border-[#007BFF] text-[#007BFF]"
@@ -400,9 +400,9 @@ function FounderCard({
           in
         </div>
       </div>
-      <div className="p-8">
+      <div className="p-5 sm:p-8">
         <div className="text-sm font-semibold uppercase tracking-[1.4px] text-[#4F46E5]">{tag}</div>
-        <p className="mt-4 font-['Open_Sans'] text-base leading-[1.62] text-[#525252]">{body}</p>
+        <p className="mt-4 font-['Open_Sans'] text-sm leading-6 text-[#525252] sm:text-base sm:leading-[1.62]">{body}</p>
         <div className="mt-6 space-y-4">
           {bullets.map((bullet) => (
             <div key={bullet} className="flex items-start gap-3">
@@ -429,9 +429,9 @@ function FaqAccordion() {
             <button
               type="button"
               onClick={() => setOpenIndex(open ? -1 : index)}
-              className="flex w-full items-center justify-between gap-6 px-6 py-6 text-left sm:px-8"
+              className="flex w-full items-center justify-between gap-4 px-4 py-5 text-left sm:gap-6 sm:px-8 sm:py-6"
             >
-              <span className="text-base font-normal leading-[22px] text-[#262626]">{item.question}</span>
+              <span className="text-sm font-normal leading-5 text-[#262626] sm:text-base sm:leading-[22px]">{item.question}</span>
               <span
                 className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${
                   open ? "bg-[#EFF6FF] text-[#2563EB]" : "bg-[#F5F5F5] text-[#737373]"
@@ -441,7 +441,7 @@ function FaqAccordion() {
               </span>
             </button>
             {open && item.answer ? (
-              <div className="px-6 pb-6 sm:px-8">
+              <div className="px-4 pb-5 sm:px-8 sm:pb-6">
                 <p className="font-['Open_Sans'] text-sm leading-[23px] text-[#525252]">{item.answer}</p>
               </div>
             ) : null}
@@ -480,7 +480,7 @@ export default function DoneForYouLandingPage() {
                 type="button"
                 className="mt-7 inline-flex rounded-xl bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-5 py-3.5 text-center text-sm font-bold text-white shadow-[0_20px_25px_-5px_rgba(43,127,255,0.25),0_8px_10px_-6px_rgba(43,127,255,0.25)] sm:mt-8 sm:px-8 sm:py-4 sm:text-base lg:text-lg"
               >
-                👉 Get Leads Your Sales Team Will Love
+                Get Leads Your Sales Team Will Love
               </button>
               <div className="mt-7 flex flex-col gap-2.5 font-['Open_Sans'] text-xs text-[#99A1AF] sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-6 sm:text-sm">
                 <div className="flex items-center gap-2">
@@ -797,13 +797,13 @@ export default function DoneForYouLandingPage() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             <div className="rounded-2xl border border-[rgba(16,185,129,0.2)] bg-white shadow-sm">
-              <div className="rounded-t-2xl bg-[#10B981] px-9 py-6 text-base font-semibold text-white">THIS IS FOR YOU</div>
-              <div className="space-y-6 px-8 py-6">
+              <div className="rounded-t-2xl bg-[#10B981] px-6 py-5 text-sm font-semibold text-white sm:px-9 sm:py-6 sm:text-base">THIS IS FOR YOU</div>
+              <div className="space-y-5 px-5 py-5 sm:space-y-6 sm:px-8 sm:py-6">
                 {fitItems.map((item, index) => (
                   <div key={item}>
                     <div className="flex items-start gap-3">
                       <CheckBullet />
-                      <span className="font-['Open_Sans'] text-base text-[#1F2937]">{item}</span>
+                      <span className="font-['Open_Sans'] text-sm text-[#1F2937] sm:text-base">{item}</span>
                     </div>
                     {index !== fitItems.length - 1 ? <div className="mt-5 border-t border-[#E2E8F0]" /> : null}
                   </div>
@@ -812,13 +812,13 @@ export default function DoneForYouLandingPage() {
             </div>
 
             <div className="rounded-2xl border border-[rgba(239,68,68,0.2)] bg-white shadow-sm">
-              <div className="rounded-t-2xl bg-[#EF4444] px-9 py-6 text-base font-semibold text-white">NOT FOR YOU</div>
-              <div className="space-y-6 px-8 py-6">
+              <div className="rounded-t-2xl bg-[#EF4444] px-6 py-5 text-sm font-semibold text-white sm:px-9 sm:py-6 sm:text-base">NOT FOR YOU</div>
+              <div className="space-y-5 px-5 py-5 sm:space-y-6 sm:px-8 sm:py-6">
                 {notFitItems.map((item, index) => (
                   <div key={item}>
                     <div className="flex items-start gap-3">
                       <DotBullet />
-                      <span className="font-['Open_Sans'] text-base text-[#64748B]">{item}</span>
+                      <span className="font-['Open_Sans'] text-sm text-[#64748B] sm:text-base">{item}</span>
                     </div>
                     {index !== notFitItems.length - 1 ? <div className="mt-5 border-t border-[#E2E8F0]" /> : null}
                   </div>
@@ -862,29 +862,29 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-[#0F172A]">
-        <div className="mx-auto max-w-[1940px] px-5 py-16 sm:px-8 lg:px-[170px] lg:py-20">
-          <div className=" px-5 py-10 sm:px-8 sm:py-12">
-            <div className="mx-auto max-w-[1225px] px-5 py-10 text-center sm:px-8">
-            <h2 className="mx-auto max-w-[1225px] text-[34px] font-bold leading-tight text-white sm:text-[48px] sm:leading-[59px]">
+        <div className="mx-auto max-w-[1440px] px-4 py-12 sm:px-8 sm:py-16 lg:px-[170px] lg:py-20">
+          <div className="px-4 py-8 sm:px-8 sm:py-12">
+            <div className="mx-auto max-w-[1225px] px-2 py-6 text-center sm:px-8 sm:py-10">
+            <h2 className="mx-auto max-w-[1225px] text-[28px] font-bold leading-[1.15] text-white sm:text-[38px] sm:leading-[1.15] lg:text-[48px] lg:leading-[59px]">
               <span>Ready to Turn </span>
               <span className="bg-[linear-gradient(90deg,#A78BFA_0%,#F97316_100%)] bg-clip-text text-transparent">
                 &quot;Junk Leads&quot;
               </span>
               <span> Into a Predictable Pipeline?</span>
             </h2>
-            <p className="mx-auto mt-6 max-w-[610px] font-['Open_Sans'] text-base leading-7 text-[#DBEAFE] sm:text-[20px] sm:leading-9">
-              If you&apos;re a pan-India, multi-location, or online lead gen brand spending ₹3L+ monthly
+            <p className="mx-auto mt-5 max-w-[610px] font-['Open_Sans'] text-[15px] leading-6 text-[#DBEAFE] sm:mt-6 sm:text-[18px] sm:leading-8 lg:text-[20px] lg:leading-9">
+              If you&apos;re a pan-India, multi-location, or online lead gen brand spending Rs.3L+ monthly
               on Facebook Ads...
               <br className="hidden sm:block" />
               Stop optimizing for volume. Start optimizing for qualified leads.
             </p>
             <button
               type="button"
-              className="mt-8 inline-flex min-h-[56px] items-center justify-center rounded-xl bg-white px-6 py-4 text-center text-base font-bold text-[#0F172A] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] sm:px-10 sm:text-[20px]"
+              className="mt-7 inline-flex min-h-[52px] items-center justify-center rounded-xl bg-white px-5 py-3.5 text-center text-sm font-bold text-[#0F172A] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] sm:mt-8 sm:min-h-[56px] sm:px-8 sm:py-4 sm:text-base lg:px-10 lg:text-[20px]"
             >
-              👉 Book Your Lead Gen Growth Audit
+              Book Your Lead Gen Growth Audit
             </button>
-            <div className="mt-6 flex flex-col items-center justify-center gap-3 text-sm text-[#BEDBFF] sm:flex-row sm:gap-8">
+            <div className="mt-5 flex flex-col items-center justify-center gap-2 text-xs text-[#BEDBFF] sm:mt-6 sm:flex-row sm:gap-8 sm:text-sm">
               <span>No lock-in</span>
               <span>75-day risk reversal</span>
               <span>Full transparency</span>
