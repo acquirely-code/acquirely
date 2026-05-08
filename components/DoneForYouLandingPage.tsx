@@ -1,232 +1,418 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
+import dynamic from "next/dynamic";
+import Image from "next/image";
 import { useState, type ReactNode } from "react";
+import { Check, CheckCircle2, Quote, ShieldCheck, XCircle } from "lucide-react";
 
-import dashboardImage from "@/app/assests/landinghero.png";
+import flywheelImage from "@/app/assests/flywheelmodel.png";
 import kunalImage from "@/app/assests/kunalmondal.png";
 import mausamImage from "@/app/assests/mausamarora.png";
 
-type CaseStudy = {
-  name: string;
-  niche: string;
-  metrics: Array<{ label: string; value: string }>;
-  result: string;
-};
+const WistiaPlayer = dynamic(() => import("@/components/WistiaPlayer"), {
+  ssr: false,
+  loading: () => (
+    <div
+      className="w-full animate-pulse rounded-lg bg-white/10"
+      style={{ paddingTop: "56.25%" }}
+    />
+  ),
+});
+import logo from "@/app/assests/logo.png";
 
-type FaqItem = {
-  question: string;
-  answer: string;
-};
-
-const heroHighlights = [
-  "Meta lead gen specialists",
-  "Built for lead quality",
-  "Multi-location scaling",
+const hiddenCostLeft = [
+  "Cost per lead (CPL)",
+  "Lead volume",
+  "Form fills",
+  "Daily spend",
 ];
 
-const optimizeFor = [
-  "Cost per lead",
-  "CTR",
-  "CPC",
-  "Form volume",
+const hiddenCostRight = [
+  "Cost per qualified lead (CPQL)",
+  "Lead-to-close rate",
+  "Sales-accepted leads",
+  "Predictable pipeline",
 ];
 
-const actuallyMatters = [
-  "Cost per qualified lead",
-  "Sales conversion rate",
-  "Lead-to-appointment ratio",
-  "Revenue per campaign",
+const marketShiftItems = [
+  "Minor creative tweaks",
+  "Changing audience interests blindly",
+  "Increasing budgets without a system",
+  "Switching Campaigns on & off",
 ];
 
-const sameMistakes = [
-  "Broad lead forms",
-  "One-size-fits-all creatives",
-  "No sales feedback loop",
-  "Static budget allocation",
-];
-
-const flywheelSteps = [
+const flywheelCards = [
   {
-    phase: "A1",
-    title: "Testing to Scale",
-    body: "Launch structured tests: multiple creatives, offers, and regional angles. Winners move straight into a dedicated scale campaign.",
-    goal: "Goal: Find lead magnets that convert. Isolate. Pour budget.",
+    badge: "A1",
+    badgeClass: "from-[#686CF2] to-[#7A84F6]",
+    title: "A1 - Testing to Scale",
+    body: "Launch structured tests: multiple creatives, offers, regional angles. Winners flow immediately to a dedicated scale campaign.",
+    goalColor: "text-[#2563EB]",
+    goal: "Find lead magnets that convert. Isolate. Pour budget.",
   },
   {
-    phase: "A2",
-    title: "Lock and Scale Aggressively",
-    body: "After roughly 90 days, we lock cost per qualified lead and scale into new geographies without breaking quality.",
-    goal: "Goal: Predictable volume. Aggressive growth.",
+    badge: "A2",
+    badgeClass: "from-[#FA781C] to-[#FA8D36]",
+    title: "A2 - Lock & Scale Aggressively",
+    body: "After ~90 days, we lock cost per qualified lead. No more fluctuations. Then drastically scale ad spend across regions.",
+    goalColor: "text-[#7C3AED]",
+    goal: "Predictable volume. Aggressive growth.",
   },
   {
-    phase: "A3",
-    title: "Micro Analysis and Redistribution",
-    body: "Analyze by day, hour, source, and region. Reallocate budget toward the segments that actually produce sales-ready leads.",
-    goal: "Goal: Squeeze every rupee from your lead budget.",
+    badge: "A3",
+    badgeClass: "from-[#2ECF95] to-[#14BC84]",
+    title: "A3 - Micro Analysis & Redistribution",
+    body: "Analyze by day of week, hour, region. Redistribute budget to high-performing segments daily.",
+    goalColor: "text-[#10B981]",
+    goal: "Squeeze every rupee from your lead budget.",
   },
 ];
 
-const caseStudies: CaseStudy[] = [
+const caseStudies = [
   {
-    name: "Kashti (Loan Aggregator)",
-    niche: "Pan-India Lead Gen",
-    metrics: [
-      { label: "Ad Spend", value: "Rs. 30L" },
-      { label: "CPQL", value: "Rs. 1,250" },
-      { label: "Regions", value: "12" },
-      { label: "Scale Time", value: "90 days" },
+    title: "Kashti Finserv (Loan Lead Gen)",
+    afterLabel: "AFTER (90 DAYS)",
+    rows: [
+      ["Monthly lead volume", "1,200", "2,880 (+140%)", "text-[#10B981]"],
+      ["Cost per lead", "Rs.420", "Rs.285 (-32%)", "text-[#10B981]"],
+      ["Qualified lead rate", "28%", "41% (stable)", "text-[#10B981]"],
+      ["Ad spend", "Rs.8L", "Rs.22L (scaled)", "text-[#2563EB]"],
     ],
-    result: "RESULT: 4x growth in disbursed loan volume with stable CPQL.",
+    quote:
+      "\"Acquirely didn't just run ads. They built a system that lets us predict how many qualified leads we'll get at what cost. That's rare.\"",
+    author: "- Founder, Kashti Finserv",
   },
   {
-    name: "International Schooling",
-    niche: "Global Ed-Tech",
-    metrics: [
-      { label: "Ad Spend", value: "Rs. 18L" },
-      { label: "CPQL", value: "Rs. 940" },
-      { label: "Intent Score", value: "High" },
-      { label: "Regions", value: "3 hubs" },
+    title: "International Schooling (9 Regions, SGD 3K/day)",
+    afterLabel: "AFTER (6 MONTHS)",
+    rows: [
+      ["Active regions", "4", "9", "text-[#10B981]"],
+      ["Cost per lead (avg)", "$18", "$13 (-28%)", "text-[#10B981]"],
+      ["Daily ad spend", "SGD 1K", "SGD 3K (scaled)", "text-[#2563EB]"],
+      ["Inquiry-to-enrollment", "Baseline", "+22%", "text-[#10B981]"],
     ],
-    result: "RESULT: Transitioned from generic targeting to intent-based creative signals.",
+    quote:
+      "\"We were spending SGD 90K/month with no predictability. Now we know exactly what each region delivers.\"",
+    author: "- CMO, International Schooling",
   },
   {
-    name: "Right Source Aviation",
-    niche: "High-Ticket Training",
-    metrics: [
-      { label: "Lead Quality", value: "+38%" },
-      { label: "CPL", value: "-12%" },
-      { label: "Show Rate", value: "+31%" },
-      { label: "Scale Time", value: "8 weeks" },
+    title: "Right Source Aviation (Pilot Training - Rs.60-80L Course)",
+    afterLabel: "AFTER (4 MONTHS)",
+    rows: [
+      ["Qualified leads/month", "18", "30 (+67%)", "text-[#10B981]"],
+      ["Cost per qualified lead", "Rs.28,000", "Rs.16,500 (-41%)", "text-[#10B981]"],
+      ["Enrollment inquiries", "6", "18 (3x)", "text-[#10B981]"],
+      ["Ad spend", "Rs.3L", "Rs.12L (scaled)", "text-[#2563EB]"],
     ],
-    result: "RESULT: Scaled from single-city to 4 regional hubs with consistent quality.",
+    quote:
+      "\"Selling a Rs.70L course via Facebook? Everyone said it's impossible. Acquirely built a system that actually works.\"",
+    author: "- Director, Right Source Aviation",
   },
+];
+
+const standardFeatures = [
+  "Full A3 Flywheel management",
+  "Weekly creative testing",
+  "Regional optimization (multi-geo)",
+  "Lead quality tracking & CRM integration",
+  "Daily budget redistribution (A3 micro-analysis)",
+  "Transparent reporting & monthly strategy calls",
+];
+
+const enterpriseFeatures = [
+  "Everything in Standard plus:",
+  "Priority regional scaling support",
+  "Deep CRM funnel integration",
+  "Custom lead intelligence dashboards",
+  "Bi-weekly strategic growth calls",
+];
+
+const compareRows = [
+  ["Facebook Ad Expert", "Rs.50K - Rs.100K"],
+  ["Video Editor", "Rs.40K - Rs.60K"],
+  ["Graphic Artist", "Rs.40K - Rs.60K"],
+  ["Content Creator", "Rs.50K - Rs.80K"],
+  ["Strategy Expert", "Rs.60K - Rs.120K"],
+  ["Total", "Rs.2.4L - Rs.4.2L / month"],
 ];
 
 const fitItems = [
-  "You spend Rs. 3L+ monthly on Meta lead generation",
-  "Sales teams complain about junk or low-intent leads",
-  "You need regional or multi-city scale",
-  "You sell loans, education, or high-ticket services",
-  "You want predictable, quality-controlled growth",
+  "Pan-India or multi-city operations",
+  "Online lead gen (service available nationally)",
+  "High-ticket LTV > Rs.50,000",
+  "Spending Rs.3L+ monthly on Facebook Ads",
+  "Loans, education, real estate, training, B2B, healthcare chains",
+  "You have a sales team that needs qualified leads",
 ];
 
 const notFitItems = [
-  "You want cheap leads at any cost",
-  "You have no sales process after the lead form",
-  "You are a small local business with no scale plan",
-  "You expect results without testing or feedback loops",
+  "Single-location business (one clinic, one office)",
+  "Local service with catchment area < 50km",
+  "Low-ticket leads (<Rs.10K LTV)",
+  "Spending <Rs.3L and not willing to scale",
+  "No CRM or sales follow-up process",
+  "You just want \"cheap leads\"",
 ];
 
-const team = [
+const founders = [
   {
     name: "Mausam Arora",
     role: "Founder, Acquirely",
+    tag: "Growth & Strategy Head",
     image: mausamImage,
+    body:
+      "Mausam spent 12 years inside education - building curricula, publishing 300+ books, and reaching 2,000+ schools. That journey taught him one thing: great products don't grow themselves. He built Acquirely to turn scattered ad spend into acquisition systems that compound.",
+    bullets: [
+      "Founder-level understanding of what happens before and after the click",
+      "Managed Rs.30Cr+ in annual ad spend",
+      "Specialises in funnel strategy, GTM thinking, and scaling systems",
+    ],
   },
   {
-    name: "Kunal Mandal",
-    role: "Lead Gen and Media Ops",
+    name: "Kunal Mondal",
+    role: "Co-Founder, Acquirely",
+    tag: "Performance Marketing Lead",
     image: kunalImage,
+    body:
+      "Kunal has managed over Rs.30Cr in ad spend across 30+ brands in E-Commerce, EdTech, and Real Estate. He builds acquisition systems that drive predictable revenue, not just traffic. His hands-on approach ensures the A3 Flywheel runs without friction.",
+    bullets: [
+      "Hands-on Meta and Growth strategist",
+      "Full-funnel acquisition systems using Google & Meta",
+      "ROAS-focused scaling without wasted spend",
+    ],
   },
 ];
 
-const faqs: FaqItem[] = [
+const faqItems = [
   {
-    question: "How is this different from a normal lead gen agency?",
+    question: "How long before I see stable cost per qualified lead?",
     answer:
-      "Most agencies optimize for lead volume. We optimize for sales intent. Our team studies lead quality signals, sales outcomes, and regional performance every day so the media plan improves with business feedback, not just ad metrics.",
+      "Typically 3-6 weeks to identify winning creatives/offers. A2 lock at ~90 days for full predictability.",
   },
   {
-    question: "Will you work with our in-house sales team?",
-    answer:
-      "Yes. That is a core part of the system. We use sales feedback, call outcomes, and conversion patterns to improve campaign quality and reduce waste.",
+    question: "Do you handle lead nurturing or CRM integration?",
+    answer: "",
   },
   {
-    question: "Do you only work with Meta ads?",
-    answer:
-      "Meta is the primary acquisition engine in this offer, but we shape the full lead journey so the media, creative, and qualification layers work together.",
+    question: "What regions can you handle?",
+    answer: "",
   },
   {
-    question: "How fast can we start?",
-    answer:
-      "Once onboarding inputs are ready, we can move quickly. We build the initial testing framework first and then ramp toward stable qualified-lead economics.",
+    question: "What if my product LTV is low (<Rs.50K)?",
+    answer: "",
+  },
+  {
+    question: "Do you guarantee a specific cost per lead?",
+    answer: "",
+  },
+  {
+    question: "How do we start?",
+    answer: "",
+  },
+  {
+    question: "What if we're already working with an agency?",
+    answer: "",
   },
 ];
 
-function GradientButton({
-  children,
-  href = "#contact",
-  className = "",
-}: {
-  children: ReactNode;
-  href?: string;
-  className?: string;
-}) {
+function CheckBullet({ color = "#10B981" }: { color?: string }) {
   return (
-    <Link
-      href={href}
-      className={`inline-flex items-center justify-center rounded-[10px] bg-gradient-to-r from-[#2563EB] to-[#7C3AED] px-8 py-4 text-center text-sm font-bold text-white shadow-[0_10px_20px_rgba(37,99,235,0.18)] transition-transform duration-200 hover:-translate-y-0.5 sm:text-base ${className}`}
-    >
-      {children}
-    </Link>
+    <span className="mt-0.5 inline-flex shrink-0 items-center justify-center" style={{ color }}>
+      <CheckCircle2 className="h-5 w-5" strokeWidth={2.2} />
+    </span>
   );
 }
 
-function SectionTitle({
-  title,
-  subtitle,
-  dark = false,
-}: {
-  title: string;
-  subtitle?: string;
-  dark?: boolean;
-}) {
+function DotBullet({ color = "#EF4444" }: { color?: string }) {
   return (
-    <div className="mx-auto max-w-3xl text-center">
-      <h2
-        className={`text-3xl font-extrabold leading-tight sm:text-4xl ${
-          dark ? "text-white" : "text-slate-900"
-        }`}
-      >
-        {title}
-      </h2>
-      {subtitle ? (
-        <p className={`mt-4 text-base leading-7 ${dark ? "text-blue-100/85" : "text-slate-600"}`}>
-          {subtitle}
-        </p>
-      ) : null}
+    <span className="mt-0.5 inline-flex shrink-0 items-center justify-center" style={{ color }}>
+      <XCircle className="h-5 w-5" strokeWidth={2.2} />
+    </span>
+  );
+}
+
+function SmallLabel({ children }: { children: ReactNode }) {
+  return (
+    <div className="inline-flex items-center gap-2 rounded border border-[#CFD5FD] bg-[#EDEFFF] px-4 py-2">
+      <span className="h-2 w-2 rounded-full bg-[#5332E2]" />
+      <span className="font-['Inter'] text-[12px] font-semibold uppercase tracking-[1.2px] text-[#5332E2]">
+        {children}
+      </span>
     </div>
   );
 }
 
-function CaseStudyCard({ study }: { study: CaseStudy }) {
+function CaseStudyCard({
+  title,
+  afterLabel,
+  rows,
+  quote,
+  author,
+}: {
+  title: string;
+  afterLabel: string;
+  rows: string[][];
+  quote: string;
+  author: string;
+}) {
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-      <div className="border-b border-slate-200 bg-slate-50/80 px-6 py-5">
-        <h3 className="text-lg font-bold text-slate-900">{study.name}</h3>
-        <p className="mt-1 text-xs text-slate-600">{study.niche}</p>
+    <div className="rounded-2xl border border-[#E2E8F0] bg-white shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]">
+      <div className="border-b border-[#E2E8F0] bg-[rgba(248,250,252,0.3)] px-6 py-6 sm:px-8">
+        <h3 className="text-xl font-bold text-[#1F2937] sm:text-2xl">{title}</h3>
       </div>
-      <div className="flex flex-1 flex-col gap-6 p-6">
-        <div className="space-y-0">
-          {study.metrics.map((metric, index) => (
+      <div className="grid gap-8 px-6 py-6 sm:px-8 md:grid-cols-[minmax(0,559px)_minmax(280px,1fr)] md:items-start">
+        <div className="overflow-hidden rounded-2xl border border-[#E2E8F0]">
+          <div className="grid grid-cols-[1.5fr_1fr_1.2fr] bg-white text-left">
+            <div className="border-b border-[#E2E8F0] px-4 py-4 text-xs font-bold uppercase tracking-[0.6px] text-[#64748B] sm:px-6">
+              Metric
+            </div>
+            <div className="border-b border-[#E2E8F0] px-4 py-4 text-xs font-bold uppercase tracking-[0.6px] text-[#64748B] sm:px-6">
+              Before
+            </div>
+            <div className="border-b border-[#E2E8F0] px-4 py-4 text-xs font-bold uppercase tracking-[0.6px] text-[#2563EB] sm:px-6">
+              {afterLabel}
+            </div>
+          </div>
+          {rows.map(([metric, before, after, color], index) => (
             <div
-              key={metric.label}
-              className={`flex items-center justify-between py-3 text-sm ${
-                index !== study.metrics.length - 1 ? "border-b border-slate-200" : ""
+              key={metric}
+              className={`grid grid-cols-[1.5fr_1fr_1.2fr] ${
+                index !== rows.length - 1 ? "border-b border-[#E2E8F0]" : ""
               }`}
             >
-              <span className="text-slate-600">{metric.label}</span>
-              <span className="font-bold text-slate-900">{metric.value}</span>
+              <div className="px-4 py-4 font-['Open_Sans'] text-sm text-black sm:px-6 sm:text-base">{metric}</div>
+              <div className="px-4 py-4 font-['Open_Sans'] text-sm text-black sm:px-6 sm:text-base">{before}</div>
+              <div className={`px-4 py-4 text-sm font-bold sm:px-6 sm:text-base ${color}`}>{after}</div>
             </div>
           ))}
         </div>
-        <div className="rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-4 text-xs font-bold uppercase leading-5 tracking-[0.04em] text-emerald-600">
-          {study.result}
+
+        <div className="rounded-2xl border-l-4 border-[#2563EB] bg-[rgba(37,99,235,0.05)] px-6 py-8">
+          <Quote className="mb-5 h-9 w-9 text-[#BEDBFF]" strokeWidth={2.5} />
+          <p className="font-['Open_Sans'] text-base italic leading-[1.62] text-[#1F2937] sm:text-lg">{quote}</p>
+          <p className="mt-5 text-base font-bold text-[#1F2937] sm:text-lg">{author}</p>
         </div>
       </div>
-    </article>
+    </div>
+  );
+}
+
+function PricingCard({
+  title,
+  price,
+  priceBadge,
+  bestFor,
+  features,
+  cta,
+  featured = false,
+}: {
+  title: string;
+  price: string;
+  priceBadge: string;
+  bestFor: string;
+  features: string[];
+  cta: string;
+  featured?: boolean;
+}) {
+  return (
+    <div
+      className={`relative flex h-full flex-col justify-between rounded-3xl bg-white p-8 shadow-sm ${
+        featured
+          ? "border-2 border-[#007BFF] shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1),0_8px_10px_-6px_rgba(0,0,0,0.1)]"
+          : "border border-[#E2E8F0]"
+      }`}
+    >
+      {featured ? (
+        <div className="absolute right-0 top-0 rounded-bl-xl rounded-tr-[24px] bg-[#007BFF] px-6 py-1.5 text-sm font-bold text-white">
+          SCALABLE
+        </div>
+      ) : null}
+
+      <div>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <h3 className="text-2xl font-bold text-[#0F172B]">{title}</h3>
+            <p className="mt-1 text-base font-bold text-[#007BFF]">{price}</p>
+          </div>
+          <div
+            className={`rounded-full px-3 py-1 text-xs font-bold uppercase tracking-[0.6px] ${
+              featured ? "bg-[#EEF2FF] text-[#6366F1]" : "bg-[#EFF6FF] text-[#007BFF]"
+            }`}
+          >
+            {priceBadge}
+          </div>
+        </div>
+
+        <p className="mt-8 font-['Open_Sans'] text-base text-[#1E293B]">{bestFor}</p>
+
+        <div className="mt-10">
+          <div className="text-sm font-bold uppercase tracking-[1.4px] text-[#90A1B9]">What&apos;s Included:</div>
+          <div className="mt-4 space-y-4">
+            {features.map((feature) => (
+              <div key={feature} className="flex items-start gap-3">
+                <CheckBullet />
+                <span className="font-['Open_Sans'] text-base text-[#1E293B]">{feature}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        className={`mt-10 inline-flex h-14 w-full items-center justify-center rounded-xl text-base font-bold ${
+          featured
+            ? "bg-gradient-to-r from-[#007BFF] to-[#6366F1] text-white shadow-[0_10px_15px_-3px_#BEDBFF,0_4px_6px_-4px_#BEDBFF]"
+            : "border-2 border-[#007BFF] text-[#007BFF]"
+        }`}
+      >
+        {cta}
+      </button>
+    </div>
+  );
+}
+
+function FounderCard({
+  name,
+  role,
+  tag,
+  body,
+  image,
+  bullets,
+}: {
+  name: string;
+  role: string;
+  tag: string;
+  body: string;
+  image: any;
+  bullets: string[];
+}) {
+  return (
+    <div className="overflow-hidden rounded-2xl border border-[#E5E5E5] bg-white shadow-[0_8px_32px_rgba(15,23,42,0.1)]">
+      <div className="relative h-[300px] sm:h-[380px]">
+        <Image src={image} alt={name} fill className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#171717] via-transparent to-transparent opacity-70" />
+        <div className="absolute bottom-6 left-6 text-white">
+          <h3 className="text-2xl font-normal">{name}</h3>
+          <p className="mt-1 font-['Open_Sans'] text-sm text-white">{role}</p>
+        </div>
+        <div className="absolute bottom-6 right-6 flex h-10 w-10 items-center justify-center rounded-md border border-white/30 bg-white/20 text-white backdrop-blur-sm">
+          in
+        </div>
+      </div>
+      <div className="p-8">
+        <div className="text-sm font-semibold uppercase tracking-[1.4px] text-[#4F46E5]">{tag}</div>
+        <p className="mt-4 font-['Open_Sans'] text-base leading-[1.62] text-[#525252]">{body}</p>
+        <div className="mt-6 space-y-4">
+          {bullets.map((bullet) => (
+            <div key={bullet} className="flex items-start gap-3">
+              <CheckBullet color="#4F46E5" />
+              <span className="font-['Open_Sans'] text-sm text-[#404040]">{bullet}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -234,27 +420,30 @@ function FaqAccordion() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <div className="space-y-4">
-      {faqs.map((faq, index) => {
-        const isOpen = openIndex === index;
+    <div className="overflow-hidden rounded-2xl border border-[#E5E5E5] bg-white">
+      {faqItems.map((item, index) => {
+        const open = index === openIndex;
 
         return (
-          <div
-            key={faq.question}
-            className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm"
-          >
+          <div key={item.question} className={index !== faqItems.length - 1 ? "border-b border-[#E5E7EB]" : ""}>
             <button
               type="button"
-              onClick={() => setOpenIndex(isOpen ? -1 : index)}
-              className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+              onClick={() => setOpenIndex(open ? -1 : index)}
+              className="flex w-full items-center justify-between gap-6 px-6 py-6 text-left sm:px-8"
             >
-              <span className="text-sm font-bold text-slate-900 sm:text-base">{faq.question}</span>
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100 text-lg font-medium text-slate-500">
-                {isOpen ? "-" : "+"}
+              <span className="text-base font-normal leading-[22px] text-[#262626]">{item.question}</span>
+              <span
+                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${
+                  open ? "bg-[#EFF6FF] text-[#2563EB]" : "bg-[#F5F5F5] text-[#737373]"
+                }`}
+              >
+                {open ? "-" : "+"}
               </span>
             </button>
-            {isOpen ? (
-              <div className="px-6 pb-6 text-sm leading-7 text-slate-600">{faq.answer}</div>
+            {open && item.answer ? (
+              <div className="px-6 pb-6 sm:px-8">
+                <p className="font-['Open_Sans'] text-sm leading-[23px] text-[#525252]">{item.answer}</p>
+              </div>
             ) : null}
           </div>
         );
@@ -263,356 +452,447 @@ function FaqAccordion() {
   );
 }
 
-function FounderCard({
-  name,
-  role,
-  image,
-}: {
-  name: string;
-  role: string;
-  image: StaticImageData;
-}) {
-  return (
-    <div className="flex flex-col items-center text-center">
-      <div className="relative h-40 w-40 overflow-hidden rounded-full border-4 border-white shadow-xl">
-        <Image src={image} alt={name} fill className="object-cover" />
-      </div>
-      <h3 className="mt-6 text-xl font-bold text-slate-900">{name}</h3>
-      <p className="mt-1 text-sm text-slate-600">{role}</p>
-    </div>
-  );
-}
-
 export default function DoneForYouLandingPage() {
   return (
-    <main className="bg-white text-slate-900">
-      <header className="sticky top-0 z-30 border-b border-slate-200/70 bg-white/90 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-6 lg:px-8">
-          <Link href="/done-for-you" className="text-2xl  font-bold tracking-[-0.04em] text-slate-900">
-            ACQUIRELY
-          </Link>
-          <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 lg:flex">
-            <a href="#system" className="transition-colors hover:text-slate-900">
-              System
-            </a>
-            <a href="#results" className="transition-colors hover:text-slate-900">
-              Results
-            </a>
-            <a href="#pricing" className="transition-colors hover:text-slate-900">
-              Pricing
-            </a>
-            <a href="#faq" className="transition-colors hover:text-slate-900">
-              FAQ
-            </a>
-          </nav>
-          <GradientButton className="px-5 py-3 text-sm" href="#contact">
-            Apply Now
-          </GradientButton>
+    <main className="bg-white text-[#1F2937]">
+      <section className="bg-[linear-gradient(115.83deg,#0F0C29_0%,#1A1560_40%,#24243E_100%)]">
+        <div className="mx-auto max-w-[1440px] px-5 pb-12 pt-8 sm:px-8 lg:px-20 lg:pb-16">
+        <div className="text-xl font-extrabold text-white sm:text-2xl">
+            <Image src={logo} alt="Acquirely Logo" className="h-10 w-auto" />
+          </div>
+          <div className="mt-10 grid items-center gap-8 lg:grid-cols-[1.02fr_0.98fr]">
+            <div>
+              <h1 >
+                <span className="max-w-[623px] text-4xl font-extrabold leading-[1.15] tracking-[-0.5px] text-transparent sm:text-5xl sm:leading-[1.18] lg:text-[48px] lg:leading-[60px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text" >
+
+                Running Facebook Ads for Leads! 
+                </span>
+                <span className="max-w-[623px] pl-2 text-4xl font-extrabold leading-[1.15] tracking-[-0.5px] text-white sm:text-5xl sm:leading-[1.18] lg:text-[48px] lg:leading-[60px]">
+  But Your Sales Team Calls Them Junk
+                </span>
+              </h1>
+            
+              <h2 className="mt-8 font-['Open_Sans'] text-2xl font-semibold text-white">We Fix It.</h2>
+              <p className="mt-2 max-w-[430px] font-['Open_Sans'] text-lg leading-[29px] text-white">
+                Same ad spend. Better lead quality. Higher ROI. Powered by our A3 Flywheel for Lead Gen.
+              </p>
+              <button
+                type="button"
+                className="mt-8 inline-flex rounded-xl bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-8 py-4 text-center text-lg font-bold text-white shadow-[0_20px_25px_-5px_rgba(43,127,255,0.25),0_8px_10px_-6px_rgba(43,127,255,0.25)]"
+              >
+                👉 Get Leads Your Sales Team Will Love
+              </button>
+              <div className="mt-8 flex flex-col gap-3 font-['Open_Sans'] text-sm text-[#99A1AF] sm:flex-row sm:flex-wrap sm:gap-6">
+                <div className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-[#2B7FFF]" strokeWidth={2.5} />
+                  <span>Rs.30Cr+ Ad Spend Managed</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-[#2B7FFF]" strokeWidth={2.5} />
+                  <span>9+ Regions Active</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-[#2B7FFF]" strokeWidth={2.5} />
+                  <span>75-Day Risk Reversal</span>
+                </div>
+              </div>
+            </div>
+            <div className="mx-auto w-full max-w-[611px]">
+              <div className="overflow-hidden rounded-lg bg-white/10 shadow-2xl">
+                <WistiaPlayer mediaId="nm2ou94x6d" />
+              </div>
+            </div>
+          </div>
         </div>
-      </header>
+      </section>
 
-      <section className="px-5 pb-20 pt-10 sm:px-6 lg:px-8 lg:pb-24 lg:pt-16">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(420px,502px)] lg:gap-16">
-          <div className="max-w-2xl">
-            <h1 className="max-w-xl text-4xl font-extrabold leading-[1.08] text-slate-900 sm:text-5xl sm:leading-[1.12]">
-              Running Facebook for Leads! But Your Sales Team Calls Them Junk.
-            </h1>
-            <p className="mt-6 max-w-xl text-xl font-semibold leading-8 text-slate-600">
-              The gap between "qualified lead" and "ROI disappears" is where your ROI disappears..
-            </p>
-            <p className="mt-6 max-w-xl text-base leading-8 text-slate-600 sm:text-lg">
-             We fix the leak.
-Our A3 Flywheel for Lead Gen optimizes for cost per qualified
-lead — not cost per lead. Built for online and multi-location
-brands (loans, education, high-ticket services).
-Same ad spend. Better lead quality. Predictable scale.
+      <section className="bg-[#F8FAFC]">
+        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-[120px] lg:py-16">
+          <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-10 px-6">
+            <SmallLabel>THE HIDDEN COST</SmallLabel>
+            <div className="text-center">
+              <h2 className="text-4xl font-extrabold leading-tight text-transparent sm:text-[40px] sm:leading-[40px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text">
+                Every Unqualified Lead Is a Tax on Your Growth.
+              </h2>
+              <p className="mx-auto mt-4 max-w-[768px] font-['Open_Sans'] text-lg leading-7 text-[#1E293B] sm:text-[20px]">
+                You celebrate 500 leads this month. Your sales team closes 10. The rest? Wasted time, wasted
+                follow-up, wasted budget.
+              </p>
+            </div>
+
+            <div className="grid w-full gap-6 lg:grid-cols-2">
+              <div className="rounded-2xl border border-[#FFE2E2] bg-white p-8 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <XCircle className="h-6 w-6 text-[#E7000B]" strokeWidth={2.2} />
+                  <h3 className="text-lg font-bold text-[#E7000B]">What Most Agencies Optimize For</h3>
+                </div>
+                <div className="mt-6 space-y-4">
+                  {hiddenCostLeft.map((item) => (
+                    <div key={item} className="flex items-center justify-between rounded-xl bg-[#F8FAFC] px-3 py-3">
+                      <span className="font-['Open_Sans'] text-base text-[#1E293B]">{item}</span>
+                      <span className="text-[#FF6467]">-</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-[#DCFCE7] bg-white p-8 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="h-6 w-6 text-[#10B981]" strokeWidth={2.2} />
+                  <h3 className="text-lg font-bold text-[#10B981]">What Actually Matters</h3>
+                </div>
+                <div className="mt-6 space-y-4">
+                  {hiddenCostRight.map((item) => (
+                    <div key={item} className="flex items-center justify-between rounded-xl bg-[rgba(240,253,244,0.5)] px-3 py-3">
+                      <span className="font-['Open_Sans'] text-base text-[#1E293B]">{item}</span>
+                      <span className="text-[#10B981]">o</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="max-w-[900px] text-center">
+              <p className="font-['Open_Sans'] text-lg leading-7 text-[#1E293B]">
+                When you optimize for the wrong metric, scaling just multiplies waste.
+              </p>
+              <p className="mt-4 text-xl font-bold leading-7 text-[#1E293B]">
+                You stay stuck at Rs.3L-Rs.10L monthly ad spend - because going bigger means more junk leads.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-[272px] lg:py-16">
+          <div className="mx-auto max-w-[896px] px-6 text-center">
+            <SmallLabel>MARKET SHIFT</SmallLabel>
+            <h2 className="mt-12 text-4xl font-extrabold leading-tight text-transparent sm:text-[40px] sm:leading-[40px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text">
+              Meta&apos;s Algorithm Made Lead Gen Harder.
+              <br />
+             <span className="text-black"> We Made It Smarter.</span>
+            </h2>
+            <p className="mx-auto mt-10 max-w-[892px] font-['Open_Sans'] text-lg leading-[29px] text-[rgba(31,41,55,0.8)]">
+              With updates like Andromeda, Meta&apos;s AI now prioritizes creative signals over interest targeting.
+              Lead forms still work - but scaling without structure now kills lead quality.
             </p>
 
-            <div className="mt-8 grid gap-3 text-sm font-semibold text-slate-800 sm:grid-cols-2">
-              {heroHighlights.map((item) => (
-                <div key={item} className="flex items-center gap-2">
-                  <span className="flex h-4 w-4 items-center justify-center rounded-full border border-blue-600 text-[10px] text-blue-600">
-                    +
-                  </span>
-                  <span>{item}</span>
+            <div className="mt-10 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-8 text-left">
+              <h3 className="text-lg font-semibold text-[#1F2937]">Most brands kept doing the same:</h3>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                {marketShiftItems.map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <DotBullet />
+                    <span className="font-['Open_Sans'] text-lg text-[rgba(31,41,55,0.8)]">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-8 rounded-3xl border border-[#1F2937] bg-[#161B28] px-8 py-8">
+              <h3 className="text-xl font-semibold text-white">The game changed. We leaned in.</h3>
+              <p className="mt-4 font-['Open_Sans'] text-base leading-[26px] text-[#94A3B8]">
+                After analyzing Rs.30Cr+ in lead gen ad spend (across loans, education, aviation, real estate), we
+                built the <span className="text-[#5332E2]
+                ">A3 Flywheel</span> - a lead intelligence engine for the new Meta era.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#F8FAFC]">
+        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-20 lg:py-16">
+          <div className="mx-auto max-w-[1280px] px-6 text-center">
+            <SmallLabel>THE A3 FRAMEWORK</SmallLabel>
+            <h2 className="mx-auto mt-10 max-w-[792px] text-4xl font-extrabold leading-tight text-transparent sm:text-[40px] sm:leading-[49px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_42.79%)] bg-clip-text">
+              The System That Scales Lead Volume <span className="text-black"> Without Crashing Quality</span>.
+            </h2>
+
+            <div className="mx-auto mt-10 max-w-[834px]">
+              <Image src={flywheelImage} alt="A3 flywheel model" className="h-auto w-full object-contain" />
+            </div>
+
+            <div className="mt-10 grid gap-6 lg:grid-cols-3">
+              {flywheelCards.map((card) => (
+                <div
+                  key={card.badge}
+                  className="rounded-2xl border border-[#E2E8F0] bg-white p-8 text-left shadow-[0_4px_4px_rgba(0,0,0,0.25),0_2px_4px_-2px_rgba(0,0,0,0.1)]"
+                >
+                  <div className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${card.badgeClass}`}>
+                    <span className="text-[26px] font-extrabold text-white">{card.badge}</span>
+                  </div>
+                  <h3 className="mt-5 text-xl font-bold leading-7 text-[#1F2937]">{card.title}</h3>
+                  <p className="mt-4 font-['Open_Sans'] text-base leading-6 text-[#64748B]">{card.body}</p>
+                  <div className="mt-6 border-t border-[#E2E8F0] pt-4">
+                    <div className={`text-sm font-bold uppercase tracking-[1.4px] ${card.goalColor}`}>Goal</div>
+                    <p className="mt-2 font-['Open_Sans'] text-base leading-6 text-[#1F2937]">{card.goal}</p>
+                  </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-10">
-              <GradientButton className="w-full max-w-[400px]" href="#contact">
-                👉 Get Leads Your Sales Team Will Love
-              </GradientButton>
+            <div className="mx-auto mt-8 max-w-[672px] rounded-xl px-6 py-4">
+              <p className="font-['Open_Sans'] text-lg italic leading-7 text-[#1E293B]">
+                This runs every week. Not occasionally. Religiously. A1 feeds A2. A2 enables A3.
+                <br className="hidden sm:block" />
+                Insights from A3 make A1 smarter.
+              </p>
             </div>
-          </div>
-
-          <div className="mx-auto w-full max-w-[602px]">
-              <div className="relative overflow-hidden rounded-xl bg-slate-50">
-                <Image
-                  src={dashboardImage}
-                  alt="Lead generation dashboard preview"
-                  className="h-auto w-full object-cover"
-                  priority
-                />
-              </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#F7F9FC] px-5 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <SectionTitle
-            title="Every Unqualified Lead Is a Tax on Your Growth."
-            subtitle="Most agencies chase cheap lead volume. We focus on what happens after the form fill and before revenue."
-          />
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <h3 className="text-xl font-bold text-slate-900">What Most Agencies Optimize For</h3>
-              <ul className="mt-6 space-y-4 text-base text-slate-600">
-                {optimizeFor.map((item) => (
-                  <li key={item} className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-slate-300" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+      <section className="bg-white">
+        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-20 lg:py-16">
+          <div className="mx-auto max-w-[1280px] px-6">
+            <div className="flex justify-center">
+              <SmallLabel>CLIENT RESULTS</SmallLabel>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <h3 className="text-xl font-bold text-slate-900">What Actually Matters</h3>
-              <ul className="mt-6 space-y-4 text-base text-slate-600">
-                {actuallyMatters.map((item, index) => (
-                  <li key={item} className="flex gap-3">
-                    <span className={`mt-2 h-2 w-2 rounded-full ${index === 0 ? "bg-blue-600" : "bg-slate-300"}`} />
-                    <span className={index === 0 ? "font-semibold text-slate-800" : ""}>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <p className="mx-auto mt-10 max-w-3xl text-center text-base font-medium leading-7 text-slate-800">
-            Cost per qualified lead compounds profit. Everything else is just a vanity metric if the
-            sales team cannot close the lead.
-          </p>
-        </div>
-      </section>
-
-      <section className="px-5 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(420px,502px)]">
-          <div>
-            <h2 className="max-w-xl text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl">
-              Meta&apos;s Algorithm Made Lead Gen Harder. We Made It Smarter.
+            <h2 className="mt-10 text-center text-4xl font-extrabold leading-tight text-[#1F2937] sm:text-[40px] sm:leading-[40px]">
+              <span>From </span>
+              <span className="bg-[linear-gradient(90deg,#818CF8_0%,#C084FC_45%)] bg-clip-text text-transparent">
+                &quot;Junk Leads&quot;
+              </span>
+              <span> to </span>
+              <span className="bg-[linear-gradient(90deg,#C084FC_0%,#F97316_100%)] bg-clip-text text-transparent">
+                Predictable Pipelines.
+              </span>
             </h2>
-            <p className="mt-6 max-w-xl text-base leading-8 text-slate-600">
-              With updates like Andromeda, Meta&apos;s AI now prioritizes creative signals over
-              interest targeting. Lead forms still work, but scaling without structure now kills
-              lead quality.
-            </p>
-            <div className="mt-8">
-              <p className="text-base font-bold text-slate-900">Most brands kept doing the same:</p>
-              <div className="mt-4 grid gap-4 text-sm text-slate-600 sm:grid-cols-2">
-                {sameMistakes.map((item) => (
-                  <div key={item} className="flex items-start gap-2">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-slate-300" />
-                    <span>{item}</span>
+            <div className="mt-10 space-y-8">
+              {caseStudies.map((study) => (
+                <CaseStudyCard key={study.title} {...study} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#F8FAFC]">
+        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-[120px] lg:py-16">
+          <div className="mx-auto max-w-[1200px] px-6">
+            <div className="flex justify-center">
+              <SmallLabel>pricing</SmallLabel>
+            </div>
+            <h2 className="mt-10 text-center text-4xl font-extrabold leading-tight text-transparent sm:text-[40px] sm:leading-[40px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text">
+              Simple, Performance-Aligned Pricing. No Surprises.
+            </h2>
+
+            <div className="mt-10 grid gap-6 lg:grid-cols-2">
+              <PricingCard
+                title="Standard"
+                price="Rs.75,000 + GST"
+                priceBadge="Fixed Fee"
+                bestFor="Best For: Ad spend Rs.3L - Rs.10L/month"
+                features={standardFeatures}
+                cta="Get Started"
+              />
+              <PricingCard
+                title="Enterprise"
+                price="10% of ad spend + GST"
+                priceBadge="Performance"
+                bestFor="Best For: Ad spend above Rs.10L/month"
+                features={enterpriseFeatures}
+                cta="Schedule a Scale Audit"
+                featured
+              />
+            </div>
+
+            <div className="mt-10 border-t border-[#E2E8F0] pt-10">
+              <h3 className="text-center text-2xl font-bold text-[#1E293B]">Compare to In-House:</h3>
+              <div className="mt-8 overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white shadow-sm">
+                <div className="grid grid-cols-[1.3fr_1fr] bg-[#F8FAFC]">
+                  <div className="px-6 py-4 text-xs font-bold uppercase tracking-[0.6px] text-black">Role</div>
+                  <div className="px-6 py-4 text-xs font-bold uppercase tracking-[0.6px] text-black">Monthly Cost (Min)</div>
+                </div>
+                {compareRows.map(([role, value], index) => (
+                  <div
+                    key={role}
+                    className={`grid grid-cols-[1.3fr_1fr] ${
+                      index !== compareRows.length - 1 ? "border-t border-[#E2E8F0]" : "bg-[#F8FAFC]"
+                    }`}
+                  >
+                    <div className={`px-6 py-4 font-['Open_Sans'] text-base ${index === compareRows.length - 1 ? "font-bold text-[#007BFF]" : "text-black"}`}>
+                      {role}
+                    </div>
+                    <div className={`px-6 py-4 font-['Open_Sans'] text-base ${index === compareRows.length - 1 ? "font-bold text-[#007BFF]" : "text-black"}`}>
+                      {value}
+                    </div>
                   </div>
                 ))}
               </div>
+              <p className="mt-6 text-center font-['Open_Sans'] text-base italic text-[#1E293B]">
+                Plus: No proven system, no testing framework, no A3 Flywheel.
+              </p>
             </div>
-          </div>
-
-          <div className="rounded-2xl bg-slate-900 p-8 shadow-xl">
-            <h3 className="text-2xl font-semibold text-[#51A2FF]">The game changed. We leaned in.</h3>
-            <p className="mt-4 text-base leading-8 text-white">
-              After analyzing Rs. 30Cr+ in lead gen ad spend across loans, education, aviation, and
-              real estate, we built the A3 Flywheel: a lead intelligence engine for the new Meta era.
-            </p>
           </div>
         </div>
       </section>
 
-      <section id="system" className="bg-[#F7F9FC] px-5 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <SectionTitle
-            title="The System That Scales Lead Volume Without Crashing Quality."
-            subtitle="A closed-loop acquisition system built to test, lock economics, and redistribute budget with discipline."
-          />
+      <section className="bg-white">
+        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-[144px] lg:py-16">
+          <div className="rounded-[24px] bg-[#0F172B] px-6 py-8 sm:px-10 lg:px-16 lg:py-12">
+            <div className="max-w-[768px]">
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#007BFF] text-white">
+                  <ShieldCheck className="h-6 w-6" strokeWidth={2.2} />
+                </div>
+                <h2 className="text-3xl font-bold leading-tight text-white sm:text-[36px] sm:leading-[40px]">
+                  If We Don&apos;t Improve Your Lead Economics... We Work Free.
+                </h2>
+              </div>
 
-          <div className="mt-14 flex justify-center">
-            <div className="relative flex h-64 w-64 items-center justify-center rounded-full border-4 border-dashed border-slate-200 bg-white shadow-inner">
-              <div className="flex h-48 w-48 items-center justify-center rounded-full border-4 border-slate-200/70">
-                <div className="max-w-[120px] text-center text-base font-bold leading-6 text-slate-900">
-                  A3 Lead Flywheel
+              <p className="mt-8 font-['Open_Sans'] text-lg leading-7 text-[#CAD5E2]">
+                We don&apos;t believe in unrealistic guarantees-only accountability.
+              </p>
+
+              <div className="mt-8">
+                <div className="text-xl font-bold text-[#007BFF]">OUR COMMITMENTS</div>
+                <p className="mt-4 font-['Open_Sans'] text-base text-[#CAD5E2]">
+                  After a 75-90 day stabilisation period, if there&apos;s no clear improvement in:
+                </p>
+                <div className="mt-6 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <CheckBullet color="#007BFF" />
+                    <span className="font-['Open_Sans'] text-base text-white">Cost per qualified lead</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckBullet color="#007BFF" />
+                    <span className="font-['Open_Sans'] text-base text-white">Lead volume at consistent CPQL</span>
+                  </div>
                 </div>
               </div>
-              {["A1", "A2", "A3"].map((item, index) => {
-                const positions = [
-                  "top-[-10px] left-1/2 -translate-x-1/2",
-                  "bottom-[-10px] left-[-10px]",
-                  "bottom-[-10px] right-[-10px]",
-                ];
-                return (
-                  <div
-                    key={item}
-                    className={`absolute ${positions[index]} flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-[#2563EB] to-[#7C3AED] text-sm font-bold text-white shadow-lg`}
-                  >
-                    {item}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            {flywheelSteps.map((step) => (
-              <div key={step.phase} className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-                <div className="text-3xl font-extrabold text-slate-900">{step.phase}</div>
-                <h3 className="mt-4 text-xl font-bold text-slate-900">{step.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-slate-600">{step.body}</p>
-                <p className="mt-5 text-xs font-bold uppercase leading-5 tracking-[0.03em] text-slate-900">
-                  {step.goal}
-                </p>
+              <div className="mt-8 grid gap-4 md:grid-cols-2">
+                <div className="rounded-xl border border-[rgba(0,255,170,0.5)] bg-[rgba(16,185,129,0.05)] px-6 py-5 font-['Open_Sans'] text-sm leading-5 text-white">
+                  Work the next month at zero management fee to fix performance
+                </div>
+                <div className="rounded-xl border border-[rgba(0,255,170,0.5)] bg-[rgba(16,185,129,0.05)] px-6 py-5 font-['Open_Sans'] text-sm leading-5 text-white">
+                  End the engagement with a clean, no-lock-in exit and full learning handover
+                </div>
               </div>
-            ))}
-          </div>
 
-          <p className="mx-auto mt-10 max-w-3xl text-center text-base font-medium leading-7 text-slate-600">
-            This is not monthly campaign management. It is an operating system for qualified lead
-            economics.
-          </p>
-        </div>
-      </section>
-
-      <section id="results" className="px-5 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <SectionTitle title="From Junk Leads to Predictable Pipelines." />
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {caseStudies.map((study) => (
-              <CaseStudyCard key={study.name} study={study} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="pricing" className="bg-[#F7F9FC] px-5 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <SectionTitle title="Simple, Performance-Aligned Pricing. No Surprises." />
-          <div className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_10px_30px_rgba(15,23,42,0.08)]">
-            <div className="grid grid-cols-[minmax(180px,1fr)_minmax(0,1.6fr)] bg-slate-900 text-white">
-              <div className="px-6 py-5 text-sm font-bold">What You Pay For</div>
-              <div className="px-6 py-5 text-sm font-bold">How We Price It</div>
-            </div>
-            {[
-              ["Core lead gen management", "Flat monthly retainer based on market complexity"],
-              ["Qualified lead focus", "Optimized toward CPQL and downstream sales feedback"],
-              ["Creative and ops layer", "Included inside the engagement, not bolted on later"],
-            ].map(([left, right], index) => (
-              <div
-                key={left}
-                className={`grid grid-cols-1 border-t border-slate-200 md:grid-cols-[minmax(180px,1fr)_minmax(0,1.6fr)] ${
-                  index === 1 ? "bg-blue-50/40" : "bg-white"
-                }`}
-              >
-                <div className="px-6 py-5 text-base font-bold text-slate-900">{left}</div>
-                <div className="px-6 py-5 text-base text-slate-600">{right}</div>
-              </div>
-            ))}
-            <div className="flex flex-col gap-5 border-t border-slate-200 px-6 py-8 md:flex-row md:items-center md:justify-between">
-              <p className="text-sm font-medium text-slate-600">
-                If you already spend on lead gen, this plugs into your current budget and improves what
-                it returns.
+              <p className="mt-8 text-lg font-bold text-[#007BFF]">
+                If we&apos;re not creating value, we don&apos;t earn the retainer.
               </p>
-              <GradientButton href="#contact" className="w-full md:w-auto">
-                See if You Qualify for Done-For-You Lead Gen
-              </GradientButton>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="px-5 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl rounded-2xl bg-slate-900 px-8 py-14 text-center shadow-xl sm:px-16">
-          <h2 className="text-3xl font-extrabold leading-tight text-white sm:text-4xl">
-            If We Don&apos;t Improve Your Lead Economics, We Work Free.
+      <section className="bg-[#F9FAFB]">
+        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-[167px] lg:py-16">
+          <div className="flex justify-center">
+            <SmallLabel>NOT FOR EVERYONE</SmallLabel>
+          </div>
+          <h2 className="mx-auto mt-10 max-w-[1106px] text-center text-4xl font-extrabold leading-tight text-transparent sm:text-[40px] sm:leading-[49px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_42.79%)] bg-clip-text">
+            This Is for Multi-Location &amp; Online Lead Gen Brands.
+            <br />
+            <span className="text-black">
+
+            Not for Local Businesses.
+            </span>
           </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-blue-100">
-            We are not interested in inflating lead counts that your sales team hates. We are here to
-            improve lead quality, conversion efficiency, and qualified-lead stability. If we fail to
-            improve the system, we absorb the downside.
-          </p>
-        </div>
-      </section>
 
-      <section className="bg-[#F7F9FC] px-5 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <SectionTitle title="This Is for Multi-Location and Online Lead Gen Brands. Not for Local Businesses." />
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-white p-10 shadow-sm">
-              <h3 className="text-xl font-bold text-slate-900">THIS IS FOR YOU</h3>
-              <ul className="mt-8 space-y-4">
-                {fitItems.map((item) => (
-                  <li key={item} className="flex gap-3 text-base text-slate-600">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-emerald-500" />
-                    <span>{item}</span>
-                  </li>
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            <div className="rounded-2xl border border-[rgba(16,185,129,0.2)] bg-white shadow-sm">
+              <div className="rounded-t-2xl bg-[#10B981] px-9 py-6 text-base font-semibold text-white">THIS IS FOR YOU</div>
+              <div className="space-y-6 px-8 py-6">
+                {fitItems.map((item, index) => (
+                  <div key={item}>
+                    <div className="flex items-start gap-3">
+                      <CheckBullet />
+                      <span className="font-['Open_Sans'] text-base text-[#1F2937]">{item}</span>
+                    </div>
+                    {index !== fitItems.length - 1 ? <div className="mt-5 border-t border-[#E2E8F0]" /> : null}
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-10 shadow-sm">
-              <h3 className="text-xl font-bold text-slate-900">NOT FOR YOU</h3>
-              <ul className="mt-8 space-y-4">
-                {notFitItems.map((item) => (
-                  <li key={item} className="flex gap-3 text-base text-slate-600">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-rose-400" />
-                    <span>{item}</span>
-                  </li>
+
+            <div className="rounded-2xl border border-[rgba(239,68,68,0.2)] bg-white shadow-sm">
+              <div className="rounded-t-2xl bg-[#EF4444] px-9 py-6 text-base font-semibold text-white">NOT FOR YOU</div>
+              <div className="space-y-6 px-8 py-6">
+                {notFitItems.map((item, index) => (
+                  <div key={item}>
+                    <div className="flex items-start gap-3">
+                      <DotBullet />
+                      <span className="font-['Open_Sans'] text-base text-[#64748B]">{item}</span>
+                    </div>
+                    {index !== notFitItems.length - 1 ? <div className="mt-5 border-t border-[#E2E8F0]" /> : null}
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="px-5 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <SectionTitle title="Not Just Agency Owners. Lead Gen Operators." />
-          <div className="mt-12 flex flex-col items-center justify-center gap-12 md:flex-row">
-            {team.map((member) => (
-              <FounderCard key={member.name} {...member} />
+      <section className="bg-[#F9FAFB]">
+        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-[132px] lg:py-16">
+          <div className="flex justify-center">
+            <SmallLabel>MEET THE FOUNDERS</SmallLabel>
+          </div>
+          <h2 className="mt-10 text-center text-4xl font-bold text-[#171717] sm:text-[40px] sm:leading-[60px]">
+            The Minds Behind Acquirely
+          </h2>
+          <p className="mt-3 text-center text-lg text-[#737373]">Built by Operators - Not Just Agency Owners</p>
+
+          <div className="mt-10 grid gap-6 xl:grid-cols-2">
+            {founders.map((founder) => (
+              <FounderCard key={founder.name} {...founder} />
             ))}
           </div>
         </div>
       </section>
 
-      <section id="faq" className="bg-[#F7F9FC] px-5 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl">
-          <SectionTitle title="Frequently Asked Questions" />
-          <div className="mt-10">
+      <section className="bg-white">
+        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-20 lg:py-16">
+          <div className="flex justify-center">
+            <SmallLabel>GOT QUESTIONS?</SmallLabel>
+          </div>
+          <h2 className="mt-10 text-center text-4xl font-bold text-[#171717] sm:text-[40px] sm:leading-[48px]">
+            Frequently Asked Questions
+          </h2>
+          <div className="mx-auto mt-10 max-w-[768px]">
             <FaqAccordion />
           </div>
-          <div id="contact" className="mt-10 flex justify-center">
-            <GradientButton className="w-full max-w-[360px]">
-              Book A Strategy Call to Fix Lead Quality
-            </GradientButton>
-          </div>
         </div>
       </section>
 
-      <footer className="border-t border-white/10 bg-slate-900 px-5 py-12 sm:px-6 lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <div className="text-3xl  text-white">ACQUIRELY</div>
-            <p className="mt-2 text-sm text-blue-100/60">Built for high-intent, scalable lead growth.</p>
-          </div>
-          <div className="flex items-center gap-6 text-sm text-blue-100/70">
-            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white">
-              in
-            </a>
-            <a href="mailto:hello@acquirely.in" className="hover:text-white">
-              Mail
-            </a>
+      <section className="bg-[#0F172A]">
+        <div className="mx-auto max-w-[1940px] px-5 py-16 sm:px-8 lg:px-[170px] lg:py-20">
+          <div className=" px-5 py-10 sm:px-8 sm:py-12">
+            <div className="mx-auto max-w-[1225px] px-5 py-10 text-center sm:px-8">
+            <h2 className="mx-auto max-w-[1225px] text-[34px] font-bold leading-tight text-white sm:text-[48px] sm:leading-[59px]">
+              <span>Ready to Turn </span>
+              <span className="bg-[linear-gradient(90deg,#A78BFA_0%,#F97316_100%)] bg-clip-text text-transparent">
+                &quot;Junk Leads&quot;
+              </span>
+              <span> Into a Predictable Pipeline?</span>
+            </h2>
+            <p className="mx-auto mt-6 max-w-[610px] font-['Open_Sans'] text-base leading-7 text-[#DBEAFE] sm:text-[20px] sm:leading-9">
+              If you&apos;re a pan-India, multi-location, or online lead gen brand spending ₹3L+ monthly
+              on Facebook Ads...
+              <br className="hidden sm:block" />
+              Stop optimizing for volume. Start optimizing for qualified leads.
+            </p>
+            <button
+              type="button"
+              className="mt-8 inline-flex min-h-[56px] items-center justify-center rounded-xl bg-white px-6 py-4 text-center text-base font-bold text-[#0F172A] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] sm:px-10 sm:text-[20px]"
+            >
+              👉 Book Your Lead Gen Growth Audit
+            </button>
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 text-sm text-[#BEDBFF] sm:flex-row sm:gap-8">
+              <span>No lock-in</span>
+              <span>75-day risk reversal</span>
+              <span>Full transparency</span>
+            </div>
+            </div>
           </div>
         </div>
-      </footer>
+      </section>
     </main>
   );
 }
