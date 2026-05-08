@@ -456,33 +456,33 @@ export default function DoneForYouLandingPage() {
   return (
     <main className="bg-white text-[#1F2937]">
       <section className="bg-[linear-gradient(115.83deg,#0F0C29_0%,#1A1560_40%,#24243E_100%)]">
-        <div className="mx-auto max-w-[1440px] px-5 pb-12 pt-8 sm:px-8 lg:px-20 lg:pb-16">
+        <div className="mx-auto max-w-[1440px] px-4 pb-10 pt-7 sm:px-8 sm:pb-12 lg:px-20 lg:pb-16">
         <div className="text-xl font-extrabold text-white sm:text-2xl">
             <Image src={logo} alt="Acquirely Logo" className="h-10 w-auto" />
           </div>
-          <div className="mt-10 grid items-center gap-8 lg:grid-cols-[1.02fr_0.98fr]">
+          <div className="mt-8 grid items-center gap-8 lg:mt-10 lg:grid-cols-[1.02fr_0.98fr]">
             <div>
               <h1 >
-                <span className="max-w-[623px] text-4xl font-extrabold leading-[1.15] tracking-[-0.5px] text-transparent sm:text-5xl sm:leading-[1.18] lg:text-[48px] lg:leading-[60px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text" >
+                <span className="max-w-[623px] text-[30px] font-extrabold leading-[1.12] tracking-[-0.5px] text-transparent sm:text-[40px] sm:leading-[1.15] lg:text-[48px] lg:leading-[60px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text" >
 
                 Running Facebook Ads for Leads! 
                 </span>
-                <span className="max-w-[623px] pl-2 text-4xl font-extrabold leading-[1.15] tracking-[-0.5px] text-white sm:text-5xl sm:leading-[1.18] lg:text-[48px] lg:leading-[60px]">
+                <span className="max-w-[623px] pl-1.5 text-[30px] font-extrabold leading-[1.12] tracking-[-0.5px] text-white sm:pl-2 sm:text-[40px] sm:leading-[1.15] lg:text-[48px] lg:leading-[60px]">
   But Your Sales Team Calls Them Junk
                 </span>
               </h1>
             
-              <h2 className="mt-8 font-['Open_Sans'] text-2xl font-semibold text-white">We Fix It.</h2>
-              <p className="mt-2 max-w-[430px] font-['Open_Sans'] text-lg leading-[29px] text-white">
+              <h2 className="mt-6 font-['Open_Sans'] text-xl font-semibold text-white sm:mt-8 sm:text-2xl">We Fix It.</h2>
+              <p className="mt-2 max-w-[430px] font-['Open_Sans'] text-[15px] leading-6 text-white sm:text-base sm:leading-7 lg:text-lg lg:leading-[29px]">
                 Same ad spend. Better lead quality. Higher ROI. Powered by our A3 Flywheel for Lead Gen.
               </p>
               <button
                 type="button"
-                className="mt-8 inline-flex rounded-xl bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-8 py-4 text-center text-lg font-bold text-white shadow-[0_20px_25px_-5px_rgba(43,127,255,0.25),0_8px_10px_-6px_rgba(43,127,255,0.25)]"
+                className="mt-7 inline-flex rounded-xl bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-5 py-3.5 text-center text-sm font-bold text-white shadow-[0_20px_25px_-5px_rgba(43,127,255,0.25),0_8px_10px_-6px_rgba(43,127,255,0.25)] sm:mt-8 sm:px-8 sm:py-4 sm:text-base lg:text-lg"
               >
                 👉 Get Leads Your Sales Team Will Love
               </button>
-              <div className="mt-8 flex flex-col gap-3 font-['Open_Sans'] text-sm text-[#99A1AF] sm:flex-row sm:flex-wrap sm:gap-6">
+              <div className="mt-7 flex flex-col gap-2.5 font-['Open_Sans'] text-xs text-[#99A1AF] sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-6 sm:text-sm">
                 <div className="flex items-center gap-2">
                   <Check className="h-4 w-4 text-[#2B7FFF]" strokeWidth={2.5} />
                   <span>Rs.30Cr+ Ad Spend Managed</span>
@@ -507,44 +507,44 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-[#F8FAFC]">
-        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-[120px] lg:py-16">
-          <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-10 px-6">
+        <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-8 sm:py-12 lg:px-[120px] lg:py-16">
+          <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-8 px-4 sm:px-6 sm:gap-10">
             <SmallLabel>THE HIDDEN COST</SmallLabel>
             <div className="text-center">
-              <h2 className="text-4xl font-extrabold leading-tight text-transparent sm:text-[40px] sm:leading-[40px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text">
+              <h2 className="text-[28px] font-extrabold leading-[1.15] text-transparent sm:text-[34px] sm:leading-[1.2] lg:text-[40px] lg:leading-[40px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text">
                 Every Unqualified Lead Is a Tax on Your Growth.
               </h2>
-              <p className="mx-auto mt-4 max-w-[768px] font-['Open_Sans'] text-lg leading-7 text-[#1E293B] sm:text-[20px]">
+              <p className="mx-auto mt-4 max-w-[768px] font-['Open_Sans'] text-[15px] leading-6 text-[#1E293B] sm:text-[18px] sm:leading-7 lg:text-[20px]">
                 You celebrate 500 leads this month. Your sales team closes 10. The rest? Wasted time, wasted
                 follow-up, wasted budget.
               </p>
             </div>
 
             <div className="grid w-full gap-6 lg:grid-cols-2">
-              <div className="rounded-2xl border border-[#FFE2E2] bg-white p-8 shadow-sm">
+              <div className="rounded-2xl border border-[#FFE2E2] bg-white p-5 shadow-sm sm:p-8">
                 <div className="flex items-center gap-3">
                   <XCircle className="h-6 w-6 text-[#E7000B]" strokeWidth={2.2} />
-                  <h3 className="text-lg font-bold text-[#E7000B]">What Most Agencies Optimize For</h3>
+                  <h3 className="text-base font-bold text-[#E7000B] sm:text-lg">What Most Agencies Optimize For</h3>
                 </div>
                 <div className="mt-6 space-y-4">
                   {hiddenCostLeft.map((item) => (
                     <div key={item} className="flex items-center justify-between rounded-xl bg-[#F8FAFC] px-3 py-3">
-                      <span className="font-['Open_Sans'] text-base text-[#1E293B]">{item}</span>
+                      <span className="font-['Open_Sans'] text-sm text-[#1E293B] sm:text-base">{item}</span>
                       <span className="text-[#FF6467]">-</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-[#DCFCE7] bg-white p-8 shadow-sm">
+              <div className="rounded-2xl border border-[#DCFCE7] bg-white p-5 shadow-sm sm:p-8">
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="h-6 w-6 text-[#10B981]" strokeWidth={2.2} />
-                  <h3 className="text-lg font-bold text-[#10B981]">What Actually Matters</h3>
+                  <h3 className="text-base font-bold text-[#10B981] sm:text-lg">What Actually Matters</h3>
                 </div>
                 <div className="mt-6 space-y-4">
                   {hiddenCostRight.map((item) => (
                     <div key={item} className="flex items-center justify-between rounded-xl bg-[rgba(240,253,244,0.5)] px-3 py-3">
-                      <span className="font-['Open_Sans'] text-base text-[#1E293B]">{item}</span>
+                      <span className="font-['Open_Sans'] text-sm text-[#1E293B] sm:text-base">{item}</span>
                       <span className="text-[#10B981]">o</span>
                     </div>
                   ))}
@@ -553,10 +553,10 @@ export default function DoneForYouLandingPage() {
             </div>
 
             <div className="max-w-[900px] text-center">
-              <p className="font-['Open_Sans'] text-lg leading-7 text-[#1E293B]">
+              <p className="font-['Open_Sans'] text-[15px] leading-6 text-[#1E293B] sm:text-base sm:leading-7 lg:text-lg">
                 When you optimize for the wrong metric, scaling just multiplies waste.
               </p>
-              <p className="mt-4 text-xl font-bold leading-7 text-[#1E293B]">
+              <p className="mt-4 text-lg font-bold leading-7 text-[#1E293B] sm:text-xl">
                 You stay stuck at Rs.3L-Rs.10L monthly ad spend - because going bigger means more junk leads.
               </p>
             </div>
@@ -565,34 +565,34 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-[272px] lg:py-16">
-          <div className="mx-auto max-w-[896px] px-6 text-center">
+        <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-8 sm:py-12 lg:px-[272px] lg:py-16">
+          <div className="mx-auto max-w-[896px] px-4 text-center sm:px-6">
             <SmallLabel>MARKET SHIFT</SmallLabel>
-            <h2 className="mt-12 text-4xl font-extrabold leading-tight text-transparent sm:text-[40px] sm:leading-[40px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text">
+            <h2 className="mt-10 text-[28px] font-extrabold leading-[1.15] text-transparent sm:mt-12 sm:text-[34px] sm:leading-[1.2] lg:text-[40px] lg:leading-[40px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text">
               Meta&apos;s Algorithm Made Lead Gen Harder.
               <br />
              <span className="text-black"> We Made It Smarter.</span>
             </h2>
-            <p className="mx-auto mt-10 max-w-[892px] font-['Open_Sans'] text-lg leading-[29px] text-[rgba(31,41,55,0.8)]">
+            <p className="mx-auto mt-8 max-w-[892px] font-['Open_Sans'] text-[15px] leading-6 text-[rgba(31,41,55,0.8)] sm:mt-10 sm:text-base sm:leading-7 lg:text-lg lg:leading-[29px]">
               With updates like Andromeda, Meta&apos;s AI now prioritizes creative signals over interest targeting.
               Lead forms still work - but scaling without structure now kills lead quality.
             </p>
 
-            <div className="mt-10 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-8 text-left">
-              <h3 className="text-lg font-semibold text-[#1F2937]">Most brands kept doing the same:</h3>
+            <div className="mt-8 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5 text-left sm:mt-10 sm:p-8">
+              <h3 className="text-base font-semibold text-[#1F2937] sm:text-lg">Most brands kept doing the same:</h3>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 {marketShiftItems.map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <DotBullet />
-                    <span className="font-['Open_Sans'] text-lg text-[rgba(31,41,55,0.8)]">{item}</span>
+                    <span className="font-['Open_Sans'] text-[15px] text-[rgba(31,41,55,0.8)] sm:text-base lg:text-lg">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="mt-8 rounded-3xl border border-[#1F2937] bg-[#161B28] px-8 py-8">
-              <h3 className="text-xl font-semibold text-white">The game changed. We leaned in.</h3>
-              <p className="mt-4 font-['Open_Sans'] text-base leading-[26px] text-[#94A3B8]">
+            <div className="mt-8 rounded-3xl border border-[#1F2937] bg-[#161B28] px-5 py-6 sm:px-8 sm:py-8">
+              <h3 className="text-lg font-semibold text-white sm:text-xl">The game changed. We leaned in.</h3>
+              <p className="mt-4 font-['Open_Sans'] text-sm leading-6 text-[#94A3B8] sm:text-base sm:leading-[26px]">
                 After analyzing Rs.30Cr+ in lead gen ad spend (across loans, education, aviation, real estate), we
                 built the <span className="text-[#5332E2]
                 ">A3 Flywheel</span> - a lead intelligence engine for the new Meta era.
@@ -603,10 +603,10 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-[#F8FAFC]">
-        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-20 lg:py-16">
-          <div className="mx-auto max-w-[1280px] px-6 text-center">
+        <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-8 sm:py-12 lg:px-20 lg:py-16">
+          <div className="mx-auto max-w-[1280px] px-4 text-center sm:px-6">
             <SmallLabel>THE A3 FRAMEWORK</SmallLabel>
-            <h2 className="mx-auto mt-10 max-w-[792px] text-4xl font-extrabold leading-tight text-transparent sm:text-[40px] sm:leading-[49px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_42.79%)] bg-clip-text">
+            <h2 className="mx-auto mt-8 max-w-[792px] text-[28px] font-extrabold leading-[1.15] text-transparent sm:mt-10 sm:text-[34px] sm:leading-[1.2] lg:text-[40px] lg:leading-[49px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_42.79%)] bg-clip-text">
               The System That Scales Lead Volume <span className="text-black"> Without Crashing Quality</span>.
             </h2>
 
@@ -614,27 +614,27 @@ export default function DoneForYouLandingPage() {
               <Image src={flywheelImage} alt="A3 flywheel model" className="h-auto w-full object-contain" />
             </div>
 
-            <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            <div className="mt-8 grid gap-5 sm:mt-10 lg:grid-cols-3">
               {flywheelCards.map((card) => (
                 <div
                   key={card.badge}
-                  className="rounded-2xl border border-[#E2E8F0] bg-white p-8 text-left shadow-[0_4px_4px_rgba(0,0,0,0.25),0_2px_4px_-2px_rgba(0,0,0,0.1)]"
+                  className="rounded-2xl border border-[#E2E8F0] bg-white p-5 text-left shadow-[0_4px_4px_rgba(0,0,0,0.25),0_2px_4px_-2px_rgba(0,0,0,0.1)] sm:p-8"
                 >
                   <div className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${card.badgeClass}`}>
                     <span className="text-[26px] font-extrabold text-white">{card.badge}</span>
                   </div>
-                  <h3 className="mt-5 text-xl font-bold leading-7 text-[#1F2937]">{card.title}</h3>
-                  <p className="mt-4 font-['Open_Sans'] text-base leading-6 text-[#64748B]">{card.body}</p>
+                  <h3 className="mt-5 text-lg font-bold leading-7 text-[#1F2937] sm:text-xl">{card.title}</h3>
+                  <p className="mt-4 font-['Open_Sans'] text-sm leading-6 text-[#64748B] sm:text-base">{card.body}</p>
                   <div className="mt-6 border-t border-[#E2E8F0] pt-4">
                     <div className={`text-sm font-bold uppercase tracking-[1.4px] ${card.goalColor}`}>Goal</div>
-                    <p className="mt-2 font-['Open_Sans'] text-base leading-6 text-[#1F2937]">{card.goal}</p>
+                    <p className="mt-2 font-['Open_Sans'] text-sm leading-6 text-[#1F2937] sm:text-base">{card.goal}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             <div className="mx-auto mt-8 max-w-[672px] rounded-xl px-6 py-4">
-              <p className="font-['Open_Sans'] text-lg italic leading-7 text-[#1E293B]">
+              <p className="font-['Open_Sans'] text-sm italic leading-6 text-[#1E293B] sm:text-base sm:leading-7 lg:text-lg">
                 This runs every week. Not occasionally. Religiously. A1 feeds A2. A2 enables A3.
                 <br className="hidden sm:block" />
                 Insights from A3 make A1 smarter.
@@ -645,12 +645,12 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-20 lg:py-16">
-          <div className="mx-auto max-w-[1280px] px-6">
+        <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-8 sm:py-12 lg:px-20 lg:py-16">
+          <div className="mx-auto max-w-[1280px] px-4 sm:px-6">
             <div className="flex justify-center">
               <SmallLabel>CLIENT RESULTS</SmallLabel>
             </div>
-            <h2 className="mt-10 text-center text-4xl font-extrabold leading-tight text-[#1F2937] sm:text-[40px] sm:leading-[40px]">
+            <h2 className="mt-8 text-center text-[28px] font-extrabold leading-[1.15] text-[#1F2937] sm:mt-10 sm:text-[34px] sm:leading-[1.2] lg:text-[40px] lg:leading-[40px]">
               <span>From </span>
               <span className="bg-[linear-gradient(90deg,#818CF8_0%,#C084FC_45%)] bg-clip-text text-transparent">
                 &quot;Junk Leads&quot;
@@ -670,12 +670,12 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-[#F8FAFC]">
-        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-[120px] lg:py-16">
-          <div className="mx-auto max-w-[1200px] px-6">
+        <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-8 sm:py-12 lg:px-[120px] lg:py-16">
+          <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
             <div className="flex justify-center">
               <SmallLabel>pricing</SmallLabel>
             </div>
-            <h2 className="mt-10 text-center text-4xl font-extrabold leading-tight text-transparent sm:text-[40px] sm:leading-[40px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text">
+            <h2 className="mt-8 text-center text-[28px] font-extrabold leading-[1.15] text-transparent sm:mt-10 sm:text-[34px] sm:leading-[1.2] lg:text-[40px] lg:leading-[40px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text">
               Simple, Performance-Aligned Pricing. No Surprises.
             </h2>
 
@@ -700,7 +700,7 @@ export default function DoneForYouLandingPage() {
             </div>
 
             <div className="mt-10 border-t border-[#E2E8F0] pt-10">
-              <h3 className="text-center text-2xl font-bold text-[#1E293B]">Compare to In-House:</h3>
+              <h3 className="text-center text-xl font-bold text-[#1E293B] sm:text-2xl">Compare to In-House:</h3>
               <div className="mt-8 overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white shadow-sm">
                 <div className="grid grid-cols-[1.3fr_1fr] bg-[#F8FAFC]">
                   <div className="px-6 py-4 text-xs font-bold uppercase tracking-[0.6px] text-black">Role</div>
@@ -731,19 +731,19 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-[144px] lg:py-16">
-          <div className="rounded-[24px] bg-[#0F172B] px-6 py-8 sm:px-10 lg:px-16 lg:py-12">
+        <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-8 sm:py-12 lg:px-[144px] lg:py-16">
+          <div className="rounded-[24px] bg-[#0F172B] px-5 py-7 sm:px-10 sm:py-8 lg:px-16 lg:py-12">
             <div className="max-w-[768px]">
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#007BFF] text-white">
                   <ShieldCheck className="h-6 w-6" strokeWidth={2.2} />
                 </div>
-                <h2 className="text-3xl font-bold leading-tight text-white sm:text-[36px] sm:leading-[40px]">
+                <h2 className="text-[26px] font-bold leading-[1.15] text-white sm:text-[32px] sm:leading-[1.2] lg:text-[36px] lg:leading-[40px]">
                   If We Don&apos;t Improve Your Lead Economics... We Work Free.
                 </h2>
               </div>
 
-              <p className="mt-8 font-['Open_Sans'] text-lg leading-7 text-[#CAD5E2]">
+              <p className="mt-6 font-['Open_Sans'] text-[15px] leading-6 text-[#CAD5E2] sm:mt-8 sm:text-base sm:leading-7 lg:text-lg">
                 We don&apos;t believe in unrealistic guarantees-only accountability.
               </p>
 
@@ -782,11 +782,11 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-[#F9FAFB]">
-        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-[167px] lg:py-16">
+        <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-8 sm:py-12 lg:px-[167px] lg:py-16">
           <div className="flex justify-center">
             <SmallLabel>NOT FOR EVERYONE</SmallLabel>
           </div>
-          <h2 className="mx-auto mt-10 max-w-[1106px] text-center text-4xl font-extrabold leading-tight text-transparent sm:text-[40px] sm:leading-[49px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_42.79%)] bg-clip-text">
+          <h2 className="mx-auto mt-8 max-w-[1106px] text-center text-[28px] font-extrabold leading-[1.15] text-transparent sm:mt-10 sm:text-[34px] sm:leading-[1.2] lg:text-[40px] lg:leading-[49px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_42.79%)] bg-clip-text">
             This Is for Multi-Location &amp; Online Lead Gen Brands.
             <br />
             <span className="text-black">
@@ -830,14 +830,14 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-[#F9FAFB]">
-        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-[132px] lg:py-16">
+        <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-8 sm:py-12 lg:px-[132px] lg:py-16">
           <div className="flex justify-center">
             <SmallLabel>MEET THE FOUNDERS</SmallLabel>
           </div>
-          <h2 className="mt-10 text-center text-4xl font-bold text-[#171717] sm:text-[40px] sm:leading-[60px]">
+          <h2 className="mt-8 text-center text-[28px] font-bold text-[#171717] sm:mt-10 sm:text-[34px] sm:leading-[1.2] lg:text-[40px] lg:leading-[60px]">
             The Minds Behind Acquirely
           </h2>
-          <p className="mt-3 text-center text-lg text-[#737373]">Built by Operators - Not Just Agency Owners</p>
+          <p className="mt-3 text-center text-[15px] text-[#737373] sm:text-base lg:text-lg">Built by Operators - Not Just Agency Owners</p>
 
           <div className="mt-10 grid gap-6 xl:grid-cols-2">
             {founders.map((founder) => (
@@ -848,11 +848,11 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-8 lg:px-20 lg:py-16">
+        <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-8 sm:py-12 lg:px-20 lg:py-16">
           <div className="flex justify-center">
             <SmallLabel>GOT QUESTIONS?</SmallLabel>
           </div>
-          <h2 className="mt-10 text-center text-4xl font-bold text-[#171717] sm:text-[40px] sm:leading-[48px]">
+          <h2 className="mt-8 text-center text-[28px] font-bold text-[#171717] sm:mt-10 sm:text-[34px] sm:leading-[1.2] lg:text-[40px] lg:leading-[48px]">
             Frequently Asked Questions
           </h2>
           <div className="mx-auto mt-10 max-w-[768px]">
