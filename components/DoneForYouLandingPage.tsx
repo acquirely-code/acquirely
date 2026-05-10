@@ -27,10 +27,10 @@ const hiddenCostLeft = [
   "Daily spend",
 ];
 const inHouseRoles = [
-  { role: "Meta Performance Marketer", cost: "₹80K" },
-  { role: "Creative Strategist", cost: "₹60K" },
-  { role: "Video Editor", cost: "₹40K" },
-  { role: "Graphic Designer", cost: "₹40K" },
+  { role: "A Standard Meta Ads Specialist ", cost: "₹80K" },
+  { role: "A Conventional Creative Strategist", cost: "₹60K" },
+  { role: "A Junior Video Editor ", cost: "₹40K" },
+  { role: "A Basic Graphic Designer", cost: "₹40K" },
 ];
 
 const additionalFeatures = [
@@ -472,7 +472,7 @@ export default function DoneForYouLandingPage() {
                 type="button"
                 className="mt-7 inline-flex rounded-xl bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-5 py-3.5 text-center text-sm font-bold text-white shadow-[0_20px_25px_-5px_rgba(43,127,255,0.25),0_8px_10px_-6px_rgba(43,127,255,0.25)] sm:mt-8 sm:px-8 sm:py-4 sm:text-base lg:text-lg"
               >
-                Get Leads Your Sales Team Will Love
+                👉  Get Leads Your Sales Team Will Love
               </button>
               <div className="mt-7 flex flex-col gap-2.5 font-['Open_Sans'] text-xs text-[#99A1AF] sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-6 sm:text-sm">
                 <div className="flex items-center gap-2">
@@ -682,8 +682,7 @@ export default function DoneForYouLandingPage() {
           </h2>
 
           <p className="mx-auto mt-3 max-w-[663px] font-opensans text-[15px] leading-[24px] text-[#7B8BA0] md:mt-4 md:text-[18px] md:leading-[28px]">
-            Both plans include the full A3 Flywheel system. The difference is how fast you
-            want to move and how much direct support you need.
+            It includes Structured Meta Campaign Management, Generating regular creative variations, editing UGC & influencer videos and regular monitoring & optimization.
           </p>
         </div>
 
@@ -929,7 +928,7 @@ export default function DoneForYouLandingPage() {
               type="button"
               className="mt-7 inline-flex min-h-[52px] items-center justify-center rounded-xl bg-white px-5 py-3.5 text-center text-sm font-bold text-[#0F172A] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] sm:mt-8 sm:min-h-[56px] sm:px-8 sm:py-4 sm:text-base lg:px-10 lg:text-[20px]"
             >
-              Book Your Lead Gen Growth Audit
+             👉 Book Your Lead Gen Growth Audit
             </button>
             <div className="mt-5 flex flex-col items-center justify-center gap-2 text-xs text-[#BEDBFF] sm:mt-6 sm:flex-row sm:gap-8 sm:text-sm">
               <span>No lock-in</span>
