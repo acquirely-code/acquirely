@@ -499,7 +499,7 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-[#F8FAFC]">
-        <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-8 sm:py-12 lg:px-[120px] lg:py-16">
+        <div className="mx-auto max-w-[1440px]  py-10 sm:px-8 sm:py-12 lg:px-[120px] lg:py-16">
           <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-8 px-4 sm:px-6 sm:gap-10">
             <SmallLabel>THE HIDDEN COST</SmallLabel>
             <div className="text-center">
@@ -595,7 +595,7 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-[#F8FAFC]">
-        <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-8 sm:py-12 lg:px-20 lg:py-16">
+        <div className="mx-auto max-w-[1440px]  py-10 sm:px-4 sm:py-12 lg:px-20 lg:py-16">
           <div className="mx-auto max-w-[1280px] px-4 text-center sm:px-6">
             <SmallLabel>THE A3 FRAMEWORK</SmallLabel>
             <h2 className="mx-auto mt-8 max-w-[792px] text-[28px] font-extrabold leading-[1.15] text-transparent sm:mt-10 sm:text-[34px] sm:leading-[1.2] lg:text-[40px] lg:leading-[49px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_42.79%)] bg-clip-text">
@@ -637,7 +637,7 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-8 sm:py-12 lg:px-20 lg:py-16">
+        <div className="mx-auto max-w-[1440px]  py-10 sm:px-8 sm:py-12 lg:px-20 lg:py-16">
           <div className="mx-auto max-w-[1280px] px-4 sm:px-6">
             <div className="flex justify-center">
               <SmallLabel>CLIENT RESULTS</SmallLabel>
