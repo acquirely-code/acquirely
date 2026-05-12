@@ -68,39 +68,7 @@ export default function CtaBreakPastSection() {
             {/* Right: Links & Scroll to Top */}
             <div className="flex text-center items-center justify-center gap-6 order-1 md:order-2 text-[14px] text-white/90">
             This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, This site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.
-              {/* <div className="flex items-center gap-2">
-                <Link href="privacypolicy" className="hover:text-white transition">
-                  Privacy Policy
-                </Link>
-                <span className="text-white/50">|</span>
-                <Link href="privacypolicy" className="hover:text-white transition">
-                  Terms & Conditions
-                </Link>
-                <span className="text-white/50">|</span>
-                <Link href="privacypolicy" className="hover:text-white transition">
-                  Contact Us
-                </Link>
-              </div> */}
-
-              {/* Scroll to top button */}
-              {/* <button
-                onClick={scrollToTop}
-                className="hidden md:flex h-[42px] w-[42px] items-center justify-center rounded-full bg-white text-[#101828] shadow-lg transition hover:bg-gray-200 ml-4"
-                aria-label="Scroll to top"
-              > */}
-                {/* <svg 
-                  width="20" 
-                  height="20" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2.5" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                >
-                  <path d="m18 15-6-6-6 6"/>
-                </svg>
-              </button> */}
+          
             </div>
           </div>
 

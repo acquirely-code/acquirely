@@ -3,8 +3,8 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useState, type ReactNode } from "react";
+import Link from "next/link";
 import { Check, CheckCircle2, Quote, ShieldCheck, XCircle } from "lucide-react";
-
 import flywheelImage from "@/app/assests/flywheelmodel.png";
 import kunalImage from "@/app/assests/kunalmondal.png";
 import mausamImage from "@/app/assests/mausamarora.png";
@@ -157,7 +157,7 @@ const founders = [
   },
   {
     name: "Kunal Mondal",
-    role: "Co-Founder, Acquirely",
+    role: "Founder, Acquirely",
     tag: "Performance Marketing Lead",
     image: kunalImage,
     body:
@@ -172,39 +172,44 @@ const founders = [
 
 const faqItems = [
   {
-    question: "How long before I see stable cost per qualified lead?",
+    question: "How quickly can results be seen?",
     answer:
-      "Typically 3-6 weeks to identify winning creatives/offers. Systems lock at ~90 days for full predictability.",
+      "You'll see early signals — CTR, CPM, add-to-cart rates — within the first 2 weeks. Meaningful ROAS data takes 4–6 weeks as the algorithm learns and we iterate on creatives. Anyone promising results in week one is lying.",
   },
   {
-    question: "Do you handle lead nurturing or CRM integration?",
+    question: "How soon do campaigns launch?",
     answer:
-      "Yes. We assist with GoHighLevel, HubSpot, and Salesforce integrations. We also set up automated SMS/email 'speed-to-lead' workflows to ensure no lead goes cold.",
+      "7 days from onboarding. We use that time to audit your store, set up tracking, build the first creative set, and structure campaigns properly. Fast launches without this groundwork just burn budget.",
   },
   {
-    question: "What regions can you handle?",
+    question: "What if ROAS targets aren't met?",
     answer:
-      "We operate globally, with heavy expertise in Tier-1 markets (US, UK, UAE) and the Pan-India landscape. We adapt creative strategy based on regional CPMs and local intent.",
+      "Missing ROAS is a signal, not a dead end. We run a full diagnostic — creative fatigue, audience overlap, funnel drop-offs, offer-market fit — and fix the actual problem. You get clear reasoning and faster iteration, not vague 'we're optimising' updates.",
   },
   {
-    question: "What if my product LTV is low (<Rs.50K)?",
+    question: "What kind of ecommerce brands do you work with?",
     answer:
-      "At this price point, volume is key. We focus on high-efficiency 'straight-to-sale' or automated webinar funnels to ensure your Customer Acquisition Cost (CAC) remains profitable.",
+      "DTC brands with a proven product and a functional Shopify store. Ideally you've got some organic traction or prior ad spend — it gives us data to work with. We're not the right fit for brands still validating their offer.",
   },
   {
-    question: "Do you guarantee a specific cost per lead?",
+    question: "Are creatives included?",
     answer:
-      "We don't guarantee a static CPL because market auctions fluctuate. However, we do guarantee a 'Cost Per Qualified Call/Meeting' framework to ensure you aren't paying for junk data.",
+      "Yes — static creatives with multiple hook and angle variations are included. For video, we handle the editing and testing framework but you'll need to provide the raw footage. Influencer content is a separate engagement. Either way, every creative decision is driven by data, not gut feel.",
   },
   {
-    question: "How do we start?",
+    question: "Do you offer SEO or organic social media?",
     answer:
-      "It begins with a Strategy Audit. We review your current funnel, identify bottlenecks, and if there’s a fit, we can have your first campaign live within 7-10 business days.",
+      "No. We're a paid media agency — that's intentional. Doing one thing exceptionally beats doing five things averagely. If you need SEO or organic, we'll point you to people who actually specialise in it.",
   },
   {
-    question: "What if we're already working with an agency?",
+    question: "Do you run international campaigns?",
     answer:
-      "Many of our clients use us as a performance-layer on top of their creative agency. We can run a 'Champion vs. Challenger' pilot to prove we can beat your current baseline.",
+      "Yes. We run campaigns across the US, UK, UAE, Australia, and beyond. Platform mechanics are the same globally — creative angle, offer positioning, and audience behaviour is what we adapt per market.",
+  },
+  {
+    question: "What does working with you actually look like?",
+    answer:
+      "Weekly performance reports, bi-weekly strategy calls, and a shared dashboard so you're never in the dark. You'll always know what's running, why, and what's next — no account manager runaround.",
   },
 ];
 function CheckBullet({ color = "#10B981" }: { color?: string }) {
@@ -468,12 +473,14 @@ export default function DoneForYouLandingPage() {
               <p className="mt-2 max-w-[430px] font-['Open_Sans'] text-[15px] leading-6 text-white sm:text-base sm:leading-7 lg:text-lg lg:leading-[29px]">
                 Same ad spend. Better lead quality. Higher ROI. Powered by our A3 Flywheel for Lead Gen.
               </p>
+              <Link href="https://forms.acquirely.in/acquirely/form/LeadGenFunnelReviewCall/formperma/DEijNOw1e1C4Wd8r6luSZlNxj1zQVtObr106aUYe4-0">
               <button
                 type="button"
                 className="mt-7 inline-flex rounded-xl bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-5 py-3.5 text-center text-sm font-bold text-white shadow-[0_20px_25px_-5px_rgba(43,127,255,0.25),0_8px_10px_-6px_rgba(43,127,255,0.25)] sm:mt-8 sm:px-8 sm:py-4 sm:text-base lg:text-lg"
-              >
+                >
                 👉  Get Leads Your Sales Team Will Love
               </button>
+                </Link>
               <div className="mt-7 flex flex-col gap-2.5 font-['Open_Sans'] text-xs text-[#99A1AF] sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-6 sm:text-sm">
                 <div className="flex items-center gap-2">
                   <Check className="h-4 w-4 text-[#2B7FFF]" strokeWidth={2.5} />
@@ -690,7 +697,7 @@ export default function DoneForYouLandingPage() {
         <div className="mb-10 grid gap-4 sm:grid-cols-2 md:mb-12 md:gap-6">
           <div className="flex flex-col items-center justify-center rounded-[8px] bg-[#F4F7FF] px-4 py-8 text-center md:px-6 md:py-10">
             <p className="mb-1 text-[14px] text-[#7B8BA0] md:mb-2 md:text-[18px]">For ₹3L–₹10L ad spend</p>
-            <p className="mb-1 text-[32px] font-bold leading-tight text-black md:mb-2 md:text-[45px] md:leading-[45px]">₹75,000</p>
+            <p className="mb-1 text-[32px] font-bold leading-tight text-black md:mb-2 md:text-[45px] md:leading-[45px]">₹50,000</p>
             <p className="text-[16px] text-[#7B8BA0] md:text-[24px]">+ GST</p>
           </div>
           
@@ -924,16 +931,23 @@ export default function DoneForYouLandingPage() {
               <br className="hidden sm:block" />
               Stop optimizing for volume. Start optimizing for qualified leads.
             </p>
+            <Link href="https://forms.acquirely.in/acquirely/form/LeadGenFunnelReviewCall/formperma/DEijNOw1e1C4Wd8r6luSZlNxj1zQVtObr106aUYe4-0">
+            
             <button
               type="button"
               className="mt-7 inline-flex min-h-[52px] items-center justify-center rounded-xl bg-white px-5 py-3.5 text-center text-sm font-bold text-[#0F172A] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] sm:mt-8 sm:min-h-[56px] sm:px-8 sm:py-4 sm:text-base lg:px-10 lg:text-[20px]"
             >
              👉 Book Your Lead Gen Growth Audit
             </button>
+              </Link>
             <div className="mt-5 flex flex-col items-center justify-center gap-2 text-xs text-[#BEDBFF] sm:mt-6 sm:flex-row sm:gap-8 sm:text-sm">
               <span>No lock-in</span>
               <span>75-day risk reversal</span>
               <span>Full transparency</span>
+            </div>
+              <div className="flex text-center mt-4 items-center justify-center gap-6 order-1 md:order-2 text-[14px] text-white/90">
+            This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, This site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.
+          
             </div>
             </div>
           </div>
