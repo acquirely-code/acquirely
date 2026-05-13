@@ -984,6 +984,7 @@ export default function DoneForYouLandingPage() {
               <span>75-day risk reversal</span>
               <span>Full transparency</span>
             </div>
+            <div className="md:mt-24 mt-4 border-t border-white/20 pt-8 flex flex-col gap-6"></div>
               <div className="flex text-center mt-12 items-center justify-center gap-6 order-1 md:order-2 md:text-[16px] text-[12px] text-white/90">
             This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, This site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.
           
