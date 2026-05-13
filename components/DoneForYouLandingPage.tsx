@@ -507,7 +507,7 @@ export default function DoneForYouLandingPage() {
 
       {/* 3. SUBTEXT & CTA: Order 3 on Mobile, but back to Column 1 on Desktop */}
       <div className="order-3 lg:col-start-1 lg:row-start-2">
-        <h2 className="mt-6 font-['Open_Sans'] text-xl font-semibold text-white sm:mt-8 sm:text-2xl">We Fix It.</h2>
+        <h2 className="mt-6 font-['Open_Sans'] text-xl font-semibold text-white sm:mt-0 sm:text-2xl">We Fix It.</h2>
         <p className="mt-2 max-w-[430px] font-['Open_Sans'] text-[15px] leading-6 text-white sm:text-base sm:leading-7 lg:text-lg lg:leading-[29px]">
           Same ad spend. Better lead quality. Higher ROI. Powered by our A3 Flywheel for Lead Gen.
         </p>
