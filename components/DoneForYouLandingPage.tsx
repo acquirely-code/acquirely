@@ -10,6 +10,7 @@ import kunalImage from "@/app/assests/kunalmondal.png";
 import mausamImage from "@/app/assests/mausamarora.png";
 import { Target, BarChart3, ClipboardEdit, IndianRupee } from "lucide-react";
 import { ShieldCheck, TrendingUp, UserCheck, Zap } from "lucide-react";
+import { Pointer } from 'lucide-react';
 
 const WistiaPlayer = dynamic(() => import("@/components/WistiaPlayer"), {
   ssr: false,
@@ -516,7 +517,7 @@ export default function DoneForYouLandingPage() {
             type="button"
             className="mt-7 inline-flex rounded-xl bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-5 py-3.5 text-center text-sm font-bold text-white shadow-[0_20px_25px_-5px_rgba(43,127,255,0.25),0_8px_10px_-6px_rgba(43,127,255,0.25)] sm:mt-8 sm:px-8 sm:py-4 sm:text-base lg:text-lg"
           >
-            👉 Get Leads Your Sales Team Will Love
+        <span className="rotate-90 "><Pointer/></span><span className="pl-2">Get Leads Your Sales Team Will Love</span>
           </button>
         </Link>
         
@@ -789,7 +790,7 @@ export default function DoneForYouLandingPage() {
             And that still doesn't include:
           </h4>
           
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-4 md:gap-8">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-4 md:gap-8">
             {additionalFeatures.map((feature, index) => (
               <div key={index} className="flex flex-col items-center">
                 <div className="mb-3 flex h-[40px] w-[40px] items-center justify-center rounded-[6px] bg-[#FBDEDE] md:mb-5 md:h-[45px] md:w-[46px]">
@@ -954,17 +955,17 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-[#0F172A]">
-        <div className="mx-auto max-w-[1540px]  py-12 sm:px-2 sm:py-16 lg:px-[170px] lg:py-20">
+        <div className="mx-auto max-w-[1640px]  py-4 sm:px-2 sm:py-16 lg:px-[170px] lg:py-4">
           <div className="px-2 py-8 sm:px-2 sm:py-12">
-            <div className="mx-auto max-w-[1225px] px-2 py-6 text-center sm:px-8 sm:py-10">
-            <h2 className="mx-auto max-w-[1225px] text-[22px] font-bold leading-[1.15] text-white sm:text-[38px] sm:leading-[1.15] lg:text-[48px] lg:leading-[59px]">
+            <div className="mx-auto max-w-[1425px] px-2 py-6 text-center sm:px-8 sm:py-10">
+            <h2 className="mx-auto max-w-[1425px] text-[22px] font-bold leading-[1.15] text-white sm:text-[38px] sm:leading-[1.15] lg:text-[48px] lg:leading-[59px]">
               <span>Ready to Turn </span>
               <span className="bg-[linear-gradient(90deg,#A78BFA_0%,#F97316_100%)] bg-clip-text text-transparent">
                 &quot;Junk Leads&quot;
               </span>
               <span> Into a Predictable Pipeline?</span>
             </h2>
-            <p className="mx-auto mt-5 max-w-[610px] font-['Open_Sans'] text-[12px] leading-6 text-[#DBEAFE] sm:mt-6 sm:text-[18px] sm:leading-8 lg:text-[20px] lg:leading-9">
+            <p className="mx-auto mt-5 max-w-[1010px] font-['Open_Sans'] text-[12px] leading-6 text-[#DBEAFE] sm:mt-6 sm:text-[18px] sm:leading-8 lg:text-[20px] lg:leading-9">
               If you&apos;re a pan-India, multi-location, or online lead gen brand spending Rs.3L+ monthly
               on Facebook Ads...
               <br className="hidden sm:block" />
@@ -976,7 +977,7 @@ export default function DoneForYouLandingPage() {
               type="button"
               className="mt-7 inline-flex min-h-[52px] items-center justify-center rounded-xl bg-white px-4 py-3.5 text-center text-[12px] font-bold text-[#0F172A] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] sm:mt-8 sm:min-h-[56px] sm:px-8 sm:py-4 sm:text-base lg:px-10 lg:text-[20px]"
             >
-             👉 Book Your Lead Gen Growth Audit
+             <span className="rotate-90 "><Pointer/></span> <span className="pl-2">Book Your Lead Gen Growth Audit</span>
             </button>
               </Link>
             <div className="mt-5 flex flex-col items-center justify-center gap-2 text-xs text-[#BEDBFF] sm:mt-6 sm:flex-row sm:gap-8 sm:text-sm">
@@ -984,8 +985,8 @@ export default function DoneForYouLandingPage() {
               <span>75-day risk reversal</span>
               <span>Full transparency</span>
             </div>
-            <div className="md:mt-24 mt-4 border-t border-white/20 pt-8 flex flex-col gap-6"></div>
-              <div className="flex text-center mt-12 items-center justify-center gap-6 order-1 md:order-2 md:text-[16px] text-[12px] text-white/90">
+            <div className="md:mt-8 mt-4 border-t border-white/20 pt-8 flex flex-col gap-6"></div>
+              <div className="flex text-center mt-6 items-center justify-center gap-6 order-1 md:order-2 md:text-[16px] text-[12px] text-white/90">
             This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, This site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.
           
             </div>
