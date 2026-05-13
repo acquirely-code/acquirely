@@ -4,10 +4,12 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useState, type ReactNode } from "react";
 import Link from "next/link";
-import { Check, CheckCircle2, Quote, ShieldCheck, XCircle } from "lucide-react";
+import { Check, CheckCircle2, Quote,  XCircle } from "lucide-react";
 import flywheelImage from "@/app/assests/flywheelmodel.png";
 import kunalImage from "@/app/assests/kunalmondal.png";
 import mausamImage from "@/app/assests/mausamarora.png";
+import { Target, BarChart3, ClipboardEdit, IndianRupee } from "lucide-react";
+import { ShieldCheck, TrendingUp, UserCheck, Zap } from "lucide-react";
 
 const WistiaPlayer = dynamic(() => import("@/components/WistiaPlayer"), {
   ssr: false,
@@ -21,10 +23,22 @@ const WistiaPlayer = dynamic(() => import("@/components/WistiaPlayer"), {
 import logo from "@/app/assests/logo.png";
 
 const hiddenCostLeft = [
-  "Cost per lead (CPL)",
-  "Lead volume",
-  "Form fills",
-  "Daily spend",
+  { 
+    label: "Cost per lead (CPL)", 
+    icon: <Target className="h-4 w-4 text-[#FF6467]" /> 
+  },
+  { 
+    label: "Lead volume", 
+    icon: <BarChart3 className="h-4 w-4 text-[#FF6467]" /> 
+  },
+  { 
+    label: "Form fills", 
+    icon: <ClipboardEdit className="h-4 w-4 text-[#FF6467]" /> 
+  },
+  { 
+    label: "Daily spend", 
+    icon: <IndianRupee className="h-4 w-4 text-[#FF6467]" /> 
+  },
 ];
 const inHouseRoles = [
   { role: "A Standard Meta Ads Specialist ", cost: "₹80K" },
@@ -40,10 +54,22 @@ const additionalFeatures = [
 ];
 
 const hiddenCostRight = [
-  "Cost per qualified lead (CPQL)",
-  "Lead-to-close rate",
-  "Sales-accepted leads",
-  "Predictable pipeline",
+  { 
+    label: "Cost per qualified lead (CPQL)", 
+    icon: <ShieldCheck className="h-4 w-4 text-[#10B981]" /> 
+  },
+  { 
+    label: "Lead-to-close rate", 
+    icon: <TrendingUp className="h-4 w-4 text-[#10B981]" /> 
+  },
+  { 
+    label: "Sales-accepted leads", 
+    icon: <UserCheck className="h-4 w-4 text-[#10B981]" /> 
+  },
+  { 
+    label: "Predictable pipeline", 
+    icon: <Zap className="h-4 w-4 text-[#10B981]" /> 
+  },
 ];
 
 const marketShiftItems = [
@@ -57,7 +83,7 @@ const flywheelCards = [
   {
     badge: "A1",
     badgeClass: "from-[#686CF2] to-[#7A84F6]",
-    title: "A1 - Testing to Scale",
+    title: "🔰 A1 — Testing → Scale",
     body: "Launch structured tests: multiple creatives, offers, regional angles. Winners flow immediately to a dedicated scale campaign.",
     goalColor: "text-[#2563EB]",
     goal: "Find lead magnets that convert. Isolate. Pour budget.",
@@ -65,7 +91,7 @@ const flywheelCards = [
   {
     badge: "A2",
     badgeClass: "from-[#FA781C] to-[#FA8D36]",
-    title: "A2 - Lock & Scale Aggressively",
+    title: "⚙️ A2 — Lock & Scale Aggressively",
     body: "After ~90 days, we lock cost per qualified lead. No more fluctuations. Then drastically scale ad spend across regions.",
     goalColor: "text-[#7C3AED]",
     goal: "Predictable volume. Aggressive growth.",
@@ -73,7 +99,7 @@ const flywheelCards = [
   {
     badge: "A3",
     badgeClass: "from-[#2ECF95] to-[#14BC84]",
-    title: "A3 - Micro Analysis & Redistribution",
+    title: "🔬 A3 — Micro Analysis & Redistribution",
     body: "Analyze by day of week, hour, region. Redistribute budget to high-performing segments daily.",
     goalColor: "text-[#10B981]",
     goal: "Squeeze every rupee from your lead budget.",
@@ -452,59 +478,67 @@ function FaqAccordion() {
 export default function DoneForYouLandingPage() {
   return (
     <main className="bg-white text-[#1F2937]">
-      <section className="bg-[linear-gradient(115.83deg,#0F0C29_0%,#1A1560_40%,#24243E_100%)]">
-        <div className="mx-auto max-w-[1440px] px-4 pb-10 pt-7 sm:px-8 sm:pb-12 lg:px-20 lg:pb-16">
-        <div className="text-xl font-extrabold text-white sm:text-2xl">
-            <Image src={logo} alt="Acquirely Logo" className="h-10 w-auto" />
-          </div>
-          <div className="mt-8 grid items-center gap-8 lg:mt-10 lg:grid-cols-[1.02fr_0.98fr]">
-            <div>
-              <h1 >
-                <span className="max-w-[623px] text-[30px] font-extrabold leading-[1.12] tracking-[-0.5px] text-transparent sm:text-[40px] sm:leading-[1.15] lg:text-[48px] lg:leading-[60px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text" >
+<section className="bg-[linear-gradient(115.83deg,#0F0C29_0%,#1A1560_40%,#24243E_100%)]">
+  <div className="mx-auto max-w-[1440px] px-4 pb-10 pt-7 sm:px-8 sm:pb-12 lg:px-20 lg:pb-16">
+    <Image src={logo} alt="Acquirely Logo" className="h-8 w-auto" />
 
-                Running Facebook Ads for Leads! 
-                </span>
-                <span className="max-w-[623px] pl-1.5 text-[30px] font-extrabold leading-[1.12] tracking-[-0.5px] text-white sm:pl-2 sm:text-[40px] sm:leading-[1.15] lg:text-[48px] lg:leading-[60px]">
-  But Your Sales Team Calls Them Junk
-                </span>
-              </h1>
-            
-              <h2 className="mt-6 font-['Open_Sans'] text-xl font-semibold text-white sm:mt-8 sm:text-2xl">We Fix It.</h2>
-              <p className="mt-2 max-w-[430px] font-['Open_Sans'] text-[15px] leading-6 text-white sm:text-base sm:leading-7 lg:text-lg lg:leading-[29px]">
-                Same ad spend. Better lead quality. Higher ROI. Powered by our A3 Flywheel for Lead Gen.
-              </p>
-              <Link href="https://forms.acquirely.in/acquirely/form/LeadGenFunnelReviewCall/formperma/DEijNOw1e1C4Wd8r6luSZlNxj1zQVtObr106aUYe4-0">
-              <button
-                type="button"
-                className="mt-7 inline-flex rounded-xl bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-5 py-3.5 text-center text-sm font-bold text-white shadow-[0_20px_25px_-5px_rgba(43,127,255,0.25),0_8px_10px_-6px_rgba(43,127,255,0.25)] sm:mt-8 sm:px-8 sm:py-4 sm:text-base lg:text-lg"
-                >
-                👉  Get Leads Your Sales Team Will Love
-              </button>
-                </Link>
-              <div className="mt-7 flex flex-col gap-2.5 font-['Open_Sans'] text-xs text-[#99A1AF] sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-6 sm:text-sm">
-                <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-[#2B7FFF]" strokeWidth={2.5} />
-                  <span>Rs.30Cr+ Ad Spend Managed</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-[#2B7FFF]" strokeWidth={2.5} />
-                  <span>9+ Regions Active</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-[#2B7FFF]" strokeWidth={2.5} />
-                  <span>75-Day Risk Reversal</span>
-                </div>
-              </div>
-            </div>
-            <div className="mx-auto w-full max-w-[611px]">
-              <div className="overflow-hidden rounded-lg bg-white/10 shadow-2xl">
-                <WistiaPlayer mediaId="nm2ou94x6d" />
-              </div>
-            </div>
+    {/* The Container: Define areas for mobile and reset for desktop */}
+    <div className="mt-8 grid grid-cols-1 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-12">
+      
+      {/* 1. MAIN HEADING: Order 1 on Mobile */}
+      <div className="order-1 lg:col-start-1">
+        <h1>
+          <span className="max-w-[623px] text-[30px] font-extrabold leading-[1.12] tracking-[-0.5px] text-transparent sm:text-[40px] sm:leading-[1.15] lg:text-[48px] lg:leading-[60px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text">
+            Running Facebook Ads for Leads! 
+          </span>
+          <span className="max-w-[623px] pl-1.5 text-[30px] font-extrabold leading-[1.12] tracking-[-0.5px] text-white sm:pl-2 sm:text-[40px] sm:leading-[1.15] lg:text-[48px] lg:leading-[60px]">
+            But Your Sales Team Calls Them Junk
+          </span>
+        </h1>
+      </div>
+
+      {/* 2. THE VIDEO: Order 2 on Mobile, but Column 2 on Desktop */}
+      <div className="order-2 mt-8 lg:mt-0 lg:col-start-2 lg:row-start-1 lg:row-span-2">
+        <div className="mx-auto w-full max-w-[611px] overflow-hidden rounded-lg bg-white/10 shadow-2xl">
+          <WistiaPlayer mediaId="nm2ou94x6d" />
+        </div>
+      </div>
+
+      {/* 3. SUBTEXT & CTA: Order 3 on Mobile, but back to Column 1 on Desktop */}
+      <div className="order-3 lg:col-start-1 lg:row-start-2">
+        <h2 className="mt-6 font-['Open_Sans'] text-xl font-semibold text-white sm:mt-8 sm:text-2xl">We Fix It.</h2>
+        <p className="mt-2 max-w-[430px] font-['Open_Sans'] text-[15px] leading-6 text-white sm:text-base sm:leading-7 lg:text-lg lg:leading-[29px]">
+          Same ad spend. Better lead quality. Higher ROI. Powered by our A3 Flywheel for Lead Gen.
+        </p>
+        
+        <Link href="https://forms.acquirely.in/acquirely/form/LeadGenFunnelReviewCall/formperma/DEijNOw1e1C4Wd8r6luSZlNxj1zQVtObr106aUYe4-0">
+          <button
+            type="button"
+            className="mt-7 inline-flex rounded-xl bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-5 py-3.5 text-center text-sm font-bold text-white shadow-[0_20px_25px_-5px_rgba(43,127,255,0.25),0_8px_10px_-6px_rgba(43,127,255,0.25)] sm:mt-8 sm:px-8 sm:py-4 sm:text-base lg:text-lg"
+          >
+            👉 Get Leads Your Sales Team Will Love
+          </button>
+        </Link>
+        
+        <div className="mt-7 flex flex-col gap-2.5 font-['Open_Sans'] text-xs text-[#99A1AF] sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-6 sm:text-sm">
+          <div className="flex items-center gap-2">
+            <Check className="h-4 w-4 text-[#2B7FFF]" strokeWidth={2.5} />
+            <span>Rs.30Cr+ Ad Spend Managed</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Check className="h-4 w-4 text-[#2B7FFF]" strokeWidth={2.5} />
+            <span>9+ Regions Active</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Check className="h-4 w-4 text-[#2B7FFF]" strokeWidth={2.5} />
+            <span>75-Day Risk Reversal</span>
           </div>
         </div>
-      </section>
-
+      </div>
+      
+    </div>
+  </div>
+</section>
       <section className="bg-[#F8FAFC]">
         <div className="mx-auto max-w-[1440px]  py-10 sm:px-8 sm:py-12 lg:px-[120px] lg:py-16">
           <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-8 px-4 sm:px-6 sm:gap-10">
@@ -527,9 +561,9 @@ export default function DoneForYouLandingPage() {
                 </div>
                 <div className="mt-6 space-y-4">
                   {hiddenCostLeft.map((item) => (
-                    <div key={item} className="flex items-center justify-between rounded-xl bg-[#F8FAFC] px-3 py-3">
-                      <span className="font-['Open_Sans'] text-sm text-[#1E293B] sm:text-base">{item}</span>
-                      <span className="text-[#FF6467]">-</span>
+                    <div key={item.label} className="flex items-center justify-between rounded-xl bg-[#F8FAFC] px-3 py-3">
+                      <span className="font-['Open_Sans'] text-sm text-[#1E293B] sm:text-base">{item.label}</span>
+                      <span className="text-[#FF6467]">{item.icon}</span>
                     </div>
                   ))}
                 </div>
@@ -542,9 +576,9 @@ export default function DoneForYouLandingPage() {
                 </div>
                 <div className="mt-6 space-y-4">
                   {hiddenCostRight.map((item) => (
-                    <div key={item} className="flex items-center justify-between rounded-xl bg-[rgba(240,253,244,0.5)] px-3 py-3">
-                      <span className="font-['Open_Sans'] text-sm text-[#1E293B] sm:text-base">{item}</span>
-                      <span className="text-[#10B981]">o</span>
+                    <div key={item.label} className="flex items-center justify-between rounded-xl bg-[rgba(240,253,244,0.5)] px-3 py-3">
+                      <span className="font-['Open_Sans'] text-sm text-[#1E293B] sm:text-base">{item.label}</span>
+                      <span className="text-[#10B981]">{item.icon}</span>
                     </div>
                   ))}
                 </div>
@@ -818,11 +852,16 @@ export default function DoneForYouLandingPage() {
               </div>
 
               <div className="mt-8 grid gap-4 md:grid-cols-2">
-                <div className="rounded-xl border border-[rgba(0,255,170,0.5)] bg-[rgba(16,185,129,0.05)] px-6 py-5 font-['Open_Sans'] text-sm leading-5 text-white">
-                  Work the next month at zero management fee to fix performance
+       
+                <div className="rounded-xl flex border border-[rgba(0,255,170,0.5)] bg-[rgba(16,185,129,0.05)] px-6 py-5 font-['Open_Sans'] text-sm leading-5 text-white">
+                            <CheckCircle2 className="h-10 w-10 flex text-[#10B981]" strokeWidth={2.2} />
+                  <div className="flex px-4">Work the next month at zero management fee to fix performance</div>
                 </div>
-                <div className="rounded-xl border border-[rgba(0,255,170,0.5)] bg-[rgba(16,185,129,0.05)] px-6 py-5 font-['Open_Sans'] text-sm leading-5 text-white">
-                  End the engagement with a clean, no-lock-in exit and full learning handover
+                <div className="rounded-xl flex border border-[rgba(0,255,170,0.5)] bg-[rgba(16,185,129,0.05)] px-6 py-5 font-['Open_Sans'] text-sm leading-5 text-white">
+                  <CheckCircle2 className="h-10 w-10 flex text-[#10B981]" strokeWidth={2.2} />
+                 <div className="flex px-4">
+                   End the engagement with a clean, no-lock-in exit and full learning handover
+                 </div>
                 </div>
               </div>
 
@@ -915,17 +954,17 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-[#0F172A]">
-        <div className="mx-auto max-w-[1440px] px-4 py-12 sm:px-8 sm:py-16 lg:px-[170px] lg:py-20">
-          <div className="px-4 py-8 sm:px-8 sm:py-12">
+        <div className="mx-auto max-w-[1540px]  py-12 sm:px-2 sm:py-16 lg:px-[170px] lg:py-20">
+          <div className="px-2 py-8 sm:px-2 sm:py-12">
             <div className="mx-auto max-w-[1225px] px-2 py-6 text-center sm:px-8 sm:py-10">
-            <h2 className="mx-auto max-w-[1225px] text-[28px] font-bold leading-[1.15] text-white sm:text-[38px] sm:leading-[1.15] lg:text-[48px] lg:leading-[59px]">
+            <h2 className="mx-auto max-w-[1225px] text-[22px] font-bold leading-[1.15] text-white sm:text-[38px] sm:leading-[1.15] lg:text-[48px] lg:leading-[59px]">
               <span>Ready to Turn </span>
               <span className="bg-[linear-gradient(90deg,#A78BFA_0%,#F97316_100%)] bg-clip-text text-transparent">
                 &quot;Junk Leads&quot;
               </span>
               <span> Into a Predictable Pipeline?</span>
             </h2>
-            <p className="mx-auto mt-5 max-w-[610px] font-['Open_Sans'] text-[15px] leading-6 text-[#DBEAFE] sm:mt-6 sm:text-[18px] sm:leading-8 lg:text-[20px] lg:leading-9">
+            <p className="mx-auto mt-5 max-w-[610px] font-['Open_Sans'] text-[12px] leading-6 text-[#DBEAFE] sm:mt-6 sm:text-[18px] sm:leading-8 lg:text-[20px] lg:leading-9">
               If you&apos;re a pan-India, multi-location, or online lead gen brand spending Rs.3L+ monthly
               on Facebook Ads...
               <br className="hidden sm:block" />
@@ -935,7 +974,7 @@ export default function DoneForYouLandingPage() {
             
             <button
               type="button"
-              className="mt-7 inline-flex min-h-[52px] items-center justify-center rounded-xl bg-white px-5 py-3.5 text-center text-sm font-bold text-[#0F172A] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] sm:mt-8 sm:min-h-[56px] sm:px-8 sm:py-4 sm:text-base lg:px-10 lg:text-[20px]"
+              className="mt-7 inline-flex min-h-[52px] items-center justify-center rounded-xl bg-white px-4 py-3.5 text-center text-[12px] font-bold text-[#0F172A] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] sm:mt-8 sm:min-h-[56px] sm:px-8 sm:py-4 sm:text-base lg:px-10 lg:text-[20px]"
             >
              👉 Book Your Lead Gen Growth Audit
             </button>
@@ -945,7 +984,7 @@ export default function DoneForYouLandingPage() {
               <span>75-day risk reversal</span>
               <span>Full transparency</span>
             </div>
-              <div className="flex text-center mt-4 items-center justify-center gap-6 order-1 md:order-2 text-[14px] text-white/90">
+              <div className="flex text-center mt-12 items-center justify-center gap-6 order-1 md:order-2 md:text-[16px] text-[12px] text-white/90">
             This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, This site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.
           
             </div>
