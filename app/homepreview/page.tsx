@@ -1,189 +1,530 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Star from "@/app/assests/starnew.png";
 import Image from "next/image";
-import flywheelImage from "@/app/assests/flywheelmodel.png";
-import Video1 from "@/app/assests/video1.png"
-import video2 from "@/app/assests/video2.png"
-import video3 from "@/app/assests/video3.png"
+import Video1 from "@/app/assests/video1.png";
+import video2 from "@/app/assests/video2.png";
+import video3 from "@/app/assests/video3.png";
+import Client1 from "@/app/assests/founder1.png";
+import Client2 from "@/app/assests/founder2.png";
+import Client3 from "@/app/assests/founder3.png";
+import Client4 from "@/app/assests/founder4.png";
+import Clinet5 from "@/app/assests/founder5.png";
+import mainheroimage from "@/app/assests/mainheroimage.png";
+import retroverse from "@/app/assests/retroverse.png";
+import modish from "@/app/assests/modish.png";
+import Nostrain from "@/app/assests/Nostrain.png";
 
 import {
   ArrowRight,
-  BarChart3,
   Check,
-  ChevronRight,
   LayoutDashboard,
-  Play,
   Search,
   Activity,
-  Layers,
-  Fuel,
   Zap,
-  ArrowUpWideNarrow ,
+  TrendingUp,
+  MousePointerClick,
+  Filter,
+  CheckCircle2,
+  RefreshCcw,
+  FlaskConical,
+  Trophy,
 } from "lucide-react";
-const services = [
-  { title: "Meta Ads Management", icon: <LayoutDashboard className="h-6 w-6" /> },
-  { title: "Google Ads Management", icon: <Search className="h-6 w-6" /> },
-  { title: "Ad Creatives Strategy & Testing", icon: <Zap className="h-6 w-6" /> },
-  { title: "Funnel Optimisation", icon: <ArrowUpWideNarrow  className="h-6 w-6" /> },
-  { title: "Conversion Improvements", icon: <Activity className="h-6 w-6" /> },
-  { title: "Scaling Frameworks", icon: <Layers className="h-6 w-6" /> },
+
+// --- DATA SCULPTING BASED ON SCREENSHOTS ---
+
+const servicesData = [
+  {
+    id: 1,
+    title: "Meta Ads Management",
+    desc: "We run structured A/B tests across audiences, creatives, and offers — letting data pick your winners, not gut feel.",
+    badge: "↗ Avg. ROAS lift: 1.8-2.4x in 60 days",
+    category: "Paid ads",
+    icon: <LayoutDashboard className="h-6 w-6" />,
+    number: "01"
+  },
+  {
+    id: 2,
+    title: "Google Ads Management",
+    desc: "Search, Shopping, and Performance Max — tuned for purchase intent, not just clicks. Every rupee tracked to revenue.",
+    badge: "↗ Lower CPAs with intent-first targeting",
+    category: "Paid ads",
+    icon: <Search className="h-6 w-6" />,
+    number: "02"
+  },
+  {
+    id: 3,
+    title: "Ad Creative Strategy & Testing",
+    desc: "15+ creatives tested monthly. UGC, static, motion — we find the one that scales and build more of it.",
+    badge: "↗ Proven creative reduces CPM by 30-40%",
+    category: "Scale",
+    icon: <Zap className="h-6 w-6" />,
+    number: "03"
+  },
+  {
+    id: 4,
+    title: "Funnel Optimisation",
+    desc: "Landing page, checkout, post-purchase — we audit and fix every drop-off point so your ad spend isn't leaking.",
+    badge: "↗ Avg. 20-35% CVR improvement",
+    category: "Funnel",
+    icon: <Filter className="h-6 w-6" />,
+    number: "04"
+  },
+  {
+    id: 5,
+    title: "Conversion Improvements",
+    desc: "CRO, offer framing, social proof placement — the small shifts that turn a 2% converter into a 4% converter.",
+    badge: "↗ More revenue, same ad budget",
+    category: "Funnel",
+    icon: <Activity className="h-6 w-6" />,
+    number: "05"
+  },
+  {
+    id: 6,
+    title: "Scaling Frameworks",
+    desc: "Our A3 model: test winners feed scale campaigns. No random budget hikes — a structured path from ₹10L to ₹1Cr/month.",
+    badge: "↗ Modish: ROAS 2.31 → 3.53 in 90 days",
+    category: "Scale",
+    icon: <TrendingUp className="h-6 w-6" />,
+    number: "06"
+  },
 ];
 
-const studies = [
-  "Retroverse- ROAS 2.5 to 4.39",
-  "Modish- ROAS 1.43 to 2.34",
-  "No Strain ROAS ___ to",
-  "Ayurveda ____ to_",
+const resultsCards = [
+  {
+    id: 1,
+    title: "Predictable ROAS",
+    desc: "You'll know what you're getting before we scale. No more guessing if this month will be profitable.",
+    badge: "Retroverse: 2.43x → 4.68x",
+    icon: <TrendingUp className="h-5 w-5 text-[#6366F1]" />
+  },
+  {
+    id: 2,
+    title: "Creatives that scale",
+    desc: "A constant pipeline of tested winners — UGC, static, motion — so you never run the same tired ad twice.",
+    badge: "15+ tested per month",
+    icon: <Zap className="h-5 w-5 text-[#F97316]" />
+  },
+  {
+    id: 3,
+    title: "A funnel that converts",
+    desc: "We audit every drop-off point — landing page, checkout, post-purchase — and fix the leaks before scaling spend.",
+    badge: "Avg. 20-35% CVR lift",
+    icon: <Filter className="h-5 w-5 text-[#10B981]" />
+  },
+  {
+    id: 4,
+    title: "Full transparency",
+    desc: "Weekly reports, live dashboards, no black-box reporting. You always know exactly where your money is going.",
+    badge: "Modish: \"transparency is unmatched\"",
+    icon: <Search className="h-5 w-5 text-[#3B82F6]" />
+  },
+  {
+    id: 5,
+    title: "A path to ₹1Cr/month",
+    desc: "Our A3 model gives you a structured, data-backed road from ₹10L to ₹1Cr monthly — not just ad spend, real revenue.",
+    badge: "Modish: ROAS 2.31x → 3.53x",
+    icon: <TrendingUp className="h-5 w-5 text-[#F43F5E]" />
+  },
+  {
+    id: 6,
+    title: "A system that compounds",
+    desc: "Every winner feeds the next test. Every test feeds the next scale. The longer you run it, the better it gets.",
+    badge: "NoStrain: 1.36x → 2.65x",
+    icon: <RefreshCcw className="h-5 w-5 text-[#14B8A6]" />
+  }
+];
+
+const a3Phases = [
+  {
+    id: 1,
+    phase: "PHASE 1",
+    title: "Test",
+    desc: "Run 15+ creative variants across audiences. Let data pick — not opinions.",
+    badge: "15+ creatives/month",
+    icon: <FlaskConical className="h-5 w-5 text-[#818CF8]" />
+  },
+  {
+    id: 2,
+    phase: "PHASE 2",
+    title: "Winners",
+    desc: "Proven creatives graduate to dedicated scale campaigns. Zero guesswork.",
+    badge: "Top 20% move forward",
+    icon: <Trophy className="h-5 w-5 text-[#F97316]" />
+  },
+  {
+    id: 3,
+    phase: "PHASE 3",
+    title: "Scale",
+    desc: "Budget flows to what's working. Interests stacked, spend compounded.",
+    badge: "ROAS 2x-4x in 90 days",
+    icon: <TrendingUp className="h-5 w-5 text-[#10B981]" />
+  }
+];
+
+const caseStudiesData = [
+  { logo: retroverse, alt: "Retroverse", roas: "ROAS 2.43 to 4.68" },
+  { logo: modish, alt: "Modish", roas: "ROAS 2.31 to 3.53" },
+  { logo: Nostrain, alt: "No Strain", roas: "ROAS 1.36 to 2.65" },
 ];
 
 const testimonials = [
   { image: Video1, role: "Founder, Retroverse" },
   { image: video2, role: "Marketing Head, Modish" },
-  { image: video3 , role: "CEO, No Strain" },
+  { image: video3, role: "CEO, No Strain" },
 ];
 
 export default function HomePage() {
+  // State for interactivity
+  const [activeTab, setActiveTab] = useState("All services");
+  const [activeServiceCard, setActiveServiceCard] = useState(1);
+  const [activePhase, setActivePhase] = useState(2); // Default to middle card
+
+  const tabs = ["All services", "Paid ads", "Funnel", "Scale"];
+
+  const filteredServices = servicesData.filter(
+    (service) => activeTab === "All services" || service.category === activeTab
+  );
+
   return (
     <main className="overflow-hidden bg-white text-[#0F172A]">
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden bg-[linear-gradient(115.83deg,#0F0C29_0%,#1A1560_40%,#24243E_100%)]">
-        <div className="mx-auto max-w-[1440px] px-4 pb-16 pt-6 md:px-8 md:pb-24 md:pt-10 lg:px-20 lg:pb-32">
-          
+      <section className="relative overflow-hidden bg-white pb-[160px] pt-[96px]">
+        {/* Premium Background Layers */}
+        <div className="absolute right-[-5%] top-[-10%] z-0 h-[600px] w-[600px] rounded-full bg-blue-600/10 blur-[60px]"></div>
+        <div className="absolute bottom-[-10%] left-[-5%] z-0 h-[600px] w-[600px] rounded-full bg-purple-500/10 blur-[50px]"></div>
+
+        <div className="relative z-10 mx-auto max-w-[1440px] px-[80px]">
           <Navbar />
 
-          {/* HERO CONTENT */}
-          <div className="mx-auto mt-16 max-w-[980px] text-center md:mt-28">
-            <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-              Scale Profitably With
-              <br className="hidden sm:block" />
-              {" "}A Proven
-              <span className="bg-gradient-to-r from-[#818CF8] to-[#F97316] bg-clip-text text-transparent">
-                {" "}
-                Performance
-              </span>
-              <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-[#818CF8] to-[#F97316] bg-clip-text text-transparent">
-                {" "}Marketing Agency
-              </span>
-            </h1>
+          <div className="mt-12 grid items-center gap-12 lg:grid-cols-12 lg:mt-20">
+            {/* Left Content Column */}
+            <div className="flex flex-col items-center text-center lg:col-span-7 lg:items-start lg:text-left">
+              <h1 className="font-Montserrat text-4xl font-extrabold leading-[1.1] tracking-tight text-[#0F172A] sm:text-5xl md:text-6xl lg:text-6xl xl:text-6xl">
+                Scale Profitably With A
+                <span className="ml-4 bg-gradient-to-r from-[#6366F1] to-[#F97316] bg-clip-text text-transparent">
+                  Proven Performance Marketing <span className="text-[#0F172A]">Agency</span>
+                </span>
+              </h1>
 
-            <p className="mx-auto mt-6 max-w-[700px] px-4 text-base leading-relaxed text-white/80 sm:text-lg md:mt-8 md:text-xl">
-              Grow from ₹10L to ₹1Cr+ monthly with data-driven Meta Ads
-            </p>
+              <p className="mt-6 max-w-[600px] font-opensans text-base leading-relaxed text-[#475569] sm:text-lg md:mt-8 md:text-xl">
+                Grow from ₹10L to ₹1Cr+ monthly with data-driven Meta Ads
+              </p>
 
-            <button className="mt-8 inline-flex items-center gap-3 rounded-full bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-8 py-4 text-base font-bold text-white shadow-[0_10px_15px_-3px_rgba(99,102,241,0.25)] transition hover:scale-[1.02] md:mt-10 md:px-10 md:py-5 md:text-lg">
-              Book a Growth Call Here!
-              <ArrowRight className="h-5 w-5" />
-            </button>
+              <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row md:mt-10">
+                <button className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-8 py-4 text-base font-bold text-white shadow-[0_10px_15px_-3px_rgba(99,102,241,0.25)] transition hover:scale-[1.02] md:px-10 md:py-5 md:text-lg">
+                  Book a Growth Call Here!
+                  <ArrowRight className="h-5 w-5" />
+                </button>
+
+                <div className="ml-2 flex items-center -space-x-3">
+                  <Image src={Client1} alt="User 1" className="h-10 w-10 rounded-full border-2 border-white object-cover" />
+                  <Image src={Client2} alt="User 2" className="h-10 w-10 rounded-full border-2 border-white object-cover" />
+                  <Image src={Client3} alt="User 3" className="h-10 w-10 rounded-full border-2 border-white object-cover" />
+                  <Image src={Client4} alt="User 4" className="h-10 w-10 rounded-full border-2 border-white object-cover" />
+                  <Image src={Clinet5} alt="User 5" className="h-10 w-10 rounded-full border-2 border-white object-cover" />
+                </div>
+              </div>
+            </div>
+
+            {/* Right Dashboard/Image Column */}
+            <div className="flex justify-center lg:col-span-5">
+              <div className="relative w-full max-w-[500px] lg:max-w-none">
+                <Image
+                  src={mainheroimage}
+                  alt="Performance Dashboard Preview"
+                  priority
+                  className="h-auto w-full object-contain"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CASE STUDIES MARQUEE */}
-      <section className="border-y border-[#E2E8F0] bg-white py-6 md:py-8">
-        <div className="animate-marquee flex items-center gap-8 whitespace-nowrap px-5 md:gap-16 md:px-10">
-          <span className="text-[10px] font-bold uppercase tracking-[1.4px] text-[#64748B] md:text-xs">
-                Real Case Studies:
-              </span>
-          {[...studies, ...studies, ...studies].map((item, i) => (
-            <div key={i} className="flex items-center gap-3 md:gap-4">
-              <span className="text-sm font-opensans font-bold text-[#0F172A] md:text-lg">
-                {item}
-              </span>
-              <Image src={Star} alt="Star" className="h-4 ml-6 w-4" />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* SERVICES SECTION */}
-      <section className="bg-[#F8FAFC] py-6 md:py-16">
-        <div className="mx-auto max-w-[1280px] px-5 lg:px-8">
-          <div className="text-center">
-            <p className="text-xs font-bold uppercase tracking-[1.5px] text-[#6366F1] md:text-sm">
-              What We Actually Do
-            </p>
-            <h2 className="mt-3 text-3xl font-Montserrat font-bold leading-tight text-[#0F172A] md:mt-4 md:text-4xl">
-              Our Performance Marketing Services
-            </h2>
-          </div>
-
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 md:mt-16 lg:grid-cols-3 lg:gap-8">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl md:p-8"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#6366F1]/10 text-[#0F172A]">
-                  {service.icon}
-                </div>
-                <h3 className="mt-5 text-lg font-bold text-[#0F172A] md:mt-6 md:text-xl">
-                  {service.title}
-                </h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FLYWHEEL SECTION */}
-      <section className="bg-[#F8FAFC]/40 py-6 md:py-28">
-        <div className="mx-auto max-w-[1200px] px-5">
-          <div className="text-center">
-            <p className="text-xs font-bold uppercase tracking-[1.5px] text-[#6366F1] md:text-sm">
-              How We Help You Grow
-            </p>
-            <h2 className="mx-auto font-Montserrat mt-3 max-w-[850px] text-3xl font-bold leading-tight text-[#0F172A] md:mt-5 md:text-4xl lg:text-5xl">
-              We Build A Compounding Model for Modern
-              <span className="bg-gradient-to-r from-[#818CF8] to-[#F97316] bg-clip-text text-transparent">
-                {" "}
-                Performance Marketing Services
-              </span>
-            </h2>
-          </div>
-
-          <div className="mt-12 rounded-[24px] border border-white bg-white p-6 shadow-[0_20px_40px_rgba(15,23,42,0.08)] md:mt-20 md:rounded-[32px] md:p-8 lg:p-14">
-           <Image src={flywheelImage} alt="Flywheel Model" className="md:w-full " />
-          </div>
-        </div>
-      </section>
-
-      {/* BENEFITS SECTION */}
-      <section className="bg-[#F8FAFC] px-4 py-6 md:px-5 md:py-20">
-        <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-10 rounded-[24px] bg-[linear-gradient(90deg,#07112E_0%,#111D52_100%)] px-6 py-10 text-center shadow-[0_20px_40px_rgba(15,23,42,0.15)] md:rounded-[32px] md:px-10 md:py-14 lg:flex-row lg:text-left">
-          <div>
-            <h2 className="text-2xl font-Montserrat font-bold text-white md:text-4xl lg:text-5xl">
-              What You Will Get
-            </h2>
-
-            <div className="mt-6 flex flex-col items-center gap-4 md:mt-8 lg:items-start lg:gap-5">
-              {["Predictable ROAS", "Scalable creatives", "Data-backed growth"].map((item) => (
-                <div key={item} className="flex font-opensans  items-center gap-3 md:gap-4">
-                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#6366F1] md:h-7 md:w-7">
-                    <Check className="h-3 w-3 text-white md:h-4 md:w-4" />
+      <section className="border-y border-[#E2E8F0] bg-white py-5 md:py-7">
+        <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-4 px-4 md:px-8 lg:flex-row lg:gap-10 lg:px-20">
+          <span className="shrink-0 text-xs font-extrabold uppercase tracking-[1.4px] text-[#64748B] sm:text-sm lg:text-xs">
+            Real Case Studies:
+          </span>
+          <div className="relative w-full overflow-hidden">
+            <div className="animate-marquee flex items-center gap-12 whitespace-nowrap md:gap-16">
+              {[...caseStudiesData, ...caseStudiesData, ...caseStudiesData].map((study, i) => (
+                <div key={i} className="flex shrink-0 items-center gap-3 sm:gap-4">
+                  <div className="relative h-7 w-auto max-w-[110px] sm:h-8">
+                    <Image src={study.logo} alt={`${study.alt} logo`} className="h-full w-auto object-contain" />
                   </div>
-                  <span className="text-base text-white/90 md:text-lg">{item}</span>
+                  <span className="font-Montserrat text-sm font-bold tracking-tight text-[#0F172A] sm:text-base md:text-lg">
+                    {study.roas}
+                  </span>
+                  <div className="ml-4 flex h-4 w-4 shrink-0 items-center justify-center sm:ml-6">
+                    <Image src={Star} alt="Star Divider" className="h-full w-full object-contain" />
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-
-          <button className="w-full rounded-full  font-Montserrat bg-white px-8 py-4 text-sm font-bold text-[#0F172A] shadow-xl transition hover:scale-[1.02] sm:w-auto md:px-10 md:py-5 md:text-lg">
-            Book a Funnel Review Meeting!
-          </button>
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
+      {/* SECTION 1: WHAT WE ACTUALLY DO (From Screenshot 1) */}
+      <section className="bg-white px-5 py-16 md:py-24">
+        <div className="mx-auto max-w-[1280px]">
+          <div className="mb-10 max-w-[600px]">
+            <p className="text-[11px] font-bold uppercase tracking-[1.5px] text-[#6366F1] md:text-xs">
+              WHAT WE ACTUALLY DO
+            </p>
+            <h2 className="font-Montserrat mt-4 text-4xl font-extrabold leading-tight text-[#0F172A] md:text-5xl lg:text-[56px]">
+              Not just ads.
+              <br />
+              A system that
+              <br />
+              <span className="text-[#EA580C]">compounds.</span>
+            </h2>
+            <p className="font-opensans mt-5 text-base leading-relaxed text-[#475569] md:text-lg">
+              Most agencies run campaigns. We build the full growth engine — from creative testing to funnel to scale.
+            </p>
+          </div>
+
+          {/* Interactive Filter Tabs */}
+          <div className="mb-10 flex flex-wrap gap-3">
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`font-opensans rounded-full px-5 py-2 text-sm font-semibold transition-all ${
+                  activeTab === tab
+                    ? "bg-[#6366F1] text-white shadow-md"
+                    : "border border-[#E2E8F0] bg-white text-[#475569] hover:border-[#CBD5E1] hover:bg-slate-50"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          {/* Selectable Services Grid */}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredServices.map((service) => {
+              const isActive = activeServiceCard === service.id;
+              return (
+                <div
+                  key={service.id}
+                  onClick={() => setActiveServiceCard(service.id)}
+                  className={`relative cursor-pointer overflow-hidden rounded-[20px] p-6 transition-all duration-300 md:p-8 ${
+                    isActive
+                      ? "bg-[#0B0C1E] text-white shadow-2xl scale-[1.02]"
+                      : "border border-[#F1F5F9] bg-white text-[#0F172A] hover:border-[#E2E8F0] hover:shadow-lg hover:-translate-y-1"
+                  }`}
+                >
+                  {/* Background Watermark Number */}
+                  <span
+                    className={`absolute right-4 top-4 font-Montserrat text-[64px] font-black leading-none tracking-tighter ${
+                      isActive ? "text-white/[0.04]" : "text-[#0F172A]/[0.03]"
+                    }`}
+                  >
+                    {service.number}
+                  </span>
+
+                  <div
+                    className={`mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl ${
+                      isActive ? "bg-white/10 text-white" : "bg-[#F8FAFC] text-[#6366F1]"
+                    }`}
+                  >
+                    {service.icon}
+                  </div>
+                  
+                  <h3 className={`font-Montserrat mb-3 text-xl font-bold ${isActive ? "text-white" : "text-[#0F172A]"}`}>
+                    {service.title}
+                  </h3>
+                  
+                  <p className={`font-opensans mb-8 text-sm leading-relaxed ${isActive ? "text-white/70" : "text-[#64748B]"}`}>
+                    {service.desc}
+                  </p>
+
+                  <div
+                    className={`mt-auto inline-flex items-center rounded-full px-4 py-2 text-xs font-semibold ${
+                      isActive ? "bg-[#ffffff15] text-white" : "bg-[#F1F5F9] text-[#6366F1]"
+                    }`}
+                  >
+                    {service.badge}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2: HOW WE HELP YOU GROW / A3 SYSTEM (From Screenshot 3) */}
+      <section className="bg-white px-5 py-16 md:py-24">
+        <div className="mx-auto max-w-[1280px]">
+          <div className="text-center md:text-left">
+            <p className="text-[11px] font-bold uppercase tracking-[1.5px] text-[#6366F1] md:text-xs">
+              HOW WE HELP YOU GROW
+            </p>
+            <h2 className="font-Montserrat mt-4 text-3xl font-extrabold leading-tight text-[#0F172A] md:text-5xl lg:text-[56px]">
+              The A3 system that<br className="hidden md:block"/> <span className="text-[#EA580C]">compounds.</span>
+            </h2>
+            <p className="font-opensans mt-4 text-base text-[#475569] md:text-lg">
+              Test everything → keep what wins → scale relentlessly. Three phases, one flywheel.
+            </p>
+          </div>
+
+          <div className="mt-12 flex flex-col items-center gap-6 lg:flex-row lg:items-stretch lg:justify-between lg:gap-4">
+            {a3Phases.map((phase, index) => {
+              const isActive = activePhase === phase.id;
+              return (
+                <React.Fragment key={phase.id}>
+                  {/* Selectable Phase Card */}
+                  <div
+                    onClick={() => setActivePhase(phase.id)}
+                    className={`relative w-full cursor-pointer rounded-[24px] border p-6 transition-all duration-300 md:p-8 lg:w-1/3 ${
+                      isActive 
+                        ? "border-[#E2E8F0] bg-white shadow-xl scale-[1.02]" 
+                        : "border-[#F1F5F9] bg-[#FAFAFA] hover:border-[#E2E8F0] hover:bg-white hover:shadow-md"
+                    }`}
+                  >
+                    {/* Watermark */}
+                    <span className="absolute right-6 top-6 font-Montserrat text-[64px] font-black leading-none tracking-tighter text-[#0F172A]/[0.03]">
+                      {phase.id}
+                    </span>
+
+                    <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-sm border border-[#F1F5F9]">
+                      {phase.icon}
+                    </div>
+
+                    <p className="font-Montserrat text-xs font-bold uppercase tracking-widest text-[#6366F1]">
+                      {phase.phase}
+                    </p>
+                    <h3 className="font-Montserrat mb-3 mt-1 text-2xl font-black text-[#0F172A]">
+                      {phase.title}
+                    </h3>
+                    <p className="font-opensans mb-8 text-sm leading-relaxed text-[#475569]">
+                      {phase.desc}
+                    </p>
+                    <div className="inline-flex rounded-full bg-[#FFF7ED] px-4 py-2 text-xs font-semibold text-[#EA580C] border border-[#FFEDD5]">
+                      {phase.badge}
+                    </div>
+                  </div>
+
+                  {/* Arrow between cards (Desktop only) */}
+                  {index < a3Phases.length - 1 && (
+                    <div className="hidden shrink-0 items-center justify-center lg:flex">
+                      <ArrowRight className="h-6 w-6 text-[#CBD5E1]" />
+                    </div>
+                  )}
+                </React.Fragment>
+              );
+            })}
+          </div>
+
+          <div className="mt-8 flex items-center justify-center gap-2 text-sm font-medium text-[#94A3B8]">
+            <MousePointerClick className="h-4 w-4" />
+            Click any phase to see exactly what we do
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3: WHAT YOU ACTUALLY GET (From Screenshot 2) */}
+      <section className="bg-white px-5 py-16 md:py-24">
+        <div className="mx-auto max-w-[1280px]">
+          
+          {/* Top Row: Heading + Metrics */}
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-[500px]">
+              <p className="text-[11px] font-bold uppercase tracking-[1.5px] text-[#6366F1] md:text-xs">
+                WHAT YOU ACTUALLY GET
+              </p>
+              <h2 className="font-Montserrat mt-4 text-4xl font-extrabold leading-tight text-[#0F172A] md:text-5xl lg:text-[56px]">
+                Results that
+                <br />
+                <span className="bg-gradient-to-r from-[#EA580C] to-[#F59E0B] bg-clip-text text-transparent">speak for themselves.</span>
+              </h2>
+              <p className="font-opensans mt-5 text-base leading-relaxed text-[#475569] md:text-lg">
+                Not vanity metrics. Not "brand awareness." Every outcome below is something we've delivered for real D2C brands — and can deliver for yours.
+              </p>
+            </div>
+
+            {/* Metrics block */}
+            <div className="grid grid-cols-2 gap-4 lg:w-[500px]">
+              <div className="rounded-xl bg-[#FAFAFA] p-5">
+                <h4 className="font-Montserrat text-3xl font-black text-[#6366F1]">4.68x</h4>
+                <p className="font-opensans mt-1 text-xs text-[#64748B]">Peak ROAS delivered — Retroverse, 90 days</p>
+              </div>
+              <div className="rounded-xl bg-[#FAFAFA] p-5">
+                <h4 className="font-Montserrat text-3xl font-black text-[#6366F1]">50+</h4>
+                <p className="font-opensans mt-1 text-xs text-[#64748B]">D2C brands scaled across fashion, gaming & wellness</p>
+              </div>
+              <div className="rounded-xl bg-[#FAFAFA] p-5">
+                <h4 className="font-Montserrat text-3xl font-black text-[#6366F1]">35%</h4>
+                <p className="font-opensans mt-1 text-xs text-[#64748B]">Avg. CVR improvement after funnel audit</p>
+              </div>
+              <div className="rounded-xl bg-[#FAFAFA] p-5">
+                <h4 className="font-Montserrat text-3xl font-black text-[#6366F1]">90</h4>
+                <p className="font-opensans mt-1 text-xs text-[#64748B]">Days to meaningful ROAS shift — our benchmark</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Results Grid */}
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {resultsCards.map((card) => (
+              <div key={card.id} className="flex flex-col rounded-[20px] border border-[#F1F5F9] bg-white p-6 shadow-sm transition hover:border-[#E2E8F0] hover:shadow-lg md:p-8">
+                <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-50 border border-slate-100">
+                  {card.icon}
+                </div>
+                <h3 className="font-Montserrat mb-3 text-xl font-bold text-[#0F172A]">{card.title}</h3>
+                <p className="font-opensans mb-8 text-sm leading-relaxed text-[#475569]">{card.desc}</p>
+                <div className="mt-auto inline-flex self-start rounded-full bg-[#F1F5F9] px-3 py-1.5 text-xs font-semibold text-[#6366F1]">
+                  {card.badge}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Dark CTA Banner */}
+          <div className="mt-16 flex flex-col items-center justify-between gap-8 rounded-[24px] bg-[#0B0C1E] px-8 py-10 md:flex-row md:px-12 md:py-14">
+            <div className="max-w-[500px] text-left">
+              <h3 className="font-Montserrat text-3xl font-extrabold leading-tight text-white md:text-4xl">
+                Ready to see if this works for your brand?
+              </h3>
+              <p className="font-opensans mt-4 text-sm text-[#94A3B8] md:text-base">
+                We'll audit your current funnel and ad account — no pitch, no fluff. Just an honest look at what's working and what isn't.
+              </p>
+              <div className="mt-6 space-y-3">
+                {["Free funnel & ad account audit", "30-minute strategy call, no obligation", "Custom ROAS projection for your brand"].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-[#10B981]" />
+                    <span className="font-opensans text-sm text-white md:text-base">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="flex w-full flex-col items-center md:w-auto md:items-end">
+              <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#818CF8] px-8 py-4 font-Montserrat text-base font-bold text-white transition hover:bg-[#6366F1] md:w-auto">
+                Book a Funnel Review <ArrowRight className="h-5 w-5" />
+              </button>
+              <p className="font-opensans mt-3 text-xs text-[#64748B]">Usually responded to within 24 hours</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* TESTIMONIALS (Preserved) */}
       <section className="bg-white py-16 md:py-16">
         <div className="mx-auto max-w-[1280px] px-5 lg:px-8">
           <div className="text-center">
             <p className="text-xs font-bold uppercase tracking-[1.5px] text-[#6366F1] md:text-sm">
               Client&apos;s Testimonials
             </p>
-            <h2 className="mt-3 text-3xl font-Montserrat font-bold text-[#0F172A] md:mt-4 md:text-4xl">
+            <h2 className="font-Montserrat mt-3 text-3xl font-bold text-[#0F172A] md:mt-4 md:text-4xl">
               Our Clients Speak Volume!
             </h2>
           </div>
@@ -191,34 +532,15 @@ export default function HomePage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 md:mt-16 lg:grid-cols-3 lg:gap-8">
             {testimonials.map((item) => (
               <div key={item.role} className="group relative overflow-hidden rounded-2xl">
-                <Image src={item.image} alt={item.role} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                
-                </div>
-
+                <Image src={item.image} alt={item.role} className="h-full w-full object-cover" />
+                <div className="absolute inset-0 flex items-center justify-center"></div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA SECTION */}
-      <section className="bg-[linear-gradient(90deg,#07112E_0%,#111D52_100%)] px-5 py-16 text-center md:py-28">
-        <div className="mx-auto max-w-[900px]">
-          <h2 className="text-3xl font-bold font-Montserrat leading-tight text-white md:text-4xl lg:text-5xl">
-            Ready to Grow Without Guesswork?
-          </h2>
-          <p className="mx-auto mt-4 max-w-[700px] text-base leading-relaxed text-white/70 md:mt-6 md:text-lg md:leading-8">
-            Partner with a performance marketing agency that focuses on real business outcomes.
-          </p>
-          <button className="mt-8 font-Montserrat rounded-full bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_130%)] px-8 py-4 text-base font-bold text-white shadow-[0_10px_5px_-3px_rgba(99,102,241,0.25)] transition hover:scale-[1.02] md:mt-10 md:px-10 md:py-5 md:text-lg">
-            Book Your Free Call!
-          </button>
-        </div>
-      </section>
-
       <Footer />
-      
     </main>
   );
 }
