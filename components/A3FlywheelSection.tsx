@@ -155,7 +155,7 @@ export default function A3FlywheelSection() {
         </div>
 
         {/* CONTINUOUS GROWTH FLYWHEEL SECTION */}
-        <div className="mt-24 flex flex-col items-center pt-8">
+        <div className="mt-14 flex flex-col items-center pt-4">
           <h2 className="font-['Montserrat'] text-[32px] font-extrabold text-[#000000] md:text-[40px]">
             A Continuous Growth Flywheel
           </h2>

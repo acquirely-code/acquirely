@@ -21,7 +21,7 @@ const problemCards = [
 function ProblemCard({ title }: { title: string }) {
   return (
     <div className="flex items-center gap-4 rounded-md border border-[#E1E6EF] border-l-[4px] border-l-[#E03941] bg-white px-5 py-4 shadow-sm sm:px-[24px] sm:py-[20px]">
-      <div className="grid h-8 w-8 shrink-0 place-items-center rounded bg-[#FBDEDE]">
+      <div className="grid h-8 w-8 shrink-0 place-items-center rounded-sm bg-[#FBDEDE]">
         <X className="h-4 w-4 text-[#F87171]" strokeWidth={2.5} />
       </div>
       <h3 className="text-[15px] font-bold leading-7 text-black sm:text-[16px]">

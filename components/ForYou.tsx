@@ -53,11 +53,54 @@ const ArrowRightIcon = () => (
 // --- Main Component ---
 export default function QualificationSection() {
   return (
-    <section className="w-full bg-white py-16 px-4 md:px-8 font-sans">
-      <div className="max-w-[1080px] mx-auto flex flex-col items-center">
+    <section className="w-full bg-white pb-16 font-sans">
+        <section className="w-full bg-[#F6FAFF] py-4 md:py-4">
+      <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-between gap-10 md:flex-row md:gap-0">
+          
+          {/* Stat 1 */}
+          <div className="flex w-full flex-col items-center justify-center text-center md:w-1/3">
+            <h3 className="mb-2 font-sans text-[30px] font-extrabold leading-none text-[#252525] sm:text-[36px]">
+              ₹30Cr+
+            </h3>
+            <p className="font-sans text-[14px] text-[#707984]">
+              Annual Ad Spend Managed
+            </p>
+          </div>
+
+          {/* Vertical Divider 1 (Hidden on mobile) */}
+          <div className="hidden h-[82px] w-[1px] bg-black md:block"></div>
+
+          {/* Stat 2 */}
+          <div className="flex w-full flex-col items-center justify-center text-center md:w-1/3">
+            <h3 className="mb-2 font-sans text-[30px] font-extrabold leading-none text-[#252525] sm:text-[36px]">
+              1%
+            </h3>
+            <p className="font-sans text-[14px] text-[#707984]">
+              Top 1% Meta Performance Marketing Team
+            </p>
+          </div>
+
+          {/* Vertical Divider 2 (Hidden on mobile) */}
+          <div className="hidden h-[82px] w-[1px] bg-black md:block"></div>
+
+          {/* Stat 3 */}
+          <div className="flex w-full flex-col items-center justify-center text-center md:w-1/3">
+            <h3 className="mb-2 font-sans text-[30px] font-extrabold leading-none text-[#252525] sm:text-[36px]">
+              ₹3L+
+            </h3>
+            <p className="font-sans text-[14px] text-[#707984]">
+              Built for Brands Spending ₹3L+ per Month on Ads
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+      <div className="max-w-[1080px]  px-4 md:px-8  mx-auto flex flex-col items-center">
         
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center my-12">
           <h2 className="text-3xl md:text-[40px] font-extrabold leading-tight mb-4 font-['Montserrat']">
             <span className="bg-gradient-to-r from-[#818CF8] to-[#F97316] text-transparent bg-clip-text">
               Who This Is For
