@@ -8,6 +8,8 @@ import {
   Phone 
 } from "lucide-react";
 
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="bg-white px-5 py-12 md:py-20">
@@ -24,13 +26,13 @@ export default function Footer() {
           
           {/* Social Icons */}
           <div className="mt-6 flex gap-4">
-            <a href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F8FAFC] text-[#0F172A] transition hover:bg-[#E2E8F0]">
+            <a href="https://www.instagram.com/acquirely.in" className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F8FAFC] text-[#0F172A] transition hover:bg-[#E2E8F0]">
               <Instagram className="h-4 w-4" />
             </a>
-            <a href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F8FAFC] text-[#0F172A] transition hover:bg-[#E2E8F0]">
+            <a href="https://www.linkedin.com/company/acquirelydm/" className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F8FAFC] text-[#0F172A] transition hover:bg-[#E2E8F0]">
               <Linkedin className="h-4 w-4" />
             </a>
-            <a href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F8FAFC] text-[#0F172A] transition hover:bg-[#E2E8F0]">
+            <a href="https://www.linkedin.com/company/acquirelydm/" className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F8FAFC] text-[#0F172A] transition hover:bg-[#E2E8F0]">
               <Facebook className="h-4 w-4" />
             </a>
           </div>
@@ -40,17 +42,22 @@ export default function Footer() {
         <div className="lg:ml-auto">
           <h4 className="font-opensans text-lg font-bold text-[#0F172A]">Quick Links</h4>
           <div className="mt-4 space-y-4 text-base text-[#64748B] md:mt-5">
-            <p className="cursor-pointer transition hover:text-[#0F172A]">Done For You</p>
-            <p className="cursor-pointer transition hover:text-[#0F172A]">About Us</p>
-            <p className="cursor-pointer transition hover:text-[#0F172A]">Case Studies</p>
-            <p className="cursor-pointer transition hover:text-[#0F172A]">Contact</p>
+            <Link href="/ecommerce">
+            <p className="cursor-pointer transition hover:text-[#0F172A] mt-5">Ecommerce</p>
+            </Link>
+              <Link href="/lead-gen">
+            <p className="cursor-pointer transition hover:text-[#0F172A] mt-5">Lead Gen</p>
+            </Link>
+              <Link href="/aboutus">
+            <p className="cursor-pointer transition hover:text-[#0F172A] mt-5">About us</p>
+            </Link>
           </div>
         </div>
 
         {/* COLUMN 3: Legal */}
         <div className="md:ml-20">
           <h4 className="font-opensans text-lg font-bold text-[#0F172A]">Legal</h4>
-          <div className="mt-4 space-y-4 text-base text-[#64748B] md:mt-5">
+          <div className="mt-4 space-y-4 text-base text-[#64748B] ">
             <p className="cursor-pointer transition hover:text-[#0F172A]">Terms & Conditions</p>
             <p className="cursor-pointer transition hover:text-[#0F172A]">Privacy Policy</p>
           </div>
@@ -62,12 +69,15 @@ export default function Footer() {
           <div className="mt-4 space-y-5 text-base text-[#64748B] md:mt-5">
             <div className="flex items-center gap-3">
               <Phone className="h-5 w-5 text-[#0052FF]" />
-              <p>+91 90875 63210</p>
+              <p>++1 236 877 9035 </p>
             </div>
+             
+            <Link href="https://acquirely.ca">
             <div className="flex items-center gap-3">
               <Globe className="h-5 w-5 text-[#0052FF]" />
-              <p>www.acquirely.in</p>
+              <p className="mt-5">https://acquirely.in/</p>
             </div>
+            </Link>
             <div className="flex items-center gap-3">
               <MapPin className="h-5 w-5 text-[#0052FF]" />
               <p>New Delhi, India</p>

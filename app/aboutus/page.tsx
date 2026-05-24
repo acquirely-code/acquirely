@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   Check,
@@ -558,9 +559,11 @@ export default function AboutPage() {
             No pitches. No fluff. We&apos;ll audit your current setup and tell you honestly what&apos;s working and what isn&apos;t.
           </p>
           <div>
+            <Link href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg">
             <button className="mb-4 inline-flex items-center gap-2 rounded-xl bg-[#6366F1] px-8 py-4 font-Montserrat text-sm font-bold text-white shadow-lg transition-all hover:scale-[1.02] hover:bg-[#4F46E5] sm:px-10 sm:py-5 sm:text-[15px]">
               Book a Free Growth Call <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
+            </Link>
           </div>
           <div className="font-opensans text-[12px] text-white/30 sm:text-sm">
             30 minutes. No obligation. Usually replied to within 24 hours.

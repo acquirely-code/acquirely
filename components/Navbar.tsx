@@ -27,27 +27,32 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-6 py-4 md:px-8">
         
         {/* Logo */}
-        <Link href="/homepreview">
+        <Link href="/">
           <Image src={logo} alt="Acquirely Logo" className="h-6 w-auto md:h-8" />
         </Link>
 
         {/* Desktop Links & Button */}
         <div className="hidden items-center gap-8 lg:flex">
           <div className="mr-6 flex items-center gap-8">
-            <Link href="/done-for-you" className="text-[20px] text-[#0F172A] transition hover:text-[#0052FF]">
-              Done For You
+            <Link href="/ecommerce" className="text-[20px] text-[#0F172A] transition hover:text-[#0052FF]">
+              Ecommerce
             </Link>
+             <Link href="/lead-gen" className="text-[20px] text-[#0F172A] transition hover:text-[#0052FF]">
+            Lead Gen
+            </Link>
+          
             <Link href="/case-studies" className="text-[20px] text-[#0F172A] transition hover:text-[#0052FF]">
               Case Studies
             </Link>
-            <Link href="/aboutuspreview" className="text-[20px] text-[#0F172A] transition hover:text-[#0052FF]">
+            <Link href="/aboutus" className="text-[20px] text-[#0F172A] transition hover:text-[#0052FF]">
               About Us
             </Link>
           </div>
-
+ <Link href="https://booknow.acquirely.in/#/FRCNA">
           <button className="rounded-[8px] bg-[#0052FF] px-[24px] py-[12px] text-[16px] font-bold text-white shadow-[0px_10px_15px_-3px_rgba(0,82,255,0.2),0px_4px_6px_-4px_rgba(0,82,255,0.2)] transition hover:scale-[1.02] hover:bg-blue-700">
             Book a Meeting
           </button>
+          </Link>
         </div>
 
         {/* Mobile Menu Toggle Button */}
@@ -65,32 +70,42 @@ export default function Navbar() {
         <div className="absolute left-0 top-full mt-2 w-full rounded-[10px] border border-gray-200 bg-white/95 p-5 shadow-2xl backdrop-blur-xl lg:hidden">
           <div className="flex flex-col gap-6">
             <Link 
-              href="/done-for-you" 
+              href="/ecommerce" 
               className="text-lg font-medium text-[#0F172A] transition hover:text-[#0052FF]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Done For You
+               Ecomerce
+            </Link>
+              <Link 
+              href="/lead-gen" 
+              className="text-lg font-medium text-[#0F172A] transition hover:text-[#0052FF]"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Lead Gen
             </Link>
             <Link 
-              href="/case-studies" 
+              href="/" 
               className="text-lg font-medium text-[#0F172A] transition hover:text-[#0052FF]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Case Studies
             </Link>
             <Link 
-              href="/aboutuspreview" 
+              href="/aboutus" 
               className="text-lg font-medium text-[#0F172A] transition hover:text-[#0052FF]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About Us
             </Link>
+
+             <Link href="https://booknow.acquirely.in/#/FRCNA">
             <button 
               className="mt-2 w-full rounded-[8px] bg-[#0052FF] px-6 py-4 text-base font-bold text-white shadow-[0_10px_15px_-3px_rgba(0,82,255,0.2)] active:scale-95"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Book a Meeting
             </button>
+            </Link>
           </div>
         </div>
       )}
