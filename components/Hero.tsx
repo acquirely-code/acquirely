@@ -13,10 +13,10 @@ import {
 import logo from "@/app/assests/logo.png";
 import checkericon from "@/app/assests/checkricon.png";
 import { Check } from "lucide-react";
-import Client1 from "@/app/assests/Client1.jpg";
-import Client2 from "@/app/assests/Client2.jpg";
-import Client3 from "@/app/assests/Client3.jpg";
-import Client4 from "@/app/assests/Clieent4.jpg";
+import Client1 from "@/app/assests/founder1.png"
+import Client2 from "@/app/assests/founder2.png";
+import Client3 from "@/app/assests/founder3.png";
+import Client4 from "@/app/assests/founder4.png";
 
 // --- Dynamic Imports ---
 const WistiaPlayer = dynamic(() => import('@/components/WistiaPlayer'), {
@@ -53,7 +53,7 @@ export default function AgencyLandingPage() {
               <h1 className="mt-6 text-[30px] font-Montserrat font-bold leading-[1.3] text-white sm:text-[40px] lg:text-[48px] lg:leading-[48px] lg:tracking-[-0.5px]">
                 <span className="block">Scale Your Brand from</span>
                 <span className=" bg-[linear-gradient(90deg,#818CF8_0%,#C084FC_25%,#F97316_80%)] bg-clip-text text-transparent">
-                   ₹10L to ₹1Cr+ Monthly on Meta
+                   ₹10L to ₹1Cr+ Monthly on Meta -
                 </span>
                 <span className=""> Profitably</span>
               </h1>
@@ -89,7 +89,7 @@ export default function AgencyLandingPage() {
                     {[Client1, Client2, Client3, Client4].map((client, index) => (
                       <Image key={index} src={client} alt={`Client ${index + 1}`} className="-ml-3 h-12 w-12 rounded-full border-1 border-[#3730A3] transition-transform duration-300 hover:scale-110" />
                     ))}
-                    <div className="relative -ml-3 grid h-10 w-10 place-items-center rounded-full border-2 border-[#3730A3] bg-[linear-gradient(135deg,#6366F1_0%,#4F46E5_100%)] text-[12px] font-bold text-white">+84</div>
+                    <div className="relative -ml-3 grid font-Montserrat h-12 w-12 place-items-center rounded-full border-2 border-[#3730A3] bg-[linear-gradient(135deg,#6366F1_0%,#4F46E5_100%)] text-[12px] font-bold text-white">+84</div>
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
@@ -98,8 +98,9 @@ export default function AgencyLandingPage() {
                           <Star key={index} className="h-4 w-4 fill-current stroke-0" />
                         ))}
                       </div>
-                      <span className="text-[14px] font-semibold text-white">4.9/5</span>
+                      <span className="text-[14px] block font-semibold text-white">4.9/5</span>
                     </div>
+                      <span className="mx-1 text-[14px] text-[#94A3B8]">from 88 agency founders in the program</span>
                   </div>
                 </div>
               </div>

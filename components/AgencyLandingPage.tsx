@@ -5,6 +5,7 @@ import FlywheelProofSection from "@/components/FlywheelProofSection";
 import FoundersSection from "@/components/FoundersSection";
 import GrowthSystemProblemSection from "@/components/GrowthSystemProblemSection";
 import PricingSection from "@/components/PricingSection";
+import Foryoupage from "@/components/ForYou";
 
 import CtaBreakPastSection from "./CtaBreakPastSection";
 import Hero from "@/components/Hero"
@@ -13,6 +14,7 @@ export default function AgencyLandingPage() {
   return (
     <main className="overflow-hidden bg-[#f7f9fc] text-slate-950">
       <Hero/>
+      <Foryoupage/>
       <GrowthSystemProblemSection />
       <A3FlywheelSection />
       <FlywheelProofSection />

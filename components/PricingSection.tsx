@@ -16,7 +16,7 @@ const additionalFeatures = [
 
 export default function PricingSection() {
   return (
-    <section className="bg-white px-4 py-8 font-sans md:py-16 lg:py-24">
+    <section className="bg-white px-4 py-8 font-sans md:py-16 lg:py-8">
       <div className="mx-auto max-w-[866px]">
         
         {/* Header Section */}
@@ -37,8 +37,7 @@ export default function PricingSection() {
           </h2>
 
           <p className="mx-auto mt-3 max-w-[663px] font-opensans text-[15px] leading-[24px] text-[#7B8BA0] md:mt-4 md:text-[18px] md:leading-[28px]">
-            Both plans include the full A3 Flywheel system. The difference is how fast you
-            want to move and how much direct support you need.
+            It includes Structured Meta Campaign Management, Generating regular creative variations, editing UGC & influencer videos and regular monitoring & optimization.
           </p>
         </div>
 

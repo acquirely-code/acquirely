@@ -2,39 +2,38 @@
 import flywheelmodel from "@/app/assests/flywheelmodel.png";
 import Image from "next/image";
 import { useState } from "react";
+
+// Custom long arrow SVG to better match the design
+const LongArrowRight = () => (
+  <svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 12H38M38 12L30 4M38 12L30 20" stroke="#0F172A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
 const flywheelPhases = [
   {
     code: "A1",
-    title: "Testing Phase",
-    timeframe: "Month 1-2",
+    title: "Testing + Scale",
     description:
-      "We deploy a structured creative testing matrix - 15-20 ad variations across hooks, angles, and formats. Every rupee generates data, not just impressions.",
-    tags: ["Hook Testing", "Audience Mapping", "Funnel Validation"],
+      "We launch testing campaigns and test creatives, angles, messaging formats & audiences then scale winners fast.",
+    goal: "Identify what works, isolate it, and scale aggressively.",
     accent: "from-[#686CF2] to-[#7A84F6]",
-    badgeClass: "border-[#CFD5FD] bg-[#EDEFFF] text-[#4F49E9]",
-    tagBorder: "border-[#CFD5FD]",
   },
   {
     code: "A2",
-    title: "Scaling Phase",
-    timeframe: "Month 2-4",
+    title: "Lock & Scale Aggressively",
     description:
-      "Winners from A1 get scaled using data-driven budget rules - not emotion. We use ROAS thresholds, frequency caps, and audience expansion signals to scale without killing performance.",
-    tags: ["ROAS-Based Scaling", "Lookalike Expansion"],
+      "After ~90 days, we find your baseline, stabilize ROAS, and scale confidently.",
+    goal: "Move from unstable performance to predictable scaling",
     accent: "from-[#FA781C] to-[#FA8D36]",
-    badgeClass: "border-[#FEDFBA] bg-[#FFF7ED] text-[#EA580C]",
-    tagBorder: "border-[#FEDFBA]",
   },
   {
     code: "A3",
-    title: "Optimization Phase",
-    timeframe: "Ongoing",
+    title: "Micro Analysis & Budget Redistribution",
     description:
-      "Insights from scaling feed back into new creative briefs. The flywheel compounds - each cycle produces better creatives, lower CAC, and higher ROAS than the last.",
-    tags: ["Creative Iteration", "CAC Reduction", "LTV Maximization"],
+      "Now we go deeper into data find best days, cut weak ones and shift budget smartly. Built on earlier phases. This level of optimisation is only possible after A1 and A2 build the foundation.",
+    goal: "Extract maximum ROAS efficiency from real performance data.",
     accent: "from-[#2ECF95] to-[#14BC84]",
-    badgeClass: "border-[#BEF6DD] bg-[#ECFDF5] text-[#047A57]",
-    tagBorder: "border-[#BEF6DD]",
   },
 ];
 
@@ -43,21 +42,34 @@ function FlywheelDiagramPlaceholder() {
 
   return (
     <>
-      <div className="rounded-[14px] bg-white p-3 md:shadow-[0px_0px_4px_rgba(0,0,0,0.18)] sm:p-5 cursor-pointer" onClick={() => setIsZoomed(true)}>
-        <Image className="md:h-full h-[240px]" src={flywheelmodel} alt="Flywheel Model" />
+      <div
+        className="rounded-[14px] border border-[#E2E8F0] bg-white p-3 cursor-pointer shadow-sm md:p-5"
+        onClick={() => setIsZoomed(true)}
+      >
+        <Image
+          className="h-auto w-full rounded-lg md:h-full"
+          src={flywheelmodel}
+          alt="Flywheel Model"
+        />
       </div>
 
       {isZoomed && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 p-4" onClick={() => setIsZoomed(false)}>
-          <div className="relative max-w-4xl max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
-            <Image 
-              src={flywheelmodel} 
-              alt="Flywheel Model Zoomed" 
-              className="w-full h-auto"
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+          onClick={() => setIsZoomed(false)}
+        >
+          <div
+            className="relative max-h-[90vh] max-w-5xl rounded-xl bg-white p-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={flywheelmodel}
+              alt="Flywheel Model Zoomed"
+              className="h-auto w-full rounded-lg"
             />
-            <button 
+            <button
               onClick={() => setIsZoomed(false)}
-              className="absolute top-4 right-4 text-white text-2xl font-bold bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center"
+              className="absolute -right-4 -top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white text-xl font-bold text-black shadow-lg hover:bg-gray-100"
             >
               ✕
             </button>
@@ -70,75 +82,142 @@ function FlywheelDiagramPlaceholder() {
 
 export default function A3FlywheelSection() {
   return (
-    <section className="bg-white">
-      <div className="mx-auto max-w-[1440px] px-5 md:py-16 py-4 sm:px-6 lg:px-20 lg:py-[84px]">
-        <div className="mx-auto max-w-[687px] text-center">
-          <div className="inline-flex h-[34px] items-center gap-2 rounded-[4px] border border-[#CFD5FD] bg-[#EDEFFF] px-[10px]">
-            <span className="text-base">🚀</span>
-            <span className="text-[11px] font-semibold uppercase tracking-[1.2px] text-[#5332E2] sm:text-[12px]">
-              The A3 Flywheel Solution
+    <section className="bg-white font-sans">
+      <div className="mx-auto max-w-[1440px] px-5 py-12 md:py-16 sm:px-6 lg:px-[100px] lg:py-[84px]">
+        
+        {/* HEADER SECTION */}
+        <div className="mx-auto max-w-[800px] text-center">
+          <div className="inline-flex h-[34px] items-center gap-2 rounded-[4px] border border-[#CFD5FD] bg-[#EDEFFF] px-[14px]">
+            <span className="text-sm">🚀</span>
+            <span className="font-['Inter'] text-[12px] font-semibold uppercase tracking-[1.2px] text-[#5332E2]">
+              INTRODUCING A3 FLYWHEEL MODEL
             </span>
           </div>
 
-          <h2 className="mt-8 font-Montserrat text-[26px] md:text-[31px] leading-[1.08] text-black sm:text-[36px] lg:text-[40px] lg:leading-[44px]">
+          <h2 className="mt-8 font-['Montserrat'] text-[32px] font-extrabold leading-[1.1] text-[#000000] sm:text-[40px]">
             <span className="block">The Growth System Built for the</span>
-            <span className="block bg-[linear-gradient(90deg,#818CF8_0%,#F97316_42.79%)] bg-clip-text text-transparent">
+            <span className="block mt-1 bg-gradient-to-r from-[#9333EA] to-[#F97316] bg-clip-text text-transparent">
               New Meta Ads Era
             </span>
           </h2>
 
-          <p className="mx-auto font-opensans mt-5 max-w-[662px] text-[16px] leading-7 text-[#7B8BA0] sm:text-[18px]">
-            After analysing ₹30Cr+ in Meta ad spend, we developed a structured paid acquisition framework designed for sustainable scaling.
+          <p className="mx-auto mt-6 max-w-[662px] font-['Open_Sans'] text-[16px] leading-relaxed text-[#7B8BA0] sm:text-[18px]">
+            After analysing ₹30Cr+ in Meta ad spend, we developed a structured
+            paid acquisition framework designed for sustainable scaling.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-10 lg:mt-14 lg:grid-cols-[480px_minmax(0,1fr)] lg:items-start lg:gap-12">
-          <div className="space-y-10">
-            {flywheelPhases.map((phase) => (
-              <div key={phase.code} className="flex items-start gap-4 sm:gap-[29px]">
-                <div
-                  className={`grid h-[53px] w-[53px] shrink-0 place-items-center rounded-[10px] bg-gradient-to-br ${phase.accent}`}
-                >
-                  <span className="text-[26px] font-extrabold leading-[44px] text-white">
-                    {phase.code}
-                  </span>
-                </div>
-
-                <div className="pt-1">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <h3 className="text-[16px] font-semibold leading-7 text-black">
-                      {phase.title}
-                    </h3>
-                    <span
-                      className={`rounded-[4px] border px-[7px] py-[2px] text-[12px] font-semibold leading-[17px] sm:text-[14px] ${phase.badgeClass}`}
-                    >
-                      {phase.timeframe}
+        {/* MAIN FLYWHEEL LAYOUT */}
+        <div className="mt-16 grid gap-12 lg:grid-cols-[480px_minmax(0,1fr)] lg:items-start lg:gap-16">
+          
+          {/* Left Column: Steps */}
+          <div className="space-y-10 lg:pt-4">
+            <h3 className="font-['Montserrat'] text-[24px] font-bold text-[#000000] md:text-[26px]">
+              How the <span className="bg-gradient-to-r from-[#FA781C] to-[#FA8D36] bg-clip-text text-transparent">A3 Flywheel Model</span> Works
+            </h3>
+            
+            <div className="space-y-10 pt-2">
+              {flywheelPhases.map((phase) => (
+                <div key={phase.code} className="flex items-start gap-4 sm:gap-[18px]">
+                  {/* Icon Block */}
+                  <div
+                    className={`grid h-[53px] w-[53px] shrink-0 place-items-center rounded-[10px] bg-gradient-to-br shadow-sm ${phase.accent}`}
+                  >
+                    <span className="font-['Montserrat'] text-[24px] font-extrabold text-white">
+                      {phase.code}
                     </span>
                   </div>
 
-                  <p className="mt-1 max-w-[433px] text-[14px] font-medium leading-6 text-[#7B8BA0] sm:text-[15px] sm:leading-5">
-                    {phase.description}
-                  </p>
+                  {/* Text Content */}
+                  <div className="pt-0.5">
+                    <h4 className="font-['Montserrat'] text-[16px] font-bold leading-tight text-[#000000]">
+                      {phase.title}
+                    </h4>
+                    
+                    <p className="mt-2 font-['Open_Sans'] text-[15px] leading-[22px] text-[#7B8BA0]">
+                      {phase.description}
+                    </p>
 
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {phase.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className={`rounded-[4px] border bg-white px-[7px] py-[3px] text-[11px] leading-4 text-[#7B8BA0] sm:text-[12px] ${phase.tagBorder}`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    <p className="mt-3 font-['Open_Sans'] text-[15px] leading-[22px] text-[#7B8BA0]">
+                      <span className="font-bold text-[#000000]">Goal: </span>
+                      {phase.goal}
+                    </p>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          <div className="lg:pt-4">
+          {/* Right Column: Image */}
+          <div className="lg:pt-[60px]">
             <FlywheelDiagramPlaceholder />
           </div>
         </div>
+
+        {/* CONTINUOUS GROWTH FLYWHEEL SECTION */}
+        <div className="mt-24 flex flex-col items-center pt-8">
+          <h2 className="font-['Montserrat'] text-[32px] font-extrabold text-[#000000] md:text-[40px]">
+            A Continuous Growth Flywheel
+          </h2>
+          <p className="mt-4 font-['Open_Sans'] text-[18px] text-[#7B8BA0]">
+            This system runs every single week.
+          </p>
+
+          <div className="mt-12 grid w-full max-w-[1050px] grid-cols-1 gap-6 md:grid-cols-3">
+            {/* Box 1: A1 -> A2 */}
+            <div className="flex flex-col items-center justify-center rounded-[8px] border border-[#E5E7EB] bg-[#F9FAFB] p-8 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+              <div className="flex items-center gap-6">
+                <div className="flex h-[53px] w-[53px] items-center justify-center rounded-[10px] bg-gradient-to-br from-[#686CF2] to-[#7A84F6] font-['Montserrat'] text-[24px] font-extrabold text-white">
+                  A1
+                </div>
+                <LongArrowRight />
+                <div className="flex h-[53px] w-[53px] items-center justify-center rounded-[10px] bg-gradient-to-br from-[#FA781C] to-[#FA8D36] font-['Montserrat'] text-[24px] font-extrabold text-white">
+                  A2
+                </div>
+              </div>
+              <p className="mt-8 font-['Montserrat'] text-[16px] font-bold text-[#000000]">
+                A1 feeds A2
+              </p>
+            </div>
+
+            {/* Box 2: A2 -> A3 (Highlighted Border) */}
+            <div className="flex flex-col items-center justify-center rounded-[8px] border-[3px] border-[#0EA5E9] bg-[#F9FAFB] p-8 shadow-[0_2px_10px_rgba(0,0,0,0.02)] relative">
+              <div className="flex items-center gap-6">
+                <div className="flex h-[53px] w-[53px] items-center justify-center rounded-[10px] bg-gradient-to-br from-[#FA781C] to-[#FA8D36] font-['Montserrat'] text-[24px] font-extrabold text-white">
+                  A2
+                </div>
+                <LongArrowRight />
+                <div className="flex h-[53px] w-[53px] items-center justify-center rounded-[10px] bg-gradient-to-br from-[#2ECF95] to-[#14BC84] font-['Montserrat'] text-[24px] font-extrabold text-white">
+                  A3
+                </div>
+              </div>
+              <p className="mt-8 font-['Montserrat'] text-[16px] font-bold text-[#000000]">
+                A2 strengthens A3
+              </p>
+            </div>
+
+            {/* Box 3: A3 -> A1 */}
+            <div className="flex flex-col items-center justify-center rounded-[8px] border border-[#E5E7EB] bg-[#F9FAFB] p-8 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+              <div className="flex items-center gap-6">
+                <div className="flex h-[53px] w-[53px] items-center justify-center rounded-[10px] bg-gradient-to-br from-[#2ECF95] to-[#14BC84] font-['Montserrat'] text-[24px] font-extrabold text-white">
+                  A3
+                </div>
+                <LongArrowRight />
+                <div className="flex h-[53px] w-[53px] items-center justify-center rounded-[10px] bg-gradient-to-br from-[#686CF2] to-[#7A84F6] font-['Montserrat'] text-[24px] font-extrabold text-white">
+                  A1
+                </div>
+              </div>
+              <p className="mt-8 font-['Montserrat'] text-[16px] font-bold text-[#000000]">
+                A3 insights improve A1 testing
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-10 font-['Montserrat'] text-[20px] font-bold text-[#000000]">
+            That's the Flywheel Effect.
+          </p>
+        </div>
+
       </div>
     </section>
   );

@@ -10,7 +10,7 @@ export default function CtaBreakPastSection() {
     <section className="bg-[#101828] mt-4 pt-28 pb-8 text-center relative">
       <div className="mx-auto max-w-[1024px] px-4">
         {/* Main Heading */}
-        <h2 className="font-Montserrat md:text-[48px] text-[32px] md:leading-[58px] leading-8 tracking-[-1px] text-white">
+        <h2 className="font-Montserrat font-bold md:text-[48px] text-[32px] md:leading-[58px] leading-8 tracking-[-1px] text-white">
           Ready to Break Past
           <br />
           {/* Apply Gradient to the specific text */}

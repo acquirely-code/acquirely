@@ -47,9 +47,9 @@ export default function ScalingFrameworkSection() {
           </div>
 
           {/* Heading */}
-          <h2 className="mt-6 text-[32px] sm:text-[40px] font-Montserrat leading-[1.1] text-black ">
+          <h2 className="mt-6 text-[32px] sm:text-[40px] font-Montserrat font-bold leading-[1.1] text-black ">
             What Does It Take to Scale From <br className="hidden sm:block" />
-            <span className="text-[#C39A8E]">₹3L to ₹50L?</span>
+            <span className="text-[#C39A8E]">₹10L to ₹1Cr?</span>
           </h2>
 
           {/* Subheading */}
@@ -75,7 +75,7 @@ export default function ScalingFrameworkSection() {
                 </div>
 
                 {/* Card Text */}
-                <h3 className="mb-3 text-[20px] font-semibold leading-[28px] text-black font-montserrat">
+                <h3 className="mb-3 text-[16px] font-Montserrat font-bold leading-[28px] text-black font-montserrat">
                   {lever.title}
                 </h3>
                 <p className="text-[14px] font-opensans leading-[19px] text-[#7B8BA0] ">

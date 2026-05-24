@@ -2,33 +2,33 @@ import Link from "next/link";
 import kunalmandal from "@/app/assests/kunalmondal.png";
 import mausamarora from "@/app/assests/mausamarora.png";
 import Image, { StaticImageData } from "next/image";
-import {Clock3, Instagram, ShieldCheck, TrendingUp } from "lucide-react";
+import {Clock3, Instagram, ShieldCheck, Target, TrendingUp } from "lucide-react";
 
 const trustCards = [
   {
-    title: "90-Day Guarantee",
-    description: "We give your campaigns 75–90 days tostabilise and show real performance improvement.  No rushed decisions only data-backed evaluation.",
+    title: "Structured Data Backed Decisions",
+    description: "We give your campaigns 75-90 days tostabilise and show real performance improvement.  No rushed decisions only data-backed evaluation.",
     icon: ShieldCheck,
     iconBg: "bg-[#DCFCE7]",
     iconColor: "text-[#22C55E]",
   },
   {
-    title: "If Results Don't Improve",
-    description: "If there’s no consistent ROAS growthafter the period—despite proper spendand support—we take responsibility..",
+    title: "Acquirely Assurance",
+    description: "If we don't improve your Campaign Performance in 90 days, we work for free for the next 1 month.",
     icon: Clock3,
     iconBg: "bg-[#DBEAFE]",
     iconColor: "text-[#3B82F6]",
   },
   {
     title: "No Lock-In Contract",
-    description: "No long-term commitments. If it’s not working, you’re freeto walk away no obligations.",
-    icon: Instagram,
+    description: "No long-term commitments. If it's not working, you're free to walk away no obligations.",
+    icon: Target,
     iconBg: "bg-[#F3E8FF]",
     iconColor: "text-[#A855F7]",
   },
   {
-    title: "Simple Rule",
-    description: "We either work one extra monthfor free to improve results OR part ways with full campaignlearnings transferred.",
+    title: "Performance-Based",
+    description: "Our fees are tied to your ad spend - we only grow when you grow.",
     icon: TrendingUp,
     iconBg: "bg-[#FEF3C7]",
     iconColor: "text-[#F59E0B]",
@@ -179,11 +179,11 @@ export default function FoundersSection() {
                 <div className="inline-flex h-[34px] items-center gap-2  rounded-[4px] border border-[#CFD5FD] bg-[#EDEFFF] px-4">
                   <span className="h-2 w-2 rounded-full bg-[#5332E2]" />
                   <span className="text-[11px] font-semibold uppercase tracking-[1.2px] text-[#5332E2] sm:text-[12px]">
-                    Zero risk commitment
+                   RISK REVERSAL
                   </span>
                 </div>
       
-                <h2 className="mt-7 text-[32px] font-Montserrat  leading-[1.05] text-[#171717] sm:text-[38px] lg:text-[44px]">
+                <h2 className="mt-7 text-[32px] font-Montserrat font-bold  leading-[1.05] text-[#171717] sm:text-[38px] lg:text-[44px]">
                   <span className="block">Built on Accountability</span>
                   <span className="block bg-[linear-gradient(90deg,#818CF8_0%,#F59E0B_45%,#F87171_100%)] bg-clip-text text-transparent">
                     Not Empty Promises
@@ -213,7 +213,7 @@ export default function FoundersSection() {
             The Minds Behind Acquirely
           </h2>
           <p className="mx-auto mt-5 max-w-[520px] text-[15px] leading-7 text-[#8A8A8A]">
-            Two seasoned strategists with decades of combined experience building brands that dominate their markets.
+           Built by Operators — Not Just Agency Owners
           </p>
         </div>
 

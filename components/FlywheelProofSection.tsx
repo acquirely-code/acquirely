@@ -213,23 +213,23 @@ export default function FlywheelProofSection() {
     <section className="bg-white">
       <div className="mx-auto max-w-[1440px] px-5 py-2 md:py-16 sm:px-6 lg:px-20 lg:py-[8px]">
         {/* Top Header Section */}
-        <div className="mx-auto max-w-[757px] text-center">
+        {/* <div className="mx-auto max-w-[757px] text-center">
           <h2 className="text-[31px] font-Montserrat leading-[1.08] text-black sm:text-[36px] lg:text-[40px] lg:leading-[44px]">
             Why the Flywheel Wins Every Time
           </h2>
           <p className="mt-5 text-[16px] leading-7 text-[#7B8BA0] sm:text-[18px]">
             Each phase amplifies the next. The longer it spins, the harder it is to stop.
           </p>
-        </div>
-
+        </div> */}
+{/* 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {benefitCards.map((card) => (
             <BenefitCard key={card.title} {...card} />
           ))}
-        </div>
+        </div> */}
 
         {/* Real Results Header */}
-        <div className="md:mt-[90px] mt-8 text-center">
+        <div className="md:mt-[10px] mt-8 text-center">
           <div className="inline-flex h-[34px] items-center gap-2 rounded-[4px] border border-[#CFD5FD] bg-[#EDEFFF] px-[18px]">
             <span className="h-2 w-2 rounded-full bg-[#5332E2]" />
             <span className="md:text-[11px] text-[10px] font-semibold uppercase tracking-[0.8px] text-[#5332E2] sm:text-[12px]">
