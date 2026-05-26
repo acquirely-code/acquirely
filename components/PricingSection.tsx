@@ -16,7 +16,7 @@ const additionalFeatures = [
 
 export default function PricingSection() {
   return (
-    <section className="bg-white px-4 py-8 font-sans md:py-16 lg:py-8">
+    <section className="bg-white px-4 py-8 font-sans md:py-16 lg:py-4">
       <div className="mx-auto max-w-[866px]">
         
         {/* Header Section */}
@@ -45,7 +45,7 @@ export default function PricingSection() {
         <div className="mb-10 grid gap-4 sm:grid-cols-2 md:mb-12 md:gap-6">
           <div className="flex flex-col items-center justify-center rounded-[8px] bg-[#F4F7FF] px-4 py-8 text-center md:px-6 md:py-10">
             <p className="mb-1 text-[14px] text-[#7B8BA0] md:mb-2 md:text-[18px]">For ₹3L–₹10L ad spend</p>
-            <p className="mb-1 text-[32px] font-bold leading-tight text-black md:mb-2 md:text-[45px] md:leading-[45px]">₹75,000</p>
+            <p className="mb-1 text-[32px] font-bold leading-tight text-black md:mb-2 md:text-[45px] md:leading-[45px]">₹50,000</p>
             <p className="text-[16px] text-[#7B8BA0] md:text-[24px]">+ GST</p>
           </div>
           
@@ -58,7 +58,7 @@ export default function PricingSection() {
 
         {/* Compare to Hiring In-House */}
         <div className="rounded-[23px] border border-[#E5E5E5] bg-white p-5 shadow-[0_0_4px_rgba(0,0,0,0.05)] md:p-8 lg:p-12">
-          <h3 className="mb-6 text-[22px] font-semibold text-black md:mb-8 md:text-[28px] lg:text-[32px]">
+          <h3 className="mb-6 text-[16px] font-semibold text-black md:mb-8 md:text-[28px] lg:text-[32px]">
             Compare That to Hiring In-House
           </h3>
           
@@ -82,12 +82,12 @@ export default function PricingSection() {
           </div>
 
           {/* Total Row */}
-          <div className="mt-6 flex flex-col justify-between rounded-[6px] bg-[#FFF4F4] px-4 py-5 sm:flex-row sm:items-center md:mt-8 md:px-6 md:py-8">
-            <span className="mb-2 text-[18px] font-bold text-[#B91C1C] sm:mb-0 md:text-[24px] lg:text-[28px]">
+          <div className="mt-6 flex flex-row items-center justify-between rounded-[6px] bg-[#FFF4F4] px-4 py-5 md:mt-8 md:px-6 md:py-8">
+            <span className="text-[18px] font-bold text-[#B91C1C] md:text-[24px] lg:text-[28px]">
               Total In-House Cost
             </span>
-            <div className="text-left sm:text-right">
-              <span className="mb-1 block text-[28px] font-bold leading-[1] text-[#B91C1C] md:text-[36px] lg:text-[40px]">
+            <div className="text-right">
+              <span className="mb-1 block text-[20px] font-bold leading-[1] text-[#B91C1C] md:text-[36px] lg:text-[40px]">
                 ₹2.2L+
               </span>
               <span className="block text-[14px] text-[#B91C1C] md:text-[16px] lg:text-[18px]">
@@ -103,7 +103,7 @@ export default function PricingSection() {
             And that still doesn't include:
           </h4>
           
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-4 md:gap-8">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-4 md:gap-8">
             {additionalFeatures.map((feature, index) => (
               <div key={index} className="flex flex-col items-center">
                 <div className="mb-3 flex h-[40px] w-[40px] items-center justify-center rounded-[6px] bg-[#FBDEDE] md:mb-5 md:h-[45px] md:w-[46px]">

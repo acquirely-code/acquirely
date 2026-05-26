@@ -236,7 +236,7 @@ export default function FlywheelProofSection() {
               Real client. Real numbers. Real proof.
             </span>
           </div>
-          <h2 className="mx-auto font-Montserrat mt-8 max-w-[873px] text-[31px] leading-[1.08] text-black sm:text-[36px] lg:text-[40px] lg:leading-[44px]">
+          <h2 className="mx-auto font-Montserrat font-bold mt-8 max-w-[873px] text-[31px] leading-[1.08] text-black sm:text-[36px] lg:text-[40px] lg:leading-[44px]">
             Real Results from the A3 Flywheel Model
           </h2>
         </div>
@@ -373,7 +373,7 @@ export default function FlywheelProofSection() {
                       </div>
                       <div className="flex-1 w-full">
                         <h4 className="text-[16px] sm:text-[18px] font-semibold leading-7 text-black">Problem:</h4>
-                        <p className="mt-1 text-[14px] sm:text-[15px] font-medium leading-[22px] text-[#7B8BA0] sm:text-[16px]">
+                        <p className="mt-1 text-[14px]  font-medium leading-[22px] text-[#7B8BA0] sm:text-[16px]">
                           {study.problem}
                         </p>
                       </div>

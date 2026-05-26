@@ -67,7 +67,7 @@ export default function AgencyLandingPage() {
             </div>
 
             {/* 3. PARAGRAPH, CTA & SOCIAL PROOF (Bottom on Mobile, Bottom-Left on Desktop) */}
-            <div className="order-3 flex max-w-[598px] flex-col lg:col-start-1 lg:row-start-2">
+            <div className="order-3 flex max-w-[598px] py-6 flex-col lg:col-start-1 lg:row-start-2">
                <div className="flex  gap-2">
                  <Check className="mt-2"  width={20}  />  <p className="mt-2 font-opensans text-[16px] leading-7 text-white/90 sm:text-[17px] lg:mt-2 lg:text-[18px] lg:leading-[29px]">
            We don’t just run Meta Ads campaigns. We build performance marketing systems.</p> 

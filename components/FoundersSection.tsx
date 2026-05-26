@@ -81,7 +81,7 @@ function TrustCard({
 }) {
   return (
     <div className="rounded-xl bg-[#FAFAFA] px-4 py-5 text-center">
-      <div className={`mx-auto grid h-10 w-10 place-items-center rounded-lg ${iconBg}`}>
+      <div className={`mx-auto grid h-12 w-12 place-items-center rounded-sm ${iconBg}`}>
         <Icon className={`h-5 w-5 ${iconColor}`} />
       </div>
       <h3 className="mt-4 text-[18px] font-semibold leading-6 text-[#171717]">{title}</h3>
