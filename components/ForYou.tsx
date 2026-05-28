@@ -69,7 +69,7 @@ export default function QualificationSection() {
       </div>
 
       {/* Divider 1 (Horizontal on mobile, Vertical on desktop) */}
-      <div className="h-[1px] w-[120px] bg-black/10 md:h-[82px] md:w-[1px] md:bg-black"></div>
+      <div className="h-[1px] w-[320px] bg-black/10 md:h-[82px] md:w-[1px] md:bg-black"></div>
 
       {/* Stat 2 */}
       <div className="flex w-full flex-col items-center justify-center text-center md:w-1/3">
@@ -82,7 +82,7 @@ export default function QualificationSection() {
       </div>
 
       {/* Divider 2 (Horizontal on mobile, Vertical on desktop) */}
-      <div className="h-[1px] w-[120px] bg-black/10 md:h-[82px] md:w-[1px] md:bg-black"></div>
+      <div className="h-[1px] w-[320px] bg-black/10 md:h-[82px] md:w-[1px] md:bg-black"></div>
 
       {/* Stat 3 */}
       <div className="flex w-full flex-col items-center justify-center text-center md:w-1/3">

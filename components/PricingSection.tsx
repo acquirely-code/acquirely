@@ -28,7 +28,7 @@ export default function PricingSection() {
             </span>
           </div>
 
-          <h2 className="mt-4 font-Montserrat text-[28px] font-bold leading-tight tracking-tight md:mt-6 md:text-[36px] lg:text-[40px]">
+          <h2 className="mt-4 font-Montserrat text-[22px] font-bold leading-tight tracking-tight md:mt-6 md:text-[36px] lg:text-[40px]">
             <span className="bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text text-transparent">
               Transparent, Performance-
             </span>
@@ -45,7 +45,7 @@ export default function PricingSection() {
         <div className="mb-10 grid gap-4 sm:grid-cols-2 md:mb-12 md:gap-6">
           <div className="flex flex-col items-center justify-center rounded-[8px] bg-[#F4F7FF] px-4 py-8 text-center md:px-6 md:py-10">
             <p className="mb-1 text-[14px] text-[#7B8BA0] md:mb-2 md:text-[18px]">For ₹3L–₹10L ad spend</p>
-            <p className="mb-1 text-[32px] font-bold leading-tight text-black md:mb-2 md:text-[45px] md:leading-[45px]">₹50,000</p>
+            <p className="mb-1 text-[32px] font-bold leading-tight text-black md:mb-2 md:text-[45px] md:leading-[45px]">₹70,000</p>
             <p className="text-[16px] text-[#7B8BA0] md:text-[24px]">+ GST</p>
           </div>
           
