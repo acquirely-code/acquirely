@@ -80,13 +80,22 @@ function TrustCard({
   iconColor: string;
 }) {
   return (
-    <div className="rounded-xl bg-[#FAFAFA] px-4 py-5 text-center">
-      <div className={`mx-auto grid h-12 w-12 place-items-center rounded-sm ${iconBg}`}>
-        <Icon className={`h-5 w-5 ${iconColor}`} />
-      </div>
-      <h3 className="mt-4 text-[18px] font-semibold leading-6 text-[#171717]">{title}</h3>
-      <p className="mt-2 text-[12px] leading-[18px] text-[#737373]">{description}</p>
-    </div>
+  <div className="group flex flex-col items-center rounded-2xl border border-transparent bg-[#FAFAFA] px-6 py-8 text-center transition-all duration-300 hover:-translate-y-1 hover:border-gray-100 hover:bg-white hover:shadow-xl hover:shadow-gray-200/40 sm:px-8 sm:py-10">
+  {/* Icon Container with slight scale on hover */}
+  <div className={`flex h-16 w-16 items-center justify-center rounded-sm transition-transform duration-300 group-hover:scale-110 ${iconBg}`}>
+    <Icon className={`h-7 w-7 ${iconColor}`} />
+  </div>
+  
+  {/* Title with responsive text sizing */}
+  <h3 className="mt-5 text-[18px] font-bold tracking-tight text-[#171717] sm:text-[20px]">
+    {title}
+  </h3>
+  
+  {/* Description with improved line height and readability */}
+  <p className="mt-3 text-[13px] leading-relaxed text-[#737373] sm:text-[14px]">
+    {description}
+  </p>
+</div>
   );
 }
 
