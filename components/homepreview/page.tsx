@@ -287,7 +287,7 @@ export default function HomePage() {
   return (
     <main className="overflow-hidden bg-white text-[#0F172A]">
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden bg-white pb-16 pt-8 md:pb-[160px] md:pt-[96px]">
+      <section className="relative overflow-hidden bg-white pb-16 pt-8 md:pb-[160px] md:pt-[46px]">
         {/* Premium Background Layers */}
         <div className="absolute right-[-5%] top-[-10%] z-0 h-[300px] w-[300px] rounded-full bg-blue-600/10 blur-[60px] md:h-[600px] md:w-[600px]" />
         <div className="absolute bottom-[-10%] left-[-5%] z-0 h-[300px] w-[300px] rounded-full bg-purple-500/10 blur-[50px] md:h-[600px] md:w-[600px]" />

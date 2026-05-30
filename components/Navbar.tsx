@@ -44,11 +44,11 @@ export default function Navbar() {
             <Link href="/case-studies" className="text-[20px] text-[#0F172A] transition hover:text-[#0052FF]">
               Case Studies
             </Link>
-            <Link href="/aboutus" className="text-[20px] text-[#0F172A] transition hover:text-[#0052FF]">
+            <Link href="/about-us" className="text-[20px] text-[#0F172A] transition hover:text-[#0052FF]">
               About Us
             </Link>
           </div>
- <Link href="https://booknow.acquirely.in/#/FRCNA">
+ <Link href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg">
           <button className="rounded-[8px] bg-[#0052FF] px-[24px] py-[12px] text-[16px] font-bold text-white shadow-[0px_10px_15px_-3px_rgba(0,82,255,0.2),0px_4px_6px_-4px_rgba(0,82,255,0.2)] transition hover:scale-[1.02] hover:bg-blue-700">
             Book a Meeting
           </button>
@@ -91,14 +91,14 @@ export default function Navbar() {
               Case Studies
             </Link>
             <Link 
-              href="/aboutus" 
+              href="/about-us" 
               className="text-lg font-medium text-[#0F172A] transition hover:text-[#0052FF]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About Us
             </Link>
 
-             <Link href="https://booknow.acquirely.in/#/FRCNA">
+             <Link href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg">
             <button 
               className="mt-2 w-full rounded-[8px] bg-[#0052FF] px-6 py-4 text-base font-bold text-white shadow-[0_10px_15px_-3px_rgba(0,82,255,0.2)] active:scale-95"
               onClick={() => setIsMobileMenuOpen(false)}

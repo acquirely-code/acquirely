@@ -84,7 +84,7 @@ const flywheelCards = [
   {
     badge: "A1",
     badgeClass: "from-[#686CF2] to-[#7A84F6]",
-    title: "🔰 A1 — Testing → Scale",
+    title: " A1 — Testing → Scale",
     body: "Launch structured tests: multiple creatives, offers, regional angles. Winners flow immediately to a dedicated scale campaign.",
     goalColor: "text-[#2563EB]",
     goal: "Find lead magnets that convert. Isolate. Pour budget.",
@@ -92,7 +92,7 @@ const flywheelCards = [
   {
     badge: "A2",
     badgeClass: "from-[#FA781C] to-[#FA8D36]",
-    title: "⚙️ A2 — Lock & Scale Aggressively",
+    title: "A2 — Lock & Scale Aggressively",
     body: "After ~90 days, we lock cost per qualified lead. No more fluctuations. Then drastically scale ad spend across regions.",
     goalColor: "text-[#7C3AED]",
     goal: "Predictable volume. Aggressive growth.",
@@ -100,7 +100,7 @@ const flywheelCards = [
   {
     badge: "A3",
     badgeClass: "from-[#2ECF95] to-[#14BC84]",
-    title: "🔬 A3 — Micro Analysis & Redistribution",
+    title: "A3 — Micro Analysis & Redistribution",
     body: "Analyze by day of week, hour, region. Redistribute budget to high-performing segments daily.",
     goalColor: "text-[#10B981]",
     goal: "Squeeze every rupee from your lead budget.",
@@ -985,8 +985,8 @@ export default function DoneForYouLandingPage() {
               <span>75-day risk reversal</span>
               <span>Full transparency</span>
             </div>
-            <div className="md:mt-8 mt-4 border-t border-white/20 pt-8 flex flex-col gap-6"></div>
-              <div className="flex text-center mt-6 items-center justify-center gap-6 order-1 md:order-2 md:text-[16px] text-[12px] text-white/90">
+            <div className="md:mt-4 mt-2 border-t border-white/20 pt-8 flex flex-col gap-6"></div>
+              <div className="flex text-center mt-4 items-center justify-center gap-6 order-1 md:order-2 md:text-[16px] text-[12px] text-white/90">
             This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, This site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.
           
             </div>

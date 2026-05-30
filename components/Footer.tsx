@@ -48,7 +48,7 @@ export default function Footer() {
               <Link href="/lead-gen">
             <p className="cursor-pointer transition hover:text-[#0F172A] mt-5">Lead Gen</p>
             </Link>
-              <Link href="/aboutus">
+              <Link href="/about-us">
             <p className="cursor-pointer transition hover:text-[#0F172A] mt-5">About us</p>
             </Link>
           </div>
@@ -58,8 +58,12 @@ export default function Footer() {
         <div className="md:ml-20">
           <h4 className="font-opensans text-lg font-bold text-[#0F172A]">Legal</h4>
           <div className="mt-4 space-y-4 text-base text-[#64748B] ">
+            <Link href="/privacy-policy">
             <p className="cursor-pointer transition hover:text-[#0F172A]">Terms & Conditions</p>
+            </Link>
+            <Link href="/privacy-policy">
             <p className="cursor-pointer transition hover:text-[#0F172A]">Privacy Policy</p>
+            </Link>
           </div>
         </div>
 

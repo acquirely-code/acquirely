@@ -54,7 +54,7 @@ export default function PricingSection() {
             <p className="mb-1 text-[32px] font-bold leading-tight text-black md:mb-2 md:text-[45px] md:leading-[45px]">10%</p>
             <p className="text-[16px] text-[#7B8BA0] md:text-[24px]">of total ad spend</p>
           </div>
-        </div>
+        </div>  
 
         {/* Compare to Hiring In-House */}
         <div className="rounded-[23px] border border-[#E5E5E5] bg-white p-5 shadow-[0_0_4px_rgba(0,0,0,0.05)] md:p-8 lg:p-12">
