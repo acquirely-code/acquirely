@@ -20,7 +20,7 @@ export default function AboutHeroSection() {
    </div>
 
       {/* --- Hero Content --- */}
-      <div className="relative z-10 flex w-full max-w-[1140px] flex-col items-center md:px-5 px-2 mt-[80px] md:mt-[100px]">
+      <div className="relative z-10 flex w-full max-w-[1140px] flex-col items-center md:px-5 px-2 mt-[30px] md:mt-[100px]">
          
         
         {/* Pill Badge */}
