@@ -18,9 +18,9 @@ module.exports = {
     extend: {
       fontFamily: {
         Montserrat: ['Montserrat', 'sans-serif'],
-        opensans: ['opensans', 'sans-serif'],
+        opensans: ['opensansnew', ],
         gilroy_medium: ['GilroyMedium', 'sans-serif'],
-        gilroy_light: ['GilroyLight', 'sans-serif'],	
+        gilroy_light: ['GilroyLight'],	
         charter_regular:['CharterSerif',  ],
         KievitSerif:['KievitSerif'],
         hevelticneu:['hevelticneu', 'sans-serif',],
