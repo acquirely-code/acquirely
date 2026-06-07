@@ -351,6 +351,7 @@ export default function HomePage() {
           <span className="shrink-0 text-xs font-extrabold uppercase tracking-[1.4px] text-[#64748B] sm:text-sm lg:text-xs">
             Real Case Studies:
           </span>
+          <Link  href="/case-studies" className="ml-auto text-sm font-medium text-[#0F172A] transition hover:text-[#0052FF]">
           <div className="relative w-full overflow-hidden">
             <div className="animate-marquee flex items-center gap-8 whitespace-nowrap md:gap-16">
               {[...caseStudiesData, ...caseStudiesData, ...caseStudiesData].map((study, i) => (
@@ -368,6 +369,7 @@ export default function HomePage() {
               ))}
             </div>
           </div>
+              </Link>
         </div>
       </section>
 

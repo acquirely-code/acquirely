@@ -737,7 +737,7 @@ export default function DoneForYouLandingPage() {
           </div>
           
           <div className="flex flex-col items-center justify-center rounded-[8px] bg-[#F0FFF5] px-4 py-8 text-center md:px-6 md:py-10">
-            <p className="mb-1 text-[14px] text-[#7B8BA0] md:mb-2 md:text-[18px]">For ₹10L+ ad spend</p>
+            <p className="mb-1 text-[14px] text-[#7B8BA0] md:mb-2 md:text-[18px]">For ₹5L+ ad spend</p>
             <p className="mb-1 text-[32px] font-bold leading-tight text-black md:mb-2 md:text-[45px] md:leading-[45px]">10%</p>
             <p className="text-[16px] text-[#7B8BA0] md:text-[24px]">of total ad spend</p>
           </div>

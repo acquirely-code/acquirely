@@ -32,7 +32,7 @@ const FeatureCard: React.FC<CardProps> = ({ icon, title, description, iconBgClas
   <div className="flex flex-col p-6 gap-4 bg-white rounded-xl border border-[#E4E4E7]/60 shadow-[0px_2px_12px_rgba(0,0,0,0.03)] h-full">
     {/* Icon and Title Row */}
     <div className="flex flex-row items-center gap-4">
-      <div className={`flex items-center justify-center w-10 h-10 rounded-lg ${iconBgClass} ${iconColorClass}`}>
+      <div className={`flex items-center justify-center w-12 h-12 rounded-sm ${iconBgClass} ${iconColorClass}`}>
         {icon}
       </div>
       <h4 className="font-montserrat font-bold text-[16px] text-[#09090B]">

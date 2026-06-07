@@ -14,12 +14,14 @@ export default function ThankYouPage() {
     <div className="min-h-screen bg-white font-sans selection:bg-indigo-100">
       
       {/* SECTION 1: HERO / CONFIRMATION */}
-      <section className="relative bg-[linear-gradient(115.83deg,#0F0C29_0%,#1A1560_40%,#24243E_100%)] px-5 pb-24 pt-10 sm:px-6 lg:px-8 lg:pb-32 lg:pt-12">
+      <section className="relative  bg-[linear-gradient(115.83deg,#0F0C29_0%,#1A1560_40%,#24243E_100%)] px-5 pb-24 pt-10 sm:px-6 lg:px-8 lg:pb-32 lg:pt-12">
+       
+         <div className="mb-16 md:mb-24 items-center  justify-center  flex">
+          <Image className="h-10  w-auto items-center md:h-[60px] md:w-[260px] text-white" src={logo} alt="Acquirely Logo" />
+          </div>
         <div className="mx-auto max-w-[1440px]">
           {/* Logo Placeholder */}
-          <div className="mb-16 md:mb-24 flex justify-center md:justify-start">
-          <Image src={logo} alt="Acquirely Logo" />
-          </div>
+        
 
           <div className="mx-auto flex max-w-[823px] flex-col items-center text-center">
             {/* Success Icon */}

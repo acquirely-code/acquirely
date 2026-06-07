@@ -16,7 +16,7 @@ export default function Footer() {
         
         {/* COLUMN 1: Brand & Socials */}
         <div className="col-span-1 md:col-span-2 lg:col-span-1 flex flex-col items-start">
-          <h3 className="font-Montserrat text-[24px] font-bold text-[#6366F1]">
+          <h3 className="font-Montserrat bg-gradient-to-r from-[#2563EB] to-[#8B5CF6] bg-clip-text text-transparent text-[24px] font-bold text-zz ">
             Acquirely
           </h3>
           <p className="mt-4 text-[14px] leading-[24px] text-[#8B92A5] pr-4">
@@ -28,7 +28,7 @@ export default function Footer() {
             <a href="https://www.instagram.com/acquirely.in" className="transition hover:text-[#6366F1]" aria-label="Instagram">
               <Instagram className="h-[20px] w-[20px] stroke-[1.5]" />
             </a>
-            <a href="https://www.facebook.com/" className="transition hover:text-[#6366F1]" aria-label="Facebook">
+            <a href="https://www.facebook.com/61578312825291/" className="transition hover:text-[#6366F1]" aria-label="Facebook">
               <Facebook className="h-[20px] w-[20px] stroke-[1.5]" />
             </a>
             <a href="https://www.linkedin.com/company/acquirelydm/" className="transition hover:text-[#6366F1]" aria-label="LinkedIn">
@@ -41,7 +41,7 @@ export default function Footer() {
         <div className="lg:ml-auto">
           <h4 className="font-Montserrat text-[16px] font-bold text-white">Quick Links</h4>
           <div className="mt-6 flex flex-col space-y-4 text-[14px] text-[#8B92A5]">
-            <Link href="/ecommerce" className="transition hover:text-white">
+            <Link href="/e-commerce" className="transition hover:text-white">
               Ecommerce
             </Link>
             <Link href="/lead-gen" className="transition hover:text-white">
@@ -52,7 +52,6 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-
         {/* COLUMN 3: Legal */}
         <div className="lg:ml-8">
           <h4 className="font-Montserrat text-[16px] font-bold text-white">Legal</h4>

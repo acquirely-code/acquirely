@@ -34,7 +34,7 @@ export default function Navbar() {
         {/* Desktop Links & Button */}
         <div className="hidden items-center gap-8 lg:flex">
           <div className="mr-6 flex items-center gap-8">
-            <Link href="/ecommerce" className="text-[20px] text-[#0F172A] transition hover:text-[#0052FF]">
+            <Link href="/e-commerce" className="text-[20px] text-[#0F172A] transition hover:text-[#0052FF]">
               Ecommerce
             </Link>
              <Link href="/lead-gen" className="text-[20px] text-[#0F172A] transition hover:text-[#0052FF]">
@@ -70,7 +70,7 @@ export default function Navbar() {
         <div className="absolute left-0 top-full mt-2 w-full rounded-[10px] border border-gray-200 bg-white/95 p-5 shadow-2xl backdrop-blur-xl lg:hidden">
           <div className="flex flex-col gap-6">
             <Link 
-              href="/ecommerce" 
+              href="/e-commerce" 
               className="text-lg font-medium text-[#0F172A] transition hover:text-[#0052FF]"
               onClick={() => setIsMobileMenuOpen(false)}
             >

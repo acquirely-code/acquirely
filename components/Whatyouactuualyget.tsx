@@ -97,7 +97,7 @@ export default function ResultsAndCTASection() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
             {/* Feature 1 */}
             <div className="flex flex-col p-6 bg-white rounded-xl border border-[#E4E4E7]/60 shadow-sm">
-              <div className="flex items-center justify-center w-12 h-12 rounded-md bg-[#F0F6FF] text-[#2B7FFF] mb-4">
+              <div className="flex items-center justify-center w-12 h-12 rounded-md bg-[#F4F4F5] text-[#2B7FFF] mb-4">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>
               </div>
               <h4 className="font-montserrat font-bold text-[15px] text-[#09090B] mb-2">Predictable ROAS</h4>
@@ -106,7 +106,7 @@ export default function ResultsAndCTASection() {
 
             {/* Feature 2 */}
             <div className="flex flex-col p-6 bg-white rounded-xl border border-[#E4E4E7]/60 shadow-sm">
-              <div className="flex items-center justify-center w-12 h-12 rounded-md bg-[#F0F6FF] text-[#2B7FFF] mb-4">
+              <div className="flex items-center justify-center w-12 h-12 rounded-md bg-[#F4F4F5] text-[#2B7FFF] mb-4">
                 <Palette/>
               </div>
               <h4 className="font-montserrat font-bold text-[15px] text-[#09090B] mb-2">Scalable creatives</h4>
@@ -115,7 +115,7 @@ export default function ResultsAndCTASection() {
 
             {/* Feature 3 */}
             <div className="flex flex-col p-6 bg-white rounded-xl border border-[#E4E4E7]/60 shadow-sm">
-              <div className="flex items-center justify-center w-12 h-12 rounded-md bg-[#F0F6FF] text-[#2B7FFF] mb-4">
+              <div className="flex items-center justify-center w-12 h-12 rounded-md bg-[#F4F4F5] text-[#2B7FFF] mb-4">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
               </div>
               <h4 className="font-montserrat font-bold text-[15px] text-[#09090B] mb-2">Full Transparency</h4>
@@ -124,7 +124,7 @@ export default function ResultsAndCTASection() {
 
             {/* Feature 4 */}
             <div className="flex flex-col p-6 bg-white rounded-xl border border-[#E4E4E7]/60 shadow-sm">
-              <div className="flex items-center justify-center w-12 h-12 rounded-md bg-[#F0F6FF] text-[#2B7FFF] mb-4">
+              <div className="flex items-center justify-center w-12 h-12 rounded-md bg-[#F4F4F5] text-[#2B7FFF] mb-4">
                 <Crown/>
               </div>
               <h4 className="font-montserrat font-bold text-[15px] text-[#09090B] mb-2">Path to ₹1Cr/Month</h4>
@@ -173,7 +173,7 @@ export default function ResultsAndCTASection() {
               Book your strategy session
             </h3>
             <Link href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg">
-            <button className="w-full bg-[#2B7FFF] hover:bg-[#206CE0] transition-colors duration-200 text-white font-semibold text-[15px] py-4 rounded-lg flex items-center justify-center gap-2 mb-4">
+            <button className="w-full bg-[#2563EB] hover:bg-[#206CE0] transition-colors duration-200 text-white font-semibold text-[15px] py-3 rounded-sm flex items-center justify-center gap-2 mb-4">
               Book Your Free Call!
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
             </button>

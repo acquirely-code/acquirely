@@ -130,7 +130,7 @@ export default function AboutPage() {
                   </p>
                 </div>
                 {/* LinkedIn Button */}
-                <a href="#" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/20 border border-white/30 backdrop-blur-md text-white transition-colors hover:bg-white/30">
+                <a href="https://in.linkedin.com/in/mausamarora" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/20 border border-white/30 backdrop-blur-md text-white transition-colors hover:bg-white/30">
                   <LinkedInIcon />
                 </a>
               </div>
@@ -185,7 +185,7 @@ export default function AboutPage() {
                   </p>
                 </div>
                 {/* LinkedIn Button */}
-                <a href="#" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/20 border border-white/30 backdrop-blur-md text-white transition-colors hover:bg-white/30">
+                <a href="https://in.linkedin.com/in/kunal-meta-ads" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/20 border border-white/30 backdrop-blur-md text-white transition-colors hover:bg-white/30">
                   <LinkedInIcon />
                 </a>
               </div>
@@ -301,10 +301,12 @@ export default function AboutPage() {
             </h2>
 
             {/* CTA Button */}
+            <Link href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg">
             <button className="mt-4 flex items-center gap-2 rounded-xl bg-[#F64C00] hover:bg-[#E04500] transition-colors duration-200 px-4 py-4 font-Montserrat text-[13px] md:text-[16px] font-semibold text-white shadow-[0px_1px_2px_rgba(0,0,0,0.05)]">
               Book a Free Growth Call
               <ArrowRightIcon />
             </button>
+            </Link>
 
             {/* Subtext */}
             <span className="font-Montserrat text-[13px] md:text-[14px] text-white/50">
