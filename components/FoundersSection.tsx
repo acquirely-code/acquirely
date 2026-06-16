@@ -203,7 +203,7 @@ export default function FoundersSection() {
                 </p>
               </div>
       
-              <div className="mx-auto mt-12 grid max-w-[1120px] gap-4 md:grid-cols-2 lg:grid-cols-4">
+              <div className="mx-auto mt-12 grid max-w-[1420px] gap-4 md:grid-cols-2 lg:grid-cols-4">
                 {trustCards.map((card) => (
                   <TrustCard key={card.title} {...card} />
                 ))}

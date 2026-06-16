@@ -152,78 +152,6 @@ const servicesData: Service[] = [
   },
 ];
 
-const resultsCards: ResultCard[] = [
-  {
-    id: 1,
-    title: "Predictable ROAS",
-    desc: "You'll know what you're getting before we scale. No more guessing if this month will be profitable.",
-    badge: "Retroverse: 2.43x → 4.68x",
-    icon: <TrendingUp className="h-5 w-5 text-[#6366F1]" />,
-  },
-  {
-    id: 2,
-    title: "Creatives that scale",
-    desc: "A constant pipeline of tested winners — UGC, static, motion — so you never run the same tired ad twice.",
-    badge: "15+ tested per month",
-    icon: <Zap className="h-5 w-5 text-[#F97316]" />,
-  },
-  {
-    id: 3,
-    title: "A funnel that converts",
-    desc: "We audit every drop-off point — landing page, checkout, post-purchase — and fix the leaks before scaling spend.",
-    badge: "Avg. 20-35% CVR lift",
-    icon: <Filter className="h-5 w-5 text-[#10B981]" />,
-  },
-  {
-    id: 4,
-    title: "Full transparency",
-    desc: "Weekly reports, live dashboards, no black-box reporting. You always know exactly where your money is going.",
-    badge: 'Modish: "transparency is unmatched"',
-    icon: <Search className="h-5 w-5 text-[#3B82F6]" />,
-  },
-  {
-    id: 5,
-    title: "A path to ₹1Cr/Month",
-    desc: "Our A3 model gives you a structured, data-backed road from ₹10L to ₹1Cr monthly — not just ad spend, real revenue.",
-    badge: "Modish: ROAS 2.31x → 3.53x",
-    icon: <TrendingUp className="h-5 w-5 text-[#F43F5E]" />,
-  },
-  {
-    id: 6,
-    title: "A system that compounds",
-    desc: "Every winner feeds the next test. Every test feeds the next scale. The longer you run it, the better it gets.",
-    badge: "NoStrain: 1.36x → 2.65x",
-    icon: <RefreshCcw className="h-5 w-5 text-[#14B8A6]" />,
-  },
-];
-
-const a3Phases: A3Phase[] = [
-  {
-    id: 1,
-    phase: "PHASE 1",
-    title: "Test",
-    desc: "Run 15+ creative variants across audiences. Let data pick — not opinions.",
-    badge: "15+ creatives/month",
-    icon: <FlaskConical className="h-5 w-5 text-[#818CF8]" />,
-  },
-  {
-    id: 2,
-    phase: "PHASE 2",
-    title: "Winners",
-    desc: "Proven creatives graduate to dedicated scale campaigns. Zero guesswork.",
-    badge: "Top 20% move forward",
-    icon: <Trophy className="h-5 w-5 text-[#F97316]" />,
-  },
-  {
-    id: 3,
-    phase: "PHASE 3",
-    title: "Scale",
-    desc: "Budget flows to what's working. Interests stacked, spend compounded.",
-    badge: "ROAS 2x-4x in 90 days",
-    icon: <TrendingUp className="h-5 w-5 text-[#10B981]" />,
-  },
-];
-
 const phaseDetails: Record<number, PhaseDetail> = {
   1: {
     title: "Phase 1 — Test campaign structure",
@@ -270,23 +198,6 @@ const testimonials: Testimonial[] = [
 ];
 
 export default function HomePage() {
-  // Use strictly typed states
-  const [activeTab, setActiveTab] = useState<string>("All services");
-  const [activeServiceCard, setActiveServiceCard] = useState<number>(1);
-  const [activePhase, setActivePhase] = useState<number | null>(null);
-
-  const tabs: string[] = ["All services", "Paid ads", "Funnel", "Scale"];
-
-  const filteredServices = servicesData.filter(
-    (service) => activeTab === "All services" || service.category === activeTab
-  );
-
-  const handlePhaseToggle = (id: number) => {
-    setActivePhase(activePhase === id ? null : id);
-  };
-
-  const activePhaseData = activePhase ? phaseDetails[activePhase] : null;
-
   return (
     <main className="overflow-hidden bg-white text-[#0F172A]">
       {/* HERO SECTION */}
@@ -308,7 +219,7 @@ export default function HomePage() {
                 </span>
               </h1>
 
-              <p className="mt-5 max-w-[600px] font-opensans text-base leading-relaxed text-[#475569] sm:text-lg md:mt-8 md:text-xl">
+              <p className="mt-5 max-w-[600px] font-opensans text-[#475569] sm:text-lg md:mt-8 md:text-xl">
                Grow from ₹10L to ₹1Cr+ monthly with data-driven Meta Ads
               </p>
 
@@ -332,13 +243,14 @@ export default function HomePage() {
 
             {/* Right Dashboard/Image Column */}
             <div className="flex justify-center lg:col-span-5">
+
               <div className="relative w-full max-w-[500px] lg:max-w-none">
                 <Image
                   src={mainheroimage}
                   alt="Performance Dashboard Preview"
                   priority
                   className="h-auto w-full object-contain"
-                />
+                  />
               </div>
             </div>
           </div>

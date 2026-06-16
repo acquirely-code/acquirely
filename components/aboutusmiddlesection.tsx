@@ -1,4 +1,7 @@
 import React from 'react';
+import Image from 'next/image';
+import mausamarora from "@/app/assests/mausamarora.png";
+
 
 // --- Icon Components (Matching the design) ---
 const QuoteIcon = () => (
@@ -84,14 +87,25 @@ export default function MiddleSections() {
                 
                 <hr className="my-8 w-full border-t border-white/10" />
                 
-                <div className="flex flex-col">
-                  <span className="font-Montserrat text-[16px] font-semibold text-[#EFF6FF]">
-                    Mausam Arora
-                  </span>
-                  <span className="mt-1 font-opensans text-[14px] text-white/60">
-                    Founder, Acquirely
-                  </span>
+                {/* Updated Author Section with Image */}
+                <div className="flex items-center gap-4">
+                  <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-white/10">
+                    <Image 
+                      src={mausamarora} 
+                      alt="Mausam Arora" 
+                      className="h-full w-full object-cover" 
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-Montserrat text-[16px] font-semibold text-[#EFF6FF]">
+                      Mausam Arora
+                    </span>
+                    <span className="mt-1 font-opensans text-[14px] text-white/60">
+                      Founder, Acquirely
+                    </span>
+                  </div>
                 </div>
+                
               </div>
 
             </div>

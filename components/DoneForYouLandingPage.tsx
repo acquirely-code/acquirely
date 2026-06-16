@@ -549,8 +549,9 @@ export default function DoneForYouLandingPage() {
                 Every Unqualified Lead Is a Tax on Your Growth.
               </h2>
               <p className="mx-auto mt-4 max-w-[768px] font-['Open_Sans'] text-[15px] leading-6 text-[#1E293B] sm:text-[18px] sm:leading-7 lg:text-[20px]">
-                You celebrate 500 leads this month. Your sales team closes 10. The rest? Wasted time, wasted
-                follow-up, wasted budget.
+                You celebrate 500 leads this month. Your sales team closes 10.
+                <span className="block"> The rest? Wasted time, wasted
+                follow-up, wasted budget.</span>
               </p>
             </div>
 
@@ -599,13 +600,13 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-8 sm:py-12 lg:px-[272px] lg:py-16">
+        <div className="mx-auto max-w-[1640px] px-4 py-10 sm:px-8 sm:py-12 lg:px-[272px] lg:py-16">
           <div className="mx-auto max-w-[896px] px-4 text-center sm:px-6">
             <SmallLabel>MARKET SHIFT</SmallLabel>
             <h2 className="mt-10 text-[28px] font-extrabold leading-[1.15] text-transparent sm:mt-12 sm:text-[34px] sm:leading-[1.2] lg:text-[40px] lg:leading-[40px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text">
               Meta&apos;s Algorithm Made Lead Gen Harder.
               <br />
-             <span className="text-black"> We Made It Smarter.</span>
+             <span className="text-black mt-2"> We Made It Smarter.</span>
             </h2>
             <p className="mx-auto mt-8 max-w-[892px] font-['Open_Sans'] text-[15px] leading-6 text-[rgba(31,41,55,0.8)] sm:mt-10 sm:text-base sm:leading-7 lg:text-lg lg:leading-[29px]">
               With updates like Andromeda, Meta&apos;s AI now prioritizes creative signals over interest targeting.
@@ -637,8 +638,8 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-[#F8FAFC]">
-        <div className="mx-auto max-w-[1440px]  py-10 sm:px-4 sm:py-12 lg:px-20 lg:py-16">
-          <div className="mx-auto max-w-[1280px] px-4 text-center sm:px-6">
+        <div className="mx-auto max-w-[1540px]  py-10 sm:px-4 sm:py-12 lg:px-20 lg:py-16">
+          <div className="mx-auto max-w-[1380px] px-4 text-center sm:px-6">
             <SmallLabel>THE A3 FRAMEWORK</SmallLabel>
             <h2 className="mx-auto mt-8 max-w-[792px] text-[28px] font-extrabold leading-[1.15] text-transparent sm:mt-10 sm:text-[34px] sm:leading-[1.2] lg:text-[40px] lg:leading-[49px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_42.79%)] bg-clip-text">
               The System That Scales Lead Volume <span className="text-black"> Without Crashing Quality</span>.
@@ -657,7 +658,7 @@ export default function DoneForYouLandingPage() {
                   <div className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${card.badgeClass}`}>
                     <span className="text-[26px] font-extrabold text-white">{card.badge}</span>
                   </div>
-                  <h3 className="mt-5 text-lg font-bold leading-7 text-[#1F2937] sm:text-xl">{card.title}</h3>
+                  <h3 className="mt-5 text-lg font-bold leading-7 text-[#1F2937] sm:text-lg">{card.title}</h3>
                   <p className="mt-4 font-['Open_Sans'] text-sm leading-6 text-[#64748B] sm:text-base">{card.body}</p>
                   <div className="mt-6 border-t border-[#E2E8F0] pt-4">
                     <div className={`text-sm font-bold uppercase tracking-[1.4px] ${card.goalColor}`}>Goal</div>
@@ -669,7 +670,7 @@ export default function DoneForYouLandingPage() {
 
             <div className="mx-auto mt-8 max-w-[672px] rounded-xl px-6 py-4">
               <p className="font-['Open_Sans'] text-sm italic leading-6 text-[#1E293B] sm:text-base sm:leading-7 lg:text-lg">
-                This runs every week. Not occasionally. Religiously. A1 feeds A2. A2 enables A3.
+                This runs every week. Not occasionally. Religiously.  <br className="hidden sm:block" /> <span>A1 feeds A2. A2 enables A3.</span>
                 <br className="hidden sm:block" />
                 Insights from A3 make A1 smarter.
               </p>
@@ -875,11 +876,11 @@ export default function DoneForYouLandingPage() {
       </section>
 
       <section className="bg-[#F9FAFB]">
-        <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-8 sm:py-12 lg:px-[167px] lg:py-16">
+        <div className="mx-auto max-w-[1640px] px-4 py-10 sm:px-8 sm:py-12 lg:px-[167px] lg:py-16">
           <div className="flex justify-center">
             <SmallLabel>NOT FOR EVERYONE</SmallLabel>
           </div>
-          <h2 className="mx-auto mt-8 max-w-[1106px] text-center text-[28px] font-extrabold leading-[1.15] text-transparent sm:mt-10 sm:text-[34px] sm:leading-[1.2] lg:text-[40px] lg:leading-[49px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_42.79%)] bg-clip-text">
+          <h2 className=" mt-8 max-w-[1800px] font-Montserrat text-center text-[28px] font-extrabold leading-[1.15] text-transparent sm:mt-10 sm:text-[34px] sm:leading-[1.2] lg:text-[45px] lg:leading-[49px] bg-[linear-gradient(90deg,#818CF8_0%,#F97316_42.79%)] bg-clip-text">
             This Is for Multi-Location &amp; Online Lead Gen Brands.
             <br />
             <span className="text-black">

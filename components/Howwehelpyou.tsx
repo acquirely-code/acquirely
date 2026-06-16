@@ -1,5 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Search } from 'lucide-react';
 import A3flyeewheel from "@/app/assests/flywheelmodel.png";
 
 export default function Howwehelpyou() {
@@ -17,14 +19,29 @@ export default function Howwehelpyou() {
           </h2>
         </div>
 
-        {/* Diagram Image */}
+        {/* Diagram Image with Hover & Link */}
         <div className="w-full flex justify-center rounded-xl p-2 md:p-6 bg-white border border-[#E4E4E7]/40 shadow-[0px_4px_24px_rgba(0,0,0,0.02)]">
-          <Image 
-            src={A3flyeewheel} 
-            alt="Compounding Performance Marketing Model" 
-            className="w-full h-auto object-contain"
-            priority /* Added priority since this is a large above-the-fold/main image */
-          />
+          <Link href="/about-us" className="group relative block w-full overflow-hidden rounded-lg cursor-pointer">
+            
+            {/* Image with zoom effect */}
+            <div className="relative transition-transform duration-500 ease-in-out group-hover:scale-105">
+              <Image 
+                src={A3flyeewheel} 
+                alt="Compounding Performance Marketing Model" 
+                className="w-full h-auto object-contain"
+                priority 
+              />
+            </div>
+
+            {/* Overlay with Show Details Button */}
+            <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/5 opacity-0 backdrop-blur-[2px] transition-all duration-300 group-hover:opacity-100">
+              <button className="flex items-center gap-2 rounded-full bg-[#F97316] px-6 py-3 font-bold text-white shadow-xl transition-transform hover:scale-105">
+                <Search className="h-5 w-5" />
+                Show Details
+              </button>
+            </div>
+
+          </Link>
         </div>
 
       </div>

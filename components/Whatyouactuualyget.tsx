@@ -3,7 +3,9 @@ import {
   Gauge,
   Building2,
   Crown,
-  Palette
+  Palette,
+  TrendingUp,
+  Clock4
 } from "lucide-react";
 import Link from 'next/link';
 
@@ -60,15 +62,14 @@ export default function ResultsAndCTASection() {
 
             {/* Card 3 */}
             <div className="flex flex-col p-6 bg-[#161B26] rounded-xl border border-white/5">
-              <svg className="mb-4" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F37513" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+              <TrendingUp  className="text-[#F37513]"/>
               <h3 className="font-Montserrat font-bold text-[32px] text-white mb-2">35%</h3>
               <p className="text-[13px] leading-[20px] text-[#8B92A5]">Average conversion rate improvement</p>
             </div>
 
             {/* Card 4 */}
             <div className="flex flex-col p-6 bg-[#161B26] rounded-xl border border-white/5">
-              <svg className="mb-4" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B7FFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              <h3 className="font-Montserrat font-bold text-[32px] text-white mb-2">90 Days</h3>
+<Clock4  className="text-[#2B7FFF]" />              <h3 className="font-Montserrat font-bold text-[32px] text-white mb-2">90 Days</h3>
               <p className="text-[13px] leading-[20px] text-[#8B92A5]">Average time to significant ROAS growth</p>
             </div>
           </div>

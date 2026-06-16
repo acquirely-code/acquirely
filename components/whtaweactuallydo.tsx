@@ -63,13 +63,10 @@ export default function WhatWeActuallyDo() {
         
         {/* Section Heading */}
         <div className="flex flex-col items-center gap-4 text-center max-w-[672px]">
-          <span className="font-inter font-bold text-[12px] text-[#2B7FFF] tracking-[1.5px] uppercase">
-            What We Actually Do
-          </span>
           <h2 className="font-Montserrat font-bold text-[36px] text-[#09090B] tracking-[-0.9px] leading-[40px]">
             What We Actually Do
           </h2>
-          <p className="font-opensans text-[16px] leading-[26px] text-[#71717B] max-w-[580px]">
+          <p className="font-opensans text-[16px] md:text-[20px] leading-[26px] text-[#71717B] max-w-[680px]">
             Most agencies run campaigns. We, as a Performance Marketing Agency, build the full growth system from creative testing to funnel to scale.
           </p>
         </div>

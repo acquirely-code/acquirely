@@ -54,7 +54,7 @@ export default function ScalingFrameworkSection() {
 
           {/* Subheading */}
           <p className="mt-4 max-w-[540px] text-[16px] sm:text-[18px] leading-[28px] text-[#7B8BA0] font-opensans">
-            Four critical levers separate stagnant brands from scalable ones.
+            Four critical levels separate stagnant brands from scalable ones.
           </p>
         </div>
 
