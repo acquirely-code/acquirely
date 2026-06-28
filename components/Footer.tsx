@@ -44,8 +44,8 @@ export default function Footer() {
             <Link href="/e-commerce" className="transition hover:text-white">
               Ecommerce
             </Link>
-            <Link href="/lead-gen" className="transition hover:text-white">
-              Lead Gen
+            <Link href="/lead-generation" className="transition hover:text-white">
+            Lead Generation
             </Link>
             <Link href="/about-us" className="transition hover:text-white">
               About Us
@@ -77,7 +77,7 @@ export default function Footer() {
               
             <div className="flex items-center gap-3">
               <Phone className="h-[18px] w-[18px] text-[#2B7FFF] shrink-0" />
-              <span>++1 236 877 9035</span>
+              <span>+917060250253</span>
             </div>
 
             <Link href="https://acquirely.in" className="flex items-center gap-3 transition hover:text-white group">

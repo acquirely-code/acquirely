@@ -2,31 +2,20 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  CheckCircle2,
-  Zap,
-  Target,
-  Users,
-  ShoppingBag,
-  UserCircle,
-  Store,
-  UserCheck,
-  Layers,
-  Eye,
-  BarChart,
-  Check
-} from "lucide-react";
 
-import Collabration from "@/app/assests/officecollab.png";
+
 import kunalImage from "@/app/assests/kunalmondal.png";
 import mausamImage from "@/app/assests/mausamarora.png";
-import flywheelImage from "@/app/assests/flywheelmodel.png";
 import AboutusHero from "@/components/Aboutushero";
 import Aboutusmiddlesection from "@/components/aboutusmiddlesection";
 import Aboutuswheel from "@/components/Aboutuswheel";
 import SystemDetailsSections from "@/components/SystemDetailsSections";
 import Footer from "@/components/Footer";
+
+export const metadata = {
+  title: "About Acquirely | Performance Marketing Company",
+  description: "Discover the founders, A3 Flywheel, and growth systems powering predictable business growth.",
+};
 
 
 
@@ -181,7 +170,7 @@ export default function AboutPage() {
                     Kunal Mondal
                   </h3>
                   <p className="font-opensans text-[14px] text-white/90">
-                    Co-Founder, Acquirely
+                    Founder, Acquirely
                   </p>
                 </div>
                 {/* LinkedIn Button */}
