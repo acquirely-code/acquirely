@@ -124,8 +124,8 @@ export default function HomePage() {
             <div className="animate-marquee flex items-center gap-8 whitespace-nowrap md:gap-16">
               {[...caseStudiesData, ...caseStudiesData, ...caseStudiesData].map((study, i) => (
                 <div key={i} className="flex shrink-0 items-center gap-3 sm:gap-4">
-                  <div className="relative h-6 w-auto max-w-[90px] sm:h-8 sm:max-w-[110px]">
-                    <Image src={study.logo} alt={`${study.alt} logo`} className="w-auto h-[30px] " />
+                  <div className="relative h-6 w-auto max-w-[90px] sm:h-5 sm:max-w-[110px]">
+                    <Image src={study.logo} alt={`${study.alt} logo`} className="w-auto h-5 " />
                   </div>
                   <span className="font-Montserrat text-sm font-bold tracking-tight text-[#0F172A] sm:text-base md:text-lg">
                     {study.roas}
