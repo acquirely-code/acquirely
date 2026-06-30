@@ -12,25 +12,11 @@ import Whatyouactuallyget from "@/components/Whatyouactuualyget";
 // Icons
 import {
   ArrowRight,
-  LayoutDashboard,
-  Search,
-  Activity,
-  Zap,
-  TrendingUp,
-  MousePointerClick,
-  Filter,
-  CheckCircle2,
-  RefreshCcw,
-  FlaskConical,
-  Trophy,
-  X,
 } from "lucide-react";
 
 // Assests (Make sure your paths are correct)
 import Star from "@/app/assests/starnew.png";
-import Video1 from "@/app/assests/video1.png";
-import video2 from "@/app/assests/video2.png";
-import video3 from "@/app/assests/video3.png";
+
 import Client1 from "@/app/assests/founder1.png";
 import Client2 from "@/app/assests/founder2.png";
 import Client3 from "@/app/assests/founder3.png";
@@ -43,43 +29,13 @@ import Nostrain from "@/app/assests/Nostrain.png";
 
 // --- TYPES & INTERFACES ---
 
-interface Service {
-  id: number;
-  title: string;
-  desc: string;
-  badge: string;
-  category: string;
-  icon: React.ReactNode;
-  number: string;
-}
 
-interface ResultCard {
-  id: number;
-  title: string;
-  desc: string;
-  badge: string;
-  icon: React.ReactNode;
-}
 
-interface A3Phase {
-  id: number;
-  phase: string;
-  title: string;
-  desc: string;
-  badge: string;
-  icon: React.ReactNode;
-}
 
 interface PhaseDetailCard {
   label: string;
   title: string;
   desc: string;
-}
-
-interface PhaseDetail {
-  title: string;
-  sub: string;
-  cards: PhaseDetailCard[];
 }
 
 interface CaseStudy {
@@ -88,113 +44,13 @@ interface CaseStudy {
   roas: string;
 }
 
-interface Testimonial {
-  image: StaticImageData;
-  role: string;
-}
-
 // --- DATA SCULPTING ---
 
-const servicesData: Service[] = [
-  {
-    id: 1,
-    title: "Meta Ads Management",
-    desc: "We run structured A/B tests across audiences, creatives, and offers — letting data pick your winners, not gut feel.",
-    badge: "↗ Avg. ROAS lift: 1.8-2.4x in 60 days",
-    category: "Paid ads",
-    icon: <LayoutDashboard className="h-6 w-6" />,
-    number: "01",
-  },
-  {
-    id: 2,
-    title: "Google Ads Management",
-    desc: "Search, Shopping, and Performance Max — tuned for purchase intent, not just clicks. Every Dollar tracked to revenue.",
-    badge: "↗ Lower CPAs with intent-first targeting",
-    category: "Paid ads",
-    icon: <Search className="h-6 w-6" />,
-    number: "02",
-  },
-  {
-    id: 3,
-    title: "Ad Creative Strategy & Testing",
-    desc: "15+ creatives tested monthly. UGC, static, motion — we find the one that scales and build more of it.",
-    badge: "↗ Proven creative reduces CPM by 30-40%",
-    category: "Scale",
-    icon: <Zap className="h-6 w-6" />,
-    number: "03",
-  },
-  {
-    id: 4,
-    title: "Funnel Optimisation",
-    desc: "Landing page, checkout, post-purchase — we audit and fix every drop-off point so your ad spend isn't leaking.",
-    badge: "↗ Avg. 20-35% CVR improvement",
-    category: "Funnel",
-    icon: <Filter className="h-6 w-6" />,
-    number: "04",
-  },
-  {
-    id: 5,
-    title: "Conversion Improvements",
-    desc: "CRO, offer framing, social proof placement — the small shifts that turn a 2% converter into a 4% converter.",
-    badge: "↗ More revenue, same ad budget",
-    category: "Funnel",
-    icon: <Activity className="h-6 w-6" />,
-    number: "05",
-  },
-  {
-    id: 6,
-    title: "Scaling Frameworks",
-    desc: "Our A3 model: test winners feed scale campaigns. No random budget hikes — a structured path from 10L to 1Cr Month.",
-    badge: "↗ Modish: ROAS 2.31 → 3.53 in 90 days",
-    category: "Scale",
-    icon: <TrendingUp className="h-6 w-6" />,
-    number: "06",
-  },
-];
-
-const phaseDetails: Record<number, PhaseDetail> = {
-  1: {
-    title: "Phase 1 — Test campaign structure",
-    sub: "Campaign 1 is our structured testing ground. Multiple creative packs, one mission: find your winners.",
-    cards: [
-      { label: "Campaign structure", title: "Broad audience targeting", desc: "We start wide — no interest stacking. Let Meta find who converts first." },
-      { label: "Creative packs", title: "3–4 packs, 3–5 ads each", desc: "Each pack tests a different angle — UGC, static, motion. 15+ ads minimum per month." },
-      { label: "Budget logic", title: "$5k–$30k/day test budget", desc: "Enough data to reach statistical significance in 7–10 days per creative." },
-      { label: "Decision rule", title: "CPA + ROAS threshold", desc: "Any creative hitting our ROAS floor and CPM target moves to Phase 2." },
-    ],
-  },
-  2: {
-    title: "Phase 2 — Winners campaign structure",
-    sub: "Proven creatives get their own campaign with controlled budgets. No more competing with fresh tests.",
-    cards: [
-      { label: "Campaign structure", title: "Isolated winner campaigns", desc: "Each proven creative runs in its own ad set — no cannibalisation from testing." },
-      { label: "Audience layer", title: "Interest stacking begins", desc: "Winners get interest-stacked audiences added progressively to expand reach." },
-      { label: "Budget logic", title: "Budget follows performance", desc: "We increase spend 20–30% every 3 days if ROAS holds. No random hikes." },
-      { label: "Creative refresh", title: "Iteration on winners", desc: "Top performers get 2–3 angle variations tested alongside to extend their life." },
-    ],
-  },
-  3: {
-    title: "Phase 3 — Scale campaign structure",
-    sub: "Maximum budget on maximum proof. Broad + interest stacked + lookalikes — all feeding from the same winner pool.",
-    cards: [
-      { label: "Campaign structure", title: "Aggressive scaling mode", desc: "Scale campaigns run CBO with proven creatives only. No experiments here." },
-      { label: "Audience layer", title: "Lookalike + broad + interest", desc: "Three audience types running simultaneously — we find the cheapest converts." },
-      { label: "Budget logic", title: "$300+/day when ready", desc: "Scale triggers only when ROAS is predictable across 14+ days of data." },
-      { label: "Loop back", title: "Phase 1 keeps running", desc: "Testing never stops. New creatives constantly refresh the winner pool below." },
-    ],
-  },
-};
 
 const caseStudiesData: CaseStudy[] = [
   { logo: retroverse, alt: "Retroverse", roas: "ROAS 2.43 to 4.68" },
   { logo: modish, alt: "Modish", roas: "ROAS 2.31 to 3.53" },
   { logo: Nostrain, alt: "No Strain", roas: "ROAS 1.36 to 2.65" },
-];
-
-const testimonials: Testimonial[] = [
-  { image: Video1, role: "Founder, Retroverse" },
-  { image: video2, role: "Marketing Head, Modish" },
-  { image: video3, role: "CEO, No Strain" },
 ];
 
 export default function HomePage() {
@@ -269,7 +125,7 @@ export default function HomePage() {
               {[...caseStudiesData, ...caseStudiesData, ...caseStudiesData].map((study, i) => (
                 <div key={i} className="flex shrink-0 items-center gap-3 sm:gap-4">
                   <div className="relative h-6 w-auto max-w-[90px] sm:h-8 sm:max-w-[110px]">
-                    <Image src={study.logo} alt={`${study.alt} logo`} className="h-full w-auto object-contain" />
+                    <Image src={study.logo} alt={`${study.alt} logo`} className="w-auto h-[30px] " />
                   </div>
                   <span className="font-Montserrat text-sm font-bold tracking-tight text-[#0F172A] sm:text-base md:text-lg">
                     {study.roas}
