@@ -17,23 +17,23 @@ import {
 
 // --- EXTENDED DATA STRUCTURE ---
 const caseStudies = [
-  {
-    title: "International Schooling — Scaling High-Ticket Enrollment Across 9 Countries",
-    afterLabel: "AFTER",
-    icon: <Target className="h-6 w-6" />,
-    sectionBg: "bg-[#F8FAFC]", // Light Slate
-    blur1: "bg-blue-400/10",
-    blur2: "bg-emerald-400/10",
-    reverseLayout: false,
-    rows: [
-      ["Qualified enrollment leads", "Baseline", "↑40%", "text-[#10B981]"],
-      ["Cost per high-intent lead", "Baseline", "Stable across 9 countries", "text-[#10B981]"],
-      ["Consultation show rate", "Baseline", "↑25%", "text-[#10B981]"],
-    ],
-    quote:
-      "\"Acquirely's system gave us predictable lead flow — we finally stopped guessing.\"",
-    author: "- Leadership, International Schooling",
-  },
+  // {
+  //   title: "International Schooling — Scaling High-Ticket Enrollment Across 9 Countries",
+  //   afterLabel: "AFTER",
+  //   icon: <Target className="h-6 w-6" />,
+  //   sectionBg: "bg-[#F8FAFC]", // Light Slate
+  //   blur1: "bg-blue-400/10",
+  //   blur2: "bg-emerald-400/10",
+  //   reverseLayout: false,
+  //   rows: [
+  //     ["Qualified enrollment leads", "Baseline", "↑40%", "text-[#10B981]"],
+  //     ["Cost per high-intent lead", "Baseline", "Stable across 9 countries", "text-[#10B981]"],
+  //     ["Consultation show rate", "Baseline", "↑25%", "text-[#10B981]"],
+  //   ],
+  //   quote:
+  //     "\"Acquirely's system gave us predictable lead flow — we finally stopped guessing.\"",
+  //   author: "- Leadership, International Schooling",
+  // },
   {
     title: "Modish — 7x Ad Spend in 90 Days While Tripling ROAS",
     afterLabel: "MONTH 3",
@@ -43,8 +43,8 @@ const caseStudies = [
     blur2: "bg-purple-400/10",
     reverseLayout: true,
     rows: [
-      ["ROAS", "1.43 (Month 1)", "3.41", "text-[#10B981]"],
-      ["Daily Ad Spend", "~$20", "~$160 (7x)", "text-[#2563EB]"],
+      ["ROAS", "1.43", "3.41", "text-[#10B981]"],
+      ["Daily Ad Spend", "₹2K", "₹15K", "text-[#2563EB]"],
       ["Efficiency", "Below breakeven", "2.4x Improvement", "text-[#10B981]"],
     ],
     quote:
@@ -60,9 +60,9 @@ const caseStudies = [
     blur2: "bg-blue-500/10",
     reverseLayout: false,
     rows: [
-      ["Monthly revenue", "$0", "~$12,000 USD", "text-[#10B981]"],
+      ["Monthly revenue", "₹0", "₹5L+", "text-[#10B981]"],
       ["Daily sales", "Baseline", "50+ orders/day", "text-[#10B981]"],
-      ["ROAS", "Unreliable (Tracking broken)", "5+, consistently", "text-[#2563EB]"],
+      ["ROAS", "Unreliable (Tracking broken)", "6X, consistently", "text-[#2563EB]"],
     ],
     quote:
       "\"Acquirely stepped in, fixed the backend mess, and brought our campaigns back to life. We now have steady sales coming in, day after day.\"",
@@ -78,8 +78,8 @@ const caseStudies = [
     reverseLayout: true,
     rows: [
       ["Failed/returned orders", "50–60%", "10%", "text-[#10B981]"],
-      ["Monthly revenue", "Baseline", "5x", "text-[#10B981]"],
-      ["ROAS", "Unprofitable", "5+, consistently", "text-[#2563EB]"],
+      ["Monthly revenue", "₹3–5L", "₹15L+", "text-[#10B981]"],
+      ["ROAS", "2.5", "4.5", "text-[#2563EB]"],
     ],
     quote:
       "\"Growth doesn't come from spending more — it comes from fixing what breaks at scale. Most agencies would have just bought more traffic. We fixed the leak first.\"",
@@ -95,7 +95,7 @@ const caseStudies = [
     blur2: "bg-purple-400/10",
     reverseLayout: false,
     rows: [
-      ["ROAS", "1.57 (flat for 2 years)", "2.63", "text-[#10B981]"],
+      ["ROAS", "1.57 (stuck for 2 years)", "2.63", "text-[#10B981]"],
       ["Profitability", "Inconsistent", "Consistently profitable", "text-[#10B981]"],
     ],
     quote:
