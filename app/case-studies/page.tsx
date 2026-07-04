@@ -1,9 +1,13 @@
-"use client";
 
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+
+export const metadata = {
+  title: "Acquirely | Case Studies",
+  description: "Scale Meta Ads with qualified leads using our A3 Flywheel. Stop wasting budget on junk leads.",
+};
 
 // Icons
 import {

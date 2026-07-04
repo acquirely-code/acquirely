@@ -12,9 +12,14 @@ import Whatyouactuallyget from "@/components/Whatyouactuualyget";
 // Icons
 import {
   ArrowRight,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Youtube
 } from "lucide-react";
 
-// Assests (Make sure your paths are correct)
+// Assets (Make sure your paths are correct)
 import Star from "@/app/assests/starnew.png";
 
 import Client1 from "@/app/assests/founder1.png";
@@ -28,9 +33,6 @@ import modish from "@/app/assests/modish.png";
 import Nostrain from "@/app/assests/Nostrain.png";
 
 // --- TYPES & INTERFACES ---
-
-
-
 
 interface PhaseDetailCard {
   label: string;
@@ -46,7 +48,6 @@ interface CaseStudy {
 
 // --- DATA SCULPTING ---
 
-
 const caseStudiesData: CaseStudy[] = [
   { logo: retroverse, alt: "Retroverse", roas: "ROAS 2.43 to 4.68" },
   { logo: modish, alt: "Modish", roas: "ROAS 2.31 to 3.53" },
@@ -55,7 +56,47 @@ const caseStudiesData: CaseStudy[] = [
 
 export default function HomePage() {
   return (
-    <main className="overflow-hidden bg-white text-[#0F172A]">
+    <main className="relative overflow-hidden bg-white text-[#0F172A]">
+      
+      {/* --- RIGHT STICKY SOCIAL MEDIA BAR --- */}
+      <div className="fixed right-0 top-1/2 z-[9999] flex -translate-y-1/2 flex-col gap-[2px]">
+        {/* Facebook */}
+        <Link 
+          href="https://www.facebook.com/profile.php?id=61578312825291#" 
+          className="group relative -right-[110px] flex h-[50px] w-[160px] items-center justify-between rounded-l-md bg-[#1877F2] px-[15px] font-sans text-base font-bold text-white transition-all duration-300 ease-in-out hover:right-0 max-md:right-0 max-md:w-[50px] max-md:justify-center max-md:px-0"
+        >
+          <Facebook className="h-5 w-5" />
+          <span className="max-md:hidden">Facebook</span>
+        </Link>
+        {/* Instagram */}
+        <Link 
+          href="https://www.instagram.com/acquirely.in" 
+          className="group relative -right-[110px] flex h-[50px] w-[160px] items-center justify-between rounded-l-md bg-[#E4405F] px-[15px] font-sans text-base font-bold text-white transition-all duration-300 ease-in-out hover:right-0 max-md:right-0 max-md:w-[50px] max-md:justify-center max-md:px-0"
+        >
+          <Instagram className="h-5 w-5" />
+          <span className="max-md:hidden">Instagram</span>
+        </Link>
+
+        {/* LinkedIn */}
+        <Link 
+          href="https://www.linkedin.com/company/acquirelydm/" 
+          className="group relative -right-[110px] flex h-[50px] w-[160px] items-center justify-between rounded-l-md bg-[#0A66C2] px-[15px] font-sans text-base font-bold text-white transition-all duration-300 ease-in-out hover:right-0 max-md:right-0 max-md:w-[50px] max-md:justify-center max-md:px-0"
+        >
+          <Linkedin className="h-5 w-5" />
+          <span className="max-md:hidden">LinkedIn</span>
+        </Link>
+
+        {/* YouTube */}
+        <Link 
+          href="https://www.youtube.com/@acquirelymedia" 
+          className="group relative -right-[110px] flex h-[50px] w-[160px] items-center justify-between rounded-l-md bg-[#FF0000] px-[15px] font-sans text-base font-bold text-white transition-all duration-300 ease-in-out hover:right-0 max-md:right-0 max-md:w-[50px] max-md:justify-center max-md:px-0"
+        >
+          <Youtube className="h-5 w-5" />
+          <span className="max-md:hidden">YouTube</span>
+        </Link>
+      </div>
+      {/* --- END RIGHT STICKY SOCIAL MEDIA BAR --- */}
+
       {/* HERO SECTION */}
       <section className="relative overflow-hidden bg-white pb-16 pt-8 md:pb-[160px] md:pt-[46px]">
         {/* Premium Background Layers */}
@@ -70,13 +111,13 @@ export default function HomePage() {
             <div className="flex flex-col items-center text-center lg:col-span-7 lg:items-start lg:text-left">
               <h1 className="font-Montserrat text-[27px] font-extrabold leading-[1.2] tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl">
                 Scale Profitably With A
-                <span className="block mt-2 bg-gradient-to-r from-[#6366F1] to-[#F97316] bg-clip-text text-transparent sm:ml-4 sm:inline sm:mt-0">
+                <span className="mt-2 block bg-gradient-to-r from-[#6366F1] to-[#F97316] bg-clip-text text-transparent sm:ml-4 sm:inline sm:mt-0">
                   Proven Performance Marketing <span className="text-[#0F172A]">Agency</span>
                 </span>
               </h1>
 
-              <p className="mt-5 max-w-[600px] font-opensans text-[#475569] sm:text-lg md:mt-8 md:text-xl">
-               Grow from ₹10L to ₹1Cr+ monthly with data-driven Meta Ads
+              <p className="font-opensans mt-5 max-w-[700px] text-[#475569] sm:text-lg md:mt-8 md:text-xl">
+               We build a predictable customer acquisition engine, not just Ad campaigns.
               </p>
 
               <div className="mt-8 flex w-full flex-col items-center gap-5 sm:w-auto sm:flex-row md:mt-10 md:gap-4">
@@ -99,7 +140,6 @@ export default function HomePage() {
 
             {/* Right Dashboard/Image Column */}
             <div className="flex justify-center lg:col-span-5">
-
               <div className="relative w-full max-w-[500px] lg:max-w-none">
                 <Image
                   src={mainheroimage}
@@ -125,7 +165,7 @@ export default function HomePage() {
               {[...caseStudiesData, ...caseStudiesData, ...caseStudiesData].map((study, i) => (
                 <div key={i} className="flex shrink-0 items-center gap-3 sm:gap-4">
                   <div className="relative h-6 w-auto max-w-[90px] sm:h-5 sm:max-w-[110px]">
-                    <Image src={study.logo} alt={`${study.alt} logo`} className="w-auto h-5 " />
+                    <Image src={study.logo} alt={`${study.alt} logo`} className="h-5 w-auto " />
                   </div>
                   <span className="font-Montserrat text-sm font-bold tracking-tight text-[#0F172A] sm:text-base md:text-lg">
                     {study.roas}
@@ -141,8 +181,7 @@ export default function HomePage() {
         </div>
       </section>
 
-
-     < WhatWeActuallyDo />
+      < WhatWeActuallyDo />
       < HowWeHelpYou />
       < Whatyouactuallyget />
       <Footer />

@@ -481,7 +481,9 @@ export default function DoneForYouLandingPage() {
     <main className="bg-white text-[#1F2937]">
 <section className="bg-[linear-gradient(115.83deg,#0F0C29_0%,#1A1560_40%,#24243E_100%)]">
   <div className="mx-auto max-w-[1440px] px-4 pb-10 pt-7 sm:px-8 sm:pb-12 lg:px-20 lg:pb-16">
-    <Image src={logo} alt="Acquirely Logo" className="h-8 w-auto" />
+    <Link href="/">
+      <Image src={logo} alt="Acquirely Logo" className="h-8 w-auto" />
+    </Link>
 
     {/* The Container: Define areas for mobile and reset for desktop */}
     <div className="mt-8 grid grid-cols-1 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-12">
@@ -733,7 +735,7 @@ export default function DoneForYouLandingPage() {
         <div className="mb-10 grid gap-4 sm:grid-cols-2 md:mb-12 md:gap-6">
           <div className="flex flex-col items-center justify-center rounded-[8px] bg-[#F4F7FF] px-4 py-8 text-center md:px-6 md:py-10">
             <p className="mb-1 text-[14px] text-[#7B8BA0] md:mb-2 md:text-[18px]">For ₹3L–₹10L ad spend</p>
-            <p className="mb-1 text-[32px] font-bold leading-tight text-black md:mb-2 md:text-[45px] md:leading-[45px]">₹50,000</p>
+            <p className="mb-1 text-[32px] font-bold leading-tight text-black md:mb-2 md:text-[45px] md:leading-[45px]">₹75,000</p>
             <p className="text-[16px] text-[#7B8BA0] md:text-[24px]">+ GST</p>
           </div>
           
@@ -976,7 +978,7 @@ export default function DoneForYouLandingPage() {
             
             <button
               type="button"
-              className="mt-7 inline-flex min-h-[52px] items-center justify-center rounded-xl bg-white px-4 py-3.5 text-center text-[12px] font-bold text-[#0F172A] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] sm:mt-8 sm:min-h-[56px] sm:px-8 sm:py-4 sm:text-base lg:px-10 lg:text-[20px]"
+              className="mt-7 inline-flex min-h-[52px] hover:bg-gray-200 items-center justify-center rounded-xl bg-white px-4 py-3.5 text-center text-[12px] font-bold text-[#0F172A] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] sm:mt-8 sm:min-h-[56px] sm:px-8 sm:py-4 sm:text-base lg:px-10 lg:text-[20px]"
             >
              <span className="rotate-90 "><Pointer/></span> <span className="pl-2">Book Your Lead Gen Growth Audit</span>
             </button>

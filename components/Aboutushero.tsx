@@ -12,15 +12,15 @@ export default function AboutHeroSection() {
          <section className="relative flex flex-col items-center min-h-[850px] w-full  bg-[#F7F8FA] font-sans">
       
       {/* --- Background Blur Effects --- */}
-      <div className="absolute right-0 -top-[128px] h-[480px] w-[480px] rounded-full bg-[#356DFF]/20 blur-[64px] z-0 pointer-events-none"></div>
-      <div className="absolute -left-[80px] top-[200px] h-[460px] w-[460px] rounded-full bg-[#FF8A3D]/20 blur-[64px] z-0 pointer-events-none"></div>
+      <div className="absolute right-0 -top-[128px] h-[480px] w-[480px] rounded-full bg-[#356DFF]/20 blur-[64px] pointer-events-none"></div>
+      <div className="absolute -left-[80px] top-[200px] h-[460px] w-[460px] rounded-full bg-[#FF8A3D]/20 blur-[64px] pointer-events-none"></div>
 
-   <div className=" z-10 md:w-[1440px]  w-full px-4 sm:px-5 md:px-10 pt-8  md:pt-[46px] lg:px-[80px]">
+   <div className=" md:w-[1440px]  w-full px-4 sm:px-5 md:px-10 pt-8  md:pt-[46px] lg:px-[80px]">
        <Navbar />
    </div>
 
       {/* --- Hero Content --- */}
-      <div className="relative z-10 flex w-full max-w-[1140px] flex-col items-center md:px-5 px-2 mt-[30px] md:mt-[100px]">
+      <div className="relative flex w-full max-w-[1140px] flex-col items-center md:px-5 px-2 mt-[30px] md:mt-[100px]">
          
         
         {/* Pill Badge */}

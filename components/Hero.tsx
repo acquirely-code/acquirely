@@ -33,9 +33,11 @@ export default function AgencyLandingPage() {
       {/* Hero Section */}
       <section className="relative isolate overflow-hidden bg-[linear-gradient(115.83deg,#0F0C29_0%,#1A1560_40%,#24243E_100%)] text-white">
         <div className="mx-auto max-w-[1440px] px-5 pb-14 pt-7 sm:px-6 lg:px-20 lg:pb-12 lg:pt-[35px]">
+          <Link href="/">
           <div className="flex items-center gap-2">
             <Image src={logo} alt="Brand Logo" width={100} height={24} className="h-6 w-auto" />
           </div>
+          </Link>
 
           {/* Grid Layout Update: 
             Changed to a unified grid where we manually assign row/col positions for desktop, 

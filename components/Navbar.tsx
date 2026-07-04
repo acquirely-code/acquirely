@@ -44,7 +44,7 @@ export default function Navbar() {
               onMouseLeave={() => setIsDesktopDropdownOpen(false)}
             >
               <button className="flex items-center gap-1 text-[20px] text-[#0F172A] transition hover:text-[#0052FF]">
-                DONE FOR YOU <ChevronDown className={`h-5 w-5 transition-transform ${isDesktopDropdownOpen ? "rotate-180" : ""}`} />
+                Services <ChevronDown className={`h-5 w-5 transition-transform ${isDesktopDropdownOpen ? "rotate-180" : ""}`} />
               </button>
               
               {/* Dropdown Menu Items */}
@@ -52,20 +52,21 @@ export default function Navbar() {
                 /* Changed to pt-2 to create an invisible hover bridge so the menu doesn't close */
                 <div className="absolute left-0 top-full pt-4 w-48">
                   <div className="rounded-[8px] border border-gray-200 bg-white p-2 shadow-lg">
+                     <Link 
+                      href="/lead-gen" 
+                      className="block rounded-md px-4 py-2 text-[16px] text-[#0F172A] transition hover:bg-gray-50 hover:text-[#0052FF]"
+                      onClick={() => setIsDesktopDropdownOpen(false)}
+                    >
+                      Lead Gen
+                    </Link>
                     <Link 
-                      href="/e-commerce" 
+                      href="/ecommerce" 
                       className="block rounded-md px-4 py-2 text-[16px] text-[#0F172A] transition hover:bg-gray-50 hover:text-[#0052FF]"
                       onClick={() => setIsDesktopDropdownOpen(false)}
                     >
                       Ecommerce
                     </Link>
-                    <Link 
-                      href="/lead-generation" 
-                      className="block rounded-md px-4 py-2 text-[16px] text-[#0F172A] transition hover:bg-gray-50 hover:text-[#0052FF]"
-                      onClick={() => setIsDesktopDropdownOpen(false)}
-                    >
-                      Lead Generation
-                    </Link>
+                   
                   </div>
                 </div>
               )}
@@ -107,24 +108,24 @@ export default function Navbar() {
                 className="flex items-center justify-between text-lg font-medium text-[#0F172A] transition hover:text-[#0052FF]"
                 onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
               >
-                DONE FOR YOU <ChevronDown className={`h-5 w-5 transition-transform ${isMobileDropdownOpen ? "rotate-180" : ""}`} />
+                Services <ChevronDown className={`h-5 w-5 transition-transform ${isMobileDropdownOpen ? "rotate-180" : ""}`} />
               </button>
               
               {isMobileDropdownOpen && (
                 <div className="flex flex-col gap-4 border-l-2 border-gray-100 pl-4">
                   <Link 
-                    href="/e-commerce" 
+                    href="/ecommerce" 
                     className="text-base font-medium text-gray-600 transition hover:text-[#0052FF]"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Ecommerce
                   </Link>
                   <Link 
-                    href="/lead-generation" 
+                    href="/lead-gen" 
                     className="text-base font-medium text-gray-600 transition hover:text-[#0052FF]"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                   Lead Generation
+                   Lead Gen
                   </Link>
                 </div>
               )}

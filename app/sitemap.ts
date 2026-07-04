@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 const baseUrl =
   process.env.SITE_URL?.startsWith("http")
     ? process.env.SITE_URL
-    : "http://localhost:3000";
+    : "https://acquirely.in";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

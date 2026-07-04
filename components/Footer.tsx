@@ -5,7 +5,8 @@ import {
   Instagram, 
   Linkedin, 
   MapPin, 
-  Phone 
+  Phone, 
+  Youtube
 } from "lucide-react";
 import Link from "next/link";
 
@@ -20,19 +21,22 @@ export default function Footer() {
             Acquirely
           </h3>
           <p className="mt-4 text-[14px] leading-[24px] text-[#8B92A5] pr-4">
-            Premium performance marketing for high-growth brands.
+            Helping brands scale through Meta Ads & Google Ads.
           </p>
           
           {/* Social Icons */}
           <div className="mt-6 flex gap-4 text-white">
-            <a href="https://www.instagram.com/acquirely.in" className="transition hover:text-[#6366F1]" aria-label="Instagram">
+            <a href="https://www.instagram.com/acquirely.in" target="_blank" className="transition hover:text-[#6366F1]" aria-label="Instagram">
               <Instagram className="h-[20px] w-[20px] stroke-[1.5]" />
             </a>
-            <a href="https://www.facebook.com/61578312825291/" className="transition hover:text-[#6366F1]" aria-label="Facebook">
+            <a href="https://www.facebook.com/61578312825291/" target="_blank" className="transition hover:text-[#6366F1]" aria-label="Facebook">
               <Facebook className="h-[20px] w-[20px] stroke-[1.5]" />
             </a>
-            <a href="https://www.linkedin.com/company/acquirelydm/" className="transition hover:text-[#6366F1]" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/acquirelydm/" target="_blank" className="transition hover:text-[#6366F1]" aria-label="LinkedIn">
               <Linkedin className="h-[20px] w-[20px] stroke-[1.5]" />
+            </a>
+              <a href="https://www.youtube.com/@acquirelymedia" target="_blank" className="transition hover:text-[#6366F1]" aria-label="YouTube">
+              <Youtube className="h-[23px] w-[23px] stroke-[1.5]" />
             </a>
           </div>
         </div>
@@ -56,7 +60,7 @@ export default function Footer() {
         <div className="lg:ml-8">
           <h4 className="font-Montserrat text-[16px] font-bold text-white">Legal</h4>
           <div className="mt-6 flex flex-col space-y-4 text-[14px] text-[#8B92A5]">
-            <Link href="/terms-and-conditions" className="transition hover:text-white">
+            <Link href="/terms-and-condition" className="transition hover:text-white">
               Terms & Conditions
             </Link>
             <Link href="/privacy-policy" className="transition hover:text-white">

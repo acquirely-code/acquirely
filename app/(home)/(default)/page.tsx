@@ -1,7 +1,7 @@
 
 import FrontomePage from "@/components/homepreview/page";
 export const metadata = {
-  title: "Performance Marketing Agency | Acquirely ",
+  title: "Acquirely | Performance Marketing Agency ",
   description: "Scale profitably with Meta Ads, Google Ads & CRO. Grow faster with data-driven performance marketing.",
 };
 
