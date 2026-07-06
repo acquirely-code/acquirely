@@ -8,6 +8,13 @@ export const metadata = {
   title: "Acquirely | Case Studies",
   description: "Scale Meta Ads with qualified leads using our A3 Flywheel. Stop wasting budget on junk leads.",
 };
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Youtube
+} from "lucide-react";
 
 // Icons
 import {
@@ -111,6 +118,46 @@ const caseStudies = [
 export default function CaseStudiesPage() {
   return (
     <main className="overflow-hidden bg-white text-[#0F172A]">
+        <div className="fixed right-0 top-1/2 z-[9999] flex -translate-y-1/2 flex-col gap-[2px]">
+              {/* Facebook */}
+              <Link 
+                 target="_blank"
+                href="https://www.facebook.com/profile.php?id=61578312825291#" 
+                className="group relative -right-[110px] flex h-[50px] w-[160px] items-center justify-between rounded-l-md bg-[#1877F2] px-[15px] font-sans text-base font-bold text-white transition-all duration-300 ease-in-out hover:right-0 max-md:right-0 max-md:w-[50px] max-md:justify-center max-md:px-0"
+              >
+                <Facebook className="h-5 w-5" />
+                <span className="max-md:hidden">Facebook</span>
+              </Link>
+              {/* Instagram */}
+              <Link 
+                target="_blank"
+                href="https://www.instagram.com/acquirely.in" 
+                className="group relative -right-[110px] flex h-[50px] w-[160px] items-center justify-between rounded-l-md bg-[#E4405F] px-[15px] font-sans text-base font-bold text-white transition-all duration-300 ease-in-out hover:right-0 max-md:right-0 max-md:w-[50px] max-md:justify-center max-md:px-0"
+              >
+                <Instagram className="h-5 w-5" />
+                <span className="max-md:hidden">Instagram</span>
+              </Link>
+      
+              {/* LinkedIn */}
+              <Link 
+               target="_blank"
+                href="https://www.linkedin.com/company/acquirelydm/" 
+                className="group relative -right-[110px] flex h-[50px] w-[160px] items-center justify-between rounded-l-md bg-[#0A66C2] px-[15px] font-sans text-base font-bold text-white transition-all duration-300 ease-in-out hover:right-0 max-md:right-0 max-md:w-[50px] max-md:justify-center max-md:px-0"
+              >
+                <Linkedin className="h-5 w-5" />
+                <span className="max-md:hidden">LinkedIn</span>
+              </Link>
+      
+              {/* YouTube */}
+              <Link 
+               target="_blank"
+                href="https://www.youtube.com/@acquirelymedia" 
+                className="group relative -right-[110px] flex h-[50px] w-[160px] items-center justify-between rounded-l-md bg-[#FF0000] px-[15px] font-sans text-base font-bold text-white transition-all duration-300 ease-in-out hover:right-0 max-md:right-0 max-md:w-[50px] max-md:justify-center max-md:px-0"
+              >
+                <Youtube className="h-5 w-5" />
+                <span className="max-md:hidden">YouTube</span>
+              </Link>
+            </div>  
       {/* HERO SECTION */}
       <section className="relative overflow-hidden bg-white pb-12 pt-8 md:pb-16 md:pt-[56px]">
         {/* Premium Background Layers */}

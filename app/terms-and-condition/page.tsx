@@ -1,23 +1,35 @@
-import { FileText, Mail } from 'lucide-react'
-import React from 'react'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+
+
+import React from "react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { Shield, Mail, Calendar, FileText } from "lucide-react";
 
 export const metadata = {
   title: "Acquirely | Terms of Service",
   description: "Review Acquirely's Terms of Service for performance marketing services, client responsibilities, and liability limitations.",
 };
 
-function page() {
+export default function page() {
   return (
-    <div className='px-[200px] py-10 justify-center'>
-            <Navbar />
-    
-    <div className="mx-auto max-w-4xl pt-10 space-y-10 rounded-2xl border border-[#E2E8F0] bg-white/80 p-6 shadow-sm backdrop-blur-sm sm:p-8 md:p-12 lg:p-14">
+    <main className="overflow-hidden bg-white text-[#0F172A]">
+      {/* Premium Background Layers (Matching Homepage) */}
+      <div className="fixed right-[-5%] top-[-10%] z-0 h-[300px] w-[300px] rounded-full bg-blue-600/10 blur-[60px] md:h-[600px] md:w-[600px]" />
+      <div className="fixed bottom-[-10%] left-[-5%] z-0 h-[300px] w-[300px] rounded-full bg-purple-500/10 blur-[50px] md:h-[600px] md:w-[600px]" />
+
+      <div className="relative z-10 mx-auto flex min-h-screen flex-col max-w-[1440px] px-4 sm:px-5 md:px-10 lg:px-[80px]">
+        
+        {/* Navbar Integration */}
+        <div className="pt-8 md:pt-[46px]">
+          <Navbar />
+        </div>
+
+        {/* Page Content Wrapper */}
+       <div className="mx-auto mt-10 max-w-4xl pt-10 space-y-10 rounded-2xl border border-[#E2E8F0] bg-white/80 p-6 shadow-sm backdrop-blur-sm sm:p-8 md:p-12 lg:p-14">
 
       
               {/* ---------------- TERMS OF SERVICE SECTION ---------------- */}
-              <div className="mt-16 space-y-10 pt-10 sm:mt-20">
+              <div className="mt-8 space-y-10 pt-10 sm:mt-4">
                 <div className="border-b border-[#E2E8F0] pb-5">
                   <h2 className="flex items-center gap-3 font-Montserrat text-2xl font-extrabold text-[#0F172A] sm:text-3xl">
                     <FileText className="h-7 w-7 text-[#8B5CF6]" />
@@ -94,9 +106,15 @@ function page() {
          
       
     </div>
-         <Footer/>
-    </div>
-  )
+
+        {/* Footer Integration */}
+    
+      </div>
+          <Footer />
+    </main>
+  );
 }
 
-export default page
+
+
+

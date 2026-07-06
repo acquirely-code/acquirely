@@ -718,7 +718,7 @@ export default function DoneForYouLandingPage() {
             </span>
           </div>
 
-          <h2 className="mt-4 font-Montserrat text-[28px] font-bold leading-tight tracking-tight md:mt-6 md:text-[36px] lg:text-[40px]">
+        <h2 className="mt-4 font-Montserrat text-[22px] font-bold leading-tight tracking-tight md:mt-6 md:text-[36px] lg:text-[40px]">
             <span className="bg-[linear-gradient(90deg,#818CF8_0%,#F97316_100%)] bg-clip-text text-transparent">
               Transparent, Performance-
             </span>

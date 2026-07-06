@@ -132,7 +132,7 @@ export default function Navbar() {
             </div>
 
             <Link 
-              href="/" 
+              href="/case-studies" 
               className="text-lg font-medium text-[#0F172A] transition hover:text-[#0052FF]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
