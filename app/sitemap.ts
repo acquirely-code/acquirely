@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 const baseUrl =
   process.env.SITE_URL?.startsWith("http")
     ? process.env.SITE_URL
-    : "https://acquirely.in";
+    : "http://localhost:3000";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -14,10 +14,47 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/privacypolicy`,
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.4,
+    },
+      {
+      url: `${baseUrl}/about-us`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/ecommerce`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.4,
+    },
+      {
+      url: `${baseUrl}/lead-gen`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/term-and-condition`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.4,
+    },
+      {
+      url: `${baseUrl}/thank-you`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/case-studies`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.4,
     },
   ];
 }
+
