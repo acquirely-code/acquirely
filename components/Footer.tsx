@@ -45,10 +45,10 @@ export default function Footer() {
         <div className="lg:ml-auto">
           <h4 className="font-Montserrat text-[16px] font-bold text-white">Quick Links</h4>
           <div className="mt-6 flex flex-col space-y-4 text-[14px] text-[#8B92A5]">
-            <Link href="/e-commerce" className="transition hover:text-white">
+            <Link href="/ecommerce" className="transition hover:text-white">
               Ecommerce
             </Link>
-            <Link href="/lead-generation" className="transition hover:text-white">
+            <Link href="/lead-gen" className="transition hover:text-white">
             Lead Generation
             </Link>
             <Link href="/about-us" className="transition hover:text-white">
