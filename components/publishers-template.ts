@@ -720,8 +720,8 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
           <text x="360" y="216">Dec</text><text x="466" y="216">Jan</text><text x="573" y="216">Feb</text><text x="680" y="216">Mar</text>
         </g>
         <!-- spend annotations -->
-        <text x="146" y="240" fill="#E2A72C" font-family="Hanken Grotesk,sans-serif" font-size="13" font-weight="700" text-anchor="middle">Reach hard · ₹1–3L/mo</text>
-        <text x="466" y="240" fill="#A9B9E6" font-family="Hanken Grotesk,sans-serif" font-size="13" font-weight="700" text-anchor="middle">Convert warm · ₹50k–1L/mo</text>
+        <text x="146" y="240" fill="#E2A72C" font-family="Hanken Grotesk,sans-serif" font-size="13" font-weight="700" text-anchor="middle">Reach hard · ₹1–₹5L adspend</text>
+        <text x="466" y="240" fill="#A9B9E6" font-family="Hanken Grotesk,sans-serif" font-size="13" font-weight="700" text-anchor="middle">Convert warm · ₹50k–₹2L adspend</text>
       </svg>
     </div>
     <p class="tl-note">Sampling <b>Sep–Nov</b>, decisions <b>Dec–Mar</b>. <b>The sooner you start, the better.</b></p>
@@ -740,7 +740,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
       <div class="num">₹2Cr+<small>Books order</small></div>
       <div>
         <h3>City Montessori School, Lucknow — the world's largest school</h3>
-        <p>We ran the same campaign for Propel Curriculum, Delhi. CMS converted into 15,000 PBL sets across Grades 3–5 — and reordered the next year.</p>
+        <p>We ran the same campaign for Propel Curriculum, Delhi.<br>CMS converted into 15,000 PBL sets across Grades 3–5 — and reordered the next year.</p>
       </div>
     </div>
     <div class="statband reveal">
@@ -762,8 +762,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
       <h2>Simple, aligned, no lock-in.</h2></div>
     <div class="price-grid reveal">
       <div class="price">
-        <div class="plan">Monthly</div>
-        <div class="amt">₹1,50,000 <span class="gst">+ GST</span></div>
+        <div class="amt"><span class="anchor">₹1,50,000</span>₹75,000 <span class="gst">+ GST / month</span></div>
         <div class="sub">Start any month · cancel anytime</div>
         <ul>
           <li><span class="mk">✓</span> Full Meta + Google management</li>
@@ -774,8 +773,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
       </div>
       <div class="price feat">
         <span class="badge">Most pick this</span>
-        <div class="plan">3-Month Sprint</div>
-        <div class="amt"><span class="anchor">₹4,50,000</span>₹3,00,000 <span class="gst">+ GST</span></div>
+        <div class="amt"><span class="anchor">₹4,50,000</span>₹1,00,000 <span class="gst">+ GST / month</span></div>
         <div class="freebie">3 months, pay for 2 — one month free</div>
         <div class="pay"><b>₹2L to start, ₹1L at day 30.</b></div>
         <ul>
@@ -790,22 +788,8 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
     </div>
     <p class="sixmo">Going all-in both seasons? <b>6-Month Engine — ₹6,00,000 + GST</b> (≈ ₹1L/mo).</p>
     <div class="twoline reveal">
-      <div class="minibox"><div class="k">Booked meetings, scaled to spend</div><p><b>50–60/mo at ₹1L ad spend → ~200 at ₹3L.</b> Ad spend goes direct to Meta — no % fee.</p></div>
+      <div class="minibox"><div class="k">Booked meetings, scaled to spend</div><p><b>50–60/mo at ₹1L ad spend → 500 at ₹5L.</b></p></div>
       <div class="minibox"><div class="k">One adoption is a minimum two-year account</div><p>Orders run <b>₹2L–₹20L per school</b>. A single adoption can pay back the whole quarter.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- GUARANTEE -->
-<section class="cream-2" style="padding-top:0">
-  <div class="wrap">
-    <div class="risk reveal">
-      <span class="eyebrow d" style="color:var(--gold)">Our commitment</span>
-      <h2>Guaranteed qualified appointments — or you don't pay for the miss.</h2>
-      <p class="rl">We commit to a minimum number of qualified appointments based on your ad spend — 50+ at ₹1L/month of ad spend.</p>
-      <div class="risk-cards" style="grid-template-columns:1fr;max-width:540px">
-        <div class="rc"><span class="mk">✓</span> Miss it in any month and we'll refund your money.</div>
-      </div>
     </div>
   </div>
 </section>
@@ -816,9 +800,13 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
     <div class="center reveal"><span class="eyebrow d">Honest fit</span><h2>Built for publishers with real distribution.</h2></div>
     <div class="fit reveal">
       <div class="box yes"><h3>This is for you</h3><ul>
-        <li><span class="mk">✓</span> K-12 publishers</li>
-        <li><span class="mk">✓</span> Selling into schools across India</li>
-        <li><span class="mk">✓</span> A team that can run calls &amp; close</li>
+        <li><span class="mk">✓</span> K-12 publishers with a real catalogue</li>
+        <li><span class="mk">✓</span> Research-backed, curriculum-aligned books</li>
+        <li><span class="mk">✓</span> Concept, story &amp; theme-based series</li>
+        <li><span class="mk">✓</span> STEM, STEAM &amp; AI titles</li>
+        <li><span class="mk">✓</span> Books with a clear, defensible USP</li>
+        <li><span class="mk">✓</span> Ready to sell across India</li>
+        <li><span class="mk">✓</span> Aiming for India's top schools</li>
       </ul></div>
       <div class="box no"><h3>Not for you</h3><ul>
         <li><span class="mk x">✕</span> A single title, no catalogue behind it</li>

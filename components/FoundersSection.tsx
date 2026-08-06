@@ -181,6 +181,36 @@ function FounderCard({
   );
 }
 
+export function FounderShowcase() {
+  return (
+    <div className="bg-white">
+      <div className="mx-auto max-w-[1440px] px-5 py-16 pt-8 sm:px-6 lg:px-4 lg:py-4">
+        <div className="text-center md:pt-16">
+          <div className="inline-flex h-[26px] items-center gap-2 rounded-[4px] border border-[#CFD5FD] bg-[#EDEFFF] px-3">
+            <span className="h-2 w-2 rounded-full bg-[#5332E2]" />
+            <span className="text-[10px] font-bold uppercase tracking-[1.2px] text-[#5332E2]">
+              Meet the founders
+            </span>
+          </div>
+
+          <h2 className="mt-7 font-Montserrat text-[34px] font-semibold leading-[1.05] text-[#262626] sm:text-[40px] lg:text-[48px]">
+            The Minds Behind Acquirely
+          </h2>
+          <p className="mx-auto mt-5 max-w-[520px] text-[15px] leading-7 text-[#8A8A8A]">
+            Built by Operators — Not Just Agency Owners
+          </p>
+        </div>
+
+        <div className="mx-auto mt-16 grid max-w-[1100px] gap-8 lg:grid-cols-2">
+          {founders.map((founder) => (
+            <FounderCard key={founder.name} {...founder} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function FoundersSection() {
   return (
     <section className="bg-white">
@@ -209,29 +239,7 @@ export default function FoundersSection() {
                 ))}
               </div>
       
-      <div className="mx-auto max-w-[1440px] px-5 py-16 pt-8 sm:px-6 lg:px-4 lg:py-4">
-        <div className="text-center md:pt-16">
-          <div className="inline-flex h-[26px] items-center gap-2  rounded-[4px] border border-[#CFD5FD] bg-[#EDEFFF] px-3">
-            <span className="h-2 w-2 rounded-full bg-[#5332E2]" />
-            <span className="text-[10px] font-bold uppercase tracking-[1.2px] text-[#5332E2]">
-              Meet the founders
-            </span>
-          </div>
-
-          <h2 className="mt-7 font-Montserrat text-[34px] font-semibold leading-[1.05] text-[#262626] sm:text-[40px] lg:text-[48px]">
-            The Minds Behind Acquirely
-          </h2>
-          <p className="mx-auto mt-5 max-w-[520px] text-[15px] leading-7 text-[#8A8A8A]">
-           Built by Operators — Not Just Agency Owners
-          </p>
-        </div>
-
-        <div className="mx-auto mt-16 grid max-w-[1100px] gap-8 lg:grid-cols-2">
-          {founders.map((founder) => (
-            <FounderCard key={founder.name} {...founder} />
-          ))}
-        </div>
-      </div>
+      <FounderShowcase />
     </section>
   );
 }

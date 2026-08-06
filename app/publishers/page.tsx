@@ -1,5 +1,7 @@
 import Script from "next/script";
 import { publishersTemplate } from "@/components/publishers-template";
+import { FounderShowcase } from "@/components/FoundersSection";
+import acquirelyLogo from "@/app/assests/logo.png";
 
 export const metadata = {
   title: "Acquirely | Growth System for Book Publishers",
@@ -20,9 +22,55 @@ function getPublishersMarkup() {
       <wistia-player media-id="${wistiaMediaId}" aspect="1.7777777777777777"></wistia-player>
     </div>`;
 
+  const transformedBody = body
+    .replace(
+      '<a class="brand" href="#top">Acquirely<span class="dot">.</span></a>',
+      `<a class="brand publisher-brand" href="#top"><img src="${acquirelyLogo.src}" alt="Acquirely" /></a>`,
+    )
+    .replace(
+      `<div>
+        <div class="big"><span>80%</span></div>
+        <p class="cap">Your rep reached the school — but did your sample reach the decider, or get buried under 100 others?</p>
+      </div>
+      <div>
+        <div class="bar">`,
+      `<div>
+        <p class="cap">Your rep reached the school — but did your sample reach the decider, or get buried under 100 others?</p>
+      </div>
+      <div>
+        <div class="big"><span>80%</span></div>
+        <div class="bar">`,
+    )
+    .replace(/<svg class="hero-education-visual"[\s\S]*?<\/svg>/, "")
+    .replace(approvalCard, video)
+    .replace(
+      "The best book doesn't win the adoption. The one in front of the decider does.",
+      "The best book doesn't win the adoption.<br> The one in front of the decider does.",
+    )
+    .replace('<rect x="40" y="46" width="213" height="150"', '<rect x="40" y="46" width="266.5" height="150"')
+    .replace('<rect x="253" y="46" width="427" height="150"', '<rect x="306.5" y="46" width="373.5" height="150"')
+    .replace('<line x1="253" y1="42" x2="253" y2="200"', '<line x1="306.5" y1="42" x2="306.5" y2="200"')
+    .replace('<text x="146" y="34"', '<text x="173" y="34"')
+    .replace('<text x="466" y="34"', '<text x="493" y="34"')
+    .replace(
+      '<svg viewBox="0 0 720 250" role="img" aria-label="Spend timeline across sampling and decision seasons">',
+      '<svg viewBox="0 0 720 250" preserveAspectRatio="none" role="img" aria-label="Spend timeline across sampling and decision seasons">',
+    )
+    .replace(/<script>[\s\S]*?<\/script>/g, "");
+
+  const [beforeFounders, foundersAndAfter = ""] = transformedBody.split("<!-- FOUNDERS -->");
+  const [, afterFounders = foundersAndAfter] = foundersAndAfter.split("<!-- FAQ -->");
+
   return {
     styles: `${styles}
       .publishers-page .reveal { opacity: 1; transform: none; }
+      .publishers-page .publisher-brand { display: inline-flex; align-items: center; }
+      .publishers-page .publisher-brand img {
+        display: block;
+        width: 132px;
+        height: auto;
+        filter: brightness(0) saturate(100%) invert(16%) sepia(27%) saturate(1725%) hue-rotate(181deg) brightness(88%) contrast(96%);
+      }
       .publishers-page .hero {
         min-height: auto;
         align-items: flex-start;
@@ -50,6 +98,17 @@ function getPublishersMarkup() {
         grid-template-columns: minmax(0, 1fr);
         max-width: 900px !important;
       }
+      .publishers-page .waste .big { margin-bottom: .65rem; text-align: center; }
+      .publishers-page .price .amt .anchor {
+        color: #64748b;
+        opacity: 1;
+        text-decoration-color: #ef4444;
+        text-decoration-thickness: 2px;
+      }
+      .publishers-page .price .amt .gst {
+        color: #172554;
+        opacity: 1;
+      }
       .publishers-page section,
       .publishers-page section.dark,
       .publishers-page section.cream-2 {
@@ -57,6 +116,9 @@ function getPublishersMarkup() {
       }
       .publishers-page section.hero {
         padding-block: 1.5rem 3.25rem !important;
+      }
+      .publishers-page section.publisher-founders {
+        padding-block: 0 !important;
       }
       .publisher-vsl {
         width: min(520px, 88vw);
@@ -88,6 +150,7 @@ function getPublishersMarkup() {
         .publishers-page section.dark,
         .publishers-page section.cream-2 { padding-block: 2.25rem !important; }
         .publishers-page section.hero { padding-block: 1.25rem 2.25rem !important; }
+        .publishers-page .publisher-brand img { width: 108px; }
         .publishers-page .hero-grid { gap: 1.25rem; }
         .publishers-page .hero h1 { font-size: clamp(2.15rem, 10vw, 3rem); }
         .publishers-page .hero .sub { font-size: .94rem; }
@@ -111,28 +174,13 @@ function getPublishersMarkup() {
         .publishers-page .cms p { font-size: .88rem; }
       }
     `,
-    body: body
-      .replace(/<svg class="hero-education-visual"[\s\S]*?<\/svg>/, "")
-      .replace(approvalCard, video)
-      .replace(
-        "The best book doesn't win the adoption. The one in front of the decider does.",
-        "The best book doesn't win the adoption.<br> The one in front of the decider does.",
-      )
-      .replace('<rect x="40" y="46" width="213" height="150"', '<rect x="40" y="46" width="266.5" height="150"')
-      .replace('<rect x="253" y="46" width="427" height="150"', '<rect x="306.5" y="46" width="373.5" height="150"')
-      .replace('<line x1="253" y1="42" x2="253" y2="200"', '<line x1="306.5" y1="42" x2="306.5" y2="200"')
-      .replace('<text x="146" y="34"', '<text x="173" y="34"')
-      .replace('<text x="466" y="34"', '<text x="493" y="34"')
-      .replace(
-        '<svg viewBox="0 0 720 250" role="img" aria-label="Spend timeline across sampling and decision seasons">',
-        '<svg viewBox="0 0 720 250" preserveAspectRatio="none" role="img" aria-label="Spend timeline across sampling and decision seasons">',
-      )
-      .replace(/<script>[\s\S]*?<\/script>/g, ""),
+    beforeFounders,
+    afterFounders,
   };
 }
 
 export default function PublishersPage() {
-  const { styles, body } = getPublishersMarkup();
+  const { styles, beforeFounders, afterFounders } = getPublishersMarkup();
 
   return (
     <main className="publishers-page">
@@ -143,7 +191,11 @@ export default function PublishersPage() {
         type="module"
       />
       <style dangerouslySetInnerHTML={{ __html: styles }} />
-      <div dangerouslySetInnerHTML={{ __html: body }} />
+      <div dangerouslySetInnerHTML={{ __html: beforeFounders }} />
+      <section className="publisher-founders bg-white">
+        <FounderShowcase />
+      </section>
+      <div dangerouslySetInnerHTML={{ __html: `<!-- FAQ -->${afterFounders}` }} />
     </main>
   );
 }
