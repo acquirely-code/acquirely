@@ -762,7 +762,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
       <h2>Simple, aligned, no lock-in.</h2></div>
     <div class="price-grid reveal">
       <div class="price">
-        <div class="amt"><span class="anchor">₹1,50,000</span>₹75,000 <span class="gst">+ GST / month</span></div>
+        <div class="amt">₹75,000 <span class="gst">+ GST / month</span></div>
         <div class="sub">Start any month · cancel anytime</div>
         <ul>
           <li><span class="mk">✓</span> Full Meta + Google management</li>
