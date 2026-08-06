@@ -788,7 +788,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
     </div>
     <p class="sixmo">Going all-in both seasons? <b>6-Month Engine — ₹6,00,000 + GST</b> (≈ ₹1L/mo).</p>
     <div class="twoline reveal">
-      <div class="minibox"><div class="k">Booked meetings, scaled to spend</div><p><b>50–60/mo at ₹1L ad spend → 500 at ₹5L.</b></p></div>
+      <div class="minibox"><div class="k">Booked meetings, scaled to spend</div><p><b>50–60/mo at ₹1L ad spend → 500 at ₹5L.</b> Ad spend goes direct to Meta.</p></div>
       <div class="minibox"><div class="k">One adoption is a minimum two-year account</div><p>Orders run <b>₹2L–₹20L per school</b>. A single adoption can pay back the whole quarter.</p></div>
     </div>
   </div>
