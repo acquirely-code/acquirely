@@ -740,13 +740,13 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
       <div class="num">₹2Cr+<small>Books order</small></div>
       <div>
         <h3>City Montessori School, Lucknow — the world's largest school</h3>
-        <p>We ran the same campaign for Propel Curriculum, Delhi.<br>CMS converted into 15,000 PBL sets across Grades 3–5 — and reordered the next year.</p>
+        <p>We ran the same campaign for Propel Curriculum,&nbsp;Delhi.<br>CMS converted into 15,000 PBL sets across Grades 3–5 — and reordered the next year.</p>
       </div>
     </div>
     <div class="statband reveal">
-      <div class="stat"><div class="n">200+</div><div class="l">Appointments booked · Propel</div></div>
-      <div class="stat"><div class="n">300+</div><div class="l">Books published by our founder</div></div>
-      <div class="stat"><div class="n">2,000+</div><div class="l">Schools reached first-hand</div></div>
+      <div class="stat"><div class="n">8,000+</div><div class="l">Leads Generated</div></div>
+      <div class="stat"><div class="n">1,000+</div><div class="l">Appointments Booked</div></div>
+      <div class="stat"><div class="n">50,000+</div><div class="l">School Leaders Reached</div></div>
       <div class="stat"><div class="n">11 yrs</div><div class="l">Inside education publishing</div></div>
     </div>
   </div>
@@ -762,7 +762,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
       <h2>Simple, aligned, no lock-in.</h2></div>
     <div class="price-grid reveal">
       <div class="price">
-        <div class="amt">₹75,000 <span class="gst">+ GST / month</span></div>
+        <div class="amt">₹1,00,000 <span class="gst">+ GST / month</span></div>
         <div class="sub">Start any month · cancel anytime</div>
         <ul>
           <li><span class="mk">✓</span> Full Meta + Google management</li>
@@ -773,7 +773,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
       </div>
       <div class="price feat">
         <span class="badge">Most pick this</span>
-        <div class="amt"><span class="anchor">₹4,50,000</span>₹1,00,000 <span class="gst">+ GST / month</span></div>
+        <div class="amt">₹1,50,000 <span class="gst">+ GST / month</span></div>
         <div class="freebie">3 months, pay for 2 — one month free</div>
         <div class="pay"><b>₹2L to start, ₹1L at day 30.</b></div>
         <ul>
@@ -797,7 +797,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
 <!-- FIT -->
 <section class="dark">
   <div class="wrap">
-    <div class="center reveal"><span class="eyebrow d">Honest fit</span><h2>Built for publishers with real distribution.</h2></div>
+    <div class="center reveal"><span class="eyebrow d">Honest fit</span><h2>Built for <span class="headline-blue">Publishers</span> with meaningful books.</h2></div>
     <div class="fit reveal">
       <div class="box yes"><h3>This is for you</h3><ul>
         <li><span class="mk">✓</span> K-12 publishers with a real catalogue</li>

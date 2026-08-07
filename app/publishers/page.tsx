@@ -18,7 +18,11 @@ function getPublishersMarkup() {
 
   const approvalCard = /<div class="approval-card"[\s\S]*?<div class="approval-meta">12 years in education<\/div>\s*<\/div>/;
   const video = `
-    <div class="publisher-vsl" aria-label="Acquirely growth system video">
+    <div class="publisher-vsl publisher-vsl-desktop" aria-label="Acquirely growth system video">
+      <wistia-player media-id="${wistiaMediaId}" aspect="1.7777777777777777"></wistia-player>
+    </div>`;
+  const mobileVideo = `
+    <div class="publisher-vsl publisher-vsl-mobile" aria-label="Acquirely growth system video">
       <wistia-player media-id="${wistiaMediaId}" aspect="1.7777777777777777"></wistia-player>
     </div>`;
 
@@ -40,6 +44,13 @@ function getPublishersMarkup() {
       <div>
         <div class="big"><span>80%</span></div>
         <div class="bar">`,
+    )
+    .replace(
+      `<h1>You publish great books. You sell them <em>one school visit at a time.</em></h1>
+      <p class="sub">We get school decision-makers to book calls with you — right when they're choosing next year's books.</p>`,
+      `<h1>You publish great books. You sell them <em>one school visit at a time.</em></h1>
+      ${mobileVideo}
+      <p class="sub">We get school decision-makers to book calls with you — right when they're choosing next year's books.</p>`,
     )
     .replace(/<svg class="hero-education-visual"[\s\S]*?<\/svg>/, "")
     .replace(approvalCard, video)
@@ -98,7 +109,18 @@ function getPublishersMarkup() {
         grid-template-columns: minmax(0, 1fr);
         max-width: 900px !important;
       }
+      .publishers-page .pair {
+        text-align: center;
+      }
+      .publishers-page .pair .old,
+      .publishers-page .pair .new {
+        text-align: center;
+      }
+      .publishers-page .pair .ar {
+        justify-self: center;
+      }
       .publishers-page .waste .big { margin-bottom: .65rem; text-align: center; }
+      .publishers-page .headline-blue { color: #2563eb; }
       .publishers-page .price .amt .anchor {
         color: #64748b;
         opacity: 1;
@@ -108,6 +130,10 @@ function getPublishersMarkup() {
       .publishers-page .price .amt .gst {
         color: #172554;
         opacity: 1;
+      }
+      .publishers-page .sixmo,
+      .publishers-page .sixmo b {
+        color: #172554;
       }
       .publishers-page section,
       .publishers-page section.dark,
@@ -129,6 +155,7 @@ function getPublishersMarkup() {
         box-shadow: none;
         transform: none;
       }
+      .publisher-vsl-mobile { display: none; }
       .publisher-vsl wistia-player { display: block; width: 100%; }
       .publisher-vsl wistia-player:not(:defined) {
         background: center / cover no-repeat url('https://fast.wistia.com/embed/medias/${wistiaMediaId}/swatch');
@@ -143,6 +170,8 @@ function getPublishersMarkup() {
         .publishers-page section.hero { padding-block: 1.5rem 2.5rem !important; }
         .publishers-page .hero-grid { gap: 1.5rem; }
         .publishers-page .seal-wrap { min-height: auto; }
+        .publishers-page .seal-wrap { order: 2; }
+        .publishers-page .hero-grid > .reveal:first-child { order: 1; }
         .publisher-vsl { width: 92vw; max-width: 92vw; margin-inline: auto; transform: none; }
       }
       @media (max-width: 620px) {
@@ -154,6 +183,13 @@ function getPublishersMarkup() {
         .publishers-page .hero-grid { gap: 1.25rem; }
         .publishers-page .hero h1 { font-size: clamp(2.15rem, 10vw, 3rem); }
         .publishers-page .hero .sub { font-size: .94rem; }
+        .publishers-page .publisher-vsl-mobile {
+          display: block;
+          margin: 1rem auto 1rem;
+        }
+        .publishers-page .publisher-vsl-desktop {
+          display: none;
+        }
         .publishers-page .trust { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .publishers-page .tl {
           width: 100%;
@@ -172,6 +208,10 @@ function getPublishersMarkup() {
         .publishers-page .cms .num small { font-size: .68rem; }
         .publishers-page .cms h3 { font-size: 1.05rem; }
         .publishers-page .cms p { font-size: .88rem; }
+        .publishers-page .cms p {
+          word-break: normal;
+          overflow-wrap: normal;
+        }
       }
     `,
     beforeFounders,
