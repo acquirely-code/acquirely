@@ -9,7 +9,7 @@ export const metadata = {
     "Stop selling books one school visit at a time. Get school decision-makers to book calls with you — right when they choose next year's curriculum.",
 };
 
-const wistiaMediaId = "nm2ou94x6d";
+const wistiaMediaId = "tdxebzm5am";
 
 function getPublishersMarkup() {
   const template = publishersTemplate;
