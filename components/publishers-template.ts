@@ -561,7 +561,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
 
 <header class="nav"><div class="wrap nav-in">
   <a class="brand" href="#top">Acquirely<span class="dot">.</span></a>
-  <a class="btn" href="#book">Book an Appointment</a>
+  <a class="btn" href="https://forms.acquirely.in/acquirely/form/EducationPublisher/formperma/G_o5l4yM7NfP1kvlkFBsUzt-MOXayQrsOi-SJGyGUBk">Book an Appointment</a>
 </div></header>
 
 <!-- HERO -->
@@ -573,9 +573,9 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
     <div class="reveal in">
       <span class="eyebrow d">For school &amp; education publishers</span>
       <h1>You publish great books. You sell them <em>one school visit at a time.</em></h1>
-      <p class="sub">We get school decision-makers to book calls with you — right when they're choosing next year's books.</p>
-      <div class="cta-row"><a class="btn" href="#book">Book a Call to Understand How? <span class="arw">→</span></a></div>
-      <p class="urg">Only 3 spots available — sampling season starts in September. <b>Get your unfair advantage.</b></p>
+      <p class="sub">We get school decision-makers to book calls with you right when they're choosing next year's books.</p>
+      <div class="cta-row"><a class="btn" href="https://forms.acquirely.in/acquirely/form/EducationPublisher/formperma/G_o5l4yM7NfP1kvlkFBsUzt-MOXayQrsOi-SJGyGUBk">Book a Call to Understand How? <span class="arw">→</span></a></div>
+      <p class="urg">Only 3 spots available sampling season starts in September. <b>Get your unfair advantage.</b></p>
       <div class="trust">
         <div><div class="n">11+</div><div class="l">Years as a book publisher</div></div>
         <div><div class="n">300+</div><div class="l">Titles published</div></div>
@@ -640,7 +640,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
     <div class="waste reveal">
       <div>
         <div class="big"><span>80%</span></div>
-        <p class="cap">Your rep reached the school — but did your sample reach the decider, or get buried under 100 others?</p>
+        <p class="cap">Your rep reached the school but did your sample reach the decider, or get buried under 100 others?</p>
       </div>
       <div>
         <div class="bar"><div class="lost">Untracked field spend</div><div class="kept">Tracked</div></div>
@@ -855,7 +855,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
     <span class="eyebrow d" style="color:var(--gold)">Let's talk</span>
     <h2>Ready to let schools come to you?</h2>
     <p class="rl">A short call to see how you reach schools today and map the first campaign.</p>
-    <a class="btn" href="https://forms.acquirely.in/acquirely/form/LeadGenFunnelReviewCall/formperma/DEijNOw1e1C4Wd8r6luSZlNxj1zQVtObr106aUYe4-0">Book a Funnel Review Call <span class="arw">→</span></a>
+    <a class="btn" href="https://forms.acquirely.in/acquirely/form/EducationPublisher/formperma/G_o5l4yM7NfP1kvlkFBsUzt-MOXayQrsOi-SJGyGUBk">Book a Funnel Review Call <span class="arw">→</span></a>
     <div class="chips"><span>✓ No lock-in</span><span>✓ Appointment-floor guarantee</span><span>✓ Full transparency</span></div>
   </div>
 </section>

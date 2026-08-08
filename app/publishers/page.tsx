@@ -39,7 +39,7 @@ function getPublishersMarkup() {
       <div>
         <div class="bar">`,
       `<div>
-        <p class="cap">Your rep reached the school — but did your sample reach the decider, or get buried under 100 others?</p>
+        <p class="cap">Your rep reached the school but did your sample reach the decider, or get buried under 100 others?</p>
       </div>
       <div>
         <div class="big"><span>80%</span></div>
@@ -47,10 +47,10 @@ function getPublishersMarkup() {
     )
     .replace(
       `<h1>You publish great books. You sell them <em>one school visit at a time.</em></h1>
-      <p class="sub">We get school decision-makers to book calls with you — right when they're choosing next year's books.</p>`,
+      <p class="sub">We get school decision-makers to book calls with you right when they're choosing next year's books.</p>`,
       `<h1>You publish great books. You sell them <em>one school visit at a time.</em></h1>
       ${mobileVideo}
-      <p class="sub">We get school decision-makers to book calls with you — right when they're choosing next year's books.</p>`,
+      <p class="sub">We get school decision-makers to book calls with you right when they're choosing next year's books.</p>`,
     )
     .replace(/<svg class="hero-education-visual"[\s\S]*?<\/svg>/, "")
     .replace(approvalCard, video)
@@ -102,6 +102,12 @@ function getPublishersMarkup() {
       .publishers-page .trust .n { font-size: 1.3rem; }
       .publishers-page .trust .l { font-size: .68rem; line-height: 1.3; }
       .publishers-page section:nth-of-type(3) .center { max-width: 1120px; }
+      .publishers-page h2 {
+        font-size: clamp(1.95rem, 4.4vw, 3.4rem);
+      }
+      .publishers-page section:nth-of-type(6) .center h2 {
+        margin-bottom: .45rem;
+      }
       .publishers-page section:nth-of-type(3) .center h2 {
         font-size: clamp(2.25rem, 4vw, 3.35rem);
       }
