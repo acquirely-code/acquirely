@@ -216,7 +216,7 @@ function getPublishersMarkup() {
           height: 205px;
           margin-inline: auto;
         }
-        .publishers-page .cms { padding: 1.35rem 1.15rem; }
+        .publishers-page .cms { padding: 1.35rem 1.15rem; margin-top: 15px; }
         .publishers-page .cms .num { font-size: 2.75rem; }
         .publishers-page .cms .num small { font-size: .68rem; }
         .publishers-page .cms h3 { font-size: 1.05rem; }
