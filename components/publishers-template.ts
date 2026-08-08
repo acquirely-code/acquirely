@@ -747,7 +747,6 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
       <div class="stat"><div class="n">8,000+</div><div class="l">Leads Generated</div></div>
       <div class="stat"><div class="n">1,000+</div><div class="l">Appointments Booked</div></div>
       <div class="stat"><div class="n">50,000+</div><div class="l">School Leaders Reached</div></div>
-      <div class="stat"><div class="n">11 yrs</div><div class="l">Inside education publishing</div></div>
     </div>
   </div>
 </section>
@@ -763,7 +762,6 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
     <div class="price-grid reveal">
       <div class="price">
         <div class="amt">₹1,00,000 <span class="gst">+ GST / month</span></div>
-        <div class="sub">Start any month · cancel anytime</div>
         <ul>
           <li><span class="mk">✓</span> Full Meta + Google management</li>
           <li><span class="mk">✓</span> All static creatives &amp; video editing</li>
@@ -774,8 +772,6 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
       <div class="price feat">
         <span class="badge">Most pick this</span>
         <div class="amt">₹1,50,000 <span class="gst">+ GST / month</span></div>
-        <div class="freebie">3 months, pay for 2 — one month free</div>
-        <div class="pay"><b>₹2L to start, ₹1L at day 30.</b></div>
         <ul>
           <li><span class="mk">✓</span> Full Meta + Google management</li>
           <li><span class="mk">✓</span> All static creatives &amp; video editing</li>

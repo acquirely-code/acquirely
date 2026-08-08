@@ -127,9 +127,15 @@ function getPublishersMarkup() {
         text-decoration-color: #ef4444;
         text-decoration-thickness: 2px;
       }
+      .publishers-page .price .amt {
+        margin-bottom: 1rem;
+      }
       .publishers-page .price .amt .gst {
         color: #172554;
         opacity: 1;
+      }
+      .publishers-page .statband {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
       .publishers-page .sixmo,
       .publishers-page .sixmo b {
@@ -191,6 +197,7 @@ function getPublishersMarkup() {
           display: none;
         }
         .publishers-page .trust { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .publishers-page .statband { grid-template-columns: minmax(0, 1fr); }
         .publishers-page .tl {
           width: 100%;
           padding: .45rem;
