@@ -147,6 +147,15 @@ function getPublishersMarkup() {
       .publishers-page .sixmo b {
         color: #172554;
       }
+      .publishers-page .disclaimer {
+        text-align: center;
+        max-width: 96ch;
+        margin-inline: auto;
+        text-wrap: balance;
+      }
+      .publishers-page .disclaimer .no-break {
+        white-space: nowrap;
+      }
       .publishers-page section,
       .publishers-page section.dark,
       .publishers-page section.cream-2 {

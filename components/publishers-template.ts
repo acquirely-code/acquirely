@@ -861,8 +861,8 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
 </section>
 
 <footer><div class="wrap">
-  <div class="foot-in"><div class="brand" style="font-size:1.15rem">Acquirely<span class="dot">.</span></div><div>team@acquirely.in · acquirely.in</div></div>
-  <p class="disclaimer">This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, this site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.</p>
+  <div class="foot-in"><div class="brand" style="font-size:1.15rem">Acquirely<span class="dot">.</span></div><div>team@acquirely.in</div></div>
+  <p class="disclaimer">This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, this site is NOT <span class="no-break">endorsed by Facebook™</span> in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.</p>
 </div></footer>
 
 <script>
