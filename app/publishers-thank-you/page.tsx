@@ -103,7 +103,7 @@ export default function PublishersThankYouPage() {
             <p className="text-[1rem] leading-7 text-[#64748b]">
               You&apos;ll speak directly with{" "}
               <span className="font-bold text-[#172554]">
-                Mausam Arora, co-founder
+                Mausam Arora, Founder
               </span>{" "}
               — 11+ years inside education, 2,000+ schools reached. No juniors,
               no hand-off.
