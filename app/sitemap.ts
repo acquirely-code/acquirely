@@ -31,6 +31,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.4,
     },
+    {
+      url: `${baseUrl}/EdTech`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
       {
       url: `${baseUrl}/lead-gen`,
       lastModified: new Date(),
@@ -57,4 +63,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 }
-
