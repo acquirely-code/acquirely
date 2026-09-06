@@ -114,7 +114,7 @@ export default function EdTechLanding() {
 
       <section className={styles.proofSection}>
         <div className={styles.wrap}>
-          <div className={`${styles.sectionHead} ${styles.center}`}><span className={styles.eyebrow}>Proof</span><h2>The right meetings, on the calendar.</h2></div>
+          <div className={`${styles.sectionHead} ${styles.center}`}><span className={styles.eyebrow}>Proof</span><h2>It ends in sales</h2></div>
           <div className={styles.proofHero}><div><strong>₹2Cr+</strong><span>Books order</span></div><div><h3>City Montessori School, Lucknow — the world&apos;s largest school</h3><p>We ran the same campaign for Propel Curriculum,&nbsp;Delhi.<br />CMS converted into 15,000 PBL sets across Grades 3–5 — and reordered the next year.</p></div></div>
           <div className={styles.statGrid}>{[["8,000+", "Leads Generated"], ["1,000+", "Appointments Booked"], ["50,000+", "School Leaders Reached"]].map(([number, label]) => <article key={label}><strong>{number}</strong><span>{label}</span></article>)}</div>
         </div>
