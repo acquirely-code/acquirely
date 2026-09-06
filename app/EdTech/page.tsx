@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import EdTechLanding from "./EdTechLanding";
 
 export const metadata: Metadata = {
-  title: "Acquirely | Admissions Engine for High-Ticket Education",
+  title: "Acquirely | Reach the School Decision-Makers",
   description:
-    "Turn ad spend into admissions with qualified traffic, lead filtering, and an enrolment-focused follow-up system.",
+    "Stop pitching the front desk. We get principals, directors and trustees booking calls with you, the people who actually sign off.",
 };
 
 export default function EdTechPage() {

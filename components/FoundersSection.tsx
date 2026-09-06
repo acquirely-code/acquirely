@@ -65,6 +65,29 @@ const founders = [
   },
 ];
 
+const schoolVendorsFounders = [
+  {
+    name: "Mausam Arora",
+    role: "Founder · Growth & Strategy",
+    title: "GROWTH & STRATEGY",
+    mainimage: mausamarora,
+    Linkedin: "https://in.linkedin.com/in/mausamarora",
+    description:
+      "11+ years in education — built products and reached 2,000+ schools. Knows the gatekeepers from the inside.",
+    bullets: [],
+  },
+  {
+    name: "Kunal Mondal",
+    role: "Founder · Performance",
+    title: "PERFORMANCE",
+    mainimage: kunalmandal,
+    Linkedin: "https://in.linkedin.com/in/kunal-meta-ads",
+    description:
+      "₹30Cr+ ad spend managed across 30+ brands in EdTech, e-com & real estate.",
+    bullets: [],
+  },
+];
+
 
 function TrustCard({
   title,
@@ -181,7 +204,14 @@ function FounderCard({
   );
 }
 
-export function FounderShowcase() {
+export function FounderShowcase({
+  variant = "default",
+}: {
+  variant?: "default" | "school-vendors";
+}) {
+  const isSchoolVendors = variant === "school-vendors";
+  const profiles = isSchoolVendors ? schoolVendorsFounders : founders;
+
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-[1440px] px-5 py-16 pt-8 sm:px-6 lg:px-4 lg:py-4">
@@ -194,15 +224,17 @@ export function FounderShowcase() {
           </div>
 
           <h2 className="mt-7 font-Montserrat text-[34px] font-semibold leading-[1.05] text-[#262626] sm:text-[40px] lg:text-[48px]">
-            The Minds Behind Acquirely
+            {isSchoolVendors ? "Operators, not just agency owners." : "The Minds Behind Acquirely"}
           </h2>
-          <p className="mx-auto mt-5 max-w-[520px] text-[15px] leading-7 text-[#8A8A8A]">
-            Built by Operators — Not Just Agency Owners
-          </p>
+          {!isSchoolVendors && (
+            <p className="mx-auto mt-5 max-w-[520px] text-[15px] leading-7 text-[#8A8A8A]">
+              Built by Operators — Not Just Agency Owners
+            </p>
+          )}
         </div>
 
         <div className="mx-auto mt-16 grid max-w-[1100px] gap-8 lg:grid-cols-2">
-          {founders.map((founder) => (
+          {profiles.map((founder) => (
             <FounderCard key={founder.name} {...founder} />
           ))}
         </div>
