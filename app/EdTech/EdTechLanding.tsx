@@ -114,7 +114,7 @@ export default function EdTechLanding() {
 
       <section className={styles.proofSection}>
         <div className={styles.wrap}>
-          <div className={`${styles.sectionHead} ${styles.center}`}><span className={styles.eyebrow}>Proof</span><h2>The right meetings, on the calendar.</h2></div>
+          <div className={`${styles.sectionHead} ${styles.center}`}><span className={styles.eyebrow}>Proof</span><h2 className={styles.proofTitle}>It ends in Sales</h2></div>
           <div className={styles.proofHero}><div><strong>200+</strong><span>Qualified meetings</span></div><div><h3>School leaders, booked, not chased</h3><p>For an education client, this exact motion booked 200+ qualified meetings with school decision-makers. No cold calls, no waiting in reception. Every meeting was tracked to a booking.</p></div></div>
           <div className={styles.statGrid}>{[["11+", "Years inside education"], ["2,000+", "Schools reached first-hand"], ["₹30Cr+", "Ad spend managed"], ["30+", "Brands scaled"]].map(([number, label]) => <article key={label}><strong>{number}</strong><span>{label}</span></article>)}</div>
         </div>
@@ -124,15 +124,13 @@ export default function EdTechLanding() {
         <div className={styles.wrap}>
           <div className={`${styles.sectionHead} ${styles.center}`}><span className={styles.eyebrow}>The offer</span><h2>Simple, aligned, no lock-in.</h2></div>
           <div className={styles.priceGrid}>
-            <article className={styles.priceCard}><span className={styles.plan}>Monthly</span><div className={styles.amount}>₹1,50,000 <small>+ GST</small></div><p className={styles.priceSub}>Start any month · cancel anytime</p><FeatureList items={monthlyFeatures} /></article>
-            <article className={`${styles.priceCard} ${styles.priceFeatured}`}><span className={styles.popular}>Most pick this</span><span className={styles.plan}>3-Month Sprint</span><div className={styles.amount}><del>₹4,50,000</del> ₹3,00,000 <small>+ GST</small></div><span className={styles.freebie}>3 months, pay for 2 · one month free</span><p className={styles.payment}>₹2L to start, ₹1L at day 30.</p><FeatureList items={sprintFeatures} /></article>
+            <article className={styles.priceCard}><div className={styles.amount}>₹1,00,000 <small>+ GST / month</small></div><FeatureList items={monthlyFeatures} /></article>
+            <article className={`${styles.priceCard} ${styles.priceFeatured}`}><span className={styles.popular}>Most pick this</span><div className={styles.amount}>₹1,50,000 <small>+ GST / month</small></div><FeatureList items={sprintFeatures} /></article>
           </div>
-          <p className={styles.sixMonth}>Scaling across regions? <strong>6-Month Engine · ₹6,00,000 + GST</strong> (≈ ₹1L/mo).</p>
-          <div className={styles.offerNotes}><article><h3>Meetings, scaled to spend</h3><p><strong>50–60/mo at ₹1L ad spend → ~200 at ₹3L.</strong> Ad spend goes direct to Meta. No percentage fee.</p></article><article><h3>One school = a multi-year account</h3><p>A signed school renews and expands across campuses. A handful of wins can pay back the quarter.</p></article></div>
+          <p className={styles.sixMonth}>Going all-in both seasons? <strong>6-Month Engine — ₹6,00,000 + GST</strong> (≈ ₹1L/mo).</p>
+          <div className={styles.offerNotes}><article><h3>Booked meetings, scaled to spend</h3><p><strong>50–60/mo at ₹1L ad spend → 500 at ₹5L.</strong> Ad spend goes direct to Meta.</p></article><article><h3>One adoption is a minimum two-year account</h3><p>Orders run <strong>₹2L–₹20L per school</strong>. A single adoption can pay back the whole quarter.</p></article></div>
         </div>
       </section>
-
-      <section className={styles.commitmentSection}><div className={styles.wrap}><div className={styles.commitmentCard}><span className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Our commitment</span><h2>Guaranteed qualified appointments, or you don&apos;t pay for the miss.</h2><p>We commit to a minimum number of qualified appointments based on your ad spend: 50+ at ₹1L/month of ad spend.</p><div><Check aria-hidden="true" /> Miss it in any month and we&apos;ll refund your management fee.</div></div></div></section>
 
       <section className={styles.fitSection}>
         <div className={styles.wrap}>
