@@ -114,9 +114,9 @@ export default function EdTechLanding() {
 
       <section className={styles.proofSection}>
         <div className={styles.wrap}>
-          <div className={`${styles.sectionHead} ${styles.center}`}><span className={styles.eyebrow}>Proof</span><h2 className={styles.proofTitle}>It ends in Sales</h2></div>
-          <div className={styles.proofHero}><div><strong>200+</strong><span>Qualified meetings</span></div><div><h3>School leaders, booked, not chased</h3><p>For an education client, this exact motion booked 200+ qualified meetings with school decision-makers. No cold calls, no waiting in reception. Every meeting was tracked to a booking.</p></div></div>
-          <div className={styles.statGrid}>{[["11+", "Years inside education"], ["2,000+", "Schools reached first-hand"], ["₹30Cr+", "Ad spend managed"], ["30+", "Brands scaled"]].map(([number, label]) => <article key={label}><strong>{number}</strong><span>{label}</span></article>)}</div>
+          <div className={`${styles.sectionHead} ${styles.center}`}><span className={styles.eyebrow}>Proof</span><h2>The right meetings, on the calendar.</h2></div>
+          <div className={styles.proofHero}><div><strong>₹2Cr+</strong><span>Books order</span></div><div><h3>City Montessori School, Lucknow — the world&apos;s largest school</h3><p>We ran the same campaign for Propel Curriculum,&nbsp;Delhi.<br />CMS converted into 15,000 PBL sets across Grades 3–5 — and reordered the next year.</p></div></div>
+          <div className={styles.statGrid}>{[["8,000+", "Leads Generated"], ["1,000+", "Appointments Booked"], ["50,000+", "School Leaders Reached"]].map(([number, label]) => <article key={label}><strong>{number}</strong><span>{label}</span></article>)}</div>
         </div>
       </section>
 
