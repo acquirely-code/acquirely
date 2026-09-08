@@ -6,7 +6,7 @@ import acquirelyLogo from "@/app/assests/logo.png";
 import { FounderShowcase } from "@/components/FoundersSection";
 import styles from "./page.module.css";
 
-const bookingUrl = "https://forms.acquirely.in/acquirely/form/LeadGenFunnelReviewCall/formperma/DEijNOw1e1C4Wd8r6luSZlNxj1zQVtObr106aUYe4-0";
+const bookingUrl = "https://forms.acquirely.in/acquirely/form/GTMSCHOOLS/formperma/3Gb1GqAVHPSZCZFkDeMmj6xLyS7fA2CNX1xE2ksm-m4";
 
 const problems = [
   { icon: LockKeyhole, title: "The front-desk wall", body: "The receptionist takes a message. The principal's inbox stays unopened. You never reach the gate, let alone get through it." },
@@ -14,7 +14,6 @@ const problems = [
   { icon: Network, title: "Founder-network dependency", body: "Your pipeline runs on whichever principals your founder happens to know. When the rolodex runs out, growth stalls." },
   { icon: Clock3, title: "Days lost, nothing tracked", body: "Reps burn a full day in reception for one uncertain meeting, and you can't tell which effort ever reached a decision-maker." },
 ];
-
 const shifts = [
   ["Reps waiting in reception", "Deciders book calls with you"],
   ["Meetings with coordinators", "Meetings with budget-holders"],
