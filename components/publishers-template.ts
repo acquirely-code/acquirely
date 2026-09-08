@@ -561,7 +561,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
 
 <header class="nav"><div class="wrap nav-in">
   <a class="brand" href="#top">Acquirely<span class="dot">.</span></a>
-  <a class="btn" href="https://forms.acquirely.in/acquirely/form/EducationPublisher/formperma/G_o5l4yM7NfP1kvlkFBsUzt-MOXayQrsOi-SJGyGUBk">Book an Appointment</a>
+  <a class="btn" href="https://forms.acquirely.in/acquirely/form/EdPublishers/formperma/GwtSoRSbGoFfxJLVaDTsaPNIH3wyq5jcgKxrZ7FtU0w">Book an Appointment</a>
 </div></header>
 
 <!-- HERO -->
