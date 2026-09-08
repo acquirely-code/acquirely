@@ -855,7 +855,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
     <span class="eyebrow d" style="color:var(--gold)">Let's talk</span>
     <h2>Ready to let schools come to you?</h2>
     <p class="rl">A short call to see how you reach schools today and map the first campaign.</p>
-    <a class="btn" href="https://forms.acquirely.in/acquirely/form/EducationPublisher/formperma/G_o5l4yM7NfP1kvlkFBsUzt-MOXayQrsOi-SJGyGUBk">Book a Funnel Review Call <span class="arw">→</span></a>
+    <a class="btn" href="https://forms.acquirely.in/acquirely/form/EdPublishers/formperma/GwtSoRSbGoFfxJLVaDTsaPNIH3wyq5jcgKxrZ7FtU0w">Book a Funnel Review Call <span class="arw">→</span></a>
     <div class="chips"><span>✓ No lock-in</span><span>✓ Appointment-floor guarantee</span><span>✓ Full transparency</span></div>
   </div>
 </section>
