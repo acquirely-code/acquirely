@@ -574,7 +574,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
       <span class="eyebrow d">For school &amp; education publishers</span>
       <h1>You publish great books. You sell them <em>one school visit at a time.</em></h1>
       <p class="sub">We get school decision-makers to book calls with you right when they're choosing next year's books.</p>
-      <div class="cta-row"><a class="btn" href="https://forms.acquirely.in/acquirely/form/EducationPublisher/formperma/G_o5l4yM7NfP1kvlkFBsUzt-MOXayQrsOi-SJGyGUBk">Book a Call to Understand How? <span class="arw">→</span></a></div>
+      <div class="cta-row"><a class="btn" href="https://forms.acquirely.in/acquirely/form/EdPublishers/formperma/GwtSoRSbGoFfxJLVaDTsaPNIH3wyq5jcgKxrZ7FtU0w">Book a Call to Understand How? <span class="arw">→</span></a></div>
       <p class="urg">Only 3 spots available sampling season starts in September. <b>Get your unfair advantage.</b></p>
       <div class="trust">
         <div><div class="n">11+</div><div class="l">Years as a book publisher</div></div>
