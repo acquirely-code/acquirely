@@ -6,7 +6,7 @@ import acquirelyLogo from "@/app/assests/logo.png";
 import { FounderShowcase } from "@/components/FoundersSection";
 import styles from "./page.module.css";
 
-const bookingUrl = "https://forms.acquirely.in/acquirely/form/EdPublishers/formperma/GwtSoRSbGoFfxJLVaDTsaPNIH3wyq5jcgKxrZ7FtU0w";
+const bookingUrl = "https://forms.acquirely.in/acquirely/form/LeadGenFunnelReviewCall/formperma/DEijNOw1e1C4Wd8r6luSZlNxj1zQVtObr106aUYe4-0";
 
 const problems = [
   { icon: LockKeyhole, title: "The front-desk wall", body: "The receptionist takes a message. The principal's inbox stays unopened. You never reach the gate, let alone get through it." },
