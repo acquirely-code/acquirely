@@ -63,7 +63,7 @@ const caseStudies = [
     author: "- Acquirely Strategy",
   },
   {
-    title: "Priyatam Ayurveda — Growth in a Restricted Ad Category",
+    title: "Trivya — Growth in a Restricted Ad Category",
     afterLabel: "AFTER",
     icon: <Activity className="h-6 w-6" />,
     sectionBg: "bg-[#EEF2FF]", // Very Light Indigo
@@ -77,7 +77,7 @@ const caseStudies = [
     ],
     quote:
       "\"Acquirely stepped in, fixed the backend mess, and brought our campaigns back to life. We now have steady sales coming in, day after day.\"",
-    author: "- Priyanka, Founder",
+    author: "- Nikita, Founder",
   },
   {
     title: "Retroverse — Fixing Order Quality Before Scaling Spend",
