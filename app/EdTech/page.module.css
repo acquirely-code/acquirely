@@ -172,7 +172,9 @@
   .heroCopy h1 { font-size: clamp(2.15rem,10vw,3rem); }
   .heroSub { font-size: .94rem; }
   .primaryButton { width: 100%; }
-  .trustRow { grid-template-columns: 1fr; gap: 14px; }
+  .trustRow { gap: 10px; }
+  .trustRow strong { font-size: 1.05rem; }
+  .trustRow span { font-size: .7rem; }
   .heroVideoMobile { margin-top: 22px; border-radius: 18px; }
   .section, .sectionAlt, .blueSection, .proofSection, .fitSection, .faqSection, .applySection { padding: 2.25rem 0; }
   .sectionHead h2, .applyPanel h2 { font-size: clamp(1.95rem,9.5vw,3.4rem); }
