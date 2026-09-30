@@ -30,7 +30,7 @@
 .hero::after { content: ""; position: absolute; z-index: 0; left: -72px; bottom: -76px; width: 170px; height: 180px; border-radius: 44% 56% 62% 38%; background: #f3a8b6; opacity: .92; }
 .heroGrid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0,1.02fr) minmax(420px,.98fr); gap: 4.5rem; align-items: center; }
 .eyebrow { display: inline-flex; align-items: center; border: 1px solid #bfdbfe; border-radius: 999px; background: var(--pale); color: var(--blue); padding: 8px 15px; font-size: .72rem; font-weight: 800; letter-spacing: .16em; line-height: 1.2; text-transform: uppercase; }
-.heroCopy h1, .sectionHead h2, .applyPanel h2 { margin: 0; color: var(--navy); font-weight: 800; letter-spacing: -.055em; line-height: .98; }
+.heroCopy h1, .sectionHead h2, .applyPanel h2 { margin: 0; color: var(--navy); font-weight: 800; letter-spacing: -.045em; word-spacing: .12em; line-height: .98; }
 .heroCopy h1 { max-width: 680px; margin-top: 22px; font-size: clamp(2.7rem,4.65vw,4.35rem); }
 .heroCopy h1 em { display: block; color: var(--blue); font-style: normal; }
 .heroSub { max-width: 630px; margin: 24px 0 0; color: #52627a; font-size: 1rem; line-height: 1.55; }
