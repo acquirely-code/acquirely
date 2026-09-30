@@ -2,12 +2,15 @@
 
 import Image from "next/image";
 import Script from "next/script";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { ArrowRight, BarChart3, CalendarCheck, Check, Clock3, FileCheck2, LockKeyhole, Network, PlaySquare, Target, UserRoundX } from "lucide-react";
 import acquirelyLogo from "@/app/assests/logo.png";
 import { FounderShowcase } from "@/components/FoundersSection";
 import styles from "./page.module.css";
 
-const wistiaMediaId = "sx41aytv0f";
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], variable: "--font-jakarta" });
+
+const wistiaMediaId ="sx41aytv0f";
 const bookingUrl ="https://forms.acquirely.in/acquirely/form/GTMSCHOOLS/formperma/3Gb1GqAVHPSZCZFkDeMmj6xLyS7fA2CNX1xE2ksm-m4";
 
 const problems = [
@@ -61,7 +64,7 @@ function HeroVideo({ className = "" }: { className?: string }) {
 
 export default function EdTechLanding() {
   return (
-    <main className={styles.page}>
+    <main className={`${styles.page} ${jakarta.variable}`}>
       <Script src="https://fast.wistia.com/player.js" strategy="afterInteractive" />
       <Script src={`https://fast.wistia.com/embed/${wistiaMediaId}.js`} strategy="afterInteractive" type="module" />
       <header className={styles.nav}>
