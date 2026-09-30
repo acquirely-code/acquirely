@@ -2,10 +2,12 @@ import { NextResponse, type NextRequest } from 'next/server'
 import { createClient } from '@/utils/supabase/middleware'
 
 export async function middleware(request: NextRequest) {
-  // Old mixed-case URL still used in ads and shared links. Exact match, since Next's redirects() ignores case.
-  if (request.nextUrl.pathname === '/EdTech') {
+  // Old mixed-case URLs still used in ads, forms and shared links. Exact match, since Next's redirects() ignores case.
+  const legacyPaths: Record<string, string> = { '/EdTech': '/edtech', '/EdTech-thank-you': '/edtech-thank-you' }
+  const newPath = legacyPaths[request.nextUrl.pathname]
+  if (newPath) {
     const url = request.nextUrl.clone()
-    url.pathname = '/edtech'
+    url.pathname = newPath
     return NextResponse.redirect(url, 308)
   }
 
