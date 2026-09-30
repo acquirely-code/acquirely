@@ -29,16 +29,12 @@ export default function RootLayout({
       <body className="min-h-screen bg-[#f7f9fc] text-slate-950 antialiased">
         <GoogleTagManager gtmId="GTM-WJVQR59V" />
         
-        {/* Meta Pixel Fallback */}
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1087526939518742&ev=PageView&noscript=1"
-            alt=""
-          />
-        </noscript>
+        {/* Meta Pixel Fallback — raw HTML so React doesn't preload the image, which would fire a duplicate PageView */}
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: '<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1087526939518742&ev=PageView&noscript=1" alt="" />',
+          }}
+        />
 
         {children}
         <Analytics />
