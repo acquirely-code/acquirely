@@ -48,5 +48,14 @@ const nextConfig = {
     ];
   },
 };
+async rewrites() {
+    return [
+      {
+        source: '/dropshipping-calculator',
+        destination: '/dropshipping-calculator/index.html',
+      },
+    ];
+  },
+};
 
 module.exports = nextConfig;
