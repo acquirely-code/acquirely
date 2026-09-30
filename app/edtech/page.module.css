@@ -31,7 +31,9 @@
 .heroGrid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0,1.02fr) minmax(420px,.98fr); gap: 4.5rem; align-items: center; }
 .eyebrow { display: inline-flex; align-items: center; border: 1px solid #bfdbfe; border-radius: 999px; background: var(--pale); color: var(--blue); padding: 8px 15px; font-size: .72rem; font-weight: 800; letter-spacing: .16em; line-height: 1.2; text-transform: uppercase; }
 .heroCopy h1, .sectionHead h2, .applyPanel h2 { margin: 0; color: var(--navy); font-weight: 800; letter-spacing: -.045em; word-spacing: .12em; line-height: .98; }
-.heroCopy h1 { max-width: 680px; margin-top: 22px; font-size: clamp(2.7rem,4.65vw,4.35rem); }
+/* Each sentence is two fixed lines; sizes keep the longest line ("You built something" ≈ 9em) inside the column. */
+.heroCopy h1 { max-width: 680px; margin-top: 22px; font-size: clamp(2.5rem,4.5vw,3.5rem); }
+.heroCopy h1 span { display: block; }
 .heroCopy h1 em { display: block; margin-top: .22em; color: var(--blue); font-style: normal; }
 .heroSub { max-width: 630px; margin: 24px 0 0; color: #52627a; font-size: 1rem; line-height: 1.55; }
 .ctaRow { margin-top: 28px; }
@@ -154,6 +156,7 @@
 
 @media (max-width: 960px) {
   .heroGrid { grid-template-columns: 1fr; }
+  .heroCopy h1 { font-size: clamp(2.5rem,8vw,4.2rem); }
   .heroVideoDesktop { display: none; }
   .heroVideoMobile { display: block; width: min(680px,100%); margin: 24px auto 0; }
   .flowGrid { grid-template-columns: repeat(3,1fr); }
@@ -169,7 +172,7 @@
   .hero { padding: 1.25rem 0 2.25rem; }
   .hero::after { width: 125px; height: 145px; left: -72px; bottom: -58px; }
   .heroGrid { gap: 28px; }
-  .heroCopy h1 { font-size: clamp(2.15rem,10vw,3rem); }
+  .heroCopy h1 { font-size: clamp(1.6rem,9vw,3.4rem); line-height: 1.02; }
   .heroSub { font-size: .94rem; }
   .primaryButton { width: 100%; }
   .trustRow { gap: 10px; }

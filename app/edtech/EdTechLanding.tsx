@@ -78,7 +78,7 @@ export default function EdTechLanding() {
         <div className={`${styles.wrap} ${styles.heroGrid}`}>
           <div className={styles.heroCopy}>
             <span className={styles.eyebrow}>For companies that sell to schools</span>
-            <h1>You built something schools need. <em>You&apos;re stuck talking to the front desk.</em></h1>
+            <h1><span>You built something</span> <span>schools need.</span> <em><span>You&apos;re stuck talking</span> <span>to the front desk.</span></em></h1>
             <p className={styles.heroSub}>We get principals, directors and trustees, the people who actually sign off, booking calls with you.</p>
             <HeroVideo className={styles.heroVideoMobile} />
             <div className={styles.ctaRow}><a className={styles.primaryButton} href={bookingUrl}>Book an Appointment <ArrowRight aria-hidden="true" /></a></div>
