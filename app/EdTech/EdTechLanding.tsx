@@ -1,12 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowDown, ArrowRight, BarChart3, CalendarCheck, Check, Clock3, FileCheck2, LockKeyhole, Network, PlaySquare, Target, UserRoundX } from "lucide-react";
+import Script from "next/script";
+import { ArrowRight, BarChart3, CalendarCheck, Check, Clock3, FileCheck2, LockKeyhole, Network, PlaySquare, Target, UserRoundX } from "lucide-react";
 import acquirelyLogo from "@/app/assests/logo.png";
 import { FounderShowcase } from "@/components/FoundersSection";
 import styles from "./page.module.css";
 
-const bookingUrl = "https://forms.acquirely.in/acquirely/form/GTMSCHOOLS/formperma/3Gb1GqAVHPSZCZFkDeMmj6xLyS7fA2CNX1xE2ksm-m4";
+const wistiaMediaId = "sx41aytv0f";
+const bookingUrl ="https://forms.acquirely.in/acquirely/form/GTMSCHOOLS/formperma/3Gb1GqAVHPSZCZFkDeMmj6xLyS7fA2CNX1xE2ksm-m4";
 
 const problems = [
   { icon: LockKeyhole, title: "The front-desk wall", body: "The receptionist takes a message. The principal's inbox stays unopened. You never reach the gate, let alone get through it." },
@@ -46,23 +48,22 @@ function FeatureList({ items }: { items: string[] }) {
   return <ul className={styles.featureList}>{items.map((item) => <li key={item}><span><Check aria-hidden="true" /></span>{item}</li>)}</ul>;
 }
 
-function DecisionLadder({ className = "" }: { className?: string }) {
+function HeroVideo({ className = "" }: { className?: string }) {
   return (
-    <div className={`${styles.ladder} ${className}`} aria-label="School decision-maker access ladder">
-      <p className={styles.ladderTop}>Decisions happen here</p>
-      {[["Chairman / Trustee", "signs the cheque"], ["Director", "holds the budget"], ["Principal", "sets direction"]].map(([role, note]) => (
-        <div className={styles.ladderLocked} key={role}><strong><LockKeyhole aria-hidden="true" />{role}</strong><span>{note}</span></div>
-      ))}
-      <div className={styles.ladderFaint}><strong>Coordinator</strong><span>no budget authority</span></div>
-      <div className={styles.ladderYou}><strong>Front desk</strong><span>takes a message · you&apos;re here</span></div>
-      <p className={styles.ladderBottom}>Your reps land here <ArrowDown aria-hidden="true" /></p>
-    </div>
+    <div
+      className={`${styles.heroVideo} ${className}`}
+      aria-label="Acquirely growth system video"
+      style={{ ["--wistia-swatch" as string]: `url('https://fast.wistia.com/embed/medias/${wistiaMediaId}/swatch')` }}
+      dangerouslySetInnerHTML={{ __html: `<wistia-player media-id="${wistiaMediaId}" aspect="1.7777777777777777"></wistia-player>` }}
+    />
   );
 }
 
 export default function EdTechLanding() {
   return (
     <main className={styles.page}>
+      <Script src="https://fast.wistia.com/player.js" strategy="afterInteractive" />
+      <Script src={`https://fast.wistia.com/embed/${wistiaMediaId}.js`} strategy="afterInteractive" type="module" />
       <header className={styles.nav}>
         <div className={`${styles.wrap} ${styles.navInner}`}>
           <a href="#top" className={styles.logo} aria-label="Acquirely home"><Image src={acquirelyLogo} alt="Acquirely" priority /></a>
@@ -76,7 +77,7 @@ export default function EdTechLanding() {
             <span className={styles.eyebrow}>For companies that sell to schools</span>
             <h1>You built something schools need. <em>You&apos;re stuck talking to the front desk.</em></h1>
             <p className={styles.heroSub}>We get principals, directors and trustees, the people who actually sign off, booking calls with you.</p>
-            <DecisionLadder className={styles.ladderMobile} />
+            <HeroVideo className={styles.heroVideoMobile} />
             <div className={styles.ctaRow}><a className={styles.primaryButton} href={bookingUrl}>Book an Appointment <ArrowRight aria-hidden="true" /></a></div>
             <p className={styles.urgency}>Only 3 spots available this quarter. <strong>We work each account personally.</strong></p>
             <div className={styles.trustRow}>
@@ -85,7 +86,7 @@ export default function EdTechLanding() {
               <div><strong>₹30Cr+</strong><span>Ad spend managed</span></div>
             </div>
           </div>
-          <DecisionLadder className={styles.ladderDesktop} />
+          <HeroVideo className={styles.heroVideoDesktop} />
         </div>
       </section>
 
