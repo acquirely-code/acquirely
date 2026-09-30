@@ -32,7 +32,7 @@
 .eyebrow { display: inline-flex; align-items: center; border: 1px solid #bfdbfe; border-radius: 999px; background: var(--pale); color: var(--blue); padding: 8px 15px; font-size: .72rem; font-weight: 800; letter-spacing: .16em; line-height: 1.2; text-transform: uppercase; }
 .heroCopy h1, .sectionHead h2, .applyPanel h2 { margin: 0; color: var(--navy); font-weight: 800; letter-spacing: -.045em; word-spacing: .12em; line-height: .98; }
 .heroCopy h1 { max-width: 680px; margin-top: 22px; font-size: clamp(2.7rem,4.65vw,4.35rem); }
-.heroCopy h1 em { display: block; color: var(--blue); font-style: normal; }
+.heroCopy h1 em { display: block; margin-top: .22em; color: var(--blue); font-style: normal; }
 .heroSub { max-width: 630px; margin: 24px 0 0; color: #52627a; font-size: 1rem; line-height: 1.55; }
 .ctaRow { margin-top: 28px; }
 .urgency { margin: 16px 0 0; color: var(--muted); font-size: .9rem; font-style: italic; }
