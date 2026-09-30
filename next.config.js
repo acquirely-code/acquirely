@@ -47,8 +47,8 @@ const nextConfig = {
       },
     ];
   },
-};
-async rewrites() {
+
+  async rewrites() {
     return [
       {
         source: '/dropshipping-calculator',
