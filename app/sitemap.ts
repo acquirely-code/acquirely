@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.4,
     },
     {
-      url: `${baseUrl}/EdTech`,
+      url: `${baseUrl}/edtech`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
