@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://schools.acquirely.in
+Sitemap: https://schools.acquirely.in/sitemap.xml
