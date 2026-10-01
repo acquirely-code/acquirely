@@ -90,11 +90,11 @@ export default function Navbar() {
             </Link>
           </div>
           
-          <Link href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg">
+          <a href="/dropshipping-calculator">
             <button className="rounded-[8px] bg-[#0052FF] px-[24px] py-[12px] text-[16px] font-bold text-white shadow-[0px_10px_15px_-3px_rgba(0,82,255,0.2),0px_4px_6px_-4px_rgba(0,82,255,0.2)] transition hover:scale-[1.02] hover:bg-blue-700">
-              Book a Meeting
+              Dropshipping Calculator
             </button>
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Menu Toggle Button */}
@@ -170,14 +170,14 @@ export default function Navbar() {
               About Us
             </Link>
 
-            <Link href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg">
+            <a href="/dropshipping-calculator">
               <button 
                 className="mt-2 w-full rounded-[8px] bg-[#0052FF] px-6 py-4 text-base font-bold text-white shadow-[0_10px_15px_-3px_rgba(0,82,255,0.2)] active:scale-95"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Book a Meeting
+                Dropshipping Calculator
               </button>
-            </Link>
+            </a>
           </div>
         </div>
       )}
