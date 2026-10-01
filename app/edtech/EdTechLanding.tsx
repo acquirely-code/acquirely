@@ -274,7 +274,7 @@ export default function EdTechLanding() {
 
       <header className={styles.nav}>
         <nav aria-label="Primary" className={`${styles.container} ${styles.navInner}`}>
-          <a href="#top" aria-label="Acquirely, back to top" className={styles.logo}>
+          <a href="https://acquirely.in/" aria-label="Acquirely home" className={styles.logo}>
             <Image src="/images/edtech/acquirely-logo-white.webp" alt="Acquirely" width={420} height={137} priority />
           </a>
           <ul className={styles.navLinks}>
