@@ -66,7 +66,14 @@ export default function Navbar() {
                     >
                       Ecommerce
                     </Link>
-                   
+                    <Link
+                      href="/edtech"
+                      className="block rounded-md px-4 py-2 text-[16px] text-[#0F172A] transition hover:bg-gray-50 hover:text-[#0052FF]"
+                      onClick={() => setIsDesktopDropdownOpen(false)}
+                    >
+                      EdTech
+                    </Link>
+
                   </div>
                 </div>
               )}
@@ -129,6 +136,13 @@ export default function Navbar() {
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                    Lead Gen
+                  </Link>
+                  <Link
+                    href="/edtech"
+                    className="text-base font-medium text-gray-600 transition hover:text-[#0052FF]"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    EdTech
                   </Link>
                 </div>
               )}
