@@ -1,1 +1,0 @@
-(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,54062,t=>{t.q("/_next/static/media/vsl-poster.14t97v_vqkdlc.webp")}]);
