@@ -51,6 +51,9 @@ export default function Footer() {
             <Link href="/lead-gen" className="transition hover:text-white">
             Lead Generation
             </Link>
+            <Link href="/edtech" className="transition hover:text-white">
+              EdTech
+            </Link>
             <Link href="/about-us" className="transition hover:text-white">
               About Us
             </Link>
