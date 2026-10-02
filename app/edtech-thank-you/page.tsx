@@ -1,114 +1,155 @@
+import type { Metadata, Viewport } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { Check } from "lucide-react";
-import acquirelyLogo from "@/app/assests/logo.png";
+import { Open_Sans } from "next/font/google";
+import { CalendarClock, Check, ShieldCheck } from "lucide-react";
+import styles from "./page.module.css";
 
-export const metadata = {
+const openSans = Open_Sans({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], variable: "--font-open-sans" });
+
+export const metadata: Metadata = {
   title: "You're Booked | Acquirely",
-  description: "Thank you for booking your call with Acquirely. Here's what happens next.",
+  description: "Your call with Acquirely is confirmed. Here's what happens next.",
   robots: {
     index: false,
     follow: false,
   },
+  alternates: {
+    canonical: "https://acquirely.in/edtech-thank-you",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0F0C29",
 };
 
 const nextSteps = [
   {
-    title: "You'll get the details",
+    title: "You’ll get the details",
     description: "Calendar invite with the Zoom link, plus a WhatsApp reminder before we speak.",
   },
   {
-    title: "On the call — a real diagnosis",
+    title: "On the call: a real diagnosis",
     description:
-      "We show you why the right decision-makers aren't seeing you, and map the first campaign to get principals and directors booking meetings with you. A working session, not a pitch.",
+      "We show you why the right decision-makers aren’t seeing you, and map the first campaign to get principals and directors booking meetings with you. A working session, not a pitch.",
   },
 ];
 
+const founderStats = [
+  { label: "Years inside education", value: "11+" },
+  { label: "Schools reached", value: "2,000+" },
+];
+
+const stepColors = [styles.step1, styles.step2];
+
 export default function EdTechThankYouPage() {
   return (
-    <main className="min-h-screen bg-white font-opensans text-[#172554]">
-      <div className="h-1.5 bg-[#fbbf24]" />
-
-      <section className="relative overflow-hidden bg-[radial-gradient(520px_300px_at_85%_15%,rgba(96,165,250,0.24),transparent_65%),linear-gradient(145deg,#fff_0%,#f5f9ff_58%,#eff6ff_100%)]">
-        <div className="mx-auto flex w-[min(720px,92vw)] flex-col items-center py-10 sm:py-14">
-          <Image
-            src={acquirelyLogo}
-            alt="Acquirely"
-            className="mb-10 h-auto w-[140px] brightness-0 saturate-100 [filter:brightness(0)_saturate(100%)_invert(16%)_sepia(27%)_saturate(1725%)_hue-rotate(181deg)_brightness(88%)_contrast(96%)] sm:w-[156px]"
-            priority
-          />
-
-          <div className="mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-[#fbbf24] text-[#172554] shadow-[0_16px_40px_-14px_rgba(251,191,36,0.85)]">
-            <Check className="h-10 w-10 stroke-[3]" />
+    <div className={`${styles.page} ${openSans.variable}`}>
+      <main className={styles.main}>
+        <section aria-labelledby="ty-heading" className={styles.hero}>
+          <div aria-hidden="true" className={styles.glow} />
+          <div className={`${styles.container} ${styles.logoRow}`}>
+            <a href="https://acquirely.in/" aria-label="Acquirely home" className={styles.logo}>
+              <Image src="/images/edtech/acquirely-logo-white.webp" alt="Acquirely" width={420} height={137} priority />
+            </a>
           </div>
 
-          <span className="mb-4 inline-flex items-center rounded-full border border-[#d5e6ff] bg-[#eef5ff] px-4 py-2 text-[0.72rem] font-extrabold uppercase tracking-[0.18em] text-[#2563eb]">
-            School Vendors Thank You
-          </span>
+          <div className={`${styles.container} ${styles.heroBody}`}>
+            <div className={`${styles.checkBadge} ${styles.fadeUp}`}>
+              <Check aria-hidden="true" strokeWidth={3} />
+            </div>
+            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
+              <span aria-hidden="true" />
+              School Vendors Thank You
+            </p>
+            <h1 id="ty-heading" className={styles.fadeUp}>
+              You’re <em className={styles.gradient}>booked.</em>
+            </h1>
+            <p className={`${styles.heroSub} ${styles.fadeUp}`}>
+              Your call is confirmed. A calendar invite and a <strong>WhatsApp confirmation</strong> are on their way.
+              Check your inbox and spam, just in case.
+            </p>
+          </div>
+        </section>
 
-          <h1 className="max-w-[11ch] text-center text-[clamp(2.2rem,5vw,3.5rem)] font-extrabold leading-[1.02] tracking-[-0.04em] text-[#172554]">
-            You&apos;re booked.
-          </h1>
-
-          <p className="mt-4 max-w-[44ch] text-center text-[clamp(1rem,2vw,1.12rem)] leading-7 text-[#64748b]">
-            Your call is confirmed. A calendar invite and a{" "}
-            <span className="font-bold text-[#172554]">WhatsApp confirmation</span>{" "}
-            are on their way. Check your inbox and spam, just in case.
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-white py-8 sm:py-10">
-        <div className="mx-auto flex w-[min(720px,92vw)] flex-col gap-6">
-          <div className="rounded-[28px] border border-[#dbe7f5] bg-white p-6 shadow-[0_14px_32px_-24px_rgba(37,99,235,0.24)] sm:p-8">
-            <div className="mb-5 inline-flex items-center rounded-full border border-[#d5e6ff] bg-[#eef5ff] px-4 py-2 text-[0.72rem] font-extrabold uppercase tracking-[0.18em] text-[#2563eb]">
-              What Happens Next
+        <section aria-labelledby="next-heading" className={`${styles.section} ${styles.surface}`}>
+          <div className={`${styles.container} ${styles.narrow}`}>
+            <div className={styles.sectionHead}>
+              <h2 id="next-heading">
+                What happens <em className={styles.gradientStrong}>next</em>
+              </h2>
             </div>
 
-            <div className="flex flex-col gap-5">
+            <ol className={styles.steps}>
               {nextSteps.map((step, index) => (
-                <div key={step.title} className="flex items-start gap-4 rounded-2xl border border-[#e7eef9] bg-[#fbfdff] p-4 sm:p-5">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#eff6ff] text-sm font-extrabold text-[#2563eb]">
-                    {index + 1}
-                  </div>
+                <li key={step.title} className={styles.stepCard}>
+                  <span className={`${styles.stepNumber} ${stepColors[index]}`}>{index + 1}</span>
                   <div>
-                    <h2 className="text-lg font-extrabold leading-6 tracking-[-0.02em] text-[#172554]">{step.title}</h2>
-                    <p className="mt-1 text-[0.97rem] leading-7 text-[#64748b]">{step.description}</p>
+                    <p className={styles.stepLabel}>Step {index + 1}</p>
+                    <h3>{step.title}</h3>
+                    <p className={styles.stepBody}>{step.description}</p>
                   </div>
-                </div>
+                </li>
               ))}
-            </div>
-          </div>
+            </ol>
 
-          <div className="rounded-[28px] border border-[#cfe1ff] bg-[linear-gradient(180deg,#f8fbff,#f3f8ff)] p-7 text-center shadow-[0_14px_32px_-24px_rgba(37,99,235,0.24)] sm:p-8">
-            <h2 className="text-[clamp(1.5rem,3vw,2rem)] font-extrabold leading-tight tracking-[-0.03em] text-[#172554]">
-              We&apos;re looking forward to meeting you.
+            <article className={styles.founderCard} aria-labelledby="founder-heading">
+              <div className={styles.founderPhoto}>
+                <Image
+                  src="/images/edtech/founder-mausam-arora.webp"
+                  alt="Mausam Arora, co-founder of Acquirely"
+                  fill
+                  sizes="(min-width: 640px) 280px, 100vw"
+                />
+              </div>
+              <div className={styles.founderBody}>
+                <p className={styles.founderRole}>Who you’ll meet</p>
+                <p className={styles.founderLead}>You’ll speak directly with</p>
+                <h3 id="founder-heading" className={styles.founderName}>
+                  Mausam Arora<span>, co-founder</span>
+                </h3>
+                <dl className={styles.founderStats}>
+                  {founderStats.map((stat) => (
+                    <div key={stat.label}>
+                      <dt>{stat.label}</dt>
+                      <dd className={styles.gradientStrong}>{stat.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <p className={styles.promise}>
+                  <ShieldCheck aria-hidden="true" strokeWidth={2.25} />
+                  No juniors, no hand-off.
+                </p>
+              </div>
+              <p className={styles.reschedule}>
+                <CalendarClock aria-hidden="true" />
+                <span>
+                  <strong>Need to reschedule?</strong> Just use the link in your calendar invite.
+                </span>
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section aria-labelledby="meet-heading" className={`${styles.section} ${styles.dark}`}>
+          <div className={`${styles.container} ${styles.closing}`}>
+            <h2 id="meet-heading">
+              We’re looking forward to <em className={styles.gradient}>meeting you.</em>
             </h2>
-            <p className="mx-auto mt-3 max-w-[54ch] text-[1rem] leading-7 text-[#52647e]">
-              And to understanding how we can help you become more visible and reach the decision-makers you&apos;re after.
+            <p className={styles.closingBody}>
+              And to understanding how we can help you become more visible and reach the decision-makers you’re after.
             </p>
           </div>
+        </section>
+      </main>
 
-          <div className="rounded-[28px] border border-[#dbe7f5] bg-white p-6 text-center shadow-[0_14px_32px_-24px_rgba(37,99,235,0.24)] sm:p-8">
-            <p className="text-[1rem] leading-7 text-[#64748b]">
-              You&apos;ll speak directly with <span className="font-bold text-[#172554]">Mausam Arora, co-founder</span> — 11+ years inside education, 2,000+ schools reached. No juniors, no hand-off.
-            </p>
-            <p className="mt-3 text-sm leading-6 text-[#94a3b8]">
-              Need to reschedule? Just use the link in your calendar invite.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <footer className="border-t border-[#dbe7f5] bg-[#172554] py-8 text-center text-sm text-[#cfd8e9]">
-        <div className="mx-auto flex w-[min(720px,92vw)] flex-col items-center gap-4">
-          <Image src={acquirelyLogo} alt="Acquirely" className="h-auto w-[118px] brightness-0 invert" />
-          <p className="max-w-[48ch] leading-6">
-            Need anything before the call? Write to{" "}
-            <Link href="mailto:team@acquirely.in" className="font-semibold text-white transition-opacity hover:opacity-80">team@acquirely.in</Link>.
+      <footer className={styles.footer}>
+        <div className={styles.container}>
+          <p className={styles.footerNote}>
+            Need anything before the call? Write to <a href="mailto:team@acquirely.in">team@acquirely.in</a>.
           </p>
+          <p className={styles.copyright}>© {new Date().getFullYear()} Acquirely. All rights reserved.</p>
         </div>
       </footer>
-    </main>
+    </div>
   );
 }
