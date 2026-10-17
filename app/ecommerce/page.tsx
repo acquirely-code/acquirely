@@ -1,10 +1,12 @@
-import AgencyLandingPage from "@/components/AgencyLandingPage";
+import type { Metadata } from "next";
+import EcommerceLanding from "./EcommerceLanding";
 
-export const metadata = {
-  title: "Best Performance Marketing Agency for Ecommerce Brands",
-  description: "Scale your e-commerce brand with a top Meta Ads performance marketing agency. Predictable ROAS, proven results.",
+export const metadata: Metadata = {
+  title: "Acquirely | Paid Ads for D2C & Ecommerce Brands",
+  description:
+    "How 20+ D2C and ecommerce brands scaled Meta Ads profitably after Andromeda with Acquirely's A3 Flywheel. 5x revenue, ROAS 2.7 → 4.2, month-to-month.",
 };
 
-export default function HomePage() {
-  return <AgencyLandingPage />;
+export default function EcommercePage() {
+  return <EcommerceLanding />;
 }
