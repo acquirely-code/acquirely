@@ -118,9 +118,9 @@ const markup = `
       <!-- Gharaana -->
       <article class="card case reveal">
         <div class="case-data">
-          <div class="k"><small>Result</small><b class="grad">2.30 → 3.04</b><span>Purchase ROAS, August vs last 30 days</span></div>
+          <div class="k"><small>Result</small><b class="grad">2.30 → 4.04</b><span>Purchase ROAS, August vs last 30 days</span></div>
           <div class="proofs">
-            <figure class="proof-shot ba-shot"><img src="/ecommerce/img/17-gharaana-meta-ads-manager-before-and-aft.jpg" alt="Gharaana Meta Ads Manager before and after: account average purchase ROAS 2.30 in August 2026, 3.04 in the last 30 days, all 39 campaigns" loading="lazy"><figcaption><b>Meta Ads Manager</b> Purchase ROAS 2.30 → 3.04</figcaption></figure>
+            <figure class="proof-shot ba-shot"><img src="/ecommerce/img/17-gharaana-meta-ads-manager-before-and-aft.jpg" alt="Gharaana Meta Ads Manager before and after: account average purchase ROAS 2.30 in August 2026, 4.04 in the last 30 days, all 39 campaigns" loading="lazy"><figcaption><b>Meta Ads Manager</b> Purchase ROAS 2.30 → 4.04</figcaption></figure>
             <figure class="proof-shot"><img src="/ecommerce/img/18-gharaana-shopify-10-6-lakh-total-sales-i.jpg" alt="Gharaana Shopify: ₹10.6 lakh total sales in the last 7 days, up 28%; sessions up 52%; orders up 30%" loading="lazy"><figcaption><b>Shopify</b> Last 7 days vs previous period</figcaption></figure>
             <p class="proof-hint">Tap a screenshot to enlarge</p>
           </div>
@@ -131,7 +131,7 @@ const markup = `
           <dl class="facts">
             <div><dt>Client</dt><dd>Gharaana, furniture ecommerce</dd></div>
             <div><dt>Starting point</dt><dd>2.30 account ROAS in August, after Andromeda flattened results</dd></div>
-            <div><dt>Last 30 days</dt><dd><b>ROAS 3.04 account-wide, 3.66 on Prospecting_A3.</b></dd></div>
+            <div><dt>Last 30 days</dt><dd><b>ROAS 4.04 account-wide, 4.66 on Prospecting_A3.</b></dd></div>
           </dl>
           <p class="story">Gharaana had a strong year on Meta until the Andromeda update flattened it. When they onboarded in May 2026, the founder was certain open targeting would fail. We ran the A3 Flywheel anyway: broad audiences inside one Prospecting CBO, a fresh creative Pack every week, and a creative engine built on market research, net-new concepts and iterations of proven winners. The right structure beat interest targeting.</p>
           <!-- QUOTE: Gharaana founder on switching to broad -->
