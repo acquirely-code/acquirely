@@ -1,0 +1,42 @@
+/* Thank-you-only styles for /ecommerce-thank-you. Shared styles come from app/ecommerce/ecommerce.css; everything is under .ecom. */
+.ecom .ty-top{display:flex;justify-content:center;padding:26px 20px 0}
+.ecom .ty-top img{height:56px;width:auto}
+.ecom .ty-hero{position:relative;overflow:hidden;text-align:center;padding:clamp(40px,6vw,72px) 0 clamp(48px,6vw,72px)}
+.ecom .ty-hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(700px 420px at 90% 0%,rgba(99,102,241,.12),transparent 70%),
+  radial-gradient(600px 380px at 5% 30%,rgba(99,102,241,.08),transparent 70%)}
+.ecom .ty-hero .wrap{position:relative;display:flex;flex-direction:column;align-items:center}
+.ecom .notice{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;background:#EEF1F6;border-radius:999px;padding:12px 26px;font-family:var(--display);font-weight:700;font-size:clamp(11px,1.15vw,14px);letter-spacing:.2em;text-transform:uppercase;color:#334155;max-width:100%}
+.ecom .notice b{color:#EF4444;font-weight:700}
+.ecom .notice b::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#EF4444;margin-right:8px;vertical-align:2px;animation:ty-blink 1.6s ease-in-out infinite}
+@keyframes ty-blink{50%{opacity:.25}}
+.ecom .ty-hero h1{margin-top:30px;font-size:clamp(30px,4.6vw,60px);font-weight:600;line-height:1.14;color:var(--ink);max-width:24ch;letter-spacing:-.015em}
+.ecom .ty-hero h1 strong{font-weight:800}
+.ecom .ty-hero .lede{margin-top:22px;font-size:clamp(16px,1.6vw,20px);color:var(--text);max-width:58ch}
+.ecom .ty-hero .lede b{color:var(--ink)}
+.ecom .ty-hero .vid{margin-top:40px}
+
+/* numbers band */
+.ecom .nums-h{text-align:center}
+.ecom .nums-h h2{font-size:clamp(28px,3.6vw,44px);font-weight:800}
+.ecom .nums-h p{margin-top:12px;font-size:clamp(16px,1.8vw,22px);color:var(--text)}
+.ecom .nums-h p u{text-underline-offset:5px;text-decoration-thickness:2px}
+.ecom .nums{margin:36px auto 0;max-width:1100px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-radius:16px;overflow:hidden;background:linear-gradient(100deg,#4F46E5,#6366F1 40%,#3B82F6);box-shadow:0 24px 50px -24px rgba(79,70,229,.55)}
+.ecom .num-c{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:28px 30px;color:#E0E7FF}
+.ecom .num-c + .num-c{border-left:1px solid rgba(255,255,255,.18)}
+.ecom .num-c span{font-size:16px;line-height:1.35}
+.ecom .num-c span b{display:block;color:#fff;font-size:18px;font-family:var(--display)}
+.ecom .num-c strong{font-family:var(--display);font-weight:800;font-size:clamp(34px,3.6vw,48px);color:#fff;white-space:nowrap;letter-spacing:-.02em}
+.ecom .nums-note{text-align:center;font-size:13.5px;color:var(--muted);margin-top:14px}
+.ecom .nums-note a{color:var(--indigo-2);font-weight:600}
+@media (max-width:860px){.ecom .nums{grid-template-columns:1fr}.ecom .num-c + .num-c{border-left:0;border-top:1px solid rgba(255,255,255,.18)}}
+.ecom .ty-cta{display:flex;justify-content:center;margin-top:34px}
+.ecom .ty-cta .btn{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(14px,1.6vw,18px);padding:20px clamp(26px,4vw,56px)}
+
+/* testimonials */
+.ecom .tst{columns:3 280px;column-gap:20px;max-width:1080px;margin:0 auto}
+.ecom .tst > *{break-inside:avoid;margin-bottom:20px}
+.ecom .tst figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 10px 0;box-shadow:0 18px 40px -28px rgba(15,23,42,.4)}
+.ecom .tst figure img{display:block;width:100%;height:auto;border-radius:9px;border:1px solid var(--line);cursor:zoom-in}
+.ecom .tst figcaption{padding:12px 6px 14px;font-weight:600;font-size:15px;color:var(--ink);line-height:1.45}
+.ecom .tst figcaption span{display:block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:4px}
