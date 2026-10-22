@@ -1,6 +1,4 @@
 // Page markup for /ecommerce-thank-you, rendered by EcommerceThankYou. Images live in public/ecommerce/img.
-const BOOK_URL =
-  "https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg";
 
 const markup = `
 <!--
@@ -18,7 +16,7 @@ const markup = `
 <section class="ty-hero">
   <div class="wrap">
     <p class="notice"><b>Important:</b> <span id="tyName">Your A3 Flywheel playbook is on its way. In the meantime, discover…</span></p>
-    <h1>How We Helped <strong class="grad">This D2C Kids Brand</strong> Lift Its Meta ROAS <strong class="grad">From 2.07 To 3.65</strong> And <strong class="grad">Sell Out Before Dussehra</strong></h1>
+    <h1>How We Scaled <strong class="grad">TacTow, a D2C Puzzle Brand,</strong> From <strong class="grad">₹8 Lakh to ₹40 Lakh a Month</strong> With <strong class="grad">Meta Ads in 90 Days</strong></h1>
     <p class="lede"><b>Do not spend another rupee on paid ads</b> until you've seen exactly how we restructured this account after Meta's Andromeda update.</p>
 
     <!-- VIDEO: Wistia "E-Commerce October VSL" (media 72oys5y0dy), same as /ecommerce. Clicking the poster swaps in the player. -->
@@ -46,14 +44,55 @@ const markup = `
       <div class="num-c"><span>Patoola<b>ROAS up by</b></span><strong>12%</strong></div>
     </div>
     <p class="nums-note">2.07 → 3.65 · 2.30 → 4.04 · 3.6 → 4.02. <a href="/ecommerce#results">See the screenshots →</a></p>
-    <div class="ty-cta" id="book">
-      <a class="btn" href="${BOOK_URL}" target="_blank" rel="noopener">Schedule your free growth diagnosis call</a>
+  </div>
+</section>
+
+<!-- ============ WHAT HAPPENS NEXT ============ -->
+<section class="band" aria-labelledby="next-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="next-h">What happens <span class="grad">next</span></h2>
+    </div>
+    <div class="next">
+      <ol class="steps">
+        <li class="card step">
+          <span class="step-n">1</span>
+          <div>
+            <p class="step-l">Step 1</p>
+            <h3>The playbook lands in your inbox</h3>
+            <p>Your A3 Flywheel playbook is on its way by email and WhatsApp. Check spam, just in case.</p>
+          </div>
+        </li>
+        <li class="card step">
+          <span class="step-n o">2</span>
+          <div>
+            <p class="step-l">Step 2</p>
+            <h3>Want it run on your account? Book a diagnosis</h3>
+            <p>We audit your account against the Flywheel, show you what's capping your ROAS, and map the first creative Packs to test. A working session, not a pitch.</p>
+          </div>
+        </li>
+      </ol>
+
+      <article class="card meet" aria-labelledby="meet-h">
+        <div class="meet-photo"><img src="/ecommerce/img/mausam-arora-portrait.jpg" alt="Mausam Arora, co-founder of Acquirely" loading="lazy"></div>
+        <div class="meet-body">
+          <span class="eyebrow">Who you'll meet</span>
+          <p class="meet-lead">You'll speak directly with</p>
+          <h3 id="meet-h">Mausam Arora<span>, co-founder</span></h3>
+          <dl class="meet-stats">
+            <div><dt>Years building businesses</dt><dd class="grad">12+</dd></div>
+            <div><dt>Schools in his distribution network</dt><dd class="grad">2,000+</dd></div>
+          </dl>
+          <p class="meet-promise"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>No juniors, no hand-off.</p>
+        </div>
+        <p class="meet-foot"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span><b>Questions about the playbook?</b> Write to <a href="mailto:team@acquirely.in">team@acquirely.in</a>.</span></p>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- ============ TESTIMONIALS ============ -->
-<section class="band" id="testimonials">
+<section class="band white" id="testimonials">
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">Testimonials</span>
@@ -64,10 +103,6 @@ const markup = `
       <figure><img src="/ecommerce/img/26-whatsapp-testimonial-from-karthik-recomm.jpg" alt="WhatsApp testimonial from Karthik recommending Kunal and the Acquirely team" loading="lazy"><figcaption><span>Karthik · founder, Old School Station</span>"Consistent results at scale. Highly recommend."</figcaption></figure>
       <figure><img src="/ecommerce/img/23-whatsapp-creste-team-says-dussehra-kits.jpg" alt="WhatsApp: Creste team says Dussehra kits almost sold out, asks to pause ads" loading="lazy"><figcaption><span>Creste Kids</span>Sold out before Dussehra. The client asked us to pause.</figcaption></figure>
       <figure><img src="/ecommerce/img/34-whatsapp-payal-patoola-testimonial.png" alt="WhatsApp from Payal at Patoola: fewer cancellations, more prepaid orders, higher AOV and stable ROAS after a month with Acquirely" loading="lazy"><figcaption><span>Payal · Patoola</span>"Really encouraging results in just one month."</figcaption></figure>
-    </div>
-    <div class="center-cta">
-      <a class="btn" href="${BOOK_URL}" target="_blank" rel="noopener">Book a Growth Diagnosis Call</a>
-      <small>We onboard a few brands a month. Reply within 24 hours.</small>
     </div>
   </div>
 </section>
@@ -80,8 +115,6 @@ const markup = `
     </div>
   </div>
 </footer>
-
-<div class="mcta"><a class="btn" href="${BOOK_URL}" target="_blank" rel="noopener">Book a Growth Diagnosis Call</a></div>
 `;
 
 export default markup;

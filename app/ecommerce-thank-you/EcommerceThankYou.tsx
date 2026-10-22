@@ -29,16 +29,13 @@ export default function EcommerceThankYou() {
       greet.textContent = `${name}, your A3 Flywheel playbook is on its way. In the meantime, discover…`;
     }
 
-    // Hero video: plays inline once data-video is set; until then the button scrolls to the booking CTA.
+    // Hero video: plays inline once data-video is set.
     root.querySelectorAll<HTMLElement>(".vid").forEach((v) => {
       const b = v.querySelector(".vid-screen");
       if (!b) return;
       on(b, "click", () => {
         const u = v.getAttribute("data-video");
-        if (!u) {
-          root.querySelector("#book")?.scrollIntoView({ behavior: "smooth" });
-          return;
-        }
+        if (!u) return;
         const f = document.createElement("iframe");
         f.src = u;
         f.allow = "autoplay; encrypted-media; picture-in-picture";
@@ -66,24 +63,6 @@ export default function EcommerceThankYou() {
     on(document, "keydown", (e) => {
       if ((e as KeyboardEvent).key === "Escape") lb.classList.remove("open");
     });
-
-    // Sticky mobile CTA, hidden while the header or the booking CTA is on screen
-    const mc = root.querySelector<HTMLElement>(".mcta");
-    const top = root.querySelector("#top");
-    const book = root.querySelector("#book");
-    if (mc && top && book && "IntersectionObserver" in window) {
-      const vis: Record<string, boolean> = {};
-      const o = new IntersectionObserver(
-        (es) => {
-          es.forEach((e) => (vis[e.target.id] = e.isIntersecting));
-          mc.style.display = vis.top || vis.book ? "none" : "";
-        },
-        { threshold: 0.1 }
-      );
-      o.observe(top);
-      o.observe(book);
-      cleanups.push(() => o.disconnect());
-    }
 
     return () => cleanups.forEach((fn) => fn());
   }, []);
