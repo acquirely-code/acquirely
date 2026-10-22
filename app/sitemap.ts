@@ -44,16 +44,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/term-and-condition`,
+      url: `${baseUrl}/publishers`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/done-for-you`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/terms-and-condition`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.4,
-    },
-      {
-      url: `${baseUrl}/thank-you`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
     },
     {
       url: `${baseUrl}/case-studies`,
