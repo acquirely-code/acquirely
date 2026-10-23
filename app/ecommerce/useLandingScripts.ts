@@ -14,9 +14,10 @@ export default function useLandingScripts(rootRef: RefObject<HTMLDivElement | nu
     };
 
     // Hero video: plays inline once data-video is set; until then the button scrolls to the booking section.
+    // A .vid-screen that is a link (e.g. to YouTube) is left to open normally.
     root.querySelectorAll<HTMLElement>(".vid").forEach((v) => {
       const b = v.querySelector(".vid-screen");
-      if (!b) return;
+      if (!b || b.tagName === "A") return;
       on(b, "click", () => {
         const u = v.getAttribute("data-video");
         if (!u) {
@@ -39,7 +40,7 @@ export default function useLandingScripts(rootRef: RefObject<HTMLDivElement | nu
     lb.appendChild(lbImg);
     root.appendChild(lb);
     cleanups.push(() => lb.remove());
-    root.querySelectorAll<HTMLImageElement>(".proof-shot img,.win img").forEach((im) => {
+    root.querySelectorAll<HTMLImageElement>(".proof-shot img,.win img,.tst figure img").forEach((im) => {
       on(im, "click", () => {
         lbImg.src = im.src;
         lbImg.alt = im.alt;
