@@ -232,6 +232,8 @@
 .footerInner { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
 .footerLogo { display: inline-flex; }
 .footerLogo img { width: 115px; height: auto; }
+.footerLinks { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; font-size: .87rem; }
+.footerLinks a { color: inherit; }
 .footerInner > a:last-child { font-size: .87rem; }
 .disclaimer { padding-top: 22px; margin-top: 22px; border-top: 1px solid rgba(255,255,255,.12); color: #91a1bb; font-size: .73rem; line-height: 1.6; text-align: center; }
 

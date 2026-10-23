@@ -294,9 +294,9 @@ const markup = `
         </g>
       </svg>
       <div class="stages">
-        <div class="stage"><span class="code">A1</span><div><h4>Foundation Structure</h4><p>Two campaigns, not five. One Prospecting CBO that tests and scales new-customer ads, and one Retention campaign for past buyers. No audience overlap, no internal bidding war.</p></div></div>
-        <div class="stage"><span class="code">A2</span><div><h4>Creative Framework</h4><p>A new creative Pack every week, from three systems: competitor research, net-new concepts, and iterations of proven winners. Learn from the market, create new, improve what works.</p></div></div>
-        <div class="stage"><span class="code">A3</span><div><h4>Micro Analysis</h4><p>Meta doesn't perform the same every day of the week, so your budget shouldn't either. With 90 days of your data, we move spend away from weak days and into your strongest ones.</p></div></div>
+        <div class="stage"><span class="code">A1</span><div><h3>Foundation Structure</h3><p>Two campaigns, not five. One Prospecting CBO that tests and scales new-customer ads, and one Retention campaign for past buyers. No audience overlap, no internal bidding war.</p></div></div>
+        <div class="stage"><span class="code">A2</span><div><h3>Creative Framework</h3><p>A new creative Pack every week, from three systems: competitor research, net-new concepts, and iterations of proven winners. Learn from the market, create new, improve what works.</p></div></div>
+        <div class="stage"><span class="code">A3</span><div><h3>Micro Analysis</h3><p>Meta doesn't perform the same every day of the week, so your budget shouldn't either. With 90 days of your data, we move spend away from weak days and into your strongest ones.</p></div></div>
       </div>
     </div>
 
@@ -518,8 +518,9 @@ const markup = `
         <div class="brand"><img src="/ecommerce/img/28-acquirely-the-science-behind-scale.png" alt="Acquirely — The Science Behind Scale" style="height:52px;width:auto"></div>
         <p style="margin-top:10px;max-width:32ch">Helping brands scale through Meta Ads &amp; Google Ads.</p>
       </div>
-      <div><h4>On this page</h4><ul><li><a href="#results">Case Studies</a></li><li><a href="#flywheel">A3 Flywheel</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li>New Delhi, India</li><li><a href="https://acquirely.in/">acquirely.in</a></li></ul></div>
+      <div><p class="fh">On this page</p><ul><li><a href="#results">Case Studies</a></li><li><a href="#flywheel">A3 Flywheel</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+      <div><p class="fh">More from Acquirely</p><ul><li><a href="/case-studies">Case studies</a></li><li><a href="/dropshipping-calculator">Dropshipping profit calculator</a></li><li><a href="/blog">Blog</a></li></ul></div>
+      <div><p class="fh">Contact</p><ul><li>New Delhi, India</li><li><a href="/">acquirely.in</a></li><li><a href="/privacy-policy">Privacy policy</a></li><li><a href="/terms-and-condition">Terms of service</a></li></ul></div>
     </div>
     <div class="fine">
       <p>© 2026 Acquirely. All rights reserved.</p>

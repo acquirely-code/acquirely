@@ -29,9 +29,9 @@ export default function BlogCard({ post }: { post: BlogPost }) {
           })}
         </span>
 
-        <h3 className="mt-2 text-[20px] font-bold leading-snug text-[#0F172A]">
+        <h2 className="mt-2 text-[20px] font-bold leading-snug text-[#0F172A]">
           {post.title}
-        </h3>
+        </h2>
 
         <p className="mt-3 flex-1 text-[15px] leading-[22px] text-gray-600">
           {post.excerpt}

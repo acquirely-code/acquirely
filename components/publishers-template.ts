@@ -180,6 +180,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
   .final .rl{color:var(--peri-soft);max-width:50ch;margin:0 auto 1.8rem}
   .final .chips{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;color:var(--peri-soft);font-size:.88rem}
   footer{background:#071B31;color:var(--peri-soft);padding:2.2rem 0;font-size:.84rem}
+  .foot-links{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}.foot-links a{color:inherit;text-decoration:none}.foot-links a:hover{text-decoration:underline}
   .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center}
   .disclaimer{margin-top:1.3rem;padding-top:1.1rem;border-top:1px solid rgba(124,147,217,.15);font-size:.74rem;color:#63769a;max-width:80ch}
 
@@ -311,7 +312,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
     .faq{padding:0 1rem}.faq summary{font-size:1rem;line-height:1.3}
     .risk-cards{grid-template-columns:minmax(0,1fr)!important}
     .final .chips{gap:.75rem;flex-direction:column}
-    .foot-in{display:block;text-align:center}.foot-in>div+div{margin-top:.8rem;overflow-wrap:anywhere}
+    .foot-in{display:block;text-align:center}.foot-in>div+div{margin-top:.8rem;overflow-wrap:anywhere}.foot-links{justify-content:center;margin-top:.8rem}
     .disclaimer{text-align:center}
   }
   @media(max-width:380px){
@@ -861,7 +862,7 @@ export const publishersTemplate = String.raw`<!DOCTYPE html>
 </section>
 
 <footer><div class="wrap">
-  <div class="foot-in"><div class="brand" style="font-size:1.15rem">Acquirely<span class="dot">.</span></div><div>team@acquirely.in</div></div>
+  <div class="foot-in"><div class="brand" style="font-size:1.15rem">Acquirely<span class="dot">.</span></div><nav class="foot-links" aria-label="Footer"><a href="/case-studies">Case studies</a><a href="/about-us">About us</a><a href="/privacy-policy">Privacy policy</a><a href="/terms-and-condition">Terms</a></nav><div>team@acquirely.in</div></div>
   <p class="disclaimer">This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, this site is NOT <span class="no-break">endorsed by Facebook™</span> in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.</p>
 </div></footer>
 

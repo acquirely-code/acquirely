@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { Shield, Mail, Calendar, FileText } from "lucide-react";
 
 export const metadata = {
-  title: "Acquirely | Terms of Service",
+  title: "Terms of Service | Acquirely",
   description: "Review Acquirely's Terms of Service for performance marketing services, client responsibilities, and liability limitations.",
   alternates: { canonical: "/terms-and-condition" },
 };
@@ -32,18 +32,18 @@ export default function page() {
               {/* ---------------- TERMS OF SERVICE SECTION ---------------- */}
               <div className="mt-8 space-y-10 pt-10 sm:mt-4">
                 <div className="border-b border-[#E2E8F0] pb-5">
-                  <h2 className="flex items-center gap-3 font-Montserrat text-2xl font-extrabold text-[#0F172A] sm:text-3xl">
+                  <h1 className="flex items-center gap-3 font-Montserrat text-2xl font-extrabold text-[#0F172A] sm:text-3xl">
                     <FileText className="h-7 w-7 text-[#8B5CF6]" />
                     Terms of Service
-                  </h2>
+                  </h1>
                 </div>
 
                 {/* Services Rendered */}
                 <section>
-                  <h3 className="mb-5 flex items-center gap-3 font-Montserrat text-xl font-bold text-[#0F172A] sm:text-2xl">
+                  <h2 className="mb-5 flex items-center gap-3 font-Montserrat text-xl font-bold text-[#0F172A] sm:text-2xl">
                     <div className="h-8 w-2 rounded-full bg-[#8B5CF6]"></div>
                     Services Provided
-                  </h3>
+                  </h2>
                   <div className="rounded-xl bg-[#F8FAFC] p-6 sm:p-8">
                     <p className="font-opensans text-base leading-relaxed text-[#475569]">
                       Acquirely provides performance marketing services, including but not limited to: media buying, ad creative strategy, campaign management, funnel creation, and conversion rate optimization (CRO). Specific deliverables are outlined in your individual client agreement.
@@ -53,10 +53,10 @@ export default function page() {
 
                 {/* Client Responsibilities */}
                 <section>
-                  <h3 className="mb-5 flex items-center gap-3 font-Montserrat text-xl font-bold text-[#0F172A] sm:text-2xl">
+                  <h2 className="mb-5 flex items-center gap-3 font-Montserrat text-xl font-bold text-[#0F172A] sm:text-2xl">
                     <div className="h-8 w-2 rounded-full bg-[#F97316]"></div>
                     Client Responsibilities & Ad Spend
-                  </h3>
+                  </h2>
                   <div className="rounded-xl bg-[#F8FAFC] p-6 sm:p-8">
                     <ul className="space-y-4 font-opensans text-base leading-relaxed text-[#475569]">
                       <li>
@@ -71,10 +71,10 @@ export default function page() {
 
                 {/* Liability */}
                 <section>
-                  <h3 className="mb-5 flex items-center gap-3 font-Montserrat text-xl font-bold text-[#0F172A] sm:text-2xl">
+                  <h2 className="mb-5 flex items-center gap-3 font-Montserrat text-xl font-bold text-[#0F172A] sm:text-2xl">
                     <div className="h-8 w-2 rounded-full bg-[#EC4899]"></div>
                     Limitation of Liability
-                  </h3>
+                  </h2>
                   <div className="rounded-xl bg-[#F8FAFC] p-6 sm:p-8">
                     <p className="font-opensans text-base leading-relaxed text-[#475569]">
                       While we utilize proven frameworks (like our A3 Flywheel) to scale brands profitably, marketing is subject to market variables. Unless expressly stated in a specific performance guarantee contract, Acquirely does not guarantee specific revenue outcomes. Furthermore, Acquirely is not liable for account suspensions or bans initiated by third-party ad networks (e.g., Meta, Google).

@@ -6,7 +6,7 @@ import BlogCard from "@/components/BlogCard";
 import { getAllPosts } from "@/lib/blog-posts";
 
 export const metadata = {
-  title: "Acquirely | Blog",
+  title: "Meta Ads & Ecommerce Growth Blog | Acquirely",
   description:
     "Insights on Meta Ads, Google Ads, and scaling ecommerce & lead-gen brands, from the Acquirely team.",
   alternates: { canonical: "/blog" },

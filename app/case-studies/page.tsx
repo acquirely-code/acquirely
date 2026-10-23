@@ -5,8 +5,8 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Acquirely | Case Studies",
-  description: "Scale Meta Ads with qualified leads using our A3 Flywheel. Stop wasting budget on junk leads.",
+  title: "Meta Ads Case Studies: ROAS & Revenue Results | Acquirely",
+  description: "How we scaled Modish's ad spend 7x while tripling ROAS, hit 6x ROAS for Trivya and cut Retroverse's failed orders from 50–60% to 10%.",
   alternates: { canonical: "/case-studies" },
 };
 import {

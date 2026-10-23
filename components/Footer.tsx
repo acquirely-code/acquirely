@@ -17,9 +17,9 @@ export default function Footer() {
         
         {/* COLUMN 1: Brand & Socials */}
         <div className="col-span-1 md:col-span-2 lg:col-span-1 flex flex-col items-start">
-          <h3 className="font-Montserrat bg-gradient-to-r from-[#2563EB] to-[#8B5CF6] bg-clip-text text-transparent text-[24px] font-bold text-zz ">
+          <p className="font-Montserrat bg-gradient-to-r from-[#2563EB] to-[#8B5CF6] bg-clip-text text-transparent text-[24px] font-bold text-zz ">
             Acquirely
-          </h3>
+          </p>
           <p className="mt-4 text-[14px] leading-[24px] text-[#8B92A5] pr-4">
             Helping brands scale through Meta Ads & Google Ads.
           </p>
@@ -43,7 +43,7 @@ export default function Footer() {
 
         {/* COLUMN 2: Quick Links */}
         <div className="lg:ml-auto">
-          <h4 className="font-Montserrat text-[16px] font-bold text-white">Quick Links</h4>
+          <p className="font-Montserrat text-[16px] font-bold text-white">Quick Links</p>
           <div className="mt-6 flex flex-col space-y-4 text-[14px] text-[#8B92A5]">
             <Link href="/ecommerce" className="transition hover:text-white">
               Ecommerce
@@ -61,7 +61,7 @@ export default function Footer() {
         </div>
         {/* COLUMN 3: Legal */}
         <div className="lg:ml-8">
-          <h4 className="font-Montserrat text-[16px] font-bold text-white">Legal</h4>
+          <p className="font-Montserrat text-[16px] font-bold text-white">Legal</p>
           <div className="mt-6 flex flex-col space-y-4 text-[14px] text-[#8B92A5]">
             <Link href="/terms-and-condition" className="transition hover:text-white">
               Terms & Conditions
@@ -74,7 +74,7 @@ export default function Footer() {
 
         {/* COLUMN 4: Contact */}
         <div className="lg:ml-auto">
-          <h4 className="font-Montserrat text-[16px] font-bold text-white">Contact Us</h4>
+          <p className="font-Montserrat text-[16px] font-bold text-white">Contact Us</p>
           <div className="mt-6 flex flex-col space-y-4 text-[14px] text-[#8B92A5]">
             
             <div className="flex items-center gap-3">

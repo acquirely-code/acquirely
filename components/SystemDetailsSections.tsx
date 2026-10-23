@@ -170,30 +170,30 @@ export default function SystemDetailsSections() {
             
             <div className="flex flex-col rounded-2xl bg-white p-6 md:p-7 shadow-[0px_18px_50px_-40px_rgba(11,16,32,0.3)] border-t-[4px] border-[#356DFF]">
               <span className="font-Montserrat text-[14px] text-[#356DFF] mb-2">01</span>
-              <h4 className="font-Montserrat text-[16px] md:text-[18px] font-semibold leading-[25px] text-[#0B1020]">
+              <h3 className="font-Montserrat text-[16px] md:text-[18px] font-semibold leading-[25px] text-[#0B1020]">
                 Smarter campaigns over time
-              </h4>
+              </h3>
             </div>
 
             <div className="flex flex-col rounded-2xl bg-white p-6 md:p-7 shadow-[0px_18px_50px_-40px_rgba(11,16,32,0.3)] border-t-[4px] border-[#356DFF]/70">
               <span className="font-Montserrat text-[14px] text-[#356DFF] mb-2">02</span>
-              <h4 className="font-Montserrat text-[16px] md:text-[18px] font-semibold leading-[25px] text-[#0B1020]">
+              <h3 className="font-Montserrat text-[16px] md:text-[18px] font-semibold leading-[25px] text-[#0B1020]">
                 More consistent revenue growth
-              </h4>
+              </h3>
             </div>
 
             <div className="flex flex-col rounded-2xl bg-white p-6 md:p-7 shadow-[0px_18px_50px_-40px_rgba(11,16,32,0.3)] border-t-[4px] border-[#FF8A3D]/80">
               <span className="font-Montserrat text-[14px] text-[#FF8A3D] mb-2">03</span>
-              <h4 className="font-Montserrat text-[16px] md:text-[18px] font-semibold leading-[25px] text-[#0B1020]">
+              <h3 className="font-Montserrat text-[16px] md:text-[18px] font-semibold leading-[25px] text-[#0B1020]">
                 Lower customer acquisition costs
-              </h4>
+              </h3>
             </div>
 
             <div className="flex flex-col rounded-2xl bg-white p-6 md:p-7 shadow-[0px_18px_50px_-40px_rgba(11,16,32,0.3)] border-t-[4px] border-[#FF8A3D]">
               <span className="font-Montserrat text-[14px] text-[#FF8A3D] mb-2">04</span>
-              <h4 className="font-Montserrat text-[16px] md:text-[18px] font-semibold leading-[25px] text-[#0B1020]">
+              <h3 className="font-Montserrat text-[16px] md:text-[18px] font-semibold leading-[25px] text-[#0B1020]">
                 Stronger, scalable performance
-              </h4>
+              </h3>
             </div>
 
           </div>

@@ -101,7 +101,7 @@ export default function ResultsAndCTASection() {
               <div className="flex items-center justify-center w-12 h-12 rounded-md bg-[#F4F4F5] text-[#2B7FFF] mb-4">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>
               </div>
-              <h4 className="font-montserrat font-bold text-[15px] text-[#09090B] mb-2">Predictable ROAS</h4>
+              <h3 className="font-montserrat font-bold text-[15px] text-[#09090B] mb-2">Predictable ROAS</h3>
               <p className="text-[13px] leading-[20px] text-[#71717B]">Know where your returns are heading before scaling budgets.</p>
             </div>
 
@@ -110,7 +110,7 @@ export default function ResultsAndCTASection() {
               <div className="flex items-center justify-center w-12 h-12 rounded-md bg-[#F4F4F5] text-[#2B7FFF] mb-4">
                 <Palette/>
               </div>
-              <h4 className="font-montserrat font-bold text-[15px] text-[#09090B] mb-2">Scalable creatives</h4>
+              <h3 className="font-montserrat font-bold text-[15px] text-[#09090B] mb-2">Scalable creatives</h3>
               <p className="text-[13px] leading-[20px] text-[#71717B]">Fresh ad creatives tested every month to find new winners.</p>
             </div>
 
@@ -119,7 +119,7 @@ export default function ResultsAndCTASection() {
               <div className="flex items-center justify-center w-12 h-12 rounded-md bg-[#F4F4F5] text-[#2B7FFF] mb-4">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
               </div>
-              <h4 className="font-montserrat font-bold text-[15px] text-[#09090B] mb-2">Full Transparency</h4>
+              <h3 className="font-montserrat font-bold text-[15px] text-[#09090B] mb-2">Full Transparency</h3>
               <p className="text-[13px] leading-[20px] text-[#71717B]">Get clear reports and live performance tracking.</p>
             </div>
 
@@ -128,7 +128,7 @@ export default function ResultsAndCTASection() {
               <div className="flex items-center justify-center w-12 h-12 rounded-md bg-[#F4F4F5] text-[#2B7FFF] mb-4">
                 <Crown/>
               </div>
-              <h4 className="font-montserrat font-bold text-[15px] text-[#09090B] mb-2">Path to ₹1Cr/Month</h4>
+              <h3 className="font-montserrat font-bold text-[15px] text-[#09090B] mb-2">Path to ₹1Cr/Month</h3>
               <p className="text-[13px] leading-[20px] text-[#71717B]">A structured growth framework built for long-term scaling.</p>
             </div>
           </div>

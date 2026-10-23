@@ -4,7 +4,7 @@ import { FounderShowcase } from "@/components/FoundersSection";
 import acquirelyLogo from "@/app/assests/logo.png";
 
 export const metadata = {
-  title: "Acquirely | Growth System for Book Publishers",
+  title: "School Lead Generation for Book Publishers | Acquirely",
   description:
     "Stop selling books one school visit at a time. Get school decision-makers to book calls with you — right when they choose next year's curriculum.",
   alternates: { canonical: "/publishers" },

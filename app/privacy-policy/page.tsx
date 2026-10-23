@@ -6,8 +6,8 @@ import Footer from "@/components/Footer";
 import { Shield, Mail, Calendar, FileText } from "lucide-react";
 
 export const metadata = {
-  title: "Acquirely | Privacy Policy",
-  description: "Scale Meta Ads with qualified leads using our A3 Flywheel. Stop wasting budget junk leads.",
+  title: "Privacy Policy | Acquirely",
+  description: "How Acquirely collects, uses and protects information from clients and their customers, including ad platform access and third-party tools.",
   alternates: { canonical: "/privacy-policy" },
 };
 
@@ -35,7 +35,7 @@ export default function PrivacyAndTermsPage() {
                 <Shield className="h-8 w-8 text-[#2563EB]" />
               </div>
               <h1 className="font-Montserrat text-3xl font-extrabold tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-6xl">
-                Privacy Policy &{" "}
+                Privacy Policy
               </h1>
               <p className="mx-auto mt-5 max-w-2xl font-opensans text-base leading-relaxed text-[#475569] sm:text-lg md:text-xl">
                 Everything you need to know about how Acquirely handles your data, protects your privacy, and the terms governing our marketing services.
@@ -50,7 +50,7 @@ export default function PrivacyAndTermsPage() {
                 <div className="border-b border-[#E2E8F0] pb-5">
                   <h2 className="flex items-center gap-3 font-Montserrat text-2xl font-extrabold text-[#0F172A] sm:text-3xl">
                     <Shield className="h-7 w-7 text-[#6366F1]" />
-                    Privacy Policy
+                    How We Handle Your Data
                   </h2>
                 </div>
 

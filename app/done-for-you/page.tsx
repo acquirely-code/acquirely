@@ -2,8 +2,8 @@ import DoneForYouLandingPage from "@/components/DoneForYouLandingPage";
 
 // Same landing page as /lead-gen, which is the indexed version.
 export const metadata = {
-  title: "Acquirely | Meta Ads Agency for Qualified Leads ",
-  description: "Scale Meta Ads with qualified leads using our A3 Flywheel. Stop wasting budget on junk leads.",
+  title: "Meta Ads Agency for Qualified Leads | Acquirely",
+  description: "Meta Ads lead generation for multi-location and online brands. Our A3 Flywheel optimises for leads your sales team can close, not cheap form fills.",
   alternates: { canonical: "/lead-gen" },
 };
 

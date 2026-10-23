@@ -1,5 +1,6 @@
 // app/blog/[slug]/page.tsx
 import React from "react";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -15,9 +16,9 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: Props) {
   const post = getPostBySlug(params.slug);
-  if (!post) return { title: "Acquirely | Blog" };
+  if (!post) return { title: "Blog | Acquirely" };
   return {
-    title: `Acquirely | ${post.title}`,
+    title: `${post.title} | Acquirely`,
     description: post.excerpt,
     alternates: { canonical: `/blog/${post.slug}` },
   };
@@ -52,6 +53,36 @@ export default function BlogPostPage({ params }: Props) {
             <p key={i}>{paragraph}</p>
           ))}
         </div>
+
+        <aside className="mt-16 border-t border-gray-200 pt-10">
+          <h2 className="font-Montserrat text-[22px] font-bold text-[#0F172A]">Keep reading</h2>
+          <ul className="mt-5 space-y-3 text-[16px]">
+            {getAllPosts()
+              .filter((p) => p.slug !== post.slug)
+              .map((p) => (
+                <li key={p.slug}>
+                  <Link href={`/blog/${p.slug}`} className="font-medium text-[#0052FF] hover:underline">
+                    {p.title}
+                  </Link>
+                </li>
+              ))}
+            <li>
+              <Link href="/case-studies" className="font-medium text-[#0052FF] hover:underline">
+                Meta Ads case studies: real ROAS and revenue results
+              </Link>
+            </li>
+            <li>
+              <Link href="/ecommerce" className="font-medium text-[#0052FF] hover:underline">
+                How we run Meta Ads for D2C and ecommerce brands
+              </Link>
+            </li>
+            <li>
+              <Link href="/dropshipping-calculator" className="font-medium text-[#0052FF] hover:underline">
+                Free dropshipping profit and break-even ROAS calculator
+              </Link>
+            </li>
+          </ul>
+        </aside>
       </article>
 
       <Footer />

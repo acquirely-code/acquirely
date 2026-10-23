@@ -133,11 +133,11 @@ export default function HomePage() {
                 </Link>
 
                 <div className="flex items-center -space-x-3 sm:ml-2">
-                  <Image src={Client1} alt="User 1" className="h-10 w-10 rounded-full border-2 border-white object-cover md:h-12 md:w-12" />
-                  <Image src={Client2} alt="User 2" className="h-10 w-10 rounded-full border-2 border-white object-cover md:h-12 md:w-12" />
-                  <Image src={Client3} alt="User 3" className="h-10 w-10 rounded-full border-2 border-white object-cover md:h-12 md:w-12" />
-                  <Image src={Client4} alt="User 4" className="h-10 w-10 rounded-full border-2 border-white object-cover md:h-12 md:w-12" />
-                  <Image src={Clinet5} alt="User 5" className="h-10 w-10 rounded-full border-2 border-white object-cover md:h-12 md:w-12" />
+                  <Image src={Client1} alt="" className="h-10 w-10 rounded-full border-2 border-white object-cover md:h-12 md:w-12" />
+                  <Image src={Client2} alt="" className="h-10 w-10 rounded-full border-2 border-white object-cover md:h-12 md:w-12" />
+                  <Image src={Client3} alt="" className="h-10 w-10 rounded-full border-2 border-white object-cover md:h-12 md:w-12" />
+                  <Image src={Client4} alt="" className="h-10 w-10 rounded-full border-2 border-white object-cover md:h-12 md:w-12" />
+                  <Image src={Clinet5} alt="" className="h-10 w-10 rounded-full border-2 border-white object-cover md:h-12 md:w-12" />
                 </div>
               </div>
             </div>
@@ -175,7 +175,7 @@ export default function HomePage() {
                     {study.roas}
                   </span>
                   <div className="ml-3 flex h-3 w-3 shrink-0 items-center justify-center sm:ml-6 sm:h-4 sm:w-4">
-                    <Image src={Star} alt="Star Divider" className="h-full w-full object-contain" />
+                    <Image src={Star} alt="" className="h-full w-full object-contain" />
                   </div>
                 </div>
               ))}

@@ -22,7 +22,7 @@ import {
 
 export const metadata = {
   title: "About Acquirely | Performance Marketing Company",
-  description: "Discover the founders, A3 Flywheel, and growth systems powering predictable business growth.",
+  description: "Meet Acquirely's founders, Mausam Arora and Kunal Mondal, and the A3 Flywheel system we use to scale Meta and Google Ads for ecommerce and lead-gen brands.",
   alternates: { canonical: "/about-us" },
 };
 
