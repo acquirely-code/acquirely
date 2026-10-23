@@ -7,6 +7,7 @@ export const metadata = {
   title: "Acquirely | Growth System for Book Publishers",
   description:
     "Stop selling books one school visit at a time. Get school decision-makers to book calls with you — right when they choose next year's curriculum.",
+  alternates: { canonical: "/publishers" },
 };
 
 const wistiaMediaId = "tdxebzm5am";

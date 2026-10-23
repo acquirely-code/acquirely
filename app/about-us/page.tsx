@@ -23,6 +23,7 @@ import {
 export const metadata = {
   title: "About Acquirely | Performance Marketing Company",
   description: "Discover the founders, A3 Flywheel, and growth systems powering predictable business growth.",
+  alternates: { canonical: "/about-us" },
 };
 
 

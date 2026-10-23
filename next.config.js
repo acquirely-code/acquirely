@@ -48,6 +48,18 @@ const nextConfig = {
     ];
   },
 
+  // www serves a full duplicate of the site; send it to the preferred apex host. Runs before rewrites, so it covers the calculator too.
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.acquirely.in' }],
+        destination: 'https://acquirely.in/:path*',
+        permanent: true,
+      },
+    ];
+  },
+
   async rewrites() {
     return [
       {

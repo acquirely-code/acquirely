@@ -7,6 +7,7 @@ import success from "@/app/assests/SuccessIcon.png";
 
 export const metadata = {
   title: "Done For You - Thank You",
+  robots: { index: false, follow: false },
 };
 
 export default function ThankYouPage() {

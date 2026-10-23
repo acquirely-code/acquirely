@@ -8,6 +8,7 @@ import { Shield, Mail, Calendar, FileText } from "lucide-react";
 export const metadata = {
   title: "Acquirely | Privacy Policy",
   description: "Scale Meta Ads with qualified leads using our A3 Flywheel. Stop wasting budget junk leads.",
+  alternates: { canonical: "/privacy-policy" },
 };
 
 export default function PrivacyAndTermsPage() {

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     follow: false,
   },
   alternates: {
-    canonical: "https://acquirely.in/edtech-thank-you",
+    canonical: "/edtech-thank-you",
   },
 };
 

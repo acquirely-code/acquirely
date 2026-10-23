@@ -7,6 +7,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Acquirely | Case Studies",
   description: "Scale Meta Ads with qualified leads using our A3 Flywheel. Stop wasting budget on junk leads.",
+  alternates: { canonical: "/case-studies" },
 };
 import {
   Facebook,

@@ -9,6 +9,7 @@ export const metadata = {
   title: "Acquirely | Blog",
   description:
     "Insights on Meta Ads, Google Ads, and scaling ecommerce & lead-gen brands, from the Acquirely team.",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogPage() {

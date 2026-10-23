@@ -19,6 +19,7 @@ export function generateMetadata({ params }: Props) {
   return {
     title: `Acquirely | ${post.title}`,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${post.slug}` },
   };
 }
 

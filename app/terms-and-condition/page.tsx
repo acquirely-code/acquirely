@@ -8,6 +8,7 @@ import { Shield, Mail, Calendar, FileText } from "lucide-react";
 export const metadata = {
   title: "Acquirely | Terms of Service",
   description: "Review Acquirely's Terms of Service for performance marketing services, client responsibilities, and liability limitations.",
+  alternates: { canonical: "/terms-and-condition" },
 };
 
 export default function page() {

@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Reach the School Decision-Makers | Acquirely",
   description:
     "Stop pitching the front desk. We get principals, directors and trustees booking calls with you, the people who actually sign off.",
+  alternates: { canonical: "/edtech" },
 };
 
 export const viewport: Viewport = {

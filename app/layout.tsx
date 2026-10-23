@@ -4,13 +4,10 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 import { GoogleTagManager } from '@next/third-parties/google';
-
-const defaultUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "http://localhost:3000";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(defaultUrl),
+  metadataBase: new URL(SITE_URL),
   title: "Acquirely - Best Performance Marketing Agency for Ecommerce Brands.",
   description:
     "Scale your e-commerce brand with a top Meta Ads performance marketing agency. Predictable ROAS, proven results",

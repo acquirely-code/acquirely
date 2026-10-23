@@ -1,77 +1,30 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site";
+import { getAllPosts } from "@/lib/blog-posts";
 
-const baseUrl =
-  process.env.SITE_URL?.startsWith("http")
-    ? process.env.SITE_URL
-    : "https://acquirely.in";
-
+// Only indexable, canonical URLs. Thank-you pages, /applynow and /done-for-you (canonical to /lead-gen) are left out.
+// lastModified is omitted for static pages: stamping every URL with the build time teaches Google to ignore lastmod.
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.4,
-    },
-      {
-      url: `${baseUrl}/about-us`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/ecommerce`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.4,
-    },
-    {
-      url: `${baseUrl}/edtech`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-      {
-      url: `${baseUrl}/lead-gen`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/publishers`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/done-for-you`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/terms-and-condition`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.4,
-    },
-    {
-      url: `${baseUrl}/case-studies`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.4,
-    },
-     {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
+  const pages: MetadataRoute.Sitemap = [
+    { url: SITE_URL, changeFrequency: "weekly", priority: 1 },
+    { url: `${SITE_URL}/ecommerce`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${SITE_URL}/lead-gen`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${SITE_URL}/edtech`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${SITE_URL}/publishers`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/dropshipping-calculator`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/case-studies`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE_URL}/about-us`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE_URL}/blog`, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${SITE_URL}/privacy-policy`, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${SITE_URL}/terms-and-condition`, changeFrequency: "yearly", priority: 0.2 },
   ];
+
+  const posts: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...pages, ...posts];
 }
