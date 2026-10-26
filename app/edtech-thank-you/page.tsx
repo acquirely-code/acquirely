@@ -13,9 +13,6 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
-  alternates: {
-    canonical: "/edtech-thank-you",
-  },
 };
 
 export const viewport: Viewport = {
