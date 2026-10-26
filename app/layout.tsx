@@ -24,6 +24,12 @@ export default function RootLayout({
         {/* Meta Pixel Script */}
       </head>
       <body className="min-h-screen bg-[#f7f9fc] text-slate-950 antialiased">
+        {/* Google Tag Manager (noscript) */}
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJVQR59V" height="0" width="0" style="display:none;visibility:hidden"></iframe>',
+          }}
+        />
         <GoogleTagManager gtmId="GTM-WJVQR59V" />
         
         {/* Meta Pixel Fallback — raw HTML so React doesn't preload the image, which would fire a duplicate PageView */}
