@@ -20,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* Meta Pixel Script */}
-      </head>
+      <head></head>
       <body className="min-h-screen bg-[#f7f9fc] text-slate-950 antialiased">
         {/* Google Tag Manager (noscript) */}
         <noscript
@@ -31,13 +29,6 @@ export default function RootLayout({
           }}
         />
         <GoogleTagManager gtmId="GTM-WJVQR59V" />
-        
-        {/* Meta Pixel Fallback — raw HTML so React doesn't preload the image, which would fire a duplicate PageView */}
-        <noscript
-          dangerouslySetInnerHTML={{
-            __html: '<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1087526939518742&ev=PageView&noscript=1" alt="" />',
-          }}
-        />
 
         {children}
         <Analytics />
