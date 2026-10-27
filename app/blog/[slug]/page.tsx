@@ -1,6 +1,7 @@
 // app/blog/[slug]/page.tsx
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -21,6 +22,22 @@ export function generateMetadata({ params }: Props) {
     title: `${post.title} | Acquirely`,
     description: post.excerpt,
     alternates: { canonical: `/blog/${post.slug}` },
+    ...(post.image && {
+      openGraph: {
+        images: [
+          {
+            url: post.image.src,
+            width: post.image.width,
+            height: post.image.height,
+            alt: post.image.alt,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        images: [post.image.src],
+      },
+    }),
   };
 }
 
@@ -47,6 +64,22 @@ export default function BlogPostPage({ params }: Props) {
         <h1 className="font-Montserrat mt-3 text-[32px] font-bold leading-tight text-[#0F172A] md:text-[42px]">
           {post.title}
         </h1>
+
+        {post.image && (
+          <figure className="mt-8">
+            <Image
+              src={post.image.src}
+              alt={post.image.alt}
+              title={post.image.title}
+              width={post.image.width}
+              height={post.image.height}
+              className="h-auto w-full rounded-[12px] border border-gray-200"
+            />
+            <figcaption className="mt-3 text-[14px] leading-[20px] text-gray-500">
+              {post.image.description}
+            </figcaption>
+          </figure>
+        )}
 
         <div className="mt-8 space-y-6 text-[17px] leading-[28px] text-gray-700">
           {post.content.map((paragraph, i) => (

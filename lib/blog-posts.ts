@@ -9,6 +9,15 @@ export interface BlogPost {
   date: string; // e.g. "2026-09-01"
   author: string;
   coverImage: string; // path under /public or a full URL
+  // shown in the article body; title/description also become the post's og:image metadata
+  image?: {
+    src: string;
+    alt: string;
+    title: string;
+    description: string;
+    width: number;
+    height: number;
+  };
   content: string[]; // one paragraph per array item
 }
 
@@ -20,7 +29,16 @@ export const blogPosts: BlogPost[] = [
       "A breakdown of the A3 Flywheel system we used to take Modish from below-breakeven to a 3.41 ROAS in 90 days.",
     date: "2026-09-01",
     author: "Acquirely Team",
-    coverImage: "/gallery/blog-placeholder.jpg",
+    coverImage: "/blog/modish-plan-backups.png",
+    image: {
+      src: "/blog/modish-plan-backups.png",
+      alt: "Generated plan backups dialog showing the files backup and four database backups completed",
+      title: "Modish store backups completed before scaling ad spend",
+      description:
+        "Full files backup and four database backups of the Modish store, all completed 5/5, taken before we scaled their Meta Ads spend 7x.",
+      width: 943,
+      height: 949,
+    },
     content: [
       "When Modish came to us, their ad spend was capped by an unpredictable ROAS...",
       "We rebuilt their funnel around the A3 Flywheel, focusing first on creative testing velocity...",
