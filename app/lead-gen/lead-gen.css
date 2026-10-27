@@ -1,0 +1,66 @@
+/* Lead-gen-only additions on top of ecommerce.css. Every rule is under .lg so nothing leaks into other routes. */
+
+/* Hero */
+.lg .lg-fix{font-family:var(--display);font-weight:700;font-size:clamp(20px,2vw,24px);color:var(--ink);margin-top:18px}
+.lg .hero .lg-fix + .lede{margin-top:8px}
+
+/* Hidden cost: closing note */
+.lg .lg-note{max-width:760px;margin:36px auto 0;text-align:center;display:grid;gap:10px}
+.lg .lg-note p{font-size:clamp(16px,1.6vw,18px)}
+.lg .lg-note b{font-family:var(--display);color:var(--ink);font-size:clamp(17px,1.8vw,20px);line-height:1.4}
+
+/* Market shift: A3 callout */
+.lg .andro b{color:#7C2D12}
+
+/* A3 framework */
+.lg .lg-goal{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:14px;color:var(--ink)}
+.lg .lg-goal b{display:block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.lg .lg-loop{max-width:640px;margin:32px auto 0;text-align:center;font-style:italic;font-size:clamp(15px,1.5vw,17px);color:var(--ink)}
+
+/* Client results: quote + before/after table */
+.lg .lg-case{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr)}
+@media (max-width:900px){.lg .lg-case{grid-template-columns:1fr}
+.lg .lg-case .case-data{order:2;border-bottom:0;border-top:1px solid var(--line)}
+}
+.lg .lg-case .case-data{align-content:center}
+.lg .lg-quote{margin:0;border-left:4px solid #2563EB;padding-left:18px;display:grid;gap:12px}
+.lg .lg-quote p{font-size:clamp(16px,1.6vw,18px);font-style:italic;color:var(--ink);line-height:1.6}
+.lg .lg-quote cite{font-style:normal;font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink)}
+.lg .lg-table{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:15px;font-variant-numeric:tabular-nums}
+.lg .lg-table th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--bg);padding:12px 14px;border-bottom:1px solid var(--line)}
+.lg .lg-table th:last-child{color:#2563EB}
+.lg .lg-table td{padding:12px 14px;border-bottom:1px solid var(--line);color:var(--ink)}
+.lg .lg-table tr:last-child td{border-bottom:0}
+.lg .lg-table td.up{font-weight:700;color:var(--good)}
+.lg .lg-table td.spend{font-weight:700;color:#2563EB}
+@media (max-width:480px){.lg .lg-table{font-size:13.5px}
+.lg .lg-table th,.lg .lg-table td{padding:10px}
+}
+
+/* Pricing */
+.lg .tier .btn{margin-top:22px}
+.lg .lg-inhouse{max-width:980px;margin:20px auto 0}
+.lg .lg-inhouse th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 0 8px;border-bottom:1px solid var(--line)}
+.lg .lg-inhouse th:last-child{text-align:right}
+.lg .lg-inhouse tr.total td small{display:block;font-family:var(--body);font-size:12.5px;font-weight:600}
+.lg .lg-inhouse h4{font-size:16px;margin:28px 0 14px}
+.lg .lg-missing{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:700px){.lg .lg-missing{grid-template-columns:1fr}
+}
+.lg .lg-risk{margin-top:26px;background:var(--blue-soft);border-left:4px solid #2563EB;border-radius:0 10px 10px 0;padding:16px 20px;font-size:15px;color:var(--ink)}
+.lg .lg-risk b{display:block;font-family:var(--display);font-size:16px;margin-bottom:2px}
+
+/* Guarantee */
+.lg .lg-commit{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:16px}
+@media (max-width:900px){.lg .lg-commit{grid-template-columns:1fr}
+}
+.lg .lg-commit .ticks{margin-top:6px}
+.lg .lg-commit .ticks b{font-family:var(--body);font-size:15px;font-weight:600;line-height:1.5;color:#fff}
+.lg .lg-commit .stat > b{font-size:20px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lg .lg-commit .stat > span:not(.eyebrow){font-size:15px;color:#E5E7EB}
+.lg .lg-earn{text-align:center;margin-top:28px;font-family:var(--display);font-weight:700;font-size:clamp(17px,1.8vw,20px);color:var(--orange)}
+
+/* Founders */
+.lg .lg-bullets{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;font-size:14px;color:var(--ink)}
+.lg .lg-bullets li{display:grid;grid-template-columns:22px 1fr;gap:8px}
+.lg .lg-bullets li::before{content:"";width:18px;height:18px;margin-top:2px;border-radius:50%;background:#EEF2FF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4L18 8'/%3E%3C/svg%3E") center/11px no-repeat}
