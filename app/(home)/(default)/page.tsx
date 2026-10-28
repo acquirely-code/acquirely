@@ -1,11 +1,12 @@
+import type { Metadata } from "next";
+import HomeLanding from "./HomeLanding";
 
-import FrontomePage from "@/components/homepreview/page";
-export const metadata = {
-  title: "Meta & Google Ads Performance Marketing Agency | Acquirely",
-  description: "Acquirely is a founder-led performance marketing agency scaling ecommerce and lead-gen brands with Meta Ads, Google Ads and weekly creative testing.",
+export const metadata: Metadata = {
+  title: "Full-Funnel Growth Agency for D2C & Lead-Gen Brands | Acquirely",
+  description: "Acquirely runs the whole growth funnel for D2C and lead-gen brands: Meta, Google, LinkedIn, marketplaces, website and CRO. Up to 5x revenue in 90 days, qualified leads 10% → 50%.",
   alternates: { canonical: "/" },
 };
 
 export default function HomePage() {
-  return <FrontomePage />;
+  return <HomeLanding />;
 }
