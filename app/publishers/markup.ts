@@ -97,20 +97,18 @@ const markup = `
       <!-- Propel Curriculum -->
       <article class="card case reveal">
         <div class="case-data">
-          <div class="k"><small>Result</small><b class="grad">66x+</b><span>Return on ad spend from the conference</span></div>
-          <div class="k"><small>Paid registrations</small><b>150+</b><span>School principals, 50% above the 100+ target</span></div>
-          <div class="k"><small>Revenue generated</small><b>₹2Cr+</b><span>On ~₹3L total ad spend, and more over the season</span></div>
-          <!-- PROOF: add Ads Manager / registration screenshots here as <div class="proofs"><figure class="proof-shot">…</figure></div> -->
+          <div class="k"><small>Result</small><b class="grad">150+</b><span>Paid principal registrations in 2 months</span></div>
+          <!-- PROOF: add 2 screenshots here as <div class="proofs"><figure class="proof-shot">…</figure>…<p class="proof-hint">Tap a screenshot to enlarge</p></div> (1: Meta Ads Manager, 2: Registrations / payments) -->
         </div>
         <div class="case-body">
-          <div class="case-top"><span class="num">01</span><span class="chip">Curriculum · School leaders</span></div>
-          <h3>150+ paid principal registrations in two months</h3>
+          <div class="case-top"><span class="num">01</span><span class="chip">K–12 curriculum · School GTM</span></div>
+          <h3>150+ principals paid ₹20K each to attend a conference</h3>
           <dl class="facts">
-            <div><dt>Client</dt><dd>Propel Curriculum, helping Indian schools move from rote learning to project-based learning</dd></div>
-            <div><dt>The goal</dt><dd>100+ paid registrations from principals for Immersion, a multi-day Delhi conference, in two months</dd></div>
-            <div><dt>2-month result</dt><dd><b>150+ paid registrations. ₹2Cr+ revenue on ~₹3L ad spend.</b></dd></div>
+            <div><dt>Client</dt><dd>A PBL curriculum provider with fewer than 10 full-time staff</dd></div>
+            <div><dt>Starting point</dt><dd>No sales force, and a goal of 100 paid seats in 60 days</dd></div>
+            <div><dt>2-month result</dt><dd><b>150+ registrations. ₹2.3Cr+ revenue on ₹3L spend.</b></dd></div>
           </dl>
-          <p class="story">Before coming to Acquirely, Propel Curriculum's founder had spoken to more than 10 agencies, and every one said it couldn't be done. Principals are one of the hardest audiences to reach on Meta, and getting them to pay for a conference is harder still. We took full ownership of the campaign and ran it through the A3 Flywheel, testing creative angles every week to find the messages that made school leaders act. The result: 150+ paid registrations, 50% above the target nobody else would take on.</p>
+          <p class="story">Instead of hiring salespeople, we proposed that Propel host Immersion, a 3-day residential conference in Delhi for school leaders, priced at ₹20,000. Principals are among the hardest audiences to reach on Meta, and asking them to pay for a conference is harder still. Through the A3 Flywheel, we tested new creative angles every week and scaled the winners. The result: 150+ paid seats at about ₹2,000 each, ₹2Cr+ in curriculum orders after the event, and adoption by City Montessori School, Lucknow, the world’s largest school.</p>
           <a class="btn line" href="${BOOK}" target="_blank" rel="noopener">Get the same diagnosis →</a>
         </div>
       </article>
@@ -127,23 +125,22 @@ const markup = `
       <!-- IP Study -->
       <article class="card case reveal">
         <div class="case-data">
-          <div class="k"><small>Result</small><b class="grad">+300%</b><span>Sales conversion rate, with far fewer wasted visits</span></div>
-          <div class="k"><small>School leads</small><b>300+</b><span>Genuine leads from schools, found by Meta Ads</span></div>
-          <div class="k"><small>Cost per lead</small><b>~₹155</b><span>Per school lead, last 30 days in Ads Manager</span></div>
+          <div class="k"><small>Result</small><b class="grad">&lt;₹150</b><span>Cost per school lead, 300+ leads</span></div>
           <div class="proofs">
             <figure class="proof-shot"><img src="/publishers/img/ipstudy-meta-ads-manager-323-school-leads.jpg" alt="IP Study Meta Ads Manager: Prospecting campaign with 323 website leads at ₹154.56 per lead, last 30 days, 23 Sep – 22 Oct 2026" loading="lazy"><figcaption><b>Meta Ads Manager</b> Last 30 days, 23 Sep – 22 Oct 2026</figcaption></figure>
-            <p class="proof-hint">Tap the screenshot to enlarge</p>
+            <!-- PROOF: add screenshot 2 (Lead sheet / CRM) here as <figure class="proof-shot">…</figure> -->
+            <p class="proof-hint">Tap a screenshot to enlarge</p>
           </div>
         </div>
         <div class="case-body">
-          <div class="case-top"><span class="num">02</span><span class="chip">Books for schools · Publisher</span></div>
-          <h3>300+ school leads at ~₹155 each</h3>
+          <div class="case-top"><span class="num">02</span><span class="chip">School books publisher · School GTM</span></div>
+          <h3>300+ school leads in under a month, at under ₹150 each</h3>
           <dl class="facts">
-            <div><dt>Client</dt><dd>IP Study, a publisher selling books to schools</dd></div>
-            <div><dt>Starting point</dt><dd>Growth relied entirely on cold field sales: 50+ school visits, most to schools that had never heard of IP Study</dd></div>
-            <div><dt>Result</dt><dd><b>300+ school leads at ~₹155 each. Sales conversion up 300%.</b></dd></div>
+            <div><dt>Client</dt><dd>A school books publisher with a 100+ person field sales force</dd></div>
+            <div><dt>Starting point</dt><dd>10,000 cold school visits a year, most of them wasted</dd></div>
+            <div><dt>30-day result</dt><dd><b>300+ genuine leads. About 40% lower cost per school won (projected).</b></dd></div>
           </dl>
-          <p class="story">IP Study's founders sent salespeople from school to school, only to find most schools had never heard of them. Conversions were low, and every deal took too much time and manpower. We flipped the model: instead of salespeople knocking on doors, Meta Ads would find the schools first. Running the A3 Flywheel, we generated 300+ genuine school leads at around ₹155 each. Now the sales team only visits schools that have already shown interest in the books.</p>
+          <p class="story">IP Study’s reps visited about 10,000 schools a year. Most samples never reached a decision-maker, and the company kept paying travel, hotel and sampling costs regardless. We flipped the model: Meta Ads find interested schools first. A product expert gives the demo, and reps visit only for scheduled meetings with principals and HoDs. Running on the A3 Flywheel, the campaign delivered 300+ leads in under a month. The projection for this year is 30% higher conversion and about 40% lower cost per school won.</p>
           <a class="btn line" href="${BOOK}" target="_blank" rel="noopener">Get the same diagnosis →</a>
         </div>
       </article>
@@ -151,24 +148,22 @@ const markup = `
       <!-- Agastya -->
       <article class="card case reveal">
         <div class="case-data">
-          <div class="k"><small>Result</small><b class="grad">8x</b><span>Return on ad spend from ticket sales alone</span></div>
-          <div class="k"><small>Paid registrations</small><b>100+</b><span>School founders, principals and academic heads, at ~₹2,000 each</span></div>
-          <div class="k"><small>Revenue</small><b>₹16L</b><span>In tickets on ₹2L ad spend, plus ~₹1Cr in sponsorships</span></div>
-          <div class="k"><small>Cost per lead</small><b>₹803 → ₹80</b><span>10x cheaper, with 729 leads in the last 30 days</span></div>
+          <div class="k"><small>Result</small><b class="grad">40+</b><span>Paid registrations, six weeks before the event</span></div>
           <div class="proofs">
             <figure class="proof-shot ba-shot"><img src="/publishers/img/agastya-meta-ads-manager-cost-per-lead-803-to-80.jpg" alt="Agastya Foundation Meta Ads Manager: earlier Conclave 2026 campaigns at ₹803 and ₹903 per lead; the current Forms campaign at ₹80.50 per lead with 729 leads, last 30 days" loading="lazy"><figcaption><b>Meta Ads Manager</b> Cost per lead ₹803–₹903 → ₹80.50</figcaption></figure>
-            <p class="proof-hint">Tap the screenshot to enlarge</p>
+            <!-- PROOF: add screenshot 2 (Registrations dashboard) here as <figure class="proof-shot">…</figure> -->
+            <p class="proof-hint">Tap a screenshot to enlarge</p>
           </div>
         </div>
         <div class="case-body">
-          <div class="case-top"><span class="num o">03</span><span class="chip">Education nonprofit · School leaders</span></div>
-          <h3>100+ paid school leaders for a three-day conclave in Kuppam</h3>
+          <div class="case-top"><span class="num o">03</span><span class="chip">Education nonprofit · Events</span><span class="pill-live"><i></i>Live</span></div>
+          <h3>School leaders paying ₹20K to travel to Kuppam</h3>
           <dl class="facts">
-            <div><dt>Client</dt><dd>Agastya International Foundation, reaching 40M+ children through the world's largest hands-on learning campus</dd></div>
-            <div><dt>The goal</dt><dd>100 paid seats for the Education Leaders Conclave 2026, 10–12 December, at its Kuppam campus</dd></div>
-            <div><dt>Result</dt><dd><b>100+ paid registrations on ₹2L ad spend. ₹16L in tickets, 8x ROAS.</b></dd></div>
+            <div><dt>Client</dt><dd>One of India’s leading education nonprofits, reaching 40M+ children</dd></div>
+            <div><dt>Starting point</dt><dd>A cold ad account, a remote venue and a 100-seat target</dd></div>
+            <div><dt>Results so far (live)</dt><dd><b>40+ paid registrations at about ₹5,000 each.</b></dd></div>
           </dl>
-          <p class="story">The challenge was steep: tickets priced up to ₹20,000, a remote residential campus in Andhra Pradesh that every attendee had to travel to, and an ad account that had barely been used for paid acquisition. Building on the playbook that filled Propel Curriculum's Immersion conference, we ran the campaign through the A3 Flywheel, testing creative angles weekly to find the messages that moved school leaders to book. The result: 100+ paid registrations at roughly ₹2,000 each, ₹16L in ticket sales, and around ₹1Cr in sponsorships secured for the conclave.</p>
+          <p class="story">Agastya’s Education Leaders Conclave 2026, The Future of Learning in the AI Era, runs 10–12 December at its campus in Kuppam, Andhra Pradesh. The goal is 100 school founders, principals and academic heads at up to ₹20,000 each. That meant a premium ticket, a trip most attendees had never made, and an ad account with almost no history. Building on the Propel playbook and the A3 Flywheel, we tested new angles every week. Within ₹2L of spend, 40+ leaders had paid, and the campaign is now scaling toward the target.</p>
           <a class="btn line" href="${BOOK}" target="_blank" rel="noopener">Get the same diagnosis →</a>
         </div>
       </article>
