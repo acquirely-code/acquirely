@@ -29,6 +29,21 @@ export default function HomeLanding() {
     return () => buttons.forEach((b) => b.removeEventListener("click", onClick));
   }, []);
 
+  // Nav "Services" dropdown: close on outside click, Escape, or picking a link.
+  useEffect(() => {
+    const dd = rootRef.current?.querySelector<HTMLDetailsElement>(".hm-dd");
+    if (!dd) return;
+    const onDoc = (e: MouseEvent) => {
+      if (!dd.contains(e.target as Node) || (e.target as Element).closest(".hm-dd-menu a")) dd.open = false;
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && dd.open) { dd.open = false; dd.querySelector("summary")?.focus(); }
+    };
+    document.addEventListener("click", onDoc);
+    document.addEventListener("keydown", onKey);
+    return () => { document.removeEventListener("click", onDoc); document.removeEventListener("keydown", onKey); };
+  }, []);
+
   return (
     <div
       ref={rootRef}

@@ -7,6 +7,29 @@
 .hm .case[hidden]{display:none}
 .hm .center-cta small a{color:var(--indigo-2);font-weight:600}
 
+/* Nav: Services dropdown linking to each service page. Stays visible on mobile, where the other nav links hide. */
+.hm .hm-dd,.hm .hm-dd[open]{position:relative;background:none;border:0;border-radius:0;padding:0;box-shadow:none}
+.hm .hm-dd summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:0;font-weight:400;font-size:15px}
+.hm .hm-dd summary::after{display:none}
+.hm .hm-dd summary::-webkit-details-marker{display:none}
+.hm .hm-dd summary:hover,.hm .hm-dd[open] summary{color:var(--indigo-2)}
+.hm .hm-dd summary svg{transition:transform .2s}
+.hm .hm-dd[open] summary svg{transform:rotate(180deg)}
+.hm .hm-dd-menu{position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%);width:340px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 50px -16px rgba(15,23,42,.25);padding:8px;display:grid;gap:2px;z-index:40}
+.hm .hm-dd-menu > a:not(.hm-dd-all){display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:center;padding:10px;border-radius:10px;color:var(--ink)}
+.hm .hm-dd-menu > a:not(.hm-dd-all):hover{background:#F5F7FF;color:var(--ink)}
+.hm .hm-dd-menu .ic{width:36px;height:36px;border-radius:9px;background:var(--blue-soft);display:grid;place-items:center}
+.hm .hm-dd-menu .ic.o{background:var(--orange-soft)}
+.hm .hm-dd-menu b{display:block;font-weight:700;font-size:14.5px}
+.hm .hm-dd-menu small{display:block;font-family:var(--body);font-size:13px;color:var(--muted)}
+.hm .hm-dd-all{display:block;margin-top:4px;padding:10px;border-top:1px solid var(--line);font-size:13.5px;font-weight:700;color:var(--indigo-2)}
+@media (max-width:920px){.hm .nav-links{display:flex}
+.hm .nav-links > a{display:none}
+.hm .nav-in{gap:12px;position:relative}
+.hm .hm-dd,.hm .hm-dd[open]{position:static;margin-left:auto}
+.hm .hm-dd-menu{top:calc(100% + 8px);left:0;right:0;width:auto;transform:none}
+}
+
 /* Why brands stall */
 .hm .hm-vendors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:20px}
 .hm .hm-vendors div{border:1.5px dashed #C7D2FE;border-radius:10px;padding:12px 14px;font-size:14px}

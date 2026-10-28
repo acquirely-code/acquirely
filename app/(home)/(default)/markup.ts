@@ -74,6 +74,9 @@ const svcCard = (path: string, o: boolean, title: string, intro: string, items: 
         <ul>${items.map((x) => `<li>${x}</li>`).join("")}</ul>
       </div>`;
 
+const navItem = (href: string, o: boolean, ic: string, title: string, sub: string) =>
+  `<a href="${href}"><span class="ic${o ? " o" : ""}">${icon(ic, o ? "#F37513" : "#2B7FFF")}</span><span><b>${title}</b><small>${sub}</small></span></a>`;
+
 const wins: [string, string, string, string][] = [
   ["22-meta-ads-app-kenzai-puzzles-prospecting.jpg", "Meta Ads app: Kenzai Puzzles prospecting campaign with 954 website purchases", "TacTow · formerly Kenzai Puzzles", "954 purchases from one prospecting campaign."],
   ["23-whatsapp-creste-team-says-dussehra-kits.jpg", "WhatsApp: Creste team says Dussehra kits almost sold out, asks to pause ads", "Creste Kids", "Sold out before Dussehra. The client asked us to pause."],
@@ -104,7 +107,16 @@ const markup = `
     <a class="logo" href="#top" aria-label="Acquirely home"><img src="${IMG}/01-acquirely-the-science-behind-scale.png" alt="Acquirely — The Science Behind Scale"></a>
     <nav class="nav-links" aria-label="Page sections">
       <a href="#results">Case Studies</a>
-      <a href="#services">Services</a>
+      <details class="hm-dd">
+        <summary>Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="hm-dd-menu">
+          ${navItem("/ecommerce", false, '<path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/>', "D2C &amp; Ecommerce", "Revenue and ROAS on Meta and Google")}
+          ${navItem("/lead-gen", true, '<circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 11h5"/><path d="M18.5 8.5v5"/>', "Lead Generation", "Qualified leads, not form fills")}
+          ${navItem("/publishers", false, '<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/><path d="M8 7h7"/>', "Education Publishers", "School decision-makers who book calls")}
+          ${navItem("/edtech", true, '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/>', "EdTech for Schools", "Reach principals, not the front desk")}
+          <a class="hm-dd-all" href="#services">See everything we do →</a>
+        </div>
+      </details>
       <a href="#flywheel">A3 Flywheel</a>
       <a href="#industries">Industries</a>
       <a href="#faq">FAQ</a>
@@ -534,7 +546,7 @@ const markup = `
         <div class="brand"><img src="${IMG}/28-acquirely-the-science-behind-scale.png" alt="Acquirely — The Science Behind Scale" style="height:52px;width:auto"></div>
         <p style="margin-top:10px;max-width:32ch">A full-funnel growth team for D2C and lead-gen brands. Measured on revenue.</p>
       </div>
-      <div><p class="fh">Services</p><ul><li><a href="/ecommerce">D2C &amp; ecommerce growth</a></li><li><a href="/lead-gen">Lead generation</a></li><li><a href="/publishers">Education publishers</a></li><li><a href="#services">Website &amp; CRO</a></li></ul></div>
+      <div><p class="fh">Services</p><ul><li><a href="/ecommerce">D2C &amp; ecommerce growth</a></li><li><a href="/lead-gen">Lead generation</a></li><li><a href="/publishers">Education publishers</a></li><li><a href="/edtech">EdTech for schools</a></li><li><a href="#services">Website &amp; CRO</a></li></ul></div>
       <div><p class="fh">More from Acquirely</p><ul><li><a href="/case-studies">Case studies</a></li><li><a href="/about-us">About us</a></li><li><a href="/blog">Blog</a></li><li><a href="/dropshipping-calculator">Dropshipping profit calculator</a></li></ul></div>
       <div><p class="fh">Contact</p><ul><li><a href="mailto:team@acquirely.in">team@acquirely.in</a></li><li><a href="tel:+917060250253">+91 70602 50253</a></li><li>New Delhi, India</li><li><a href="/privacy-policy">Privacy policy</a></li><li><a href="/terms-and-condition">Terms of service</a></li></ul></div>
     </div>
