@@ -1,66 +1,110 @@
 /* Lead-gen-only additions on top of ecommerce.css. Every rule is under .lg so nothing leaks into other routes. */
 
-/* Hero */
-.lg .lg-fix{font-family:var(--display);font-weight:700;font-size:clamp(20px,2vw,24px);color:var(--ink);margin-top:18px}
-.lg .hero .lg-fix + .lede{margin-top:8px}
-
-/* Hidden cost: closing note */
-.lg .lg-note{max-width:760px;margin:36px auto 0;text-align:center;display:grid;gap:10px}
-.lg .lg-note p{font-size:clamp(16px,1.6vw,18px)}
-.lg .lg-note b{font-family:var(--display);color:var(--ink);font-size:clamp(17px,1.8vw,20px);line-height:1.4}
-
-/* Market shift: A3 callout */
-.lg .andro b{color:#7C2D12}
-
-/* A3 framework */
-.lg .lg-goal{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:14px;color:var(--ink)}
-.lg .lg-goal b{display:block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
-.lg .lg-loop{max-width:640px;margin:32px auto 0;text-align:center;font-style:italic;font-size:clamp(15px,1.5vw,17px);color:var(--ink)}
-
-/* Client results: quote + before/after table */
-.lg .lg-case{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr)}
-@media (max-width:900px){.lg .lg-case{grid-template-columns:1fr}
-.lg .lg-case .case-data{order:2;border-bottom:0;border-top:1px solid var(--line)}
-}
-.lg .lg-case .case-data{align-content:center}
-.lg .lg-quote{margin:0;border-left:4px solid #2563EB;padding-left:18px;display:grid;gap:12px}
-.lg .lg-quote p{font-size:clamp(16px,1.6vw,18px);font-style:italic;color:var(--ink);line-height:1.6}
-.lg .lg-quote cite{font-style:normal;font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink)}
-.lg .lg-table{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:15px;font-variant-numeric:tabular-nums}
-.lg .lg-table th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--bg);padding:12px 14px;border-bottom:1px solid var(--line)}
-.lg .lg-table th:last-child{color:#2563EB}
-.lg .lg-table td{padding:12px 14px;border-bottom:1px solid var(--line);color:var(--ink)}
-.lg .lg-table tr:last-child td{border-bottom:0}
-.lg .lg-table td.up{font-weight:700;color:var(--good)}
-.lg .lg-table td.spend{font-weight:700;color:#2563EB}
-@media (max-width:480px){.lg .lg-table{font-size:13.5px}
-.lg .lg-table th,.lg .lg-table td{padding:10px}
+/* Hero: text logo circles for brands without a logo file yet */
+.lg .lg-bl-txt{background:#fff;color:var(--ink);font-family:var(--display);font-weight:800;font-size:9.5px;line-height:1.1;text-align:center;padding:4px}
+.lg .bl.wide img{width:86%}
+@media (max-width:480px){.lg .lg-bl-txt{font-size:7px}
 }
 
-/* Pricing */
-.lg .tier .btn{margin-top:22px}
-.lg .lg-inhouse{max-width:980px;margin:20px auto 0}
-.lg .lg-inhouse th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 0 8px;border-bottom:1px solid var(--line)}
-.lg .lg-inhouse th:last-child{text-align:right}
-.lg .lg-inhouse tr.total td small{display:block;font-family:var(--body);font-size:12.5px;font-weight:600}
-.lg .lg-inhouse h4{font-size:16px;margin:28px 0 14px}
-.lg .lg-missing{grid-template-columns:repeat(3,minmax(0,1fr))}
-@media (max-width:700px){.lg .lg-missing{grid-template-columns:1fr}
+/* Results band: 6 cards in 3 columns */
+.lg .lg-rcs{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){.lg .lg-rcs{grid-template-columns:1fr 1fr}
 }
-.lg .lg-risk{margin-top:26px;background:var(--blue-soft);border-left:4px solid #2563EB;border-radius:0 10px 10px 0;padding:16px 20px;font-size:15px;color:var(--ink)}
-.lg .lg-risk b{display:block;font-family:var(--display);font-size:16px;margin-bottom:2px}
-
-/* Guarantee */
-.lg .lg-commit{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:16px}
-@media (max-width:900px){.lg .lg-commit{grid-template-columns:1fr}
+@media (max-width:460px){.lg .lg-rcs{grid-template-columns:1fr}
 }
-.lg .lg-commit .ticks{margin-top:6px}
-.lg .lg-commit .ticks b{font-family:var(--body);font-size:15px;font-weight:600;line-height:1.5;color:#fff}
-.lg .lg-commit .stat > b{font-size:20px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lg .lg-commit .stat > span:not(.eyebrow){font-size:15px;color:#E5E7EB}
-.lg .lg-earn{text-align:center;margin-top:28px;font-family:var(--display);font-weight:700;font-size:clamp(17px,1.8vw,20px);color:var(--orange)}
+.lg .lg-rcs .rc-mv{white-space:normal}
+.lg .rc-note{font-size:13.5px;color:#4ADE80;font-weight:600}
 
-/* Founders */
-.lg .lg-bullets{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;font-size:14px;color:var(--ink)}
-.lg .lg-bullets li{display:grid;grid-template-columns:22px 1fr;gap:8px}
-.lg .lg-bullets li::before{content:"";width:18px;height:18px;margin-top:2px;border-radius:50%;background:#EEF2FF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4L18 8'/%3E%3C/svg%3E") center/11px no-repeat}
+/* Case studies: "Live" chip */
+.lg .lg-live{display:inline-flex;align-items:center;gap:6px;background:#DCFCE7;color:var(--good)}
+.lg .lg-live i{width:7px;height:7px;border-radius:50%;background:var(--good);animation:lg-pulse 1.6s ease-out infinite}
+@keyframes lg-pulse{0%{box-shadow:0 0 0 0 rgba(22,163,74,.55)}
+100%{box-shadow:0 0 0 8px rgba(22,163,74,0)}
+}
+@media (prefers-reduced-motion:reduce){.lg .lg-live i{animation:none}
+}
+
+/* Case studies: screenshot placeholder */
+.lg .lg-shot-ph{cursor:default}
+.lg .lg-shot-ph:hover{transform:none}
+.lg .lg-shot-ph > div{aspect-ratio:16/9;border:1.5px dashed #C7D2FE;border-radius:7px;background:#F8FAFF;display:grid;place-items:center;align-content:center;gap:6px;color:#94A3B8;font-size:13px;font-weight:600}
+
+/* Case studies: before/after bars */
+.lg .lg-bars{display:grid;gap:18px;background:#fff;border:1px solid #DCE6F5;border-radius:12px;padding:20px;box-shadow:0 10px 24px -16px rgba(15,23,42,.3)}
+.lg .lg-bar{display:grid;gap:8px}
+.lg .lg-bar-l{font-family:var(--display);font-weight:700;font-size:14.5px;color:var(--ink)}
+.lg .lg-bar-l small{font-family:var(--body);font-weight:500;font-size:12px;color:var(--muted)}
+.lg .lg-bar-r{display:grid;grid-template-columns:52px minmax(0,1fr) auto;align-items:center;gap:10px;font-size:12.5px;color:var(--muted)}
+.lg .lg-bar-r i{display:block;height:12px;border-radius:9999px;background:#E4E4E7;min-width:6px}
+.lg .lg-bar-r b{font-family:var(--display);font-size:14px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.lg .lg-bar-r.after i{background:var(--btn)}
+.lg .lg-bar-r.after b{color:var(--indigo-2)}
+.lg .lg-bar-note{font-size:13px;color:var(--text);border-top:1px solid var(--line);padding-top:12px}
+
+/* Problem: Andromeda callout */
+.lg .andro .lg-callout{margin-top:16px;padding:12px 14px;background:#fff;border-left:4px solid var(--orange);border-radius:0 8px 8px 0;font-weight:600;color:#7C2D12}
+
+/* Flywheel: industry chips */
+.lg .lg-inds{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:28px}
+.lg .lg-inds .chip{font-size:13px;padding:6px 14px}
+
+/* Pricing: three tiers, Growth Engine in the middle and bigger */
+.lg .lg-tiers{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr) minmax(0,1fr);gap:20px;align-items:center}
+@media (max-width:960px){.lg .lg-tiers{grid-template-columns:1fr;max-width:560px;margin-inline:auto}
+.lg .lg-tier-growth{order:-1}
+}
+.lg .lg-tier{position:relative;padding:30px 26px;display:grid;align-content:start}
+.lg .lg-tier-growth{border:2px solid var(--indigo);padding:40px 30px;box-shadow:0 30px 60px -24px rgba(79,70,229,.45),0 0 0 6px rgba(99,102,241,.08)}
+@media (min-width:961px){.lg .lg-tier-growth{transform:translateY(-8px)}
+}
+.lg .lg-flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--btn);color:#fff;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;border-radius:9999px;padding:5px 14px}
+.lg .lg-tier-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.lg .lg-tier-top h3{font-size:21px}
+.lg .lg-save{font-size:12px;font-weight:700;color:var(--orange);background:var(--orange-soft);border-radius:9999px;padding:3px 10px}
+.lg .lg-tagline{margin-top:8px;font-size:14.5px;color:var(--muted)}
+.lg .lg-amt{margin-top:18px;font-family:var(--display);font-weight:800;font-size:clamp(32px,3.2vw,38px);line-height:1.05;color:var(--ink);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.lg .lg-tier-growth .lg-amt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:clamp(36px,3.6vw,44px)}
+.lg .lg-amt small{display:block;margin-top:6px;font-family:var(--body);font-weight:500;font-size:13.5px;letter-spacing:0;color:var(--muted);-webkit-text-fill-color:var(--muted)}
+.lg .lg-strike{margin-top:6px;font-size:13.5px;font-weight:600;color:var(--indigo-2)}
+.lg .lg-strike s{color:var(--muted);font-weight:500}
+.lg .lg-inc{list-style:none;margin:20px 0 0;padding:18px 0 0;border-top:1px solid var(--line);display:grid;gap:11px;font-size:14.5px;color:var(--ink)}
+.lg .lg-inc li{display:grid;grid-template-columns:22px 1fr;gap:10px}
+.lg .lg-inc li::before{content:"";width:18px;height:18px;margin-top:2px;border-radius:50%;background:#EEF2FF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4L18 8'/%3E%3C/svg%3E") center/11px no-repeat}
+.lg .lg-inc li.off{color:#A1A1AA;text-decoration:line-through;text-decoration-color:#D4D4D8}
+.lg .lg-inc li.off::before{background:#F4F4F5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A1A1AA' stroke-width='3.2' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E") center/10px no-repeat}
+.lg .lg-inc em{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);background:var(--orange-soft);border-radius:5px;padding:1px 6px;margin-left:4px;white-space:nowrap}
+.lg .lg-inc b{color:var(--indigo-2)}
+.lg .lg-more,.lg .lg-more[open]{margin-top:16px;background:var(--bg);border:0;box-shadow:none;border-radius:10px;padding:0 14px}
+.lg .lg-more summary{font-size:14px;color:var(--indigo-2);padding:12px 28px 12px 0}
+.lg .lg-more dl{margin:0;padding:0 0 14px;display:grid;gap:10px}
+.lg .lg-more dt{font-weight:700;font-size:13.5px;color:var(--ink)}
+.lg .lg-more dd{margin:1px 0 0;font-size:13.5px;color:var(--text);line-height:1.5}
+.lg .lg-tier .btn{margin-top:22px;width:100%}
+.lg .lg-tier .btn.line{font-size:15.5px;padding:15px 20px;border:1.5px solid #C7D2FE;color:var(--indigo-2)}
+.lg .lg-tier .btn.line.dk{border-color:var(--ink);color:var(--ink)}
+.lg .lg-tier .btn.line.dk:hover{background:var(--ink);color:#fff}
+.lg .lg-under{margin-top:10px;text-align:center;font-size:13px;font-weight:600;color:var(--muted)}
+
+/* Pricing: go all-in banner */
+.lg .lg-allin{margin-top:32px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:center;background:var(--dark-card);border-radius:16px;padding:clamp(24px,4vw,40px);color:var(--dark-muted)}
+@media (max-width:860px){.lg .lg-allin{grid-template-columns:1fr}
+}
+.lg .lg-allin-tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+.lg .lg-allin h3{color:#fff;font-size:clamp(22px,2.6vw,28px);margin:10px 0 10px}
+.lg .lg-allin p{font-size:15px}
+.lg .lg-allin-price{display:grid;gap:6px;justify-items:start}
+.lg .lg-allin-price p{font-family:var(--display);color:#fff}
+.lg .lg-allin-price s{color:#6B7280;font-weight:600;font-size:18px}
+.lg .lg-allin-price b{font-weight:800;font-size:clamp(30px,3.2vw,38px);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lg .lg-allin-price small{font-family:var(--body);font-size:14px;color:var(--dark-muted)}
+.lg .lg-allin-price > span{font-size:13px;font-weight:600;color:#4ADE80}
+.lg .lg-allin-price .btn{margin-top:12px}
+
+/* Pricing: guarantee box */
+.lg .lg-floor{margin-top:20px;display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:start;background:var(--blue-soft);border:1px solid #C7D2FE;border-radius:14px;padding:clamp(20px,3vw,28px)}
+.lg .lg-floor .ic{width:56px;height:56px;border-radius:14px;background:var(--btn);display:grid;place-items:center}
+.lg .lg-floor h3{font-size:19px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.lg .lg-floor h3 em{font-style:normal;font-family:var(--body);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo-2);background:#fff;border:1px solid #C7D2FE;border-radius:9999px;padding:2px 10px}
+.lg .lg-floor p{margin-top:8px;font-size:15px;color:var(--ink)}
+@media (max-width:520px){.lg .lg-floor{grid-template-columns:1fr}
+}
