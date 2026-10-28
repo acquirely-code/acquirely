@@ -17,8 +17,8 @@ const markup = `
 <section class="ty-hero">
   <div class="wrap">
     <p class="notice"><b>You're booked:</b> <span id="tyName">A calendar invite and WhatsApp confirmation are on their way. Before we speak, discover…</span></p>
-    <h1>How We Got <strong class="grad">Right Source Aviation 3x More Enrollment Inquiries</strong> for a <strong class="grad">₹60–80 Lakh Pilot Course</strong></h1>
-    <p class="lede"><b>Everyone said a ₹70 lakh course couldn't be sold on Facebook.</b> Watch how we stopped optimising for cheap form fills and started finding buyers your sales team can close.</p>
+    <h1>How We Got <strong class="grad">Right Source Aviation 5x More Sales-Qualified Leads</strong> at the <strong class="grad">Same Cost per Lead</strong></h1>
+    <p class="lede"><b>Cheap leads were flooding their sales team with students who couldn't fund pilot training.</b> Watch how we stopped optimising for cheap form fills and started finding buyers your sales team can close.</p>
 
     <!-- VIDEO: Wistia lead-gen VSL (media nm2ou94x6d), same as /lead-gen. Clicking the poster swaps in the player. -->
     <div class="vid" data-video="https://fast.wistia.net/embed/iframe/nm2ou94x6d?autoPlay=true&playerColor=2949E5">
@@ -39,11 +39,11 @@ const markup = `
       <p>Results from lead-gen clients, <u>before vs after</u>:</p>
     </div>
     <div class="nums">
-      <div class="num-c"><span>Kashti Finserv<b>Monthly leads up by</b></span><strong>140%</strong></div>
-      <div class="num-c"><span>Right Source Aviation<b>Cost per qualified lead down</b></span><strong>41%</strong></div>
-      <div class="num-c"><span>International Schooling<b>Cost per lead down</b></span><strong>28%</strong></div>
+      <div class="num-c"><span>Kashti<b>Cost per registration down</b></span><strong>99%</strong></div>
+      <div class="num-c"><span>Right Source Aviation<b>Cost per qualified lead down</b></span><strong>80%</strong></div>
+      <div class="num-c"><span>International Schooling<b>Qualified enrolment leads up</b></span><strong>40%</strong></div>
     </div>
-    <p class="nums-note">1,200 → 2,880 leads a month · ₹28,000 → ₹16,500 per qualified lead · $18 → $13 per lead. <a href="/lead-gen#results">See the case studies →</a></p>
+    <p class="nums-note">₹1,000+ → ₹13.39 per registration · ₹1,500 → ₹300 per qualified lead · +40% qualified leads across 9+ countries. <a href="/lead-gen#results">See the case studies →</a></p>
   </div>
 </section>
 
