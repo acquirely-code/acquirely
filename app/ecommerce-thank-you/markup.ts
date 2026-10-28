@@ -1,3 +1,4 @@
+import { withImgDims } from "@/lib/img-dims";
 // Page markup for /ecommerce-thank-you, rendered by EcommerceThankYou. Images live in public/ecommerce/img.
 
 const markup = `
@@ -117,4 +118,4 @@ const markup = `
 </footer>
 `;
 
-export default markup;
+export default withImgDims(markup);

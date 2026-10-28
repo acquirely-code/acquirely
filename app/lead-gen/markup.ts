@@ -1,3 +1,4 @@
+import { withImgDims } from "@/lib/img-dims";
 // Page markup for /lead-gen, rendered by LeadGenLanding. Shares ecommerce.css; lead-gen-only styles live in lead-gen.css.
 const BOOK = "https://forms.acquirely.in/acquirely/form/LeadGenFunnelReviewCall/formperma/DEijNOw1e1C4Wd8r6luSZlNxj1zQVtObr106aUYe4-0";
 const ARROW = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
@@ -432,4 +433,4 @@ const markup = `
 <div class="mcta"><a class="btn" href="${BOOK}" target="_blank" rel="noopener">Book a Call</a></div>
 `;
 
-export default markup;
+export default withImgDims(markup);

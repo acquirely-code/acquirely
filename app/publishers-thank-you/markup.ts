@@ -1,3 +1,4 @@
+import { withImgDims } from "@/lib/img-dims";
 // Page markup for /publishers-thank-you, rendered by PublishersThankYou. Shares ecommerce.css and the ecommerce thank-you.css.
 
 const markup = `
@@ -116,4 +117,4 @@ const markup = `
 </footer>
 `;
 
-export default markup;
+export default withImgDims(markup);

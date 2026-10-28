@@ -1,3 +1,4 @@
+import { withImgDims } from "@/lib/img-dims";
 // Page markup for /ecommerce, rendered by EcommerceLanding. Images live in public/ecommerce/img.
 const markup = `
 <!--
@@ -532,4 +533,4 @@ const markup = `
 <div class="mcta"><a class="btn" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener">Book a Growth Diagnosis Call</a></div>
 `;
 
-export default markup;
+export default withImgDims(markup);

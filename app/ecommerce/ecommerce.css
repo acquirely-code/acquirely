@@ -18,7 +18,7 @@ html:has(.ecom){scroll-behavior:smooth;scroll-padding-top:100px}
 .ecom h1,.ecom h2,.ecom h3,.ecom h4{font-family:var(--display);color:var(--ink-2);margin:0;line-height:1.15;letter-spacing:-.01em;text-wrap:balance}
 .ecom p{margin:0}
 .ecom a{color:inherit}
-.ecom img{max-width:100%;display:block}
+.ecom img{max-width:100%;height:auto;display:block}
 .ecom .wrap{max-width:1140px;margin:0 auto;padding-inline:20px}
 .ecom .band{padding-block:clamp(64px,8vw,96px)}
 .ecom .white{background:#fff}

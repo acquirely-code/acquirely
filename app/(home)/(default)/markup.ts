@@ -1,3 +1,4 @@
+import { withImgDims } from "@/lib/img-dims";
 // Page markup for the homepage, rendered by HomeLanding. Shares ecommerce.css; homepage-only styles live in home.css.
 const BOOK = "https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg";
 const PLAYBOOK = "https://forms.zoho.in/acquirely/form/A3Playbook";
@@ -547,4 +548,4 @@ const markup = `
 <div class="mcta"><a class="btn" href="${BOOK}" ${ext}>Book a Growth Diagnosis Call</a></div>
 `;
 
-export default markup;
+export default withImgDims(markup);

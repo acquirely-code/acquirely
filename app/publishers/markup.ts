@@ -1,3 +1,4 @@
+import { withImgDims } from "@/lib/img-dims";
 // Page markup for /publishers, rendered by PublishersLanding. Shares ecommerce.css; publisher-only styles live in publishers.css.
 const BOOK = "https://forms.acquirely.in/acquirely/form/EdPublishers/formperma/GwtSoRSbGoFfxJLVaDTsaPNIH3wyq5jcgKxrZ7FtU0w";
 const ARROW = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
@@ -485,4 +486,4 @@ const markup = `
 <div class="mcta"><a class="btn" href="${BOOK}" target="_blank" rel="noopener">Book a Call</a></div>
 `;
 
-export default markup;
+export default withImgDims(markup);
