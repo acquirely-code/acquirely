@@ -514,7 +514,7 @@ export default function DoneForYouLandingPage() {
           Same ad spend. Better lead quality. Higher ROI. Powered by our A3 Flywheel for Lead Gen.
         </p>
         
-        <Link href="https://forms.acquirely.in/acquirely/form/LeadGenFunnelReviewCall/formperma/DEijNOw1e1C4Wd8r6luSZlNxj1zQVtObr106aUYe4-0">
+        <Link href="https://forms.zohopublic.in/acquirely/form/LeadGenLeadQualityAuditApplication/formperma/tarjzTcaGroYp223otiICGImBsKYklsyS8iy06CI8LM">
           <button
             type="button"
             className="mt-7 inline-flex rounded-xl bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-5 py-3.5 text-center text-sm font-bold text-white shadow-[0_20px_25px_-5px_rgba(43,127,255,0.25),0_8px_10px_-6px_rgba(43,127,255,0.25)] sm:mt-8 sm:px-8 sm:py-4 sm:text-base lg:text-lg"
@@ -974,7 +974,7 @@ export default function DoneForYouLandingPage() {
               <br className="hidden sm:block" />
               Stop optimizing for volume. Start optimizing for qualified leads.
             </p>
-            <Link href="https://forms.acquirely.in/acquirely/form/LeadGenFunnelReviewCall/formperma/DEijNOw1e1C4Wd8r6luSZlNxj1zQVtObr106aUYe4-0">
+            <Link href="https://forms.zohopublic.in/acquirely/form/LeadGenLeadQualityAuditApplication/formperma/tarjzTcaGroYp223otiICGImBsKYklsyS8iy06CI8LM">
             
             <button
               type="button"

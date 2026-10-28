@@ -1,6 +1,6 @@
 import { withImgDims } from "@/lib/img-dims";
 // Page markup for /lead-gen, rendered by LeadGenLanding. Shares ecommerce.css; lead-gen-only styles live in lead-gen.css.
-const BOOK = "https://forms.acquirely.in/acquirely/form/LeadGenFunnelReviewCall/formperma/DEijNOw1e1C4Wd8r6luSZlNxj1zQVtObr106aUYe4-0";
+const BOOK = "https://forms.zohopublic.in/acquirely/form/LeadGenLeadQualityAuditApplication/formperma/tarjzTcaGroYp223otiICGImBsKYklsyS8iy06CI8LM";
 const CTA = `href="${BOOK}" target="_blank" rel="noopener"`;
 const ARROW = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
 const TICK = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`;

@@ -3,7 +3,7 @@ import { withImgDims } from "@/lib/img-dims";
 
 const markup = `
 <!--
-  THANK-YOU PAGE — the redirect after the LeadGenFunnelReviewCall booking form submits.
+  THANK-YOU PAGE — the redirect after the LeadGenLeadQualityAuditApplication form submits.
   Optional personalisation: redirect to /lead-gen-thank-you?name=FirstName (or ?tve_name=…) and the notice bar greets them by name.
 
   To add a testimonial, copy one of the <figure> blocks in .tst and put the screenshot in public/ecommerce/img/.
