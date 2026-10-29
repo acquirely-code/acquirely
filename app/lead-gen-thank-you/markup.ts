@@ -20,11 +20,11 @@ const markup = `
     <h1>How We Got <strong class="grad">Right Source Aviation 5x More Sales-Qualified Leads</strong> at the <strong class="grad">Same Cost per Lead</strong></h1>
     <p class="lede"><b>Cheap leads were flooding their sales team with students who couldn't fund pilot training.</b> Watch how we stopped optimising for cheap form fills and started finding buyers your sales team can close.</p>
 
-    <!-- VIDEO: Wistia lead-gen VSL (media nm2ou94x6d), same as /lead-gen. Clicking the poster swaps in the player. -->
-    <div class="vid" data-video="https://fast.wistia.net/embed/iframe/nm2ou94x6d?autoPlay=true&playerColor=2949E5">
+    <!-- VIDEO: Wistia lead-gen VSL (media 8aoebjki6e), same as /lead-gen. Clicking the poster swaps in the player. -->
+    <div class="vid" data-video="https://fast.wistia.net/embed/iframe/8aoebjki6e?autoPlay=true&playerColor=2949E5">
       <div class="vid-bar">Learn how it works</div>
       <button class="vid-screen" type="button" aria-label="Play: how Acquirely fixes lead quality">
-        <img src="https://fast.wistia.com/embed/medias/nm2ou94x6d/swatch" alt="" aria-hidden="true">
+        <img src="https://fast.wistia.com/embed/medias/8aoebjki6e/swatch" alt="" aria-hidden="true">
         <span class="vid-play"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M8 5.5v13a1 1 0 001.5.86l10.5-6.5a1 1 0 000-1.72L9.5 4.64A1 1 0 008 5.5z"/></svg></span>
       </button>
     </div>

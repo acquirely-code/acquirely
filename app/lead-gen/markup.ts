@@ -252,7 +252,7 @@ const faqs: [string, string][] = [
 const markup = `
 <!--
   TO FINISH BEFORE GOING LIVE
-  1. VSL: the hero plays the existing Wistia lead-gen video (nm2ou94x6d). Swap data-video if there's a new cut.
+  1. VSL: the hero plays the existing Wistia lead-gen video (8aoebjki6e). Swap data-video if there's a new cut.
   2. More screenshots (real, unedited only): add entries to a case's shots() list. Propel Ads Manager, IP Study lead sheet / CRM
      and Agastya registrations would fill the gaps. A { src: null } entry shows a "Screenshot coming" placeholder.
   3. Agastya numbers: this page says 40+ live; /publishers says 100+, ₹16L and 8x ROAS. Pick one.
@@ -293,11 +293,11 @@ const markup = `
       </div>
     </div>
 
-    <!-- VIDEO: Wistia lead-gen VSL (media nm2ou94x6d). Clicking the poster swaps in the player. -->
-    <div class="vid" data-video="https://fast.wistia.net/embed/iframe/nm2ou94x6d?autoPlay=true&playerColor=2949E5">
+    <!-- VIDEO: Wistia lead-gen VSL (media 8aoebjki6e). Clicking the poster swaps in the player. -->
+    <div class="vid" data-video="https://fast.wistia.net/embed/iframe/8aoebjki6e?autoPlay=true&playerColor=2949E5">
       <div class="vid-bar">Learn how it works</div>
       <button class="vid-screen" type="button" aria-label="Play: why cheap leads don't close, and what we do instead">
-        <img src="https://fast.wistia.com/embed/medias/nm2ou94x6d/swatch" alt="" aria-hidden="true">
+        <img src="https://fast.wistia.com/embed/medias/8aoebjki6e/swatch" alt="" aria-hidden="true">
         <span class="vid-card"><b>Why cheap leads don't close, and what we do instead</b><small>The lead-quality system, explained</small></span>
         <span class="vid-play"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M8 5.5v13a1 1 0 001.5.86l10.5-6.5a1 1 0 000-1.72L9.5 4.64A1 1 0 008 5.5z"/></svg></span>
       </button>
