@@ -13,7 +13,8 @@ export const metadata = {
 };
 
 export default function BlogPage() {
-  const posts = getAllPosts();
+  const posts = getAllPosts().filter((p) => !p.archived);
+  const archived = getAllPosts().filter((p) => p.archived);
 
   return (
     <main className="min-h-screen bg-[#F8FAFC]">
@@ -37,6 +38,19 @@ export default function BlogPage() {
             <BlogCard key={post.slug} post={post} />
           ))}
         </div>
+
+        {archived.length > 0 && (
+          <div className="mt-20">
+            <h2 className="font-Montserrat mb-8 border-t border-gray-200 pt-10 text-[24px] font-bold text-[#0F172A]">
+              Archive
+            </h2>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {archived.map((post) => (
+                <BlogCard key={post.slug} post={post} />
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       <Footer />
