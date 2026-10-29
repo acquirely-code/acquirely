@@ -72,13 +72,13 @@ export const blogPosts: BlogPost[] = [
       "In this guide, you will see what Meta announced at Advertising Week New York on October 6, 2026, which tools are live and which are still testing, and a practical playbook for [D2C and ecommerce brands](/ecommerce).",
       "Short on time? Scan the [status table](#status-table) below, then jump to the [5-step action plan](#action-plan).",
 
-      { type: "h2", text: 'What does "static to conversational" actually mean?' },
+      { type: "h2", text: 'What are conversational ads, and what does "static to conversational" mean?' },
       "For a decade, a Meta ad was a one-way broadcast: a fixed image or video, a headline and a button. The conversation, if it happened at all, started later on your website or with a sales rep.",
       "Conversational advertising flips that. The ad becomes the opening line of a dialogue. A shopper taps, asks a question, gets a product recommendation and, increasingly, checks out without leaving the chat.",
       "The same shift is happening on your side of the screen. Instead of clicking through dozens of Ads Manager settings, you describe what you want in plain language and an AI assistant builds or adjusts the campaign.",
       "Meta is betting heavily on this. In its latest investor filing, Meta says more than 2 million businesses use its Business Agent every week, with over 30 million conversations a week.",
 
-      { type: "h2", id: "status-table", text: "Meta's new AI ad tools at a glance (October 2026)" },
+      { type: "h2", id: "status-table", text: "Meta AI ad tools at a glance: Meta Ads updates 2026" },
       "Not everything Meta announced is in your account yet. Here is what each tool does and where it stands, based on Meta's own status wording.",
       {
         type: "table",
@@ -109,7 +109,7 @@ export const blogPosts: BlogPost[] = [
       },
       "Meta claims advertisers who adopt the assistant's recommendations see 5% more conversions at the same cost per conversion. Treat that as a platform claim, not a forecast. Meta published no methodology, so run a holdout test in your own account first.",
 
-      { type: "h2", text: "2. Advantage+ creative: your static images become video" },
+      { type: "h2", text: "2. Advantage+ creative video: your static images become video" },
       "Meta says more than 60% of the time people spend on Facebook and Instagram is spent watching video. That explains why generating video from static images in Advantage+ creative is now generally available.",
       "Ads Creative Studio goes further. You can generate new video concepts and edit hooks, audio, clip length, captions and end scenes. Catalog advertisers in the beta can turn product photos into product videos at scale.",
       "Our take: this cuts the cost of creative testing sharply, but it creates a sameness problem. If every brand uses the same generator, differentiation has to come from the brief, the offer and the raw assets you feed in. Real UGC, founder clips and customer proof still win.",
@@ -153,7 +153,7 @@ export const blogPosts: BlogPost[] = [
       },
 
       { type: "h2", text: "What this means for D2C and ecommerce brands in India" },
-      "India is where conversational commerce makes the most sense. Your buyers already ask questions on WhatsApp before they pay, especially for cash on delivery, sizing and returns. Meta even tested its AI customer support with merchants in India early on.",
+      "India is where conversational commerce, and click-to-WhatsApp ads in particular, makes the most sense. Your buyers already ask questions on WhatsApp before they pay, especially for cash on delivery, sizing and returns. Meta even tested its AI customer support with merchants in India early on.",
       "For Indian D2C brands, the practical opportunities are clear:",
       {
         type: "ul",
