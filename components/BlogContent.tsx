@@ -91,12 +91,21 @@ function Block({ block }: { block: BlogBlock }) {
       );
     case "faq":
       return (
-        <div className="space-y-6">
+        <div className="grid gap-[10px]">
           {block.items.map((item) => (
-            <div key={item.q}>
-              <h3 className="text-[18px] font-bold leading-snug text-[#0F172A]">{item.q}</h3>
-              <p className="mt-2"><Inline text={item.a} /></p>
-            </div>
+            <details
+              key={item.q}
+              className="group rounded-[12px] border border-[#E4E4E7] bg-white px-[22px] transition open:border-[#C7D2FE] open:shadow-[0_1px_2px_rgba(15,23,42,.04),0_6px_20px_rgba(15,23,42,.05)]"
+            >
+              <summary className="relative cursor-pointer list-none py-[18px] pr-[34px] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-[#6366F1] [&::-webkit-details-marker]:hidden">
+                <h3 className="font-Montserrat text-[16px] font-bold leading-snug text-[#0F172A]">{item.q}</h3>
+                <span
+                  aria-hidden="true"
+                  className="absolute right-[2px] top-1/2 h-[9px] w-[9px] -translate-y-[70%] rotate-45 border-b-2 border-r-2 border-[#6366F1] transition-transform group-open:-translate-y-[30%] group-open:-rotate-[135deg]"
+                />
+              </summary>
+              <p className="pb-5 text-[15.5px] leading-[26px]"><Inline text={item.a} /></p>
+            </details>
           ))}
         </div>
       );
