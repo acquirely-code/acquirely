@@ -9,6 +9,15 @@ const LINKEDIN = `<svg width="14" height="14" viewBox="0 0 24 24" fill="#0A66C2"
 const phone = (domain: string, img: string, name: string, cat: string) =>
   `<figure class="ph"><div class="ph-frame"><div class="ph-bar"><span></span><b>${domain}</b><span></span></div><div class="ph-screen"><img src="${img}" alt="${name} website on mobile" loading="lazy"></div></div><figcaption><b>${name}</b><span class="ph-cat">${cat}</span></figcaption></figure>`;
 
+// Four phones are narrower than a wide screen, so the set is repeated 3x in the markup (useLandingScripts then
+// doubles the track for the seamless -50% loop). Repeats are aria-hidden so screen readers hear each brand once.
+const phoneSet = [
+  phone("kashti.com", "/ecommerce/img/31-kashti-website-on-mobile.jpg", "Kashti", "Fintech app"),
+  phone("rightsourceaviation.com", "/ecommerce/img/33-rsa-aviation-website-on-mobile.jpg", "RSA Aviation", "Pilot training academy"),
+  phone("internationalschooling.org", "/ecommerce/img/30-international-schooling-website-on-mobile.jpg", "International Schooling", "Online school · 9+ countries"),
+  phone("globalproptech.in", "/ecommerce/img/29-global-proptech-website-on-mobile.jpg", "Global Proptech", "Luxury real estate · Gurugram"),
+].join("");
+
 // Results band card. `before` is optional: "₹1,000+" renders as "₹1,000+ → ₹13.39".
 const rc = (brand: string, label: string, big: string, note: string, before = "") =>
   `<div class="rc reveal"><div class="rc-who"><b>${brand}</b><small>${label}</small></div><div class="rc-mv">${before ? `<s>${before} →</s>` : ""}<b>${big}</b></div><p class="rc-note">${note}</p></div>`;
@@ -297,10 +306,8 @@ const markup = `
   <p class="trusted-h">The lead-gen agency trusted by</p>
   <div class="ph-viewport">
     <div class="ph-track">
-      ${phone("kashti.com", "/ecommerce/img/31-kashti-website-on-mobile.jpg", "Kashti", "Fintech app")}
-      ${phone("rightsourceaviation.com", "/ecommerce/img/33-rsa-aviation-website-on-mobile.jpg", "RSA Aviation", "Pilot training academy")}
-      ${phone("internationalschooling.org", "/ecommerce/img/30-international-schooling-website-on-mobile.jpg", "International Schooling", "Online school · 9+ countries")}
-      ${phone("globalproptech.in", "/ecommerce/img/29-global-proptech-website-on-mobile.jpg", "Global Proptech", "Luxury real estate · Gurugram")}
+      ${phoneSet}
+      ${phoneSet.replace(/<figure class="ph"/g, '<figure class="ph" aria-hidden="true"').repeat(2)}
     </div>
   </div>
 </section>
