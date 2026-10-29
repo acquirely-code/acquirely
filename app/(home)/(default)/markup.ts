@@ -117,8 +117,7 @@ const markup = `
           <a class="hm-dd-all" href="#services">See everything we do →</a>
         </div>
       </details>
-      <a href="#flywheel">A3 Flywheel</a>
-      <a href="#industries">Industries</a>
+      <a href="/blog">Blog</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn blue" href="${BOOK}" ${ext}>Book a Call</a>
