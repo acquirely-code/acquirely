@@ -24,13 +24,17 @@ const rc = (brand: string, label: string, big: string, note: string, before = ""
 
 // Proof panel, option 1: screenshots. A null src shows a "Screenshot coming" placeholder.
 // Only real, unedited Ads Manager / CRM screenshots go here. Cropping is fine, changing numbers is not.
-type Shot = { src: string | null; alt?: string; cap: string; sub: string };
+// `video` (a Wistia media id) makes the entry a play-in-place video with `src` as its poster. The poster is a
+// background, not an <img>, so clicking it doesn't also open the screenshot lightbox.
+type Shot = { src: string | null; alt?: string; cap: string; sub: string; video?: string };
 const shots = (list: Shot[]) => `
           <div class="proofs">
-            ${list.map((s) => s.src
+            ${list.map((s) => s.video
+              ? `<figure class="proof-shot lg-shot-vid"><div class="vid" data-video="https://fast.wistia.net/embed/iframe/${s.video}?autoPlay=true&playerColor=2949E5"><button class="vid-screen" type="button" aria-label="Play: ${s.alt}" style="background-image:url('${s.src}')"><span class="vid-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M8 5.5v13a1 1 0 001.5.86l10.5-6.5a1 1 0 000-1.72L9.5 4.64A1 1 0 008 5.5z"/></svg></span></button></div><figcaption><b>${s.cap}</b> ${s.sub}</figcaption></figure>`
+              : s.src
               ? `<figure class="proof-shot"><img src="${s.src}" alt="${s.alt}" loading="lazy"><figcaption><b>${s.cap}</b> ${s.sub}</figcaption></figure>`
               : `<figure class="proof-shot lg-shot-ph"><div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg><span>Screenshot coming</span></div><figcaption><b>${s.cap}</b> ${s.sub}</figcaption></figure>`).join("\n            ")}
-            ${list.some((s) => s.src) ? `<p class="proof-hint">Tap a screenshot to enlarge</p>` : ""}
+            ${list.some((s) => s.src && !s.video) ? `<p class="proof-hint">Tap a screenshot to enlarge</p>` : ""}
           </div>`;
 
 // Proof panel, option 2: before/after bars. Widths are % of the larger value.
@@ -69,7 +73,7 @@ const cases: Case[] = [
   {
     n: "01", stat: "150+", statLabel: "Paid principal registrations in 2 months",
     proof: shots([
-      { src: "/publishers/img/propel-immersion-highlights-poster.jpg", alt: "Moments from Immersion 2024, Propel's PBL conference for school leaders", cap: "Immersion", sub: "The conference principals paid to attend" },
+      { src: "/publishers/img/propel-immersion-highlights-poster.jpg", alt: "Moments from Immersion 2024, Propel's PBL conference for school leaders", cap: "Immersion", sub: "The conference principals paid to attend", video: "l92ehzkidg" },
     ]),
     chip: "B2B · Paid conference",
     title: "150+ principals paid ₹20K each to attend a conference",

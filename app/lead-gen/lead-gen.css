@@ -29,6 +29,14 @@
 .lg .lg-shot-ph:hover{transform:none}
 .lg .lg-shot-ph > div{aspect-ratio:16/9;border:1.5px dashed #C7D2FE;border-radius:7px;background:#F8FAFF;display:grid;place-items:center;align-content:center;gap:6px;color:#94A3B8;font-size:13px;font-weight:600}
 
+/* Case studies: play-in-place video in the proof panel (poster is the button background) */
+.lg .lg-shot-vid{cursor:default}
+.lg .lg-shot-vid:hover{transform:none}
+.lg .lg-shot-vid .vid{max-width:none;background:none;padding:0;border-radius:7px;box-shadow:none}
+.lg .lg-shot-vid .vid-screen{border-radius:7px;background:#111214 center/cover no-repeat}
+.lg .lg-shot-vid .vid-play{top:50%;width:60px;height:60px}
+.lg .lg-shot-vid .vid iframe{border-radius:7px}
+
 /* Case studies: before/after bars */
 .lg .lg-bars{display:grid;gap:18px;background:#fff;border:1px solid #DCE6F5;border-radius:12px;padding:20px;box-shadow:0 10px 24px -16px rgba(15,23,42,.3)}
 .lg .lg-bar{display:grid;gap:8px}
