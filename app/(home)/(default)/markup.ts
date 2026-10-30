@@ -21,6 +21,7 @@ type Case = {
 
 const cases: Case[] = [
   { e: "d2c", chip: "Toys &amp; puzzles · D2C", title: "From ₹8L to ₹40L per month in 90 days", result: "5x", resultLabel: "Monthly revenue in 90 days", bar: ["Monthly revenue", "₹8L", "₹40L", 20], facts: ["TacTow, 3D wooden puzzles made in Bengaluru", "₹8L/month, built by the founder on his own", "<b>₹40L/month. 5x revenue in one quarter.</b>"], story: "We consolidated the ad accounts around the hero product and ran the A3 Flywheel, turning one winning creator ad into a weekly stream of iterations. Levers: Meta structure, creative engine, creator ads.", shot: ["15-tactow-shopify-dashboard-26-1-lakh-total.jpg", "TacTow Shopify dashboard: ₹26.1 lakh total sales, Sep 13 to Oct 13 2026, up 53%", "<b>Shopify</b> Total sales, last 30 days, vs previous period"] },
+  { e: "d2c", chip: "Safety equipment · Ecommerce, USA", title: "From $1K to $7K a month in 90 days", result: "7x", resultLabel: "Monthly online revenue in 90 days", bar: ["Monthly online revenue", "$1K", "$7K", 14], facts: ["ADA Supplies, US safety equipment supplier to Boeing, Northrop Grumman and government buyers", "$1K/month online, despite a strong offline business", "<b>$7K/month online. 7x in 90 days.</b>"], story: "In June 2026 we built one combined Meta and Google Ads system: Google to capture buyers already searching for safety gear, Meta to reach new ones. Levers: Google search intent, Meta prospecting, one system across both.", shot: ["35-ada-supplies-revenue-dashboard-90-days.jpg", "ADA Supplies revenue dashboard, last 90 days: $12,441 gross revenue, up 183%; $12,088 net after refunds and card fees", "<b>Store dashboard</b> Gross revenue, last 90 days, up 183%"] },
   { e: "lead", chip: "Pilot training · Lead gen", title: "Qualified leads from 10% to 50%", result: "5x", resultLabel: "More sales-ready conversations, same enquiry flow", bar: ["Qualified lead rate", "10%", "50%", 20], facts: ["RSA Pilot Training Academy, Mumbai", "1 in 10 enquiries was sales-ready", "<b>1 in 2 enquiries now qualified, since Aug 2025.</b>"], story: "We moved lead capture from WhatsApp to a website form. The extra step filtered casual enquiries, so Meta learned to find serious aspiring pilots for a ₹35L–₹60L programme. Levers: lead capture fix, A3 Flywheel, intent filtering." },
   { e: "d2c", chip: "Furniture · D2C", title: "ROAS from 2.7 to 4.2 while revenue nearly tripled", result: "2.7 → 4.2", resultLabel: "ROAS in 5 months", bar: ["Monthly revenue", "₹20L", "₹57L", 35], facts: ["Gharaana, furniture ecommerce", "2.7 ROAS, ₹20L/month", "<b>4.2 ROAS, ₹57L/month.</b>"], story: "The founder was sure open targeting would fail after Andromeda. Broad audiences in one Prospecting CBO, fed a fresh creative Pack every week, proved otherwise. Levers: broad targeting, weekly creative Packs.", shot: ["17-gharaana-meta-ads-manager-before-and-aft.jpg", "Gharaana Meta Ads Manager before and after: account average purchase ROAS 2.30 in August 2026, 4.04 in the last 30 days, all 39 campaigns", "<b>Meta Ads Manager</b> Purchase ROAS 2.30 → 4.04"] },
   { e: "lead", chip: "Online school, 190+ countries · Lead gen", title: "Spend up 80% at the same cost per lead", result: "$50K → $90K", resultLabel: "Monthly ad spend in 2 months", bar: ["Monthly ad spend", "$50K", "$90K", 56], facts: ["International Schooling, accredited American online school", "60%+ of budget recycling existing audiences", "<b>$90K/month, cost per lead held steady.</b>"], story: "The wrong creatives were being scaled and most of the budget kept reaching people who already knew the brand. We moved spend to broad prospecting with existing audiences excluded, and backed creatives proven incremental. Levers: audience exclusions, incremental attribution, A3 Flywheel." },
@@ -197,12 +198,12 @@ const markup = `
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">Case studies</span>
-      <h2>Two growth engines. <span class="grad">Seven founders who broke their ceiling.</span></h2>
+      <h2>Two growth engines. <span class="grad">Founders who broke their ceiling.</span></h2>
       <p>Same system in every account. A different bottleneck in each one.</p>
     </div>
     <div class="hm-tabs" role="group" aria-label="Filter case studies">
-      <button type="button" data-filter="all" aria-pressed="true">All (7)</button>
-      <button type="button" data-filter="d2c" aria-pressed="false">D2C (4)</button>
+      <button type="button" data-filter="all" aria-pressed="true">All (8)</button>
+      <button type="button" data-filter="d2c" aria-pressed="false">D2C (5)</button>
       <button type="button" data-filter="lead" aria-pressed="false">Lead gen (3)</button>
     </div>
     <div class="cases">${cases.map(caseCard).join("")}

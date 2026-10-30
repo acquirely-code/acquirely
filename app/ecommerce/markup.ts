@@ -121,6 +121,28 @@ const markup = `
         </div>
       </article>
 
+      <!-- ADA Supplies -->
+      <article class="card case reveal">
+        <div class="case-data">
+          <div class="k"><small>Result</small><b class="grad">7x</b><span>Monthly online revenue in 90 days</span></div>
+          <div class="proofs">
+            <figure class="proof-shot"><img src="/ecommerce/img/35-ada-supplies-revenue-dashboard-90-days.jpg" alt="ADA Supplies revenue dashboard, last 90 days: $12,441 gross revenue, up 183%; $12,088 net after refunds and card fees" loading="lazy"><figcaption><b>Store dashboard</b> Gross revenue, last 90 days, up 183%</figcaption></figure>
+            <p class="proof-hint">Tap the screenshot to enlarge</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-top"><span class="num">02</span><span class="chip">Safety equipment · Ecommerce, USA</span></div>
+          <h3>From $1K to $7K a month in 90 days</h3>
+          <dl class="facts">
+            <div><dt>Client</dt><dd>ADA Supplies, a US safety equipment supplier trusted by Boeing, Northrop Grumman and government buyers</dd></div>
+            <div><dt>Starting point</dt><dd>Strong offline, but stuck at $1,000 a month online</dd></div>
+            <div><dt>90-day result</dt><dd><b>$7,000 a month online. A 7x jump.</b></dd></div>
+          </dl>
+          <p class="story">Offline, the business was strong. Online, it was stuck at just $1,000 a month. In June 2026, we built a combined Meta Ads and Google Ads system: Google to capture buyers already searching for safety gear, Meta to reach new ones. In 90 days, online revenue grew to $7,000 a month.</p>
+          <a class="btn line" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener">Get the same diagnosis →</a>
+        </div>
+      </article>
+
       <!-- Gharaana -->
       <article class="card case reveal">
         <div class="case-data">
@@ -132,7 +154,7 @@ const markup = `
           </div>
         </div>
         <div class="case-body">
-          <div class="case-top"><span class="num">02</span><span class="chip">Furniture · Ecommerce</span></div>
+          <div class="case-top"><span class="num">03</span><span class="chip">Furniture · Ecommerce</span></div>
           <h3>"We thought open targeting never works. We were wrong."</h3>
           <dl class="facts">
             <div><dt>Client</dt><dd>Gharaana, furniture ecommerce</dd></div>
@@ -155,7 +177,7 @@ const markup = `
           </div>
         </div>
         <div class="case-body">
-          <div class="case-top"><span class="num">03</span><span class="chip">Fashion · D2C</span></div>
+          <div class="case-top"><span class="num">04</span><span class="chip">Fashion · D2C</span></div>
           <h3>From ₹3.5L to ₹10L a month in two months</h3>
           <dl class="facts">
             <div><dt>Client</dt><dd>Patoola, a Bengaluru Indo-Western fashion label for modern women</dd></div>
@@ -179,7 +201,7 @@ const markup = `
           </div>
         </div>
         <div class="case-body">
-          <div class="case-top"><span class="num o">04</span><span class="chip">Kids DIY kits · D2C</span></div>
+          <div class="case-top"><span class="num o">05</span><span class="chip">Kids DIY kits · D2C</span></div>
           <h3>Stuck at 2.07 ROAS. 3.65 in the last 30 days.</h3>
           <dl class="facts">
             <div><dt>Client</dt><dd>Creste Kids, DIY craft kits for children</dd></div>
