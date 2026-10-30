@@ -520,7 +520,7 @@ const markup = `
         <p style="margin-top:10px;max-width:32ch">Helping brands scale through Meta Ads &amp; Google Ads.</p>
       </div>
       <div><p class="fh">On this page</p><ul><li><a href="#results">Case Studies</a></li><li><a href="#flywheel">A3 Flywheel</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul></div>
-      <div><p class="fh">More from Acquirely</p><ul><li><a href="/case-studies">Case studies</a></li><li><a href="/dropshipping-calculator">Dropshipping profit calculator</a></li><li><a href="/blog">Blog</a></li></ul></div>
+      <div><p class="fh">More from Acquirely</p><ul><li><a href="/case-studies">Case studies</a></li><li><a href="/ecommerce-calculator">Ecommerce profit calculator</a></li><li><a href="/blog">Blog</a></li></ul></div>
       <div><p class="fh">Contact</p><ul><li>New Delhi, India</li><li><a href="/">acquirely.in</a></li><li><a href="/privacy-policy">Privacy policy</a></li><li><a href="/terms-and-condition">Terms of service</a></li></ul></div>
     </div>
     <div class="fine">

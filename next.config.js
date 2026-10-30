@@ -57,17 +57,21 @@ const nextConfig = {
         destination: 'https://acquirely.in/:path*',
         permanent: true,
       },
+      { source: '/dropshipping-calculator', destination: '/ecommerce-calculator', permanent: true },
+      {
+        source: '/dropshipping-calculator/assets/og-dropshipping-calculator.png',
+        destination: '/ecommerce-calculator/assets/og-ecommerce-calculator.png',
+        permanent: true,
+      },
+      {
+        source: '/dropshipping-calculator/assets/guide/dropshipping-:name',
+        destination: '/ecommerce-calculator/assets/guide/ecommerce-:name',
+        permanent: true,
+      },
+      { source: '/dropshipping-calculator/:path*', destination: '/ecommerce-calculator/:path*', permanent: true },
     ];
   },
 
-  async rewrites() {
-    return [
-      {
-        source: '/dropshipping-calculator',
-        destination: '/dropshipping-calculator/index.html',
-      },
-    ];
-  },
 };
 
 module.exports = nextConfig;

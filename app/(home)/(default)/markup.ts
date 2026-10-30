@@ -118,6 +118,7 @@ const markup = `
         </div>
       </details>
       <a href="/blog">Blog</a>
+      <a href="/ecommerce-calculator">Ecommerce Calculator</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn blue" href="${BOOK}" ${ext}>Book a Call</a>
@@ -546,7 +547,7 @@ const markup = `
         <p style="margin-top:10px;max-width:32ch">A full-funnel growth team for D2C and lead-gen brands. Measured on revenue.</p>
       </div>
       <div><p class="fh">Services</p><ul><li><a href="/ecommerce">D2C &amp; ecommerce growth</a></li><li><a href="/lead-gen">Lead generation</a></li><li><a href="/publishers">Education publishers</a></li><li><a href="/edtech">EdTech for schools</a></li><li><a href="#services">Website &amp; CRO</a></li></ul></div>
-      <div><p class="fh">More from Acquirely</p><ul><li><a href="/case-studies">Case studies</a></li><li><a href="/about-us">About us</a></li><li><a href="/blog">Blog</a></li><li><a href="/dropshipping-calculator">Dropshipping profit calculator</a></li></ul></div>
+      <div><p class="fh">More from Acquirely</p><ul><li><a href="/case-studies">Case studies</a></li><li><a href="/about-us">About us</a></li><li><a href="/blog">Blog</a></li><li><a href="/ecommerce-calculator">Ecommerce profit calculator</a></li></ul></div>
       <div><p class="fh">Contact</p><ul><li><a href="mailto:team@acquirely.in">team@acquirely.in</a></li><li><a href="tel:+917060250253">+91 70602 50253</a></li><li>New Delhi, India</li><li><a href="/privacy-policy">Privacy policy</a></li><li><a href="/terms-and-condition">Terms of service</a></li></ul></div>
     </div>
     <div class="fine">

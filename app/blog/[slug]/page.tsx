@@ -179,8 +179,8 @@ export default function BlogPostPage({ params }: Props) {
               </Link>
             </li>
             <li>
-              <Link href="/dropshipping-calculator" className="font-medium text-[#0052FF] hover:underline">
-                Free dropshipping profit and break-even ROAS calculator
+              <Link href="/ecommerce-calculator" className="font-medium text-[#0052FF] hover:underline">
+                Free ecommerce profit and break-even ROAS calculator
               </Link>
             </li>
           </ul>
