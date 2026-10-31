@@ -109,13 +109,20 @@ const markup = `
     <nav class="nav-links" aria-label="Page sections">
       <a href="#results">Case Studies</a>
       <details class="hm-dd">
-        <summary>Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <summary><span class="hm-dd-lbl">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span><span class="hm-burger" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path class="b1" d="M4 7h16"/><path class="b2" d="M4 12h16"/><path class="b3" d="M4 17h16"/></svg></span></summary>
         <div class="hm-dd-menu">
+          <p class="hm-dd-h">Services</p>
           ${navItem("/ecommerce", false, '<path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/>', "D2C &amp; Ecommerce", "Revenue and ROAS on Meta and Google")}
           ${navItem("/lead-gen", true, '<circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 11h5"/><path d="M18.5 8.5v5"/>', "Lead Generation", "Qualified leads, not form fills")}
           ${navItem("/publishers", false, '<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/><path d="M8 7h7"/>', "Education Publishers", "School decision-makers who book calls")}
           ${navItem("/edtech", true, '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/>', "EdTech for Schools", "Reach principals, not the front desk")}
           <a class="hm-dd-all" href="#services">See everything we do →</a>
+          <div class="hm-dd-mob">
+            <a href="#results">Case Studies</a>
+            <a href="/blog">Blog</a>
+            <a href="/ecommerce-calculator">Ecommerce Calculator</a>
+            <a href="#faq">FAQ</a>
+          </div>
         </div>
       </details>
       <a href="/blog">Blog</a>

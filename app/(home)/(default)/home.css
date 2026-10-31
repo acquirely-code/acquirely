@@ -23,11 +23,30 @@
 .hm .hm-dd-menu b{display:block;font-weight:700;font-size:14.5px}
 .hm .hm-dd-menu small{display:block;font-family:var(--body);font-size:13px;color:var(--muted)}
 .hm .hm-dd-all{display:block;margin-top:4px;padding:10px;border-top:1px solid var(--line);font-size:13.5px;font-weight:700;color:var(--indigo-2)}
-@media (max-width:920px){.hm .nav-links{display:flex}
+.hm .hm-dd-lbl{display:inline-flex;align-items:center;gap:5px}
+.hm .hm-burger,.hm .hm-dd-h,.hm .hm-dd-mob{display:none}
+/* Mobile: the Services toggle becomes a hamburger holding every nav link. */
+@media (max-width:920px){.hm .nav-links{display:flex;order:3}
 .hm .nav-links > a{display:none}
-.hm .nav-in{gap:12px;position:relative}
-.hm .hm-dd,.hm .hm-dd[open]{position:static;margin-left:auto}
-.hm .hm-dd-menu{top:calc(100% + 8px);left:0;right:0;width:auto;transform:none}
+.hm .nav-in{gap:10px;position:relative;padding:8px 8px 8px 14px}
+.hm .nav-in .logo{margin-right:auto}
+.hm .nav-in .logo img{height:34px}
+.hm .nav .btn.blue{white-space:nowrap;order:2}
+.hm .hm-dd,.hm .hm-dd[open]{position:static}
+.hm .hm-dd-lbl{display:none}
+.hm .hm-burger{display:grid;place-items:center;width:42px;height:42px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink)}
+.hm .hm-burger path{transition:transform .2s,opacity .2s;transform-box:fill-box;transform-origin:center}
+.hm .hm-dd[open] .hm-burger .b1{transform:translateY(5px) rotate(45deg)}
+.hm .hm-dd[open] .hm-burger .b2{opacity:0}
+.hm .hm-dd[open] .hm-burger .b3{transform:translateY(-5px) rotate(-45deg)}
+.hm .hm-dd[open] summary svg{transform:none}
+.hm .hm-dd-menu{top:calc(100% + 8px);left:0;right:0;width:auto;transform:none;max-height:calc(100dvh - 110px);overflow-y:auto}
+.hm .hm-dd-h{display:block;margin:4px 10px 2px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hm .hm-dd-mob{display:grid;gap:2px;margin-top:4px;padding-top:6px;border-top:1px solid var(--line)}
+.hm .hm-dd-mob a{display:block;padding:12px 10px;border-radius:10px;font-weight:700;font-size:15px;color:var(--ink)}
+.hm .hm-dd-mob a:active,.hm .hm-dd-mob a:hover{background:#F5F7FF}
+}
+@media (max-width:380px){.hm .nav-in .logo img{height:28px}
 }
 
 /* Why brands stall */
