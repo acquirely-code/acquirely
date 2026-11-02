@@ -264,7 +264,7 @@ const markup = `
 <!-- ============ NAV ============ -->
 <div class="nav">
   <div class="nav-in">
-    <a class="logo" href="#top" aria-label="Acquirely home"><img src="/ecommerce/img/01-acquirely-the-science-behind-scale.png" alt="Acquirely — The Science Behind Scale"></a>
+    <a class="logo" href="/" aria-label="Acquirely home"><img src="/ecommerce/img/01-acquirely-the-science-behind-scale.png" alt="Acquirely — The Science Behind Scale"></a>
     <nav class="nav-links" aria-label="Page sections">
       <a href="#results">Case Studies</a>
       <a href="#flywheel">How It Works</a>
