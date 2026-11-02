@@ -17,7 +17,7 @@ const markup = `
 <section class="ty-hero">
   <div class="wrap">
     <p class="notice"><b>You're booked:</b> <span id="tyName">A calendar invite and WhatsApp confirmation are on their way. Before we speak, discover…</span></p>
-    <h1>How We Got <strong class="grad">Right Source Aviation 5x More Sales-Qualified Leads</strong> at the <strong class="grad">Same Cost per Lead</strong></h1>
+    <h1 class="wide">How We Cut <strong class="grad">Kashti’s Cost per Lead</strong><br class="br-d"> <strong class="grad">to ₹12</strong> and <strong class="grad">Scaled Spend 20x</strong></h1>
     <p class="lede"><b>Cheap leads were flooding their sales team with students who couldn't fund pilot training.</b> Watch how we stopped optimising for cheap form fills and started finding buyers your sales team can close.</p>
 
     <!-- VIDEO: Wistia lead-gen VSL (media 8aoebjki6e), same as /lead-gen. Clicking the poster swaps in the player. -->
@@ -97,24 +97,19 @@ const markup = `
     <div class="head">
       <span class="eyebrow">Testimonials</span>
       <h2>What our clients say about working with us</h2>
-      <p>Straight from WhatsApp. Cropped for privacy, never edited.</p>
+      <p>Straight from WhatsApp and Meta Ads Manager. Cropped for privacy, never edited.</p>
     </div>
     <div class="tst">
+      <figure><img src="/publishers/img/ipstudy-meta-ads-manager-323-school-leads.jpg" alt="IP Study Meta Ads Manager: 323 school leads" loading="lazy"><figcaption><span>IP Study · Meta Ads Manager</span>323 school leads in under a month, at under ₹150 each.</figcaption></figure>
+      <figure><img src="/publishers/img/agastya-meta-ads-manager-cost-per-lead-803-to-80.jpg" alt="Agastya Meta Ads Manager, last 30 days: Conclave 2026 form campaign with 729 leads at ₹80.50 per lead, down from ₹803–₹903 on earlier campaigns" loading="lazy"><figcaption><span>Agastya · Meta Ads Manager</span>729 leads at ₹80.50, down from ₹803–₹903.</figcaption></figure>
+      <figure><img src="/ecommerce/img/20-creste-meta-ads-manager-before-and-after.jpg" alt="Creste Meta Ads Manager before and after: all-time account average purchase ROAS 2.07 across 96 campaigns, 3.65 in the last 30 days with Acquirely's Dussehra campaigns" loading="lazy"><figcaption><span>Creste Kids · Meta Ads Manager</span>Purchase ROAS 2.07 → 3.65.</figcaption></figure>
+      <figure><img src="/ecommerce/img/19-patoola-meta-ads-manager-before-and-afte.jpg" alt="Patoola Meta Ads Manager before and after: account average purchase ROAS 3.6 in August 2026, 4.02 in the last 30 days, all campaigns" loading="lazy"><figcaption><span>Patoola · Meta Ads Manager</span>Purchase ROAS 3.6 → 4.02.</figcaption></figure>
       <figure><img src="/ecommerce/img/26-whatsapp-testimonial-from-karthik-recomm.jpg" alt="WhatsApp testimonial from Karthik recommending Kunal and the Acquirely team" loading="lazy"><figcaption><span>Karthik · founder, Old School Station</span>"Consistent results at scale. Highly recommend."</figcaption></figure>
       <figure><img src="/ecommerce/img/23-whatsapp-creste-team-says-dussehra-kits.jpg" alt="WhatsApp: Creste team says Dussehra kits almost sold out, asks to pause ads" loading="lazy"><figcaption><span>Creste Kids</span>Sold out before Dussehra. The client asked us to pause.</figcaption></figure>
       <figure><img src="/ecommerce/img/34-whatsapp-payal-patoola-testimonial.png" alt="WhatsApp from Payal at Patoola: fewer cancellations, more prepaid orders, higher AOV and stable ROAS after a month with Acquirely" loading="lazy"><figcaption><span>Payal · Patoola</span>"Really encouraging results in just one month."</figcaption></figure>
     </div>
   </div>
 </section>
-
-<footer>
-  <div class="wrap">
-    <div class="fine" style="padding-top:0">
-      <p>© 2026 Acquirely. All rights reserved.</p>
-      <p>This site is not part of the Meta or Facebook website and is not endorsed by Meta Platforms, Inc. Meta and Facebook are trademarks of Meta Platforms, Inc.</p>
-    </div>
-  </div>
-</footer>
 `;
 
 export default withImgDims(markup);

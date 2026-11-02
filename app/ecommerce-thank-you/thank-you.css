@@ -12,7 +12,10 @@
 @keyframes ty-blink{50%{opacity:.25}}
 .ecom .ty-hero h1{margin-top:30px;font-size:clamp(30px,4.6vw,60px);font-weight:600;line-height:1.14;color:var(--ink);max-width:24ch;letter-spacing:-.015em}
 .ecom .ty-hero h1 strong{font-weight:800}
-.ecom .ty-hero .lede{margin-top:22px;font-size:clamp(16px,1.6vw,20px);color:var(--text);max-width:58ch}
+.ecom .ty-hero h1.wide{max-width:none}
+@media (max-width:760px){.ecom .ty-hero h1 .br-d{display:none}
+}
+.ecom .ty-hero .lede{margin-top:22px;font-size:clamp(16px,1.6vw,20px);color:var(--text);max-width:80ch}
 .ecom .ty-hero .lede b{color:var(--ink)}
 .ecom .ty-hero .vid{margin-top:40px}
 
