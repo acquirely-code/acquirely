@@ -535,6 +535,15 @@ const markup = `
   </div>
 </section>
 
+<footer>
+  <div class="wrap">
+    <div class="fine">
+      <p>© 2026 Acquirely. All rights reserved.</p>
+      <p>This site is not part of the Meta or Facebook website and is not endorsed by Meta Platforms, Inc. Meta and Facebook are trademarks of Meta Platforms, Inc.</p>
+    </div>
+  </div>
+</footer>
+
 <div class="mcta"><a class="btn" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener">Book a Growth Diagnosis Call</a></div>
 `;
 
