@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 import { GoogleTagManager } from '@next/third-parties/google';
 import { SITE_URL } from "@/lib/site";
+import { THEME_INIT } from "./ecommerce/theme";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head></head>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
+      </head>
       <body className="min-h-screen bg-[#f7f9fc] text-slate-950 antialiased">
         {/* Google Tag Manager (noscript) */}
         <noscript

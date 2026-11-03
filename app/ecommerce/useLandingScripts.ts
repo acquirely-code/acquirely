@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, type RefObject } from "react";
+import { toggleTheme } from "./theme";
 
 // Client behaviour shared by the markup-driven landing pages (/ecommerce, /publishers).
 export default function useLandingScripts(rootRef: RefObject<HTMLDivElement | null>) {
@@ -12,6 +13,9 @@ export default function useLandingScripts(rootRef: RefObject<HTMLDivElement | nu
       el.addEventListener(type, fn);
       cleanups.push(() => el.removeEventListener(type, fn));
     };
+
+    // Light/dark toggle in the nav
+    root.querySelectorAll(".theme-tg").forEach((b) => on(b, "click", toggleTheme));
 
     // Hero video: plays inline once data-video is set; until then the button scrolls to the booking section.
     // A .vid-screen that is a link (e.g. to YouTube) is left to open normally.

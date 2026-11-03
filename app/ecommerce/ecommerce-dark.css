@@ -1,0 +1,110 @@
+/* Dark theme for the .ecom pages (landing pages, homepage, thank-you pages). Active when <html data-theme="dark">,
+   which app/ecommerce/theme.ts sets from the saved choice or the system setting. Load after the page's own CSS. */
+[data-theme=dark] .ecom{
+  --bg:#0D121D; --card:#151B28; --soft:#1C2331; --blue-soft:#132038; --orange-soft:#2A1A0F;
+  --ink:#F1F5F9; --ink-2:#F8FAFC; --text:#A6B0C3; --muted:#8B93A7; --line:#262E3E;
+  --blue:#4F8EF7; --blue-2:#2F6FF0; --indigo-2:#A5B4FC;
+  --dark:#070A12; --dark-card:#121826; --dark-line:#232B3B;
+  --good:#4ADE80;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+  color-scheme:dark;
+}
+html[data-theme=dark]:has(.ecom),html[data-theme=dark]:has(.ecom) body{background:#0D121D}
+
+/* Logos: the navy wordmark turns white */
+[data-theme=dark] .ecom .nav-in .logo img,[data-theme=dark] .ecom .ty-top img{filter:brightness(0) invert(1)}
+
+/* Surfaces that were plain white */
+[data-theme=dark] .ecom .white,[data-theme=dark] .ecom .strip,[data-theme=dark] .ecom .strip .lbl,[data-theme=dark] .ecom .trusted{background:#111725}
+[data-theme=dark] .ecom .btn.line,[data-theme=dark] .ecom .audience,[data-theme=dark] .ecom .float,[data-theme=dark] .ecom .stage,
+[data-theme=dark] .ecom details,[data-theme=dark] .ecom .wall .slot,[data-theme=dark] .ecom .ph-frame,[data-theme=dark] .ecom .proof-shot,
+[data-theme=dark] .ecom .win,[data-theme=dark] .ecom .tst figure{background:var(--card)}
+[data-theme=dark] .ecom .ph-frame{border-color:var(--line)}
+[data-theme=dark] .ecom .proof-shot{border-color:var(--line)}
+[data-theme=dark] .ecom .nav-in{background:rgba(21,27,40,.8);border-color:var(--line);box-shadow:0 10px 30px -12px rgba(0,0,0,.5)}
+[data-theme=dark] .ecom .faces img,[data-theme=dark] .ecom .faces span,[data-theme=dark] .ecom .bl{border-color:var(--bg)}
+[data-theme=dark] .ecom .dcard{background:var(--dark-card);border:1px solid var(--dark-line)}
+
+/* Tinted chips and pills */
+[data-theme=dark] .ecom .pill-live,[data-theme=dark] .ecom .hub-row .t,[data-theme=dark] .ecom .ph-res{background:rgba(74,222,128,.12)}
+[data-theme=dark] .ecom .chip{background:rgba(129,140,248,.16)}
+[data-theme=dark] .ecom .ba.before{background:var(--soft)}
+
+/* Bars and tracks */
+[data-theme=dark] .ecom .track{background:var(--soft);border-color:var(--line)}
+[data-theme=dark] .ecom .fill.b{background:#2A3344}
+
+/* Icon bullets: keep the icon, darken the disc */
+[data-theme=dark] .ecom .x-list li::before,[data-theme=dark] .ecom .fit .no li::before{background-color:rgba(239,68,68,.15)}
+[data-theme=dark] .ecom .fit .yes li::before{background-color:rgba(74,222,128,.14)}
+[data-theme=dark] .ecom .tier li::before{background-color:rgba(129,140,248,.18)}
+
+/* Borders that were pale indigo/blue */
+[data-theme=dark] .ecom .stage:hover,[data-theme=dark] .ecom details[open]{border-color:#3A4570}
+[data-theme=dark] .ecom .tier{border-color:#34406A}
+[data-theme=dark] .ecom .wall .slot{border-color:#3A4570}
+
+/* Andromeda callout */
+[data-theme=dark] .ecom .andro{border-color:rgba(249,115,22,.3)}
+[data-theme=dark] .ecom .andro p{color:#FDBA74}
+
+[data-theme=dark] .ecom .person a{color:#60A5FA}
+[data-theme=dark] .ecom .ph-bar span{background:#3A4356}
+[data-theme=dark] .ecom .ph figcaption b{color:var(--ink)}
+[data-theme=dark] .ecom .vid-card{background:rgba(21,27,40,.94);border-color:var(--line)}
+[data-theme=dark] .ecom .vid-screen{background:var(--soft)}
+
+/* Flywheel diagram (inline SVG attributes) */
+[data-theme=dark] .ecom .fly svg circle[fill="#F7F9FC"]{fill:var(--soft);stroke:var(--line)}
+[data-theme=dark] .ecom .fly svg text[fill="#0F172A"]{fill:var(--ink)}
+[data-theme=dark] .ecom .fly svg text[fill="#71717B"]{fill:var(--muted)}
+
+/* ---------- Lead gen (.lg) ---------- */
+[data-theme=dark] .lg .lg-bl-txt{color:#0F172A}
+[data-theme=dark] .lg .lg-live{background:rgba(74,222,128,.14)}
+[data-theme=dark] .lg .lg-shot-ph > div{background:var(--soft);border-color:#3A4570}
+[data-theme=dark] .lg .lg-bars{background:var(--card);border-color:var(--line)}
+[data-theme=dark] .lg .lg-bar-r i{background:#2A3344}
+[data-theme=dark] .lg .andro .lg-callout{background:var(--card);color:#FDBA74}
+[data-theme=dark] .lg .lg-inc li::before{background-color:rgba(129,140,248,.18)}
+[data-theme=dark] .lg .lg-inc li.off{color:#5B6476;text-decoration-color:#3A4356}
+[data-theme=dark] .lg .lg-inc li.off::before{background-color:var(--soft)}
+[data-theme=dark] .lg .lg-tier .btn.line{border-color:#3A4570}
+[data-theme=dark] .lg .lg-tier .btn.line.dk{border-color:var(--ink)}
+[data-theme=dark] .lg .lg-tier .btn.line.dk:hover{color:var(--bg)}
+[data-theme=dark] .lg .lg-floor{border-color:#34406A}
+[data-theme=dark] .lg .lg-floor h3 em{background:var(--card);border-color:#34406A}
+
+/* ---------- Publishers (.pub) ---------- */
+[data-theme=dark] .pub .pub-pill{border-color:#2B3F66}
+[data-theme=dark] .pub .pub-plan{background:var(--card);border-color:var(--line)}
+[data-theme=dark] .pub .pub-plan.feat{border-color:#3B82F6;background:linear-gradient(180deg,#16223A,var(--card) 40%)}
+[data-theme=dark] .pub .pub-group::after{background:var(--line)}
+[data-theme=dark] .pub .pub-feats li::before{background-color:rgba(74,222,128,.14)}
+[data-theme=dark] .pub .pub-tag{color:#FCD34D;background:rgba(251,191,36,.12);border-color:rgba(251,191,36,.3)}
+[data-theme=dark] .pub .pub-why{background:var(--card);border-color:#2B3F66}
+[data-theme=dark] .pub .pub-best{border-color:var(--line)}
+[data-theme=dark] .pub .pub-plan .btn.line{border-color:#60A5FA;color:#60A5FA}
+[data-theme=dark] .pub .pub-allin{background:#121B2E;border-color:#34507F}
+[data-theme=dark] .pub .pub-deadline{background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.35);color:#FCD34D}
+[data-theme=dark] .pub .pub-deadline b{color:#FDE68A}
+[data-theme=dark] .pub .pub-pair{background:var(--card);border-color:var(--line)}
+[data-theme=dark] .pub .pub-pair .ar{color:#60A5FA}
+[data-theme=dark] .pub .pub-waste{border-color:var(--line)}
+[data-theme=dark] .pub .pub-bar .lost{background:repeating-linear-gradient(135deg,#3B1518 0 12px,#4A1A1E 12px 24px);color:#FCA5A5}
+[data-theme=dark] .pub .pub-bar .kept{background:#166534;color:#DCFCE7}
+[data-theme=dark] .pub .pub-waste-note{border-color:var(--line)}
+[data-theme=dark] .pub .pub-waste-note::before{background-color:rgba(74,222,128,.14)}
+
+/* ---------- Homepage (.hm) ---------- */
+[data-theme=dark] .hm .hm-tabs,[data-theme=dark] .hm .hm-dd-menu,[data-theme=dark] .hm .hm-burger{background:var(--card)}
+[data-theme=dark] .hm .hm-dd-menu > a:not(.hm-dd-all):hover,[data-theme=dark] .hm .hm-dd-mob a:hover,[data-theme=dark] .hm .hm-dd-mob a:active{background:var(--soft)}
+[data-theme=dark] .hm .hm-vendors div,[data-theme=dark] .hm .chip.soon{border-color:#3A4570}
+[data-theme=dark] .hm .hm-stages div{background:var(--card);border-color:rgba(249,115,22,.3);color:#FDBA74}
+[data-theme=dark] .hm .andro p b{color:#FDBA74}
+[data-theme=dark] .hm .hm-svc li::before{background-color:rgba(129,140,248,.18)}
+
+/* ---------- Thank-you pages ---------- */
+[data-theme=dark] .ecom .notice{background:var(--soft);color:#CBD5E1}
+[data-theme=dark] .ecom .meet-stats > div{border-color:var(--line)}
+[data-theme=dark] .ecom .meet-promise{background:rgba(74,222,128,.14)}

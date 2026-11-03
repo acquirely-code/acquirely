@@ -1,4 +1,5 @@
 import { withImgDims } from "@/lib/img-dims";
+import { THEME_TOGGLE } from "../ecommerce/theme";
 // Page markup for /publishers, rendered by PublishersLanding. Shares ecommerce.css; publisher-only styles live in publishers.css.
 const BOOK = "https://forms.acquirely.in/acquirely/form/EdPublishers/formperma/GwtSoRSbGoFfxJLVaDTsaPNIH3wyq5jcgKxrZ7FtU0w";
 const ARROW = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
@@ -16,7 +17,7 @@ const markup = `
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn blue" href="${BOOK}" target="_blank" rel="noopener">Book an Appointment</a>
+    <div class="nav-act">${THEME_TOGGLE}<a class="btn blue" href="${BOOK}" target="_blank" rel="noopener">Book an Appointment</a></div>
   </div>
 </div>
 
@@ -464,24 +465,6 @@ const markup = `
     </div>
   </div>
 </section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <div>
-        <div class="brand"><img src="/ecommerce/img/28-acquirely-the-science-behind-scale.png" alt="Acquirely — The Science Behind Scale" style="height:52px;width:auto"></div>
-        <p style="margin-top:10px;max-width:32ch">Helping publishers reach school decision-makers through Meta Ads &amp; Google Ads.</p>
-      </div>
-      <div><p class="fh">On this page</p><ul><li><a href="#results">Case Studies</a></li><li><a href="#how">How It Works</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul></div>
-      <div><p class="fh">More from Acquirely</p><ul><li><a href="/case-studies">Case studies</a></li><li><a href="/about-us">About us</a></li><li><a href="/blog">Blog</a></li></ul></div>
-      <div><p class="fh">Contact</p><ul><li>team@acquirely.in</li><li><a href="/">acquirely.in</a></li><li><a href="/privacy-policy">Privacy policy</a></li><li><a href="/terms-and-condition">Terms of service</a></li></ul></div>
-    </div>
-    <div class="fine">
-      <p>© 2026 Acquirely. All rights reserved.</p>
-      <p>This site is not part of the Meta or Facebook website and is not endorsed by Meta Platforms, Inc. Meta and Facebook are trademarks of Meta Platforms, Inc.</p>
-    </div>
-  </div>
-</footer>
 
 <div class="mcta"><a class="btn" href="${BOOK}" target="_blank" rel="noopener">Book a Call</a></div>
 `;

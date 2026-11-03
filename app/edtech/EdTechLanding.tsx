@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Script from "next/script";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { ArrowRight, BarChart3, CalendarCheck, Check, Clock3, FileCheck2, LockKeyhole, Network, PlaySquare, ShieldCheck, Target, UserRoundX, X } from "lucide-react";
+import { ArrowRight, BarChart3, CalendarCheck, Check, Clock3, FileCheck2, LockKeyhole, Moon, Network, PlaySquare, ShieldCheck, Sun, Target, UserRoundX, X } from "lucide-react";
 import acquirelyLogo from "@/app/assests/logo.png";
 import { FounderShowcase } from "@/components/FoundersSection";
+import { toggleTheme } from "@/app/ecommerce/theme";
 import styles from "./page.module.css";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], variable: "--font-jakarta" });
@@ -133,6 +134,7 @@ export default function EdTechLanding() {
       <header className={styles.nav}>
         <div className={`${styles.wrap} ${styles.navInner}`}>
           <a href="#top" className={styles.logo} aria-label="Acquirely home"><Image src={acquirelyLogo} alt="Acquirely" priority /></a>
+          <button type="button" className={styles.themeToggle} onClick={toggleTheme} aria-label="Toggle dark mode" title="Toggle dark mode"><Moon className={styles.iconMoon} aria-hidden="true" /><Sun className={styles.iconSun} aria-hidden="true" /></button>
           <a className={styles.navCta} href={bookingUrl}>Book an Appointment</a>
         </div>
       </header>
@@ -291,7 +293,6 @@ export default function EdTechLanding() {
 
       <section className={styles.applySection} id="book"><div className={`${styles.wrap} ${styles.applyPanel}`}><span className={styles.eyebrow}>Let&apos;s talk</span><h2>Get in front of the people who sign off.</h2><p>A short call to see how you reach schools today and how to get decision-makers booking meetings with you.</p><a className={styles.primaryButton} href={bookingUrl}>Book an Appointment <ArrowRight aria-hidden="true" /></a><div className={styles.chips}><span>✓ No lock-in</span><span>✓ Qualified-meeting floor guarantee</span><span>✓ Full transparency</span></div></div></section>
 
-      <footer className={styles.footer}><div className={`${styles.wrap} ${styles.footerInner}`}><a href="#top" className={styles.footerLogo}><Image src={acquirelyLogo} alt="Acquirely" /></a><nav className={styles.footerLinks} aria-label="Footer"><a href="/case-studies">Case studies</a><a href="/about-us">About us</a><a href="/privacy-policy">Privacy policy</a><a href="/terms-and-condition">Terms</a></nav><a href="mailto:team@acquirely.in">team@acquirely.in</a></div><p className={`${styles.wrap} ${styles.disclaimer}`}>This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, this site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.</p></footer>
     </main>
   );
 }

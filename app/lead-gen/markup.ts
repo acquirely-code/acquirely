@@ -1,4 +1,5 @@
 import { withImgDims } from "@/lib/img-dims";
+import { THEME_TOGGLE } from "../ecommerce/theme";
 // Page markup for /lead-gen, rendered by LeadGenLanding. Shares ecommerce.css; lead-gen-only styles live in lead-gen.css.
 const BOOK = "https://forms.zohopublic.in/acquirely/form/LeadGenLeadQualityAuditApplication/formperma/tarjzTcaGroYp223otiICGImBsKYklsyS8iy06CI8LM";
 const CTA = `href="${BOOK}" target="_blank" rel="noopener"`;
@@ -271,7 +272,7 @@ const markup = `
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn blue" ${CTA}>Book a Call</a>
+    <div class="nav-act">${THEME_TOGGLE}<a class="btn blue" ${CTA}>Book a Call</a></div>
   </div>
 </div>
 
@@ -611,24 +612,6 @@ const markup = `
     </div>
   </div>
 </section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <div>
-        <div class="brand"><img src="/ecommerce/img/28-acquirely-the-science-behind-scale.png" alt="Acquirely — The Science Behind Scale" style="height:52px;width:auto"></div>
-        <p style="margin-top:10px;max-width:32ch">Qualified leads and profitable scale through Meta Ads &amp; Google Ads.</p>
-      </div>
-      <div><p class="fh">On this page</p><ul><li><a href="#results">Case Studies</a></li><li><a href="#flywheel">How It Works</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul></div>
-      <div><p class="fh">More from Acquirely</p><ul><li><a href="/ecommerce">For D2C &amp; ecommerce</a></li><li><a href="/">acquirely.in</a></li><li>New Delhi, India</li></ul></div>
-      <div><p class="fh">Legal</p><ul><li><a href="/privacy-policy">Privacy policy</a></li><li><a href="/terms-and-condition">Terms of service</a></li></ul></div>
-    </div>
-    <div class="fine">
-      <p>© 2026 Acquirely. All rights reserved.</p>
-      <p>This site is not part of the Meta or Facebook website and is not endorsed by Meta Platforms, Inc. Meta and Facebook are trademarks of Meta Platforms, Inc.</p>
-    </div>
-  </div>
-</footer>
 
 <div class="mcta"><a class="btn" ${CTA}>Book a Lead Quality Audit</a></div>
 `;

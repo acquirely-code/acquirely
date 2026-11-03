@@ -1,4 +1,5 @@
 import { withImgDims } from "@/lib/img-dims";
+import { THEME_TOGGLE } from "../../ecommerce/theme";
 // Page markup for the homepage, rendered by HomeLanding. Shares ecommerce.css; homepage-only styles live in home.css.
 const BOOK = "https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg";
 const PLAYBOOK = "https://forms.zoho.in/acquirely/form/A3Playbook";
@@ -129,7 +130,7 @@ const markup = `
       <a href="/ecommerce-calculator">Ecommerce Calculator</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn blue" href="${BOOK}" ${ext}>Book a Call</a>
+    <div class="nav-act">${THEME_TOGGLE}<a class="btn blue" href="${BOOK}" ${ext}>Book a Call</a></div>
   </div>
 </div>
 
