@@ -106,7 +106,7 @@ const markup = `
       <figure><img src="/ecommerce/img/19-patoola-meta-ads-manager-before-and-afte.jpg" alt="Patoola Meta Ads Manager before and after: account average purchase ROAS 3.6 in August 2026, 4.02 in the last 30 days, all campaigns" loading="lazy"><figcaption><span>Patoola · Meta Ads Manager</span>Purchase ROAS 3.6 → 4.02.</figcaption></figure>
       <figure><img src="/ecommerce/img/26-whatsapp-testimonial-from-karthik-recomm.jpg" alt="WhatsApp testimonial from Karthik recommending Kunal and the Acquirely team" loading="lazy"><figcaption><span>Karthik · founder, Old School Station</span>"Consistent results at scale. Highly recommend."</figcaption></figure>
       <figure><img src="/ecommerce/img/23-whatsapp-creste-team-says-dussehra-kits.jpg" alt="WhatsApp: Creste team says Dussehra kits almost sold out, asks to pause ads" loading="lazy"><figcaption><span>Creste Kids</span>Sold out before Dussehra. The client asked us to pause.</figcaption></figure>
-      <figure><img src="/ecommerce/img/34-whatsapp-payal-patoola-testimonial.png" alt="WhatsApp from Payal at Patoola: fewer cancellations, more prepaid orders, higher AOV and stable ROAS after a month with Acquirely" loading="lazy"><figcaption><span>Payal · Patoola</span>"Really encouraging results in just one month."</figcaption></figure>
+      <figure><img src="/ecommerce/img/34-whatsapp-payal-patoola-testimonial.jpg" alt="WhatsApp from Payal at Patoola: fewer cancellations, more prepaid orders, higher AOV and stable ROAS after a month with Acquirely" loading="lazy"><figcaption><span>Payal · Patoola</span>"Really encouraging results in just one month."</figcaption></figure>
     </div>
   </div>
 </section>

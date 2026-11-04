@@ -36,18 +36,18 @@ export default function useLandingScripts(rootRef: RefObject<HTMLDivElement | nu
       });
     });
 
-    // Screenshot lightbox
+    // Screenshot lightbox (attached on first open, so no src-less <img> sits in the DOM)
     const lb = document.createElement("div");
     lb.className = "lb";
     const lbImg = document.createElement("img");
     lbImg.alt = "";
     lb.appendChild(lbImg);
-    root.appendChild(lb);
     cleanups.push(() => lb.remove());
     root.querySelectorAll<HTMLImageElement>(".proof-shot img,.win img,.tst figure img").forEach((im) => {
       on(im, "click", () => {
         lbImg.src = im.src;
         lbImg.alt = im.alt;
+        if (!lb.isConnected) root.appendChild(lb);
         lb.classList.add("open");
       });
     });

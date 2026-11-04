@@ -62,7 +62,7 @@ const reason = (n: string, o: boolean, title: string, cards: [string, string, st
       <div class="reveal">
         <div class="r-head"><span class="num${o ? " o" : ""}">${n}</span><h3>${title}</h3></div>
         <div class="r-body">${cards.map(([ic, h, p]) => `<div class="card"><span class="ic${o ? " o" : ""}">${icon(ic, o ? "#F37513" : "#2B7FFF")}</span><h4>${h}</h4><p>${p}</p></div>`).join("")}</div>
-        <blockquote class="hm-quote"><img src="${IMG}/mausam-arora-portrait.jpg" alt="" loading="lazy"><div><p>"${quote}"</p><cite>Mausam Arora, Co-founder</cite></div></blockquote>
+        <blockquote class="hm-quote"><img src="${IMG}/mausam-arora-portrait.jpg" alt="Mausam Arora, co-founder of Acquirely" loading="lazy"><div><p>"${quote}"</p><cite>Mausam Arora, Co-founder</cite></div></blockquote>
       </div>`;
 
 const chips = (proven: string[], soon: string[] = []) =>
@@ -82,7 +82,7 @@ const navItem = (href: string, o: boolean, ic: string, title: string, sub: strin
 const wins: [string, string, string, string][] = [
   ["22-meta-ads-app-kenzai-puzzles-prospecting.jpg", "Meta Ads app: Kenzai Puzzles prospecting campaign with 954 website purchases", "TacTow · formerly Kenzai Puzzles", "954 purchases from one prospecting campaign."],
   ["23-whatsapp-creste-team-says-dussehra-kits.jpg", "WhatsApp: Creste team says Dussehra kits almost sold out, asks to pause ads", "Creste Kids", "Sold out before Dussehra. The client asked us to pause."],
-  ["34-whatsapp-payal-patoola-testimonial.png", "WhatsApp from Payal at Patoola: fewer cancellations, more prepaid orders, higher AOV and stable ROAS after a month with Acquirely", "Payal · Patoola", "\"Really encouraging results in just one month.\""],
+  ["34-whatsapp-payal-patoola-testimonial.jpg", "WhatsApp from Payal at Patoola: fewer cancellations, more prepaid orders, higher AOV and stable ROAS after a month with Acquirely", "Payal · Patoola", "\"Really encouraging results in just one month.\""],
   ["24-meta-ads-app-patoola-prospecting-campaig.jpg", "Meta Ads app: Patoola prospecting campaign with 48 website purchases", "Patoola", "48 purchases from a single prospecting campaign."],
   ["26-whatsapp-testimonial-from-karthik-recomm.jpg", "WhatsApp testimonial from Karthik recommending Kunal and the Acquirely team", "Karthik · founder, Old School Station", "\"Consistent results at scale. Highly recommend.\""],
   ["18-gharaana-shopify-10-6-lakh-total-sales-i.jpg", "Gharaana Shopify: ₹10.6 lakh total sales in the last 7 days, up 28%; sessions up 52%; orders up 30%", "Gharaana · Shopify", "₹10.6L in a week, up 28%."],
@@ -481,7 +481,7 @@ const markup = `
     </div>
     <div class="team">
       <div class="card person">
-        <div class="avatar"><img src="${IMG}/mausam-arora.jpg" alt="Mausam Arora"></div>
+        <div class="avatar"><img src="${IMG}/mausam-arora.jpg" alt="Mausam Arora" loading="lazy"></div>
         <div>
           <h3>Mausam Arora</h3>
           <p class="role">Co-founder · Funnels &amp; GTM</p>
@@ -490,7 +490,7 @@ const markup = `
         </div>
       </div>
       <div class="card person">
-        <div class="avatar"><img src="${IMG}/kunal-mondal.jpg" alt="Kunal Mondal"></div>
+        <div class="avatar"><img src="${IMG}/kunal-mondal.jpg" alt="Kunal Mondal" loading="lazy"></div>
         <div>
           <h3>Kunal Mondal</h3>
           <p class="role">Co-founder · Meta strategy</p>
@@ -501,11 +501,11 @@ const markup = `
     </div>
     <div class="team-strip">
       <div class="faces">
-        <img src="${IMG}/founder1.png" alt="">
-        <img src="${IMG}/founder2.png" alt="">
-        <img src="${IMG}/founder3.png" alt="">
-        <img src="${IMG}/founder4.png" alt="">
-        <img src="${IMG}/founder5.png" alt="">
+        <img src="${IMG}/founder1.png" alt="Acquirely team member" loading="lazy">
+        <img src="${IMG}/founder2.png" alt="Acquirely team member" loading="lazy">
+        <img src="${IMG}/founder3.png" alt="Acquirely team member" loading="lazy">
+        <img src="${IMG}/founder4.png" alt="Acquirely team member" loading="lazy">
+        <img src="${IMG}/founder5.png" alt="Acquirely team member" loading="lazy">
       </div>
       <span>Plus the strategists, editors, designers and developers behind every account</span>
     </div>
@@ -552,7 +552,7 @@ const markup = `
   <div class="wrap">
     <div class="foot">
       <div>
-        <div class="brand"><img src="${IMG}/28-acquirely-the-science-behind-scale.png" alt="Acquirely — The Science Behind Scale" style="height:52px;width:auto"></div>
+        <div class="brand"><img src="${IMG}/28-acquirely-the-science-behind-scale.png" alt="Acquirely — The Science Behind Scale" loading="lazy" style="height:52px;width:auto"></div>
         <p style="margin-top:10px;max-width:32ch">A full-funnel growth team for D2C and lead-gen brands. Measured on revenue.</p>
       </div>
       <div><p class="fh">Services</p><ul><li><a href="/ecommerce">D2C &amp; ecommerce growth</a></li><li><a href="/lead-gen">Lead generation</a></li><li><a href="/publishers">Education publishers</a></li><li><a href="/edtech">EdTech for schools</a></li><li><a href="#services">Website &amp; CRO</a></li></ul></div>

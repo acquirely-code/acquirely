@@ -463,7 +463,7 @@ const markup = `
     </div>
     <div class="team">
       <div class="card person">
-        <div class="avatar"><img src="/ecommerce/img/mausam-arora.jpg" alt="Mausam Arora"></div>
+        <div class="avatar"><img src="/ecommerce/img/mausam-arora.jpg" alt="Mausam Arora" loading="lazy"></div>
         <div>
           <h3>Mausam Arora</h3>
           <p class="role">Co-founder · Funnels &amp; GTM</p>
@@ -472,7 +472,7 @@ const markup = `
         </div>
       </div>
       <div class="card person">
-        <div class="avatar"><img src="/ecommerce/img/kunal-mondal.jpg" alt="Kunal Mondal"></div>
+        <div class="avatar"><img src="/ecommerce/img/kunal-mondal.jpg" alt="Kunal Mondal" loading="lazy"></div>
         <div>
           <h3>Kunal Mondal</h3>
           <p class="role">Co-founder · Meta strategy</p>
@@ -483,11 +483,11 @@ const markup = `
     </div>
     <div class="team-strip">
       <div class="faces">
-        <img src="/ecommerce/img/founder1.png" alt="">
-        <img src="/ecommerce/img/founder2.png" alt="">
-        <img src="/ecommerce/img/founder3.png" alt="">
-        <img src="/ecommerce/img/founder4.png" alt="">
-        <img src="/ecommerce/img/founder5.png" alt="">
+        <img src="/ecommerce/img/founder1.png" alt="Acquirely team member" loading="lazy">
+        <img src="/ecommerce/img/founder2.png" alt="Acquirely team member" loading="lazy">
+        <img src="/ecommerce/img/founder3.png" alt="Acquirely team member" loading="lazy">
+        <img src="/ecommerce/img/founder4.png" alt="Acquirely team member" loading="lazy">
+        <img src="/ecommerce/img/founder5.png" alt="Acquirely team member" loading="lazy">
       </div>
       <span>Plus the strategists, editors and designers behind every Pack</span>
     </div>
