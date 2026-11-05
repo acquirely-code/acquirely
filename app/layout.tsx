@@ -25,6 +25,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
       </head>
       <body className="min-h-screen bg-[#f7f9fc] text-slate-950 antialiased">
+        <Script src="/zf-lead-tracking.js" strategy="beforeInteractive" />
         {/* Google Tag Manager (noscript) */}
         <noscript
           dangerouslySetInnerHTML={{
