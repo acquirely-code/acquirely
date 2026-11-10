@@ -20,10 +20,8 @@ import {
 } from "@/lib/audit-form/rules";
 import styles from "./AuditFormModal.module.css";
 
-// Zoho Bookings for qualified leads. The normal page sends X-Frame-Options: SAMEORIGIN, so the iframe uses
-// Zoho's /portal-embed URL, which allows framing. The normal page is the "open in a new tab" fallback.
+// Zoho Bookings page qualified leads are sent to after submitting.
 const BOOKING_URL = process.env.NEXT_PUBLIC_AUDIT_BOOKING_URL || "https://booknow.acquirely.in/LGARC/#/LGARC";
-const BOOKING_EMBED_URL = process.env.NEXT_PUBLIC_AUDIT_BOOKING_EMBED_URL || "https://booknow.acquirely.in/portal-embed#/LGARC";
 
 type Values = Record<AuditFieldName, string>;
 const EMPTY: Values = { name: "", email: "", countryCode: "+91", phone: "", website: "", revenue: "", adSpend: "", problem: "", budget: "" };
@@ -112,6 +110,9 @@ export default function AuditFormModal({ open, onClose, fontClass = "" }: { open
       // Saved: now fire Meta + GA4, with event IDs matching the server's Conversions API events.
       // (No leadId means the server dropped it as spam, so nothing is tracked.)
       if (result.leadId) trackAuditLead(result.leadId, result.outcome, LEAD_VALUE_INR[result.outcome], LEAD_VALUE_INR.qualified);
+      // Qualified: on to the booking page. The short pause shows the message and lets the Pixel/GA4 requests leave
+      // the browser before the page changes.
+      if (result.outcome === "qualified") window.setTimeout(() => window.location.assign(BOOKING_URL), 1500);
     } catch {
       setFormError("Couldn't reach the server. Check your connection and try again.");
       setStatus({ kind: "form" });
@@ -149,7 +150,7 @@ export default function AuditFormModal({ open, onClose, fontClass = "" }: { open
   );
 
   return (
-    <dialog ref={dialogRef} className={`${styles.dialog} ${status.kind === "done" && status.outcome === "qualified" ? styles.wide : ""} ${fontClass}`} onClose={close} onCancel={close} aria-labelledby="af-title">
+    <dialog ref={dialogRef} className={`${styles.dialog} ${fontClass}`} onClose={close} onCancel={close} aria-labelledby="af-title">
       <div className={styles.head}>
         <h2 id="af-title" className={styles.title}>Lead Gen Lead Quality Audit Application</h2>
         <button type="button" className={styles.close} onClick={close} aria-label="Close">
@@ -162,9 +163,8 @@ export default function AuditFormModal({ open, onClose, fontClass = "" }: { open
           {status.outcome === "qualified" ? (
             <>
               <div className={`${styles.badge} ${styles.badgeGood}`} aria-hidden="true">✓</div>
-              <p className={styles.doneLead}>Thanks! Looks like we could be a great fit. Pick a time below for a 30-minute strategy call.</p>
-              <iframe className={styles.booking} src={BOOKING_EMBED_URL} title="Book your 30-minute strategy call" loading="eager" />
-              <a className={styles.bookingLink} href={BOOKING_URL} target="_blank" rel="noopener">Calendar not loading? Open it in a new tab</a>
+              <p className={styles.doneLead}>Thanks! Looks like we could be a great fit. Taking you to pick a time for a 30-minute strategy call…</p>
+              <a className={styles.submit} href={BOOKING_URL}>Pick a time now</a>
             </>
           ) : (
             <>

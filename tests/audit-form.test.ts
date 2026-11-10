@@ -128,7 +128,7 @@ describe("Google Sheet webhook (Apps Script)", () => {
   });
   afterEach(() => {
     globalThis.fetch = realFetch;
-    delete process.env.AUDIT_SHEET_WEBHOOK_URL;
+    process.env.AUDIT_SHEET_WEBHOOK_URL = "";
   });
 
   it("posts the row as text/plain JSON with the full phone number", async () => {

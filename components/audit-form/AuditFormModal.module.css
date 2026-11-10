@@ -172,17 +172,6 @@
 }
 .badgeGood { background: var(--af-good-soft); color: var(--af-good); }
 
-/* Qualified: the modal widens to fit the embedded Zoho Bookings calendar */
-.wide { width: min(980px, calc(100vw - 32px)); }
+/* Qualified: "Pick a time now" link styled as the button */
+a.submit { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
 .doneLead { font-size: 17px !important; font-weight: 600; color: var(--af-ink); max-width: 560px !important; }
-.booking {
-  width: 100%;
-  height: min(720px, calc(100dvh - 260px));
-  min-height: 480px;
-  margin-top: 8px;
-  border: 1px solid var(--af-line-soft);
-  border-radius: 12px;
-  background: #fff; /* the booking page is light-only */
-}
-.bookingLink { font-size: 14px; font-weight: 600; color: var(--af-accent); }
-@media (max-width: 480px) { .done { padding: 24px 12px; } .booking { min-height: 560px; } }

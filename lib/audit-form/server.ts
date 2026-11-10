@@ -32,6 +32,8 @@ const WEBHOOK_TIMEOUT_MS = 10000;
 
 // Google Apps Script web app attached to the "Lead Gen Audit" sheet (same setup as the Agastya conclave form).
 // Only the server calls it, so the URL never reaches the browser.
+// Kept in a Vercel environment variable, not in the code: the repo is public, and anyone holding the URL can
+// add rows to the sheet.
 const webhookUrl = () => process.env.AUDIT_SHEET_WEBHOOK_URL || "";
 
 export function auditStorageProblems(): string[] {

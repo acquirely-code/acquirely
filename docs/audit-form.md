@@ -7,7 +7,7 @@ The server sorts each lead with the same rules as Zoho:
 | Bucket | Rule | Visitor sees | Lead value |
 | --- | --- | --- | --- |
 | Rejected | Any of: budget "Not right now", revenue "Under ₹10L", ad spend "Not running ads yet" | "Thank you for sharing your details. Our team will review them and get in touch if there's a suitable opportunity." | ₹0 |
-| Qualified | All of: budget "Yes, that works", revenue not "Under ₹10L", ad spend "₹1L – ₹5L" or "₹5L+" | "Thanks! Looks like we could be a great fit. Pick a time below…" with the Zoho Bookings calendar embedded | ₹1000 |
+| Qualified | All of: budget "Yes, that works", revenue not "Under ₹10L", ad spend "₹1L – ₹5L" or "₹5L+" | "Thanks! Looks like we could be a great fit…", then sent to the [LGARC Zoho Bookings page](https://booknow.acquirely.in/LGARC/#/LGARC) after 1.5 seconds | ₹1000 |
 | Nurture | Anything else, e.g. "Need to think about it" | "Thank you for sharing your details. Our team will get back to you shortly." | ₹200 |
 
 ## Storage (Google Sheet via Apps Script, same as the Agastya conclave form)
@@ -19,7 +19,7 @@ To connect the sheet:
 1. Open the sheet, then **Extensions → Apps Script**.
 2. Replace the code with `scripts/audit-sheet-webhook.gs` and save.
 3. **Deploy → New deployment → Web app**. Set **Execute as** to **Me** and **Who has access** to **Anyone**, then deploy and approve the permissions.
-4. Copy the web app URL (ending in `/exec`) into Vercel as `AUDIT_SHEET_WEBHOOK_URL`, and redeploy. For local testing, put it in `.env.local`.
+4. Copy the web app URL (ending in `/exec`) into Vercel as `AUDIT_SHEET_WEBHOOK_URL` (Production and Preview), and redeploy. For local testing, put it in `.env.local`. Never commit it: the repo is public and anyone with the URL can add rows.
 
 The script writes the header row itself on the first submission. If you change the script later, use **Deploy → Manage deployments → Edit → New version**, which keeps the same URL. Only the website's server calls the URL; the browser never sees it. On Vercel the form answers "isn't available right now" until the URL is set.
 
