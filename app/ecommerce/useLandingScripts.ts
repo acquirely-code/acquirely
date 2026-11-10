@@ -67,7 +67,30 @@ export default function useLandingScripts(rootRef: RefObject<HTMLDivElement | nu
       });
     }
 
-    // Scroll reveal + sticky mobile CTA (hidden while the hero or final CTA is on screen)
+    // Sticky mobile CTA. Hidden by default (CSS); shown with .on only once the hero's own button has scrolled
+    // off the top, and hidden again while the final CTA (#book) is on screen. A plain scroll check, so it can't
+    // end up showing over the hero if an observer misfires (as happened on iPhone Safari).
+    const mc = root.querySelector<HTMLElement>(".mcta");
+    const heroCta = root.querySelector("#top .hero-cta .btn, #top .btn");
+    const book = root.querySelector("#book");
+    if (mc && heroCta) {
+      let frame = 0;
+      const update = () => {
+        frame = 0;
+        const pastHero = heroCta.getBoundingClientRect().bottom < 0;
+        const atBook = !!book && book.getBoundingClientRect().top < window.innerHeight;
+        mc.classList.toggle("on", pastHero && !atBook);
+      };
+      const onScroll = () => {
+        if (!frame) frame = requestAnimationFrame(update);
+      };
+      update();
+      on(window, "scroll", onScroll);
+      on(window, "resize", onScroll);
+      cleanups.push(() => cancelAnimationFrame(frame));
+    }
+
+    // Scroll reveal
     const els = root.querySelectorAll(".reveal");
     if ("IntersectionObserver" in window) {
       const io = new IntersectionObserver(
@@ -82,22 +105,6 @@ export default function useLandingScripts(rootRef: RefObject<HTMLDivElement | nu
       els.forEach((el) => io.observe(el));
       cleanups.push(() => io.disconnect());
 
-      const mc = root.querySelector<HTMLElement>(".mcta");
-      const top = root.querySelector("#top");
-      const book = root.querySelector("#book");
-      if (mc && top && book) {
-        const vis: Record<string, boolean> = {};
-        const o = new IntersectionObserver(
-          (es) => {
-            es.forEach((e) => (vis[e.target.id] = e.isIntersecting));
-            mc.style.display = vis.top || vis.book ? "none" : "";
-          },
-          { threshold: 0.1 }
-        );
-        o.observe(top);
-        o.observe(book);
-        cleanups.push(() => o.disconnect());
-      }
     } else {
       els.forEach((el) => el.classList.add("in"));
     }
