@@ -135,7 +135,7 @@
 }
 
 .submit {
-  justify-self: start;
+  justify-self: center;
   min-height: 50px;
   padding: 14px 34px;
   border: 0;
