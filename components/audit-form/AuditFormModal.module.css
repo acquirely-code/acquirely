@@ -1,0 +1,188 @@
+/* Audit application modal on /lead-gen. Follows <html data-theme> like the rest of the .ecom pages. */
+.dialog {
+  --af-bg: #ffffff;
+  --af-ink: #1e293b;
+  --af-text: #475569;
+  --af-muted: #94a3b8;
+  --af-line: #cbd5e1;
+  --af-line-soft: #e2e8f0;
+  --af-accent: #4f46e5;
+  --af-accent-soft: #eef2ff;
+  --af-error: #dc2626;
+  --af-good: #16a34a;
+  --af-good-soft: #dcfce7;
+  width: min(640px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  background: var(--af-bg);
+  color: var(--af-text);
+  font-family: var(--font-ecom-body, system-ui, sans-serif);
+  box-shadow: 0 30px 80px -20px rgba(15, 23, 42, 0.45);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.dialog::backdrop { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(3px); }
+.dialog[open] { animation: af-in 0.18s ease-out; }
+@keyframes af-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .dialog[open] { animation: none; } }
+
+:global([data-theme=dark]) .dialog {
+  --af-bg: #151b28;
+  --af-ink: #f1f5f9;
+  --af-text: #a6b0c3;
+  --af-muted: #6b7489;
+  --af-line: #323b4d;
+  --af-line-soft: #262e3e;
+  --af-accent: #a5b4fc;
+  --af-accent-soft: #1e2440;
+  --af-error: #f87171;
+  --af-good: #4ade80;
+  --af-good-soft: #10291b;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.8);
+}
+
+.head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px;
+  background: var(--af-bg);
+  border-bottom: 1px solid var(--af-line-soft);
+}
+.title {
+  flex: 1;
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-ecom-display, system-ui, sans-serif);
+  font-size: clamp(19px, 3.4vw, 24px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--af-ink);
+}
+.close {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border: 1px solid var(--af-line-soft);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--af-ink);
+  cursor: pointer;
+}
+.close:hover { border-color: var(--af-accent); color: var(--af-accent); }
+
+.form { display: grid; gap: 26px; padding: 26px 24px 28px; }
+@media (max-width: 480px) { .head { padding: 16px; } .form { padding: 22px 16px 24px; } }
+
+.field { display: grid; gap: 8px; }
+.label { padding: 0; font-size: 15.5px; font-weight: 600; line-height: 1.4; color: var(--af-ink); }
+.req { color: var(--af-error); margin-left: 2px; }
+
+.input,
+.cc {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 1px solid var(--af-line);
+  border-radius: 8px;
+  background: var(--af-bg);
+  color: var(--af-ink);
+  font: inherit;
+  font-size: 16px; /* 16px stops iOS zooming on focus */
+}
+.input::placeholder { color: var(--af-muted); }
+.input:focus,
+.cc:focus { outline: none; border-color: var(--af-accent); box-shadow: 0 0 0 3px var(--af-accent-soft); }
+.input[aria-invalid="true"] { border-color: var(--af-error); }
+
+.phone { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px; }
+.cc { width: auto; padding-right: 8px; cursor: pointer; }
+
+.group { margin: 0; padding: 0; border: 0; min-width: 0; display: grid; gap: 10px; }
+.options { display: grid; gap: 4px; }
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  margin-left: -10px;
+  border-radius: 8px;
+  font-size: 15.5px;
+  color: var(--af-text);
+  cursor: pointer;
+}
+.option:hover { background: var(--af-accent-soft); }
+.option input { width: 20px; height: 20px; margin: 0; flex: none; accent-color: var(--af-accent); cursor: pointer; }
+.option:has(input:checked) { color: var(--af-ink); font-weight: 600; }
+.option input:focus-visible { outline: 3px solid var(--af-accent); outline-offset: 2px; }
+
+.error { margin: 0; font-size: 13.5px; font-weight: 500; color: var(--af-error); }
+.formError {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--af-error) 10%, transparent);
+  color: var(--af-error);
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+.submit {
+  justify-self: start;
+  min-height: 50px;
+  padding: 14px 34px;
+  border: 0;
+  border-radius: 9999px;
+  background: linear-gradient(102.78deg, #6366f1, #4f46e5);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 24px -8px rgba(99, 102, 241, 0.5);
+}
+.submit:hover { filter: brightness(1.06); }
+.submit:disabled { opacity: 0.65; cursor: progress; }
+.submit:focus-visible { outline: 3px solid var(--af-accent); outline-offset: 3px; }
+@media (max-width: 480px) { .submit { justify-self: stretch; } }
+
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+.done { display: grid; justify-items: center; gap: 12px; padding: 36px 24px 32px; text-align: center; }
+.done h3 { margin: 4px 0 0; font-family: var(--font-ecom-display, system-ui, sans-serif); font-size: 22px; color: var(--af-ink); }
+.done p { margin: 0; max-width: 460px; font-size: 15.5px; line-height: 1.6; }
+.done .submit { justify-self: center; margin-top: 10px; }
+.badge {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--af-accent-soft);
+  color: var(--af-accent);
+  font-size: 26px;
+  font-weight: 800;
+}
+.badgeGood { background: var(--af-good-soft); color: var(--af-good); }
+
+/* Qualified: the modal widens to fit the embedded Zoho Bookings calendar */
+.wide { width: min(980px, calc(100vw - 32px)); }
+.doneLead { font-size: 17px !important; font-weight: 600; color: var(--af-ink); max-width: 560px !important; }
+.booking {
+  width: 100%;
+  height: min(720px, calc(100dvh - 260px));
+  min-height: 480px;
+  margin-top: 8px;
+  border: 1px solid var(--af-line-soft);
+  border-radius: 12px;
+  background: #fff; /* the booking page is light-only */
+}
+.bookingLink { font-size: 14px; font-weight: 600; color: var(--af-accent); }
+@media (max-width: 480px) { .done { padding: 24px 12px; } .booking { min-height: 560px; } }

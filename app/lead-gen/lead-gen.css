@@ -116,3 +116,11 @@
 .lg .lg-floor p{margin-top:8px;font-size:15px;color:var(--ink)}
 @media (max-width:520px){.lg .lg-floor{grid-template-columns:1fr}
 }
+
+/* Hero: "Test form" button beside the main CTA, opens the inbuilt audit application (components/audit-form) */
+.lg .lg-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.lg .lg-test-btn{font-size:16px;font-weight:700;padding:17px 28px;border:1.5px solid #C7D2FE;color:var(--indigo-2);background:var(--card)}
+@media (max-width:480px){.lg .lg-ctas{width:100%}
+.lg .lg-ctas .btn{flex:1 1 100%}
+}
+[data-theme=dark] .lg .lg-test-btn{border-color:#3A4570}

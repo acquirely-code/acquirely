@@ -284,7 +284,7 @@ const markup = `
       <h1><span class="ln">Learn why <span class="grad">fast-growing lead-gen businesses</span></span> <span class="ln">trust Acquirely to fill their sales pipeline</span></h1>
       <p class="lede">From principals paying <b>₹20K for a conference</b> to fintech registrations at <b>₹13.39</b>, we turn Meta and Google Ads into leads your team actually wants to call.</p>
       <div class="hero-cta">
-        <a class="btn" ${CTA}>Book a Lead Quality Audit ${ARROW}</a>
+        <div class="lg-ctas"><a class="btn" ${CTA}>Book a Lead Quality Audit ${ARROW}</a><button class="btn line lg-test-btn" type="button" data-audit-open>Test form</button></div>
         <div class="blogos" aria-label="Businesses growing with Acquirely"><span class="bl lg-bl-txt" title="Kashti">Kashti</span><span class="bl" style="background:#FFFFFF" title="RSA Aviation"><img src="/publishers/img/logo-rsa-aviation.png" alt="RSA Aviation"></span><span class="bl wide" style="background:#FFFFFF" title="International Schooling"><img src="/publishers/img/logo-international-schooling.png" alt="International Schooling"></span><span class="bl lg-bl-txt" title="Global Proptech">Global<br>Proptech</span></div>
       </div>
       <div class="trust-row">
