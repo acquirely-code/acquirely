@@ -1,21 +1,11 @@
 "use client"
 
 import React, { useState } from "react";
-import { Montserrat, Open_Sans } from "next/font/google";
+import { montserrat, openSans } from "@/lib/fonts";
 import Image from "next/image";
 import logo from "@/app/assests/acquirelyblack.png";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-});
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  variable: "--font-open-sans",
-});
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

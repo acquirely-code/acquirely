@@ -1,10 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import Image from "next/image";
-import { Open_Sans } from "next/font/google";
+import { openSans } from "@/lib/fonts";
 import { CalendarClock, Check, ShieldCheck } from "lucide-react";
 import styles from "./page.module.css";
-
-const openSans = Open_Sans({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], variable: "--font-open-sans" });
 
 export const metadata: Metadata = {
   title: "You're Booked | Acquirely",

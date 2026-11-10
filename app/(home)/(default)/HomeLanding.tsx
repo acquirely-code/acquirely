@@ -1,15 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Montserrat, Open_Sans } from "next/font/google";
+import { ecomBody as openSans, ecomDisplay as montserrat } from "@/lib/fonts";
 import markup from "./markup";
 import useLandingScripts from "../../ecommerce/useLandingScripts";
 import "../../ecommerce/ecommerce.css";
 import "./home.css";
 import "../../ecommerce/ecommerce-dark.css";
-
-const montserrat = Montserrat({ subsets: ["latin"], weight: ["600", "700", "800"], variable: "--font-ecom-display" });
-const openSans = Open_Sans({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-ecom-body" });
 
 export default function HomeLanding() {
   const rootRef = useRef<HTMLDivElement>(null);

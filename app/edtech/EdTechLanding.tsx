@@ -3,14 +3,12 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Script from "next/script";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { jakarta } from "@/lib/fonts";
 import { ArrowRight, BarChart3, CalendarCheck, Check, Clock3, FileCheck2, LockKeyhole, Moon, Network, PlaySquare, ShieldCheck, Sun, Target, UserRoundX, X } from "lucide-react";
 import acquirelyLogo from "@/app/assests/logo.png";
 import { FounderShowcase } from "@/components/FoundersSection";
 import { toggleTheme } from "@/app/ecommerce/theme";
 import styles from "./page.module.css";
-
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], variable: "--font-jakarta" });
 
 const wistiaMediaId ="sx41aytv0f";
 const bookingUrl ="https://forms.acquirely.in/acquirely/form/GTMSCHOOLS/formperma/3Gb1GqAVHPSZCZFkDeMmj6xLyS7fA2CNX1xE2ksm-m4";
