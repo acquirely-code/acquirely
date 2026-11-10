@@ -204,3 +204,34 @@ describe("Meta Conversions API events", () => {
 function leadInput() {
   return { name: "Asha Rao", email: "asha@example.com", countryCode: "+91", phone: "9876543210", website: "example.com", revenue: "₹50L – ₹2Cr", adSpend: "₹1L – ₹5L", problem: "Not enough leads", budget: "Yes, that works" };
 }
+
+describe("setup problems", () => {
+  afterEach(() => {
+    delete process.env.VERCEL;
+    process.env.AUDIT_SHEET_WEBHOOK_URL = "";
+  });
+
+  it("says why it couldn't save and still returns the bucket", async () => {
+    process.env.VERCEL = "1";
+    const res = await post(lead());
+    expect(res).toMatchObject({ status: 503, data: { ok: false, error: "unavailable", reason: "webhook_not_set", outcome: "qualified" } });
+    process.env.AUDIT_SHEET_WEBHOOK_URL = "not a url";
+    expect((await post(lead({ budget: "Not right now" }))).data).toMatchObject({ reason: "webhook_invalid", outcome: "rejected" });
+  });
+
+  it("accepts a pasted URL with spaces, quotes or a trailing newline", async () => {
+    const calls: string[] = [];
+    const realFetch = globalThis.fetch;
+    globalThis.fetch = (async (url: string) => {
+      calls.push(String(url));
+      return new Response(JSON.stringify({ ok: true }), { status: 200 });
+    }) as typeof fetch;
+    process.env.AUDIT_SHEET_WEBHOOK_URL = ' "https://script.google.com/macros/s/abc/exec"\n';
+    try {
+      expect((await post(lead(), "10.7.7.7")).status).toBe(200);
+      expect(calls[0]).toBe("https://script.google.com/macros/s/abc/exec");
+    } finally {
+      globalThis.fetch = realFetch;
+    }
+  });
+});

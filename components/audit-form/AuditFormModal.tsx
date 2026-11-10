@@ -44,7 +44,8 @@ function readUtm() {
 
 const SERVER_ERRORS: Record<string, string> = {
   rate_limited: "Too many attempts from this network. Please try again in a little while.",
-  unavailable: "The form isn't available right now. Please use “Book a Lead Quality Audit” instead.",
+  unavailable: "We couldn't save your details just now. Please try again in a few minutes, or email team@acquirely.in.",
+  save_failed: "We couldn't save your details just now. Please try again in a few minutes, or email team@acquirely.in.",
 };
 
 export default function AuditFormModal({ open, onClose, fontClass = "" }: { open: boolean; onClose: () => void; fontClass?: string }) {
@@ -96,7 +97,15 @@ export default function AuditFormModal({ open, onClose, fontClass = "" }: { open
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, company_fax: honeypot, landingPageUrl: window.location.href, utm: readUtm() }),
       });
-      const result = (await response.json().catch(() => ({}))) as { ok?: boolean; leadId?: string; outcome?: AuditOutcome; error?: string; fieldErrors?: AuditFieldErrors };
+      const result = (await response.json().catch(() => ({}))) as { ok?: boolean; leadId?: string; outcome?: AuditOutcome; error?: string; reason?: string; fieldErrors?: AuditFieldErrors };
+      // The setup problem, for whoever opens the console. Visitors only see the friendly message.
+      if (result.reason) console.warn(`[audit-form] ${result.error}: ${result.reason}`);
+      // Couldn't save, but qualified: still send them to book. Zoho Bookings records them; nothing is tracked.
+      if (!result.ok && result.outcome === "qualified") {
+        setStatus({ kind: "done", outcome: "qualified" });
+        window.setTimeout(() => window.location.assign(BOOKING_URL), 1500);
+        return;
+      }
       if (!response.ok || !result.ok || !result.outcome) {
         if (result.fieldErrors) {
           setErrors(result.fieldErrors);

@@ -34,12 +34,18 @@ const WEBHOOK_TIMEOUT_MS = 10000;
 // Only the server calls it, so the URL never reaches the browser.
 // Kept in a Vercel environment variable, not in the code: the repo is public, and anyone holding the URL can
 // add rows to the sheet.
-const webhookUrl = () => process.env.AUDIT_SHEET_WEBHOOK_URL || "";
+// Tolerates what a dashboard paste often adds: surrounding spaces, newlines or quotes.
+const webhookUrl = () => (process.env.AUDIT_SHEET_WEBHOOK_URL || "").trim().replace(/^["']+|["']+$/g, "").trim();
 
-export function auditStorageProblems(): string[] {
-  if (webhookUrl()) return /^https:\/\/script\.google\.com\//.test(webhookUrl()) ? [] : ["AUDIT_SHEET_WEBHOOK_URL must be a https://script.google.com/... web app URL"];
+// Short, non-secret reason codes. They are returned to the browser (never the URL itself) so a broken setup can be
+// diagnosed from the live site.
+export type StorageProblem = "webhook_not_set" | "webhook_invalid";
+
+export function auditStorageProblem(): StorageProblem | null {
+  const url = webhookUrl();
+  if (url) return /^https:\/\/script\.google\.com\/\S+$/.test(url) ? null : "webhook_invalid";
   // Without the webhook, leads go to a local CSV, which serverless hosting can't keep.
-  return process.env.VERCEL ? ["AUDIT_SHEET_WEBHOOK_URL is not set"] : [];
+  return process.env.VERCEL ? "webhook_not_set" : null;
 }
 
 // Excel treats a cell starting with = + - @ as a formula. Prefixing ' keeps it as text. A plain "+91 98765..."

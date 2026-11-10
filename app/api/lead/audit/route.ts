@@ -1,7 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { clientIp, json, overLimit, readBody } from "@/lib/audit-form/http";
 import { qualifyAudit, UTM_KEYS, validateAudit } from "@/lib/audit-form/rules";
-import { auditStorageProblems, saveAuditLead, type AuditRecord } from "@/lib/audit-form/server";
+import { auditStorageProblem, saveAuditLead, type AuditRecord } from "@/lib/audit-form/server";
 import { sendAuditCapiEvents } from "@/lib/audit-form/meta-capi";
 
 export const dynamic = "force-dynamic";
@@ -16,12 +16,6 @@ const httpUrl = (value: unknown) => {
 
 // Lead Quality Audit application from /lead-gen. The outcome is decided here, not trusted from the browser.
 export async function POST(request: Request) {
-  const problems = auditStorageProblems();
-  if (problems.length) {
-    console.error(`[audit-form] Not configured: ${problems.join("; ")}`);
-    return json({ ok: false, error: "unavailable" }, 503);
-  }
-
   const body = await readBody(request);
   if (!body) return json({ ok: false, error: "invalid_request" }, 400);
 
@@ -44,11 +38,19 @@ export async function POST(request: Request) {
     landingPageUrl: httpUrl(body.landingPageUrl) || httpUrl(request.headers.get("referer")),
   };
 
+  // If the lead can't be saved, the answer still carries the bucket, so a qualified visitor can go on to book
+  // (Zoho Bookings records them). Nothing is tracked for an unsaved lead.
+  const problem = auditStorageProblem();
+  if (problem) {
+    console.error(`[audit-form] Not configured: ${problem}`);
+    return json({ ok: false, error: "unavailable", reason: problem, outcome }, 503);
+  }
+
   try {
     await saveAuditLead(record);
   } catch (error) {
     console.error("[audit-form] Save failed:", error instanceof Error ? error.message : "unknown error");
-    return json({ ok: false, error: "save_failed" }, 502);
+    return json({ ok: false, error: "save_failed", reason: "sheet_rejected", outcome }, 502);
   }
 
   // Only after a successful save. The browser fires the same events with the same event IDs once this returns.
