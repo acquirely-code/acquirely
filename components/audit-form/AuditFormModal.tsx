@@ -23,6 +23,21 @@ import styles from "./AuditFormModal.module.css";
 // Zoho Bookings page qualified leads are sent to after submitting.
 const BOOKING_URL = process.env.NEXT_PUBLIC_AUDIT_BOOKING_URL || "https://booknow.acquirely.in/LGARC/#/LGARC";
 
+// The booking page with Name, Email, Contact Number and Company website filled in from the form, so
+// qualified leads don't type them twice. Zoho Bookings reads these after the "#/LGARC?" route, keyed by
+// the field's label. They stay editable there.
+function bookingUrlFor(data: { name: string; email: string; countryCode: string; phone: string; website: string }) {
+  const params: Record<string, string> = {
+    Name: data.name,
+    Email: data.email,
+    "Contact Number": `${data.countryCode}${data.phone}`,
+    "Company website": data.website,
+  };
+  // encodeURIComponent (not URLSearchParams) so spaces become %20 and the "+" in the phone stays a "+".
+  const query = Object.entries(params).map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join("&");
+  return `${BOOKING_URL}${BOOKING_URL.includes("?") ? "&" : "?"}${query}`;
+}
+
 type Values = Record<AuditFieldName, string>;
 const EMPTY: Values = { name: "", email: "", countryCode: "+91", phone: "", website: "", revenue: "", adSpend: "", problem: "", budget: "" };
 
@@ -55,6 +70,7 @@ export default function AuditFormModal({ open, onClose, fontClass = "" }: { open
   const [touched, setTouched] = useState<Partial<Record<AuditFieldName, boolean>>>({});
   const [status, setStatus] = useState<Status>({ kind: "form" });
   const [formError, setFormError] = useState("");
+  const [bookingUrl, setBookingUrl] = useState(BOOKING_URL);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -90,6 +106,8 @@ export default function AuditFormModal({ open, onClose, fontClass = "" }: { open
     if (!data) return focusFirstError(errs);
 
     const honeypot = (event.currentTarget.elements.namedItem("company_fax") as HTMLInputElement | null)?.value || "";
+    const prefilledBookingUrl = bookingUrlFor(data);
+    setBookingUrl(prefilledBookingUrl);
     setStatus({ kind: "sending" });
     try {
       const response = await fetch("/api/lead/audit", {
@@ -103,7 +121,7 @@ export default function AuditFormModal({ open, onClose, fontClass = "" }: { open
       // Couldn't save, but qualified: still send them to book. Zoho Bookings records them; nothing is tracked.
       if (!result.ok && result.outcome === "qualified") {
         setStatus({ kind: "done", outcome: "qualified" });
-        window.setTimeout(() => window.location.assign(BOOKING_URL), 1500);
+        window.setTimeout(() => window.location.assign(prefilledBookingUrl), 1500);
         return;
       }
       if (!response.ok || !result.ok || !result.outcome) {
@@ -121,7 +139,7 @@ export default function AuditFormModal({ open, onClose, fontClass = "" }: { open
       if (result.leadId) trackAuditLead(result.leadId, result.outcome, LEAD_VALUE_INR[result.outcome], LEAD_VALUE_INR.qualified);
       // Qualified: on to the booking page. The short pause shows the message and lets the Pixel/GA4 requests leave
       // the browser before the page changes.
-      if (result.outcome === "qualified") window.setTimeout(() => window.location.assign(BOOKING_URL), 1500);
+      if (result.outcome === "qualified") window.setTimeout(() => window.location.assign(prefilledBookingUrl), 1500);
     } catch {
       setFormError("Couldn't reach the server. Check your connection and try again.");
       setStatus({ kind: "form" });
@@ -173,7 +191,7 @@ export default function AuditFormModal({ open, onClose, fontClass = "" }: { open
             <>
               <div className={`${styles.badge} ${styles.badgeGood}`} aria-hidden="true">✓</div>
               <p className={styles.doneLead}>Thanks! Looks like we could be a great fit. Taking you to pick a time for a 30-minute strategy call…</p>
-              <a className={styles.submit} href={BOOKING_URL}>Pick a time now</a>
+              <a className={styles.submit} href={bookingUrl}>Pick a time now</a>
             </>
           ) : (
             <>
