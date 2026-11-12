@@ -4,7 +4,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { POST } from "@/app/api/lead/audit/route";
-import { qualifyAudit, validateAudit } from "@/lib/audit-form/rules";
+import { AD_SPEND_OPTIONS, BUDGET_OPTIONS, qualifyAudit, REVENUE_OPTIONS, validateAudit } from "@/lib/audit-form/rules";
 import { resetRateLimitForTests as resetStoreForTests } from "@/lib/audit-form/http";
 
 const lead = (overrides: Record<string, unknown> = {}) => ({
@@ -38,6 +38,16 @@ describe("qualifyAudit (Zoho rules)", () => {
   it("puts the in-between cases in nurture", () => {
     expect(qualifyAudit(lead({ budget: "Need to think about it" }))).toBe("nurture");
     expect(qualifyAudit(lead({ adSpend: "Under ₹1L" }))).toBe("nurture");
+  });
+  // The Zoho rule, checked over every combination of answers:
+  // budget is "Yes, that works" AND revenue is not "Under ₹10L" AND (ad spend is "₹1L – ₹5L" OR "₹5L+").
+  it("qualifies exactly the leads the Zoho rule qualifies", () => {
+    for (const budget of BUDGET_OPTIONS)
+      for (const revenue of REVENUE_OPTIONS)
+        for (const adSpend of AD_SPEND_OPTIONS) {
+          const zoho = budget === "Yes, that works" && revenue !== "Under ₹10L" && (adSpend === "₹1L – ₹5L" || adSpend === "₹5L+");
+          expect(qualifyAudit({ budget, revenue, adSpend }) === "qualified", `${budget} / ${revenue} / ${adSpend}`).toBe(zoho);
+        }
   });
 });
 
@@ -92,7 +102,13 @@ describe("POST /api/lead/audit", () => {
   it("silently drops honeypot submissions", async () => {
     const res = await post({ ...lead(), company_fax: "123" });
     expect(res.data.ok).toBe(true);
+    expect(res.data.leadId).toBeUndefined();
     expect(() => readFileSync(file)).toThrow();
+  });
+
+  it("still sends a qualified person to booking if autofill hits the honeypot", async () => {
+    const res = await post({ ...lead({ budget: "Yes, that works", revenue: "₹10L – ₹50L", adSpend: "₹5L+" }), company_fax: "Acme" });
+    expect(res.data.outcome).toBe("qualified");
   });
 
   it("rate-limits one IP", async () => {

@@ -19,11 +19,13 @@ export async function POST(request: Request) {
   const body = await readBody(request);
   if (!body) return json({ ok: false, error: "invalid_request" }, 400);
 
-  // Honeypot: a hidden field people never fill. Bots get a normal-looking answer and nothing is saved.
-  if (shortText(body.company_fax, 200)) return json({ ok: true, outcome: "nurture" });
-
   const { data, errors } = validateAudit(body);
   if (!data) return json({ ok: false, error: "invalid_fields", fieldErrors: errors }, 422);
+
+  // Honeypot: a hidden field people never fill. Nothing is saved or tracked (no leadId), but the answer still
+  // carries the real bucket: browser/password-manager autofill can fill it for a real person, and a qualified
+  // visitor must still reach the booking page.
+  if (shortText(body.company_fax, 200)) return json({ ok: true, outcome: qualifyAudit(data) });
 
   if (overLimit(`ip:${clientIp(request)}`, IP_LIMIT_PER_HOUR, 60 * 60 * 1000)) return json({ ok: false, error: "rate_limited" }, 429);
 
