@@ -23,11 +23,13 @@ import styles from "./AuditFormModal.module.css";
 // Zoho Bookings page qualified leads are sent to after submitting.
 const BOOKING_URL = process.env.NEXT_PUBLIC_AUDIT_BOOKING_URL || "https://booknow.acquirely.in/LGARC/#/LGARC";
 
-// The booking page with Name, Email, Contact Number and Company website filled in from the form, so
+// The booking page with Full Name, Email, Contact Number and Company website filled in from the form, so
 // qualified leads don't type them twice. Zoho Bookings reads these after the "#/LGARC?" route, keyed by
 // the field's label. They stay editable there.
 function bookingUrlFor(data: { name: string; email: string; countryCode: string; phone: string; website: string }) {
   const params: Record<string, string> = {
+    // Our Zoho form labels the name field "Full Name"; "Name" is Zoho's default label, kept in case it's renamed back.
+    "Full Name": data.name,
     Name: data.name,
     Email: data.email,
     "Contact Number": `${data.countryCode}${data.phone}`,
