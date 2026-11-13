@@ -121,13 +121,17 @@ const markup = `
           <div class="hm-dd-mob">
             <a href="#results">Case Studies</a>
             <a href="/blog">Blog</a>
+            <a href="#tools">Tools</a>
             <a href="/ecommerce-calculator">Ecommerce Calculator</a>
+            <a href="/roi-calculator">ROI Calculator</a>
             <a href="#faq">FAQ</a>
           </div>
         </div>
       </details>
       <a href="/blog">Blog</a>
+      <a href="#tools">Tools</a>
       <a href="/ecommerce-calculator">Ecommerce Calculator</a>
+      <a href="/roi-calculator">ROI Calculator</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-act">${THEME_TOGGLE}<a class="btn blue" href="${BOOK}" ${ext}>Book a Call</a></div>
@@ -525,6 +529,33 @@ const markup = `
   </div>
 </section>
 
+<!-- ============ TOOLS ============ -->
+<section class="band white" id="tools">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Free tools</span>
+      <h2>Make better decisions with your numbers</h2>
+      <p>Estimate ecommerce profitability or see the return on your lead-generation spend.</p>
+    </div>
+    <div class="hm-tools">
+      <a class="card hm-tool reveal" href="/ecommerce-calculator">
+        <span class="ic">${icon('<path d="M3 3h2l2.2 11.2a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 2-1.6L22 7H6"/>')}</span>
+        <span class="chip">D2C · Dropshipping</span>
+        <h3>Dropshipping &amp; ecommerce calculator</h3>
+        <p>Calculate profit, margins, ROAS, RTO costs and break-even CPA for COD and prepaid orders.</p>
+        <span class="hm-tool-link">Open ecommerce calculator ${ARROW}</span>
+      </a>
+      <a class="card hm-tool reveal" href="/roi-calculator">
+        <span class="ic o">${icon('<circle cx="12" cy="12" r="9"/><path d="M16 8h-5a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4H8"/><path d="M12 6v2m0 8v2"/>', "#F37513")}</span>
+        <span class="chip">Lead generation · Business ROI</span>
+        <h3>ROI calculator</h3>
+        <p>See profit after ad spend, sales salaries and office costs, including one-time or recurring payments.</p>
+        <span class="hm-tool-link">Open ROI calculator ${ARROW}</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FINAL CTA ============ -->
 <section class="band" id="book">
   <div class="wrap">
@@ -556,7 +587,7 @@ const markup = `
         <p style="margin-top:10px;max-width:32ch">A full-funnel growth team for D2C and lead-gen brands. Measured on revenue.</p>
       </div>
       <div><p class="fh">Services</p><ul><li><a href="/ecommerce">D2C &amp; ecommerce growth</a></li><li><a href="/lead-gen">Lead generation</a></li><li><a href="/publishers">Education publishers</a></li><li><a href="/edtech">EdTech for schools</a></li><li><a href="#services">Website &amp; CRO</a></li></ul></div>
-      <div><p class="fh">More from Acquirely</p><ul><li><a href="/case-studies">Case studies</a></li><li><a href="/about-us">About us</a></li><li><a href="/blog">Blog</a></li><li><a href="/ecommerce-calculator">Ecommerce profit calculator</a></li></ul></div>
+      <div><p class="fh">More from Acquirely</p><ul><li><a href="/case-studies">Case studies</a></li><li><a href="/about-us">About us</a></li><li><a href="/blog">Blog</a></li><li><a href="/ecommerce-calculator">Ecommerce profit calculator</a></li><li><a href="/roi-calculator">ROI calculator</a></li></ul></div>
       <div><p class="fh">Contact</p><ul><li><a href="mailto:team@acquirely.in">team@acquirely.in</a></li><li><a href="tel:+917060250253">+91 70602 50253</a></li><li>New Delhi, India</li><li><a href="/privacy-policy">Privacy policy</a></li><li><a href="/terms-and-condition">Terms of service</a></li></ul></div>
     </div>
     <div class="fine">

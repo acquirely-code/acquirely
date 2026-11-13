@@ -78,6 +78,18 @@
 .hm .hm-svc li{padding:10px 0 10px 28px;border-top:1px solid var(--line);font-size:15px;font-weight:600;color:var(--ink);position:relative}
 .hm .hm-svc li::before{content:"";position:absolute;left:0;top:12px;width:18px;height:18px;border-radius:50%;background:#EEF2FF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4L18 8'/%3E%3C/svg%3E") center/11px no-repeat}
 
+/* Free calculator tools */
+.hm .hm-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:20px}
+.hm .hm-tool{display:grid;gap:12px;align-content:start;padding:28px;color:var(--ink);text-decoration:none}
+.hm .hm-tool .ic{width:42px;height:42px;border-radius:10px;background:var(--blue-soft);display:grid;place-items:center}
+.hm .hm-tool .ic.o{background:var(--orange-soft)}
+.hm .hm-tool h3{font-size:20px}
+.hm .hm-tool p{font-size:15px;color:var(--muted)}
+.hm .hm-tool-link{display:inline-flex;align-items:center;gap:8px;margin-top:4px;font-weight:700;color:var(--indigo-2)}
+.hm .hm-tool-link svg{width:16px;height:16px}
+.hm .hm-tool:hover .hm-tool-link{text-decoration:underline}
+@media (max-width:700px){.hm .hm-tools{grid-template-columns:1fr}}
+
 /* Industries */
 .hm .hm-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 24px;margin-top:18px;font-size:14px;color:var(--muted)}
 .hm .hm-legend span{display:inline-flex;align-items:center;gap:8px}
