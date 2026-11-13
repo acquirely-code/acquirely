@@ -123,6 +123,11 @@ const markup = `
             <a href="/blog">Blog</a>
             <a href="#faq">FAQ</a>
           </div>
+          <div class="hm-dd-mob">
+            <p class="hm-dd-h">Tools</p>
+            <a href="/ecommerce-calculator">Ecommerce Calculator</a>
+            <a href="/roi-calculator">ROI Calculator</a>
+          </div>
         </div>
       </details>
       <a href="/blog">Blog</a>
