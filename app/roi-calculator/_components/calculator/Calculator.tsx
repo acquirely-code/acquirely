@@ -19,7 +19,7 @@ import {
   type FieldName,
   type Inputs,
 } from "@/app/roi-calculator/_lib/calculator-engine";
-import { CURRENCIES, DEFAULT_CURRENCY, MINUS, createFormatter, isCurrencyCode, pct, signOf, type CurrencyCode, type Formatter } from "@/app/ecommerce-calculator/_lib/format";
+import { CURRENCIES, DEFAULT_CURRENCY, MINUS, createFormatter, isCurrencyCode, pct, type CurrencyCode, type Formatter } from "@/app/ecommerce-calculator/_lib/format";
 import { track, trackOnce } from "@/app/ecommerce-calculator/_lib/analytics";
 import { PAGE_URL, SITE_NAME } from "@/app/roi-calculator/_lib/site";
 import { Field, type FieldHandlers } from "./Field";
@@ -116,8 +116,6 @@ export function Calculator() {
   const [liveSummary, setLiveSummary] = useState("");
   const [announceTick, setAnnounceTick] = useState(0);
   const [printDate, setPrintDate] = useState("");
-  const [mbarReady, setMbarReady] = useState(false);
-  const [mbarAway, setMbarAway] = useState(true);
 
   const f = useMemo(() => createFormatter(currency), [currency]);
   const sectionRef = useRef<HTMLElement>(null);
@@ -173,29 +171,6 @@ export function Calculator() {
     const before = () => flushSync(() => setPrintDate(printDateText()));
     window.addEventListener("beforeprint", before);
     return () => window.removeEventListener("beforeprint", before);
-  }, []);
-
-  // Mobile results bar: shown below 1024px (CSS) while the calculator is on
-  // screen but the results panel isn't.
-  useEffect(() => {
-    const section = sectionRef.current, results = resultsRef.current;
-    if (!section || !results) return;
-    const inView = (node: Element) => {
-      const b = node.getBoundingClientRect();
-      return b.top < window.innerHeight && b.bottom > 0;
-    };
-    // Scroll events already fire at most once per frame; this reads two rects.
-    const update = () => setMbarAway(inView(results) || !inView(section));
-    setMbarReady(true);
-    document.body.classList.add("has-mbar");
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update, { passive: true });
-    update();
-    return () => {
-      document.body.classList.remove("has-mbar");
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-    };
   }, []);
 
   // ---------------------------------------------------------------------------
@@ -407,14 +382,6 @@ export function Calculator() {
         <Breakdown r={r} f={f} />
       </div>
 
-      {/* Mobile results bar (below 1024px). Hidden while the results panel is on screen. */}
-      <div className={"mbar" + (mbarAway ? " away" : "")} hidden={!mbarReady}>
-        <div>
-          <span className="m-k">{r.profit < 0 ? "Loss" : "Profit"} · <span>{pct(r.roi)}</span> ROI</span>
-          <span className="m-v" data-sign={signOf(r.profit)}>{f.moneyCompact(r.profit)}</span>
-        </div>
-        <a className="btn btn-sm" href="#results">View results</a>
-      </div>
     </section>
   );
 }

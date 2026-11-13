@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { ABOUT_URL, CONTACT_EMAIL, LAST_UPDATED, REVIEWER, SITE_URL } from "@/app/roi-calculator/_lib/site";
 import { FAQ } from "@/app/roi-calculator/_lib/seo";
 
@@ -22,8 +23,13 @@ const updated = new Date(`${LAST_UPDATED}T00:00:00Z`).toLocaleDateString("en-IN"
   day: "numeric", month: "long", year: "numeric", timeZone: "UTC",
 });
 
-const Yes = () => <><span aria-hidden="true">✅ </span><span className="sr-only">Included: </span></>;
-const No = () => <><span aria-hidden="true">❌ </span><span className="sr-only">Not included: </span></>;
+/** Check / cross mark beside its label, so the mark never wraps onto its own line. */
+const Yes = ({ children }: { children: ReactNode }) => (
+  <span className="mark-cell"><span className="mark mark-yes" aria-hidden="true">✓</span><span><span className="sr-only">Included: </span>{children}</span></span>
+);
+const No = ({ children }: { children: ReactNode }) => (
+  <span className="mark-cell"><span className="mark mark-no" aria-hidden="true">✕</span><span><span className="sr-only">Not included: </span>{children}</span></span>
+);
 
 /**
  * Guide + FAQ below the calculator. Static, server-rendered.
@@ -71,19 +77,19 @@ ROI        = profit ÷ total cost × 100`}</p>
 
         <h2 id="what-calculators-miss">What Most ROI Calculators Leave Out</h2>
         <p>Most free ROI calculators ask for just two numbers: what you invested and what you got back. That works for a one-off purchase. It doesn&apos;t work for a business that turns leads into sales.</p>
-        <div className="table-wrap">
+        <div className="table-wrap table-card">
           <table className="compare-table">
             <caption className="sr-only">Typical ROI calculator vs this calculator</caption>
             <thead>
-              <tr><th scope="col">What gets counted</th><th scope="col">Typical ROI calculator</th><th scope="col">This calculator</th></tr>
+              <tr><th scope="col">What gets counted</th><th scope="col">Typical ROI calculator</th><th scope="col" className="hl">This calculator</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Meta and Google Ads spend</th><td><Yes />As one total</td><td><Yes />Each platform</td></tr>
-              <tr><th scope="row">Sales team salaries</th><td><No />Usually missing</td><td><Yes />Included</td></tr>
-              <tr><th scope="row">Office rent, bills, software</th><td><No />Usually missing</td><td><Yes />Included</td></tr>
-              <tr><th scope="row">Customers who pay many times</th><td><No />First sale only</td><td><Yes />Every payment</td></tr>
-              <tr><th scope="row">Cost per customer</th><td><No />Not shown</td><td><Yes />Shown</td></tr>
-              <tr><th scope="row">Customers needed to break even</th><td><No />Not shown</td><td><Yes />Shown</td></tr>
+              <tr><th scope="row">Meta and Google Ads spend</th><td><Yes>As one total</Yes></td><td className="hl"><Yes>Each platform</Yes></td></tr>
+              <tr><th scope="row">Sales team salaries</th><td><No>Usually missing</No></td><td className="hl"><Yes>Included</Yes></td></tr>
+              <tr><th scope="row">Office rent, bills, software</th><td><No>Usually missing</No></td><td className="hl"><Yes>Included</Yes></td></tr>
+              <tr><th scope="row">Customers who pay many times</th><td><No>First sale only</No></td><td className="hl"><Yes>Every payment</Yes></td></tr>
+              <tr><th scope="row">Cost per customer</th><td><No>Not shown</No></td><td className="hl"><Yes>Shown</Yes></td></tr>
+              <tr><th scope="row">Customers needed to break even</th><td><No>Not shown</No></td><td className="hl"><Yes>Shown</Yes></td></tr>
             </tbody>
           </table>
         </div>
@@ -92,18 +98,18 @@ ROI        = profit ÷ total cost × 100`}</p>
 
         <h2 id="roi-vs-roas">ROI vs ROAS: What&apos;s the Difference?</h2>
         <p>The main difference between <strong>ROI and ROAS</strong> is what they count as cost. ROAS divides revenue by ad spend only. ROI subtracts every cost, including salaries and office, and divides the profit by that total. ROAS tells you how ads perform; ROI tells you if the business makes money.</p>
-        <div className="table-wrap">
+        <div className="table-wrap table-card">
           <table className="compare-table">
             <caption className="sr-only">ROI vs ROAS using the example values</caption>
             <thead>
-              <tr><th scope="col">Factor</th><th scope="col">📈 ROI</th><th scope="col">📣 ROAS</th></tr>
+              <tr><th scope="col">Factor</th><th scope="col" className="hl">📈 ROI</th><th scope="col">📣 ROAS</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Formula</th><td>(Revenue − total cost) ÷ total cost</td><td>Revenue ÷ ad spend</td></tr>
-              <tr><th scope="row">Costs counted</th><td>Ads, salaries, office</td><td>Ads only</td></tr>
-              <tr><th scope="row">Shown as</th><td>A percentage</td><td>A multiple (x)</td></tr>
-              <tr><th scope="row">Example result</th><td>138%</td><td>4.7x</td></tr>
-              <tr><th scope="row">Best for</th><td>Is my business profitable?</td><td>Which ad or campaign works best?</td></tr>
+              <tr><th scope="row">Formula</th><td className="hl formula-cell">(Revenue − total cost) ÷ total cost</td><td className="formula-cell">Revenue ÷ ad spend</td></tr>
+              <tr><th scope="row">Costs counted</th><td className="hl">Ads, salaries, office</td><td>Ads only</td></tr>
+              <tr><th scope="row">Shown as</th><td className="hl">A percentage</td><td>A multiple (x)</td></tr>
+              <tr><th scope="row">Example result</th><td className="hl big">138%</td><td className="big">4.7x</td></tr>
+              <tr><th scope="row">Best for</th><td className="hl">Is my business profitable?</td><td>Which ad or campaign works best?</td></tr>
             </tbody>
           </table>
         </div>
@@ -111,17 +117,17 @@ ROI        = profit ÷ total cost × 100`}</p>
 
         <h2 id="recurring">How Recurring Payments Change ROI</h2>
         <p>You pay once to win a customer. If they pay you every month, that one cost earns again and again. Keep everything else from the example the same and only change the number of payments:</p>
-        <div className="table-wrap">
+        <div className="table-wrap table-card">
           <table className="compare-table">
             <caption className="sr-only">ROI by number of payments, using the example values</caption>
             <thead>
-              <tr><th scope="col">Payments per customer</th><th scope="col">Revenue</th><th scope="col">Profit</th><th scope="col">ROI</th></tr>
+              <tr><th scope="col">Payments per customer</th><th scope="col" className="num">Revenue</th><th scope="col" className="num">Profit</th><th scope="col" className="num">ROI</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">1 (one-time)</th><td>₹1.25 lakh</td><td><span aria-hidden="true">🔴 </span>−₹1.9 lakh</td><td>−60%</td></tr>
-              <tr><th scope="row">3</th><td>₹3.75 lakh</td><td><span aria-hidden="true">🟢 </span>₹60,000</td><td>19%</td></tr>
-              <tr><th scope="row">6 (example)</th><td>₹7.5 lakh</td><td><span aria-hidden="true">🟢 </span>₹4.35 lakh</td><td>138%</td></tr>
-              <tr><th scope="row">12</th><td>₹15 lakh</td><td><span aria-hidden="true">🟢 </span>₹11.85 lakh</td><td>376%</td></tr>
+              <tr><th scope="row">1 <small>one-time</small></th><td className="num">₹1.25 lakh</td><td className="num" data-sign="neg">−₹1.9 lakh</td><td className="num" data-sign="neg">−60%</td></tr>
+              <tr><th scope="row">3</th><td className="num">₹3.75 lakh</td><td className="num" data-sign="pos">₹60,000</td><td className="num" data-sign="pos">19%</td></tr>
+              <tr className="is-example"><th scope="row">6 <span className="chip">Example</span></th><td className="num">₹7.5 lakh</td><td className="num" data-sign="pos">₹4.35 lakh</td><td className="num" data-sign="pos">138%</td></tr>
+              <tr><th scope="row">12</th><td className="num">₹15 lakh</td><td className="num" data-sign="pos">₹11.85 lakh</td><td className="num" data-sign="pos">376%</td></tr>
             </tbody>
           </table>
         </div>

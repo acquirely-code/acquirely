@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BASE_PATH, CONTACT_EMAIL, CONTENT_YEAR, LAST_UPDATED, OG_IMAGE_URL, PAGE_URL, REVIEWER, SITE_URL } from "./site";
+import { BASE_PATH, CONTACT_EMAIL, LAST_UPDATED, OG_IMAGE_URL, PAGE_URL, REVIEWER, SITE_URL } from "./site";
 
 /**
  * FAQ copy. Rendered as the visible FAQ list AND as FAQPage JSON-LD, so the two
@@ -53,9 +53,9 @@ export const FAQ: { q: string; a: string }[] = [
 /** Drops the `**` bold markers used in FAQ copy. */
 export const plainText = (s: string) => s.replace(/\*\*/g, "");
 
-const OG_TITLE = "ROI Calculator for Business Owners";
-// Keyword first, year for freshness (follows LAST_UPDATED), under ~60 characters.
-const TITLE = `ROI Calculator for Business Owners (${CONTENT_YEAR}): Free Tool`;
+const OG_TITLE = "Free ROI Calculator for Business Owners - Acquirely";
+// Keyword first, brand last, under ~60 characters.
+const TITLE = OG_TITLE;
 // ~155 characters, second person, keyword in the first words.
 const DESCRIPTION =
   "Free ROI calculator for business owners. Add your Meta and Google Ads spend, sales salaries and office cost to see your real profit, ROI and cost per customer.";
