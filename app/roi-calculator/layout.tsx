@@ -1,18 +1,21 @@
-import type { Viewport } from "next";
-import { montserrat } from "@/lib/fonts";
+import type { Metadata, Viewport } from "next";
+import { montserrat, openSans } from "@/lib/fonts";
 import { pageMetadata } from "./_lib/seo";
-import "../ecommerce-calculator/calculator.css";
 import "./roi.css";
 
-export const metadata = pageMetadata;
+export const metadata: Metadata = pageMetadata;
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#FFFFFF",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+    { media: "(prefers-color-scheme: dark)", color: "#0D121D" },
+  ],
 };
 
+// The root layout's THEME_INIT script sets data-theme before paint (same "acq-theme" key), so dark mode never flashes.
 export default function RoiCalculatorLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <div className={`ecalc roi-calc ${montserrat.variable}`}>{children}</div>;
+  return <div className={`rcalc ${montserrat.variable} ${openSans.variable}`}>{children}</div>;
 }

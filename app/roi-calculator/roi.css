@@ -1,40 +1,480 @@
-.roi-calc .segmented {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: .4rem;
-  margin-top: .6rem;
+/* Scoped port of the standalone ROI calculator styles. Every rule sits under .rcalc (or html:has(.rcalc)) so nothing leaks into other routes. */
+/* =========================================================
+   Tokens (colours from acquirely.in)
+   ========================================================= */
+html:has(.rcalc), .rcalc {
+  --heading: #0F172A;                                 /* slate-900: headings, strong text */
+  --ink: #0F172A; --muted: #71717B;
+  --text: #475569;                                    /* body copy, as on acquirely.in */
+  --dark: #0B0F19; --on-dark: #CBD5E1; --dark-muted: #8B92A5; --dark-line: #1F2533; /* key card, mobile bar, footer */
+  --primary: #4F46E5; --primary-hover: #4338CA;       /* indigo: actions, links, focus, selection */
+  --primary-grad: linear-gradient(102.78deg, #6366F1 0%, #4F46E5 100%);
+  --accent-ink: #0052FF;                              /* small uppercase labels, "Book a Call" (AA on white) */
+  --grad: linear-gradient(90deg, #6366F1, #F97316);   /* headline highlight */
+  --good: #16A34A;
+  --blue: #2B7FFF; --indigo: #6366F1; --indigo-soft: #A5B4FC;
+  --orange: #F97316; --orange-strong: #EA580C;
+  --bg: #F7F9FC; --bg-tint: #F0F6FF; --tint-line: #BEDBFF;
+  --line: #E4E4E7; --line-soft: #F4F4F5; --white: #FFF;
+  --card: #FFF;                                       /* panel / input surface (dark in dark mode) */
+  --nav-bg: rgba(255, 255, 255, .75); --nav-line: #E5E7EB;
+  --chip-bg: #FFF4ED; --chip-ink: #C2410C;
+  --field: #8B92A5;                                   /* ≥3:1 input boundary on white */
+  --pos: #1E6B47; --pos-bg: #E6F3EB; --pos-line: #BCDDC9;
+  --neg: #A0302A; --neg-bg: #FBEAE7; --neg-line: #EFC3BC;
+  --near: #8C5B0E; --near-bg: #FBF1DC; --near-line: #EBD3A0;
+  --neg-on-dark: #FFB4A8;
+  --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%230F172A' stroke-width='2'/%3E%3C/svg%3E");
+  color-scheme: light;
+  --sans: var(--font-open-sans), "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --display: var(--font-montserrat), Montserrat, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --shadow: 0 18px 50px -20px rgba(15, 23, 42, .18);
+  --shadow-sm: 0 10px 26px -16px rgba(15, 23, 42, .22);
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --section-y: clamp(2.75rem, 1.9rem + 4vw, 5rem);
+  --card-pad: clamp(1rem, .8rem + 1vw, 1.5rem);
+  --radius: 16px;
+  --header-h: 5.25rem;                                /* floating nav card + its top offset */
+  --focus: var(--primary);
 }
 
-.roi-calc .segmented button {
-  min-width: 0;
-  min-height: 44px;
-  padding: .35rem .25rem;
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  background: var(--bg);
-  cursor: pointer;
+/* Dark mode: same palette and same toggle key ("acq-theme") as acquirely.in.
+   data-theme is set before paint by the script in app/layout.tsx. */
+html[data-theme="dark"]:has(.rcalc), html[data-theme="dark"] .rcalc {
+  --heading: #F1F5F9; --ink: #F1F5F9; --text: #A6B0C3; --muted: #8B93A7;
+  --dark: #070A12; --dark-muted: #8B93A7; --dark-line: #232B3B;
+  --primary: #A5B4FC;                                 /* links, focus, selection on dark */
+  --accent-ink: #4F8EF7; --blue: #4F8EF7;
+  --bg: #0D121D; --bg-tint: #132038; --tint-line: #1E3A66;
+  --line: #262E3E; --line-soft: #1C2331; --card: #151B28;
+  --field: #6B7590;                                   /* ≥3:1 input boundary on --card */
+  --nav-bg: rgba(21, 27, 40, .8); --nav-line: #262E3E;
+  --chip-bg: #2A1A0F; --chip-ink: #FDBA74;
+  --pos: #4ADE80; --pos-bg: #0F2A1C; --pos-line: #1D4D33;
+  --neg: #F87171; --neg-bg: #2E1517; --neg-line: #5A2A2C;
+  --near: #FBBF24; --near-bg: #2A2110; --near-line: #5A4518;
+  --shadow: 0 18px 50px -20px rgba(0, 0, 0, .6);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .3), 0 6px 20px rgba(0, 0, 0, .25);
+  --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23F1F5F9' stroke-width='2'/%3E%3C/svg%3E");
+  color-scheme: dark;
+}
+/* White logo on dark, as acquirely.in does */
+html[data-theme="dark"] .rcalc .site-header .brand img { filter: brightness(0) invert(1); }
+
+/* =========================================================
+   Base
+   ========================================================= */
+.rcalc *, .rcalc *::before, .rcalc *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html:has(.rcalc) { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: calc(var(--header-h) + .75rem); }
+@media (prefers-reduced-motion: no-preference) { html:has(.rcalc) { scroll-behavior: smooth; } }
+.rcalc {
+  font-family: var(--sans); font-size: 1rem; line-height: 1.55; color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+/* Page background and horizontal clipping belong on body: overflow on a wrapper div would break the sticky header. */
+html:has(.rcalc) body { background: var(--bg); overflow-x: hidden; }
+.rcalc a { color: var(--primary); text-underline-offset: 2px; }
+.rcalc ul, .rcalc ol { padding-left: 1.2rem; }
+.rcalc h1, .rcalc h2, .rcalc h3 { font-family: var(--display); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; color: var(--heading); overflow-wrap: break-word; text-wrap: balance; }
+.rcalc h2 { font-size: clamp(1.6rem, 1.05rem + 2.4vw, 2.5rem); }
+.rcalc h3 { font-size: clamp(1.15rem, 1rem + .6vw, 1.4rem); }
+.rcalc p { overflow-wrap: break-word; }
+.rcalc button, .rcalc input, .rcalc select { font: inherit; color: inherit; }
+.rcalc :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+.rcalc .dark { --focus: var(--indigo-soft); }
+.rcalc [hidden] { display: none !important; }
+.rcalc .num { font-variant-numeric: tabular-nums; }
+
+.rcalc .sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.rcalc .skip-link {
+  position: absolute; left: 1rem; top: -100px; z-index: 100; background: var(--primary-grad); color: var(--white);
+  font-weight: 800; padding: .75rem 1rem; border-radius: 8px; text-decoration: none;
+}
+.rcalc .skip-link:focus { top: 1rem; }
+.rcalc .wrap {
+  max-width: calc(1200px + 2 * var(--gutter)); margin-inline: auto;
+  padding-inline: max(var(--gutter), env(safe-area-inset-left)) max(var(--gutter), env(safe-area-inset-right));
+}
+.rcalc .wrap.narrow { max-width: calc(760px + 2 * var(--gutter)); }
+.rcalc .eyebrow { display: block; font-weight: 700; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); }
+.rcalc .dark .eyebrow { color: var(--indigo-soft); }
+
+/* =========================================================
+   Buttons (as on acquirely.in)
+   ========================================================= */
+.rcalc .btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  min-height: 44px; padding: .8rem 1.4rem; border: 0; border-radius: 999px; cursor: pointer;
+  font-weight: 700; line-height: 1.2; text-align: center; text-decoration: none;
+  background: var(--primary-grad); color: var(--white);
+  box-shadow: 0 10px 24px -6px rgba(99, 102, 241, .45);
+  transition: background-color .15s ease, transform .15s ease, box-shadow .15s ease;
+  touch-action: manipulation;
+}
+@media (hover: hover) { .rcalc .btn:hover { background: var(--primary-hover); transform: translateY(-1px); } }
+.rcalc .btn:active { transform: scale(.98); }
+.rcalc .btn:focus-visible { border-radius: 999px; }
+.rcalc .btn-ghost { background: transparent; color: var(--heading); border: 1.5px solid var(--field); box-shadow: none; }
+@media (hover: hover) { .rcalc .btn-ghost:hover { background: var(--card); transform: none; } }
+.rcalc .btn-sm { min-height: 44px; padding: .55rem 1rem; font-size: .92rem; }
+
+/* =========================================================
+   Header: floating card, as on acquirely.in
+   ========================================================= */
+.rcalc .site-header { position: sticky; top: 14px; z-index: 50; margin-top: 14px; padding-inline: max(var(--gutter), env(safe-area-inset-left)) max(var(--gutter), env(safe-area-inset-right)); }
+.rcalc .nav-in {
+  max-width: 1140px; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  background: var(--nav-bg); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border: 1px solid var(--nav-line); border-radius: 12px; padding: .5rem .6rem .5rem 1.1rem;
+  box-shadow: 0 10px 30px -12px rgba(99, 102, 241, .18);
+}
+.rcalc .brand { display: inline-flex; align-items: center; }
+.rcalc .brand img { display: block; height: 34px; width: auto; }
+.rcalc .site-nav ul { display: flex; gap: .4rem; list-style: none; padding: 0; }
+.rcalc .site-nav a { display: inline-flex; align-items: center; min-height: 44px; padding-inline: .7rem; color: var(--ink); font-family: var(--display); font-weight: 500; font-size: .94rem; text-decoration: none; border-radius: 8px; }
+@media (hover: hover) { .rcalc .site-nav a:hover { color: var(--primary); background: var(--bg-tint); } }
+/* Dark-mode toggle: same button as acquirely.in */
+.rcalc .nav-act { display: flex; align-items: center; gap: .6rem; }
+.rcalc .theme-tg {
+  display: grid; place-items: center; width: 44px; height: 44px; padding: 0; flex: none;
+  border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer;
+  transition: border-color .15s, color .15s;
+}
+@media (hover: hover) { .rcalc .theme-tg:hover { border-color: var(--indigo); color: var(--primary); } }
+.rcalc .theme-tg .i-sun, html[data-theme="dark"] .rcalc .theme-tg .i-moon { display: none; }
+html[data-theme="dark"] .rcalc .theme-tg .i-sun { display: block; }
+/* Phones: keep logo + theme toggle; the page itself is one scroll. */
+@media (max-width: 759px) { .rcalc .site-nav { display: none; } }
+
+/* =========================================================
+   Hero: centred, as on acquirely.in
+   ========================================================= */
+.rcalc .hero {
+  background:
+    radial-gradient(700px 420px at 85% 0%, rgba(99, 102, 241, .10), transparent 70%),
+    radial-gradient(700px 420px at 10% 100%, rgba(249, 115, 22, .07), transparent 70%),
+    var(--bg);
+  color: var(--ink); border-bottom: 1px solid var(--line);
+  margin-top: calc(-1 * var(--header-h)); padding-block: calc(var(--header-h) + clamp(2.5rem, 1.6rem + 3.5vw, 4.5rem)) clamp(2.5rem, 1.6rem + 3.5vw, 4.5rem);
   text-align: center;
 }
+.rcalc .badge {
+  display: inline-flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: .5rem; max-width: 100%;
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: .3rem .8rem .3rem .3rem;
+  font-size: .9rem; font-weight: 600; color: var(--ink); box-shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 6px 20px rgba(15, 23, 42, .05);
+}
+.rcalc .badge-chip { background: var(--chip-bg); color: var(--chip-ink); border-radius: 7px; padding: .15rem .55rem; font-size: .8rem; font-weight: 700; }
+.rcalc .badge .hl { color: var(--chip-ink); }
+.rcalc .hero h1 { color: var(--heading); font-weight: 800; font-size: clamp(2.1rem, 1.3rem + 3.6vw, 3.6rem); line-height: 1.1; margin: 1.3rem auto 0; max-width: 20ch; }
+/* Indigo → orange headline highlight, as on acquirely.in */
+.rcalc .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.rcalc .hero .sub { font-size: clamp(1.05rem, .95rem + .45vw, 1.25rem); line-height: 1.65; color: var(--text); max-width: 40rem; margin: 1.2rem auto 0; }
+.rcalc .hero .sub strong { color: var(--ink); }
+.rcalc .hero .cta-row { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; margin-top: 2rem; }
+.rcalc .hero .trust { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.4rem; list-style: none; padding: 0; color: var(--text); font-size: .95rem; }
+.rcalc .hero .trust li { display: inline-flex; align-items: center; gap: .45rem; }
+.rcalc .hero .trust svg { width: 16px; height: 16px; color: var(--good); flex: none; }
 
-.roi-calc .segmented button[aria-pressed="true"] {
-  border-color: var(--primary);
-  background: var(--bg-tint);
-  color: var(--primary);
+/* =========================================================
+   Calculator shell
+   ========================================================= */
+.rcalc .calc-section { padding-block: clamp(1.75rem, 1rem + 3vw, 3.25rem) var(--section-y); }
+.rcalc .calc-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem; }
+.rcalc .calc-head p { color: var(--muted); max-width: 44rem; margin-top: .35rem; }
+.rcalc .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+.rcalc .toolbar label { font-weight: 700; font-size: .92rem; }
+.rcalc .select {
+  min-height: 44px; padding: .5rem 2.2rem .5rem .8rem; border: 1.5px solid var(--field); border-radius: 10px; background: var(--card);
+  appearance: none; -webkit-appearance: none; cursor: pointer;
+  background-image: var(--select-arrow);
+  background-repeat: no-repeat; background-position: right .8rem center;
+}
+.rcalc .linkish { background: none; border: 0; padding: 0; min-height: 24px; font-weight: 700; text-decoration: underline; cursor: pointer; color: var(--primary); }
+.rcalc .notice { background: var(--near-bg); border: 1px solid var(--near-line); border-radius: 12px; padding: .75rem 1rem; margin-bottom: 1rem; font-size: .95rem; }
+
+.rcalc .calc-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(1rem, 2vw, 1.75rem); align-items: start; }
+@media (min-width: 1024px) {
+  .rcalc .calc-grid { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); }
+  .rcalc .results-panel { position: sticky; top: calc(var(--header-h) + 1rem); max-height: calc(100vh - var(--header-h) - 2rem); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+}
+.rcalc .panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--card-pad); box-shadow: var(--shadow-sm); min-width: 0; }
+.rcalc .panel-title { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .4rem .8rem; margin-bottom: 1rem; }
+.rcalc .pill { display: inline-block; font-size: .78rem; font-weight: 700; color: var(--muted); background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: .2rem .65rem; }
+
+/* =========================================================
+   Form
+   ========================================================= */
+.rcalc fieldset { border: 0; min-width: 0; }
+.rcalc fieldset + fieldset, .rcalc .form-block + .form-block { margin-top: 1.4rem; padding-top: 1.25rem; border-top: 1px solid var(--line-soft); }
+.rcalc legend { font-weight: 800; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: .85rem; padding: 0; }
+.rcalc .fields { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem 1.1rem; }
+@media (min-width: 600px) { .rcalc .fields { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.rcalc .field { display: flex; flex-direction: column; min-width: 0; }
+.rcalc .field > label, .rcalc .field .label { font-weight: 700; font-size: .96rem; line-height: 1.3; margin-bottom: .35rem; }
+.rcalc .field .alt { font-weight: 600; color: var(--muted); font-size: .86rem; }
+.rcalc .control { position: relative; display: flex; align-items: stretch; border: 1.5px solid var(--field); border-radius: 10px; background: var(--card); min-height: 48px; transition: border-color .15s, box-shadow .15s; }
+.rcalc .control:focus-within { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(79, 70, 229, .18); }
+.rcalc .control input { flex: 1 1 auto; min-width: 0; width: 100%; border: 0; background: transparent; padding: .6rem .8rem; font-size: 1.05rem; font-weight: 600; font-variant-numeric: tabular-nums; border-radius: 10px; }
+.rcalc .control input:focus { outline: none; }
+.rcalc .control .affix { display: flex; align-items: center; padding-inline: .8rem; color: var(--muted); font-weight: 700; background: var(--bg); white-space: nowrap; }
+.rcalc .control .affix.pre { border-right: 1px solid var(--line); border-radius: 8px 0 0 8px; }
+.rcalc .control .affix.suf { border-left: 1px solid var(--line); border-radius: 0 8px 8px 0; }
+.rcalc .control.readonly { background: var(--bg); border-style: dashed; }
+.rcalc .control.readonly output { flex: 1; display: flex; align-items: center; padding: .6rem .8rem; font-size: 1.05rem; font-weight: 600; }
+.rcalc .help { font-size: .86rem; color: var(--muted); margin-top: .35rem; line-height: 1.4; }
+.rcalc .err { font-size: .88rem; color: var(--neg); font-weight: 700; margin-top: .35rem; display: flex; gap: .35rem; }
+.rcalc .err:empty { display: none; }
+.rcalc .err::before { content: "!"; flex: none; display: inline-grid; place-items: center; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: var(--neg); color: var(--card); font-size: .72rem; margin-top: .1rem; }
+.rcalc .field.invalid .control { border-color: var(--neg); border-width: 2px; }
+
+
+.rcalc .choices { display: grid; gap: .6rem; }
+@media (min-width: 600px) { .rcalc .choices { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.rcalc .choice { display: flex; gap: .7rem; align-items: flex-start; border: 1.5px solid var(--line); border-radius: 12px; padding: .8rem .9rem; cursor: pointer; min-height: 44px; }
+.rcalc .choice:has(input:checked) { border-color: var(--primary); background: var(--bg-tint); }
+.rcalc .choice input { width: 20px; height: 20px; margin-top: .15rem; accent-color: var(--primary); flex: none; }
+.rcalc .choice b { display: block; font-size: .96rem; }
+.rcalc .choice small { display: block; color: var(--muted); font-size: .85rem; line-height: 1.35; }
+
+.rcalc .sub-choices { margin-top: 1rem; }
+.rcalc .field.wide { grid-column: 1 / -1; }
+/* Payments: quick picks first, then a small box for any other number. */
+.rcalc .field.wide > label { order: -2; }
+.rcalc .field.wide .control { max-width: 14rem; }
+.rcalc .segmented { order: -1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .4rem; margin-bottom: .6rem; }
+.rcalc .segmented button {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .1rem;
+  min-height: 56px; padding: .45rem .25rem; border: 1.5px solid var(--line); border-radius: 12px; background: var(--card);
+  color: var(--ink); cursor: pointer; touch-action: manipulation; line-height: 1.15;
+}
+.rcalc .segmented b { font-size: 1.05rem; font-weight: 800; }
+.rcalc .segmented small { font-size: .74rem; font-weight: 600; color: var(--muted); white-space: nowrap; }
+@media (hover: hover) { .rcalc .segmented button:hover { border-color: var(--primary); } }
+.rcalc .segmented button[aria-pressed="true"] { border-color: var(--primary); background: var(--bg-tint); color: var(--primary); box-shadow: 0 0 0 1px var(--primary); }
+.rcalc .segmented button[aria-pressed="true"] small { color: var(--primary); }
+.rcalc .field.wide .help strong { color: var(--heading); }
+
+.rcalc details.advanced { margin-top: 1.4rem; border: 1px solid var(--line); border-radius: 12px; }
+.rcalc details.advanced > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 52px; padding: .6rem 1rem; font-weight: 800; color: var(--heading); border-radius: 12px; }
+.rcalc details.advanced > summary::-webkit-details-marker { display: none; }
+.rcalc details.advanced > summary small { font-weight: 600; color: var(--muted); display: block; font-size: .85rem; }
+.rcalc .chev { width: 18px; height: 18px; flex: none; transition: transform .2s; }
+.rcalc details[open] > summary .chev { transform: rotate(180deg); }
+.rcalc .adv-body { padding: .25rem 1rem 1.1rem; }
+.rcalc .switch { display: flex; align-items: center; gap: .7rem; min-height: 44px; cursor: pointer; font-weight: 700; }
+.rcalc .switch input { width: 22px; height: 22px; accent-color: var(--primary); flex: none; }
+.rcalc .note { font-size: .86rem; color: var(--muted); margin-top: .5rem; }
+
+/* =========================================================
+   Toggletips
+   ========================================================= */
+.rcalc .tipwrap { position: relative; display: inline-flex; vertical-align: middle; }
+.rcalc .tip {
+  display: inline-grid; place-items: center; width: 28px; height: 28px; margin: -4px 0 -4px .15rem; padding: 0;
+  border: 0; background: transparent; border-radius: 50%; cursor: pointer; color: var(--muted);
+}
+.rcalc .tip::before { content: "i"; display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid currentColor; font: 800 .7rem/1 var(--sans); font-style: italic; }
+.rcalc .tip:hover, .rcalc .tip[aria-expanded="true"] { color: var(--primary); }
+/* Enlarge the hit area to 44px without shifting layout */
+.rcalc .tip::after { content: ""; position: absolute; inset: -8px; }
+.rcalc .tip { position: relative; }
+.rcalc .bubble {
+  position: absolute; z-index: 30; top: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+  width: max-content; max-width: min(18rem, 80vw); background: var(--dark); color: var(--white);
+  font: 500 .88rem/1.45 var(--sans); letter-spacing: 0; text-transform: none; text-align: left;
+  padding: .65rem .8rem; border-radius: 10px; box-shadow: var(--shadow);
+}
+.rcalc .bubble.edge-l { left: 0; transform: none; }
+.rcalc .bubble.edge-r { left: auto; right: 0; transform: none; }
+
+/* =========================================================
+   Results
+   ========================================================= */
+.rcalc .status { display: flex; gap: .75rem; align-items: flex-start; border-radius: 12px; padding: .85rem 1rem; margin-bottom: 1rem; border: 1px solid transparent; }
+.rcalc .status .ico { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: .95rem; color: var(--card); }
+.rcalc .status strong { display: block; font-size: 1.08rem; }
+.rcalc .status p { font-size: .9rem; color: var(--ink); }
+.rcalc .status[data-status="profitable"] { background: var(--pos-bg); border-color: var(--pos-line); }
+.rcalc .status[data-status="profitable"] .ico { background: var(--pos); }
+.rcalc .status[data-status="profitable"] strong { color: var(--pos); }
+.rcalc .status[data-status="near"] { background: var(--near-bg); border-color: var(--near-line); }
+.rcalc .status[data-status="near"] .ico { background: var(--near); }
+.rcalc .status[data-status="near"] strong { color: var(--near); }
+.rcalc .status[data-status="unprofitable"] { background: var(--neg-bg); border-color: var(--neg-line); }
+.rcalc .status[data-status="unprofitable"] .ico { background: var(--neg); }
+.rcalc .status[data-status="unprofitable"] strong { color: var(--neg); }
+.rcalc .status[data-status="empty"] { background: var(--bg); border-color: var(--line); }
+.rcalc .status[data-status="empty"] .ico { background: var(--muted); }
+
+.rcalc .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; list-style: none; padding: 0; }
+@media (min-width: 640px) and (max-width: 1023px) { .rcalc .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.rcalc .card { border: 1px solid var(--line); border-radius: 12px; padding: .8rem .85rem; min-width: 0; background: var(--card); container-type: inline-size; }
+.rcalc .card.hero-card { background: var(--dark); border-color: var(--dark); color: var(--white); --focus: var(--indigo-soft); }
+html[data-theme="dark"] .rcalc .card.hero-card { border-color: var(--line); }
+.rcalc .card .k { display: flex; align-items: center; gap: .1rem; font-size: .82rem; font-weight: 700; color: var(--muted); line-height: 1.25; }
+.rcalc .card.hero-card .k { color: var(--on-dark); }
+.rcalc .card.hero-card .tip { color: var(--on-dark); }
+.rcalc .card .v { display: block; font-family: var(--display); font-weight: 700; font-size: clamp(1.05rem, 12cqi, 1.6rem); line-height: 1.15; margin-top: .25rem; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.rcalc .card .s { display: block; font-size: .8rem; color: var(--muted); margin-top: .15rem; }
+.rcalc .card.hero-card .s { color: var(--on-dark); }
+.rcalc .v[data-sign="neg"] { color: var(--neg); }
+.rcalc .card.hero-card .v[data-sign="neg"] { color: var(--neg-on-dark); }
+
+.rcalc .compare { margin-top: 1rem; border: 1px solid var(--line); border-radius: 12px; padding: .9rem 1rem; }
+.rcalc .compare h4 { font-size: .95rem; font-weight: 800; display: flex; align-items: center; gap: .1rem; }
+.rcalc .compare dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; margin-top: .6rem; }
+.rcalc .compare dt { font-size: .78rem; color: var(--muted); font-weight: 700; }
+.rcalc .compare dd { font-weight: 800; font-size: clamp(.98rem, .9rem + .3vw, 1.12rem); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.rcalc .compare dd[data-sign="neg"] { color: var(--neg); }
+.rcalc .compare dd[data-sign="pos"] { color: var(--pos); }
+.rcalc .gauge { position: relative; height: 10px; border-radius: 999px; background: var(--line-soft); margin: 1.1rem 0 .4rem; }
+.rcalc .gauge .fill { position: absolute; inset: 0 auto 0 0; border-radius: 999px; background: var(--blue); max-width: 100%; }
+.rcalc .gauge .fill.over { background: repeating-linear-gradient(45deg, var(--neg) 0 6px, #C8544D 6px 12px); }
+.rcalc .gauge .mark { position: absolute; top: -6px; bottom: -6px; width: 3px; background: var(--orange-strong); border-radius: 2px; transform: translateX(-50%); }
+.rcalc .compare .explain { font-size: .88rem; color: var(--ink); margin-top: .5rem; }
+
+.rcalc .breakeven { margin-top: 1rem; background: var(--bg-tint); border: 1px solid var(--tint-line); border-radius: 12px; padding: .8rem 1rem; font-size: .95rem; }
+.rcalc .actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.rcalc .actions .btn { flex: 1 1 auto; }
+.rcalc .action-status { font-size: .9rem; font-weight: 700; color: var(--pos); min-height: 1.4em; margin-top: .4rem; }
+.rcalc .disclaimer { font-size: .82rem; color: var(--muted); margin-top: .8rem; line-height: 1.45; }
+
+/* Breakdown (chart, funnel, table) */
+.rcalc .breakdown { margin-top: clamp(1rem, 2vw, 1.75rem); display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(1rem, 2vw, 1.75rem); }
+@media (min-width: 900px) { .rcalc .breakdown { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); } .rcalc .breakdown .full { grid-column: 1 / -1; } }
+.rcalc .breakdown h3 { margin-bottom: .3rem; }
+.rcalc .breakdown .lede { font-size: .92rem; color: var(--muted); margin-bottom: 1rem; }
+.rcalc .bars { list-style: none; padding: 0; display: grid; gap: .7rem; }
+.rcalc .bar-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .15rem .75rem; align-items: baseline; }
+.rcalc .bar-row .lbl { font-weight: 700; font-size: .92rem; }
+.rcalc .bar-row .amt { font-weight: 700; font-size: .92rem; font-variant-numeric: tabular-nums; text-align: right; }
+.rcalc .bar-row .amt small { color: var(--muted); font-weight: 600; margin-left: .3rem; }
+.rcalc .bar-row .track { grid-column: 1 / -1; height: 10px; border-radius: 999px; background: var(--line-soft); overflow: hidden; }
+.rcalc .bar-row .track span { display: block; height: 100%; border-radius: 999px; background: var(--indigo-soft); min-width: 2px; }
+.rcalc .bar-row.rev .track span { background: var(--blue); }
+.rcalc .bar-row.profit .track span { background: var(--pos); }
+.rcalc .bar-row.loss .track span { background: repeating-linear-gradient(45deg, var(--neg) 0 6px, #C8544D 6px 12px); }
+.rcalc .bar-row.loss .amt { color: var(--neg); }
+
+.rcalc .funnel { list-style: none; padding: 0; display: grid; gap: .35rem; }
+.rcalc .funnel li { display: grid; gap: .3rem; }
+.rcalc .funnel .stage { display: flex; justify-content: space-between; gap: .75rem; font-size: .92rem; }
+.rcalc .funnel .stage b { font-variant-numeric: tabular-nums; text-align: right; }
+.rcalc .funnel .fbar { height: 26px; border-radius: 6px; background: var(--blue); margin-inline: auto; min-width: 4px; max-width: 100%; transition: width .25s; }
+.rcalc .funnel .fbar.money { background: var(--indigo); }
+.rcalc .funnel .fbar.neg { background: repeating-linear-gradient(45deg, var(--neg) 0 6px, #C8544D 6px 12px); }
+.rcalc .funnel .arrow { text-align: center; color: var(--muted); font-size: .8rem; line-height: 1; }
+.rcalc .funnel .sub { font-size: .8rem; color: var(--muted); text-align: center; }
+
+.rcalc .table-wrap { overflow-x: auto; }
+.rcalc table { width: 100%; border-collapse: collapse; font-size: .94rem; }
+.rcalc caption { text-align: left; }
+.rcalc th, .rcalc td { padding: .55rem .5rem; border-bottom: 1px solid var(--line-soft); text-align: left; vertical-align: top; }
+.rcalc td { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
+.rcalc th[scope="row"] { font-weight: 600; }
+.rcalc th[scope="row"] small { display: block; color: var(--muted); font-weight: 500; font-size: .8rem; }
+.rcalc tbody.group th[scope="rowgroup"] { font-size: .76rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink); padding-top: 1.1rem; border-bottom: 1px solid var(--line); }
+.rcalc tr.total th, .rcalc tr.total td { font-weight: 800; border-top: 2px solid var(--line); }
+.rcalc td[data-sign="neg"] { color: var(--neg); }
+.rcalc .channel-table thead th { font-size: .82rem; font-weight: 800; color: var(--muted); border-bottom: 1px solid var(--line); }
+.rcalc .channel-table thead th + th { text-align: right; }
+
+.rcalc .table-cols { display: grid; gap: 0 2rem; }
+@media (min-width: 900px) { .rcalc .table-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+
+/* Mobile results bar */
+.rcalc .mbar {
+  position: fixed; z-index: 40; left: 0; right: 0; bottom: 0; background: var(--dark); color: var(--white); --focus: var(--indigo-soft);
+  padding: .55rem max(var(--gutter), env(safe-area-inset-left)) calc(.55rem + env(safe-area-inset-bottom));
+  display: flex; align-items: center; justify-content: space-between; gap: .75rem; box-shadow: 0 -8px 24px -12px rgba(15, 23, 42, .5);
+  transition: transform .2s ease;
+}
+.rcalc .mbar.away { transform: translateY(110%); }
+.rcalc .mbar .m-k { display: block; font-size: .75rem; color: var(--on-dark); font-weight: 700; }
+.rcalc .mbar .m-v { display: block; font-family: var(--display); font-weight: 700; font-size: 1.2rem; font-variant-numeric: tabular-nums; line-height: 1.2; overflow-wrap: anywhere; }
+.rcalc .mbar .m-v[data-sign="neg"] { color: var(--neg-on-dark); }
+.rcalc .mbar .btn { flex: none; }
+@media (min-width: 1024px) { .rcalc .mbar { display: none; } }
+@media (max-width: 1023px) { html:has(.rcalc) body.has-mbar { padding-bottom: 4.75rem; } }
+
+/* =========================================================
+   Content
+   ========================================================= */
+.rcalc .content { padding-block: var(--section-y); background: var(--card); border-top: 1px solid var(--line); }
+.rcalc .content h2 { margin-top: 2.6rem; margin-bottom: .8rem; }
+.rcalc .content h2:first-child { margin-top: 0; }
+.rcalc .content h3 { margin-top: 1.6rem; margin-bottom: .5rem; }
+/* 18px body copy: easier on mobile, keeps readers on the page longer. */
+.rcalc .content p, .rcalc .content li { font-size: 1.125rem; line-height: 1.7; color: var(--text); }
+.rcalc .content p + p, .rcalc .content p + ul, .rcalc .content ul + p, .rcalc .content p + ol, .rcalc .content ol + p { margin-top: .9rem; }
+.rcalc .content li + li { margin-top: .35rem; }
+.rcalc .formula { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .95rem; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: .8rem 1rem; margin-block: 1rem; overflow-x: auto; white-space: pre-wrap; line-height: 1.6; }
+.rcalc .example { background: var(--bg-tint); border-left: 4px solid var(--indigo); border-radius: 0 10px 10px 0; padding: .9rem 1.1rem; margin-block: 1.1rem; }
+.rcalc .example p { font-size: 1rem; }
+.rcalc .example .eyebrow { margin-bottom: .3rem; }
+.rcalc .content .table-wrap { margin-block: 1rem; }
+.rcalc .content table td { font-weight: 600; white-space: normal; }
+
+.rcalc .figure { margin-block: 1.6rem; }
+.rcalc .figure img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
+.rcalc .figure figcaption { margin-top: .6rem; font-size: .92rem; color: var(--muted); line-height: 1.5; }
+
+.rcalc .faq { margin-top: 1rem; border-top: 1px solid var(--line); }
+.rcalc .faq-item { border-bottom: 1px solid var(--line); padding-block: 1.1rem; }
+.rcalc .content .faq-item h3 { margin: 0 0 .4rem; font-size: 1.15rem; }
+
+.rcalc .content .lead { font-size: 1.2rem; line-height: 1.6; color: var(--ink); font-weight: 600; margin-bottom: 1.2rem; }
+.rcalc .content .reviewer { color: var(--ink); }
+.rcalc .hero .sub a { color: var(--primary); font-weight: 600; }
+.rcalc .quick-answer { background: var(--bg-tint); border: 1px solid var(--tint-line); border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 1.4rem; }
+.rcalc .quick-answer .eyebrow { margin-bottom: .3rem; }
+.rcalc .toc { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.2rem; margin-block: 1.6rem 2.4rem; }
+.rcalc .toc-title { font-weight: 800; color: var(--heading); margin-bottom: .4rem; }
+.rcalc .content .toc li { font-size: 1rem; }
+.rcalc .content .toc li + li { margin-top: .2rem; }
+.rcalc .compare-table td { text-align: left; }
+.rcalc .about-box { margin-top: 2.6rem; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 1.2rem 1.3rem; }
+.rcalc .content .about-box h2 { margin-top: 0; font-size: clamp(1.2rem, 1rem + .8vw, 1.5rem); }
+.rcalc .content .about-box .updated { color: var(--muted); font-size: .95rem; }
+
+/* Footer: one dark row, acquirely.in colours */
+.rcalc .site-footer { background: var(--dark); color: var(--dark-muted); font-size: .9rem; padding-block: 1.75rem; --focus: var(--indigo-soft); }
+.rcalc .site-footer a { color: var(--dark-muted); text-decoration: none; }
+@media (hover: hover) { .rcalc .site-footer a:hover { color: var(--white); } }
+.rcalc .foot-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
+.rcalc .site-footer .brand img { height: 28px; }
+
+.rcalc .print-only { display: none; }
+
+/* =========================================================
+   Print: assumptions + results + date only
+   ========================================================= */
+@media print {
+  @page { margin: 14mm; }
+  .rcalc { background: #fff; font-size: 11pt; padding: 0 !important; }
+  .rcalc .site-header, .rcalc .hero, .rcalc .toolbar, .rcalc .actions, .rcalc .action-status, .rcalc .mbar, .rcalc .content, .rcalc .site-footer, .rcalc .tip, .rcalc .bubble, .rcalc .notice, .rcalc .skip-link, .rcalc details.advanced > summary .chev { display: none !important; }
+  .rcalc .print-only { display: block; }
+  .rcalc .calc-section { padding: 0; }
+  .rcalc .calc-grid { grid-template-columns: 1fr; gap: 6mm; }
+  .rcalc .results-panel { position: static; max-height: none; overflow: visible; break-before: page; }
+  .rcalc .panel { box-shadow: none; }
+  .rcalc .card, .rcalc .compare, .rcalc .status, .rcalc .bar-row, .rcalc tr { break-inside: avoid; }
+  .rcalc .card.hero-card { background: #fff; color: var(--ink); border: 2px solid var(--heading); }
+  .rcalc .card.hero-card .k, .rcalc .card.hero-card .s { color: var(--muted); }
+  .rcalc .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .rcalc .card .v { font-size: 1.35rem; overflow-wrap: normal; }
+  .rcalc .fields { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem 1rem; }
+  .rcalc .help, .rcalc .segmented { display: none; }
+  .rcalc details.advanced { border: 0; }
+  .rcalc details.advanced > summary { padding-inline: 0; min-height: 0; }
+  .rcalc .adv-body { padding-inline: 0; }
+  .rcalc .breakdown { grid-template-columns: 1fr 1fr; break-before: page; }
+  .rcalc .breakdown .full { grid-column: 1 / -1; }
+  .rcalc * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 
-.roi-calc .segmented b,
-.roi-calc .segmented small {
-  display: block;
-  line-height: 1.3;
-}
-
-.roi-calc .segmented small {
-  color: var(--muted);
-  font-size: .72rem;
-}
-
-@media (max-width: 420px) {
-  .roi-calc .segmented {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
+@media (prefers-reduced-motion: reduce) { .rcalc *, .rcalc *::before, .rcalc *::after { transition: none !important; animation: none !important; } }
