@@ -121,17 +121,20 @@ const markup = `
           <div class="hm-dd-mob">
             <a href="#results">Case Studies</a>
             <a href="/blog">Blog</a>
-            <a href="#tools">Tools</a>
-            <a href="/ecommerce-calculator">Ecommerce Calculator</a>
-            <a href="/roi-calculator">ROI Calculator</a>
             <a href="#faq">FAQ</a>
           </div>
         </div>
       </details>
       <a href="/blog">Blog</a>
-      <a href="#tools">Tools</a>
-      <a href="/ecommerce-calculator">Ecommerce Calculator</a>
-      <a href="/roi-calculator">ROI Calculator</a>
+      <details class="hm-dd hm-tools-dd">
+        <summary><span class="hm-dd-lbl">Tools <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span><span class="hm-burger" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path class="b1" d="M4 7h16"/><path class="b2" d="M4 12h16"/><path class="b3" d="M4 17h16"/></svg></span></summary>
+        <div class="hm-dd-menu">
+          <p class="hm-dd-h">Calculators</p>
+          ${navItem("/ecommerce-calculator", false, '<path d="M3 3h2l2.2 11.2a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 2-1.6L22 7H6"/>', "Ecommerce Calculator", "Profit, ROAS and break-even for dropshipping")}
+          ${navItem("/roi-calculator", true, '<circle cx="12" cy="12" r="9"/><path d="M16 8h-5a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4H8"/><path d="M12 6v2m0 8v2"/>', "ROI Calculator", "Lead generation costs, profit and ROI")}
+          <a class="hm-dd-all" href="#tools">See all tools ↓</a>
+        </div>
+      </details>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-act">${THEME_TOGGLE}<a class="btn blue" href="${BOOK}" ${ext}>Book a Call</a></div>
