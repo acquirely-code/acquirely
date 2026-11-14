@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Navbar from './Navbar';
 import Collabration from "@/app/assests/officecollab.png";
 import Image from 'next/image';
 
@@ -15,9 +14,8 @@ export default function AboutHeroSection() {
       <div className="absolute right-0 -top-[128px] h-[480px] w-[480px] rounded-full bg-[#356DFF]/20 blur-[64px] pointer-events-none"></div>
       <div className="absolute -left-[80px] top-[200px] h-[460px] w-[460px] rounded-full bg-[#FF8A3D]/20 blur-[64px] pointer-events-none"></div>
 
-   <div className=" md:w-[1440px]  w-full px-4 sm:px-5 md:px-10 pt-8  md:pt-[46px] lg:px-[80px]">
-       <Navbar />
-   </div>
+   {/* Space for the sticky SiteHeader, which floats over this band */}
+   <div className="h-[96px] md:h-[118px] w-full" aria-hidden="true" />
 
       {/* --- Hero Content --- */}
       <div className="relative flex w-full max-w-[1140px] flex-col items-center md:px-5 px-2 mt-[30px] md:mt-[100px]">

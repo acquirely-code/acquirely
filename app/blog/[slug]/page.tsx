@@ -3,8 +3,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import SiteHeader from "@/components/site-chrome/SiteHeader";
+import SiteFooter from "@/components/site-chrome/SiteFooter";
 import BlogContent, { stripInline } from "@/components/BlogContent";
 import { getAllPosts, getPostBySlug } from "@/lib/blog-posts";
 import { SITE_URL } from "@/lib/site";
@@ -89,11 +89,12 @@ export default function BlogPostPage({ params }: Props) {
   ];
 
   return (
+    <>
+    <SiteHeader />
     <main className="min-h-screen bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <div className="mx-auto max-w-[1200px] px-5 pt-6">
-        <Navbar />
-      </div>
+      {/* Space for the sticky SiteHeader */}
+      <div className="h-[80px]" aria-hidden="true" />
 
       <article className="mx-auto max-w-[760px] px-5 py-16 md:py-24">
         <span className="text-[13px] font-medium text-[#0052FF]">
@@ -187,7 +188,8 @@ export default function BlogPostPage({ params }: Props) {
         </aside>
       </article>
 
-      <Footer />
+      <SiteFooter />
     </main>
+    </>
   );
 }

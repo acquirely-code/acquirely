@@ -1,0 +1,23 @@
+/* SiteHeader / SiteFooter: the homepage nav and footer on pages that aren't built on .ecom (about, blog).
+   Those pages are light-only, so the chrome stays light even when <html data-theme="dark"> is set and
+   ecommerce-dark.css is loaded (e.g. after client-side navigation from the homepage). */
+html .ecom.sc{
+  --bg:#F7F9FC; --card:#FFFFFF; --soft:#F4F4F5; --blue-soft:#F0F6FF; --orange-soft:#FFF4ED;
+  --ink:#0F172A; --ink-2:#09090B; --text:#475569; --muted:#71717B; --line:#E4E4E7;
+  --blue:#2B7FFF; --blue-2:#0052FF; --indigo-2:#4F46E5;
+  --dark:#0B0F19; --dark-card:#161B26; --dark-line:#262C3A;
+  --good:#16A34A;
+  --shadow:0 1px 2px rgba(15,23,42,.04),0 6px 20px rgba(15,23,42,.05);
+  color-scheme:light;
+  background:none;
+}
+html .ecom.sc .nav-in{background:rgba(255,255,255,.75);border-color:#E5E7EB;box-shadow:0 10px 30px -12px rgba(99,102,241,.18)}
+html .ecom.sc .nav-in .logo img{filter:none}
+html[data-theme=dark]:has(.ecom.sc),html[data-theme=dark]:has(.ecom.sc) body{background:#f7f9fc}
+
+/* Header: sticky and zero-height, so it floats over the page's own top band (pages leave ~80px for it). */
+.ecom.sc-head{position:sticky;top:0;z-index:60;height:0}
+.ecom.sc-head .nav{position:relative;top:auto}
+
+/* Footer: no sticky mobile CTA on these pages, so no extra bottom padding for it. */
+.ecom.sc-foot footer{padding-bottom:40px}

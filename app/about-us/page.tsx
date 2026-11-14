@@ -10,7 +10,8 @@ import AboutusHero from "@/components/Aboutushero";
 import Aboutusmiddlesection from "@/components/aboutusmiddlesection";
 import Aboutuswheel from "@/components/Aboutuswheel";
 import SystemDetailsSections from "@/components/SystemDetailsSections";
-import Footer from "@/components/Footer";
+import SiteHeader from "@/components/site-chrome/SiteHeader";
+import SiteFooter from "@/components/site-chrome/SiteFooter";
 import {
   ArrowRight,
   Facebook,
@@ -77,6 +78,8 @@ const ThinCheck = () => (
 
 export default function AboutPage() {
   return (
+    <>
+    <SiteHeader />
     <main className="overflow-hidden bg-white text-[#111827] ">
          <div className="fixed right-0 top-1/2 z-[9999] flex -translate-y-1/2 flex-col gap-[2px]">
               {/* Facebook */}
@@ -355,7 +358,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Footer />
+      <SiteFooter />
     </main>
+    </>
   );
 }

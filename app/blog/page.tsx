@@ -1,7 +1,7 @@
 // app/blog/page.tsx
 import React from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import SiteHeader from "@/components/site-chrome/SiteHeader";
+import SiteFooter from "@/components/site-chrome/SiteFooter";
 import BlogCard from "@/components/BlogCard";
 import { getAllPosts } from "@/lib/blog-posts";
 
@@ -17,10 +17,11 @@ export default function BlogPage() {
   const archived = getAllPosts().filter((p) => p.archived);
 
   return (
+    <>
+    <SiteHeader />
     <main className="min-h-screen bg-[#F8FAFC]">
-      <div className="mx-auto max-w-[1200px] px-5 pt-6">
-        <Navbar />
-      </div>
+      {/* Space for the sticky SiteHeader */}
+      <div className="h-[80px]" aria-hidden="true" />
 
       <section className="mx-auto max-w-[1024px] px-5 py-16 md:py-24">
         <div className="mb-12 text-center">
@@ -53,7 +54,8 @@ export default function BlogPage() {
         )}
       </section>
 
-      <Footer />
+      <SiteFooter />
     </main>
+    </>
   );
 }
