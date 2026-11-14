@@ -66,7 +66,9 @@ export async function sendAuditCapiEvents(context: Context) {
   const version = process.env.META_GRAPH_API_VERSION || "v23.0";
   const url = `https://graph.facebook.com/${version}/${encodeURIComponent(process.env.NEXT_PUBLIC_META_PIXEL_ID as string)}/events`;
   const body: Record<string, unknown> = { data: buildAuditCapiEvents(context), access_token: process.env.META_CAPI_ACCESS_TOKEN };
-  if (process.env.META_CAPI_TEST_EVENT_CODE) body.test_event_code = process.env.META_CAPI_TEST_EVENT_CODE;
+  // "none" counts as unset, for hosts that won't save an empty variable.
+  const testCode = process.env.META_CAPI_TEST_EVENT_CODE?.trim();
+  if (testCode && testCode.toLowerCase() !== "none") body.test_event_code = testCode;
   try {
     const response = await fetch(url, {
       method: "POST",
