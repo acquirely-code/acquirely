@@ -130,7 +130,7 @@ export default function BlogPostPage({ params }: Props) {
         <BlogContent content={post.content} />
 
         {post.authorRole && (
-          <div className="mt-14 flex items-center gap-4 rounded-[12px] border border-[var(--b-line)] bg-[var(--b-soft)] p-5">
+          <div className={`mt-14 flex gap-4 rounded-[12px] border border-[var(--b-line)] bg-[var(--b-soft)] p-5 ${post.authorBio ? "items-start" : "items-center"}`}>
             {post.authorImage && (
               <Image
                 src={post.authorImage}
@@ -154,6 +154,9 @@ export default function BlogPostPage({ params }: Props) {
                   </>
                 )}
               </p>
+              {post.authorBio && (
+                <p className="mt-2 text-[15px] leading-[23px] text-[var(--b-text)]">{post.authorBio}</p>
+              )}
             </div>
           </div>
         )}

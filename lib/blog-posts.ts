@@ -22,6 +22,7 @@ export interface BlogPost {
   date: string; // e.g. "2026-09-01"
   author: string;
   authorRole?: string;
+  authorBio?: string; // one or two sentences, shown in the author box under the role
   authorUrl?: string;
   authorImage?: string;
   archived?: boolean; // listed under "Archive" on /blog; the post URL stays live
@@ -38,6 +39,12 @@ export interface BlogPost {
   content: (string | BlogBlock)[]; // a plain string is one paragraph
 }
 
+// Author bios (same facts as the About page).
+const MAUSAM_BIO =
+  "Mausam spent 12 years building education businesses, from 300+ books to distribution across 2,000+ schools. At Acquirely he leads funnel strategy and go-to-market, turning ad spend into acquisition systems that compound.";
+const KUNAL_BIO =
+  "Kunal has managed ₹30Cr+ in ad spend across 30+ brands in ecommerce, EdTech and real estate. He leads Meta strategy at Acquirely and runs the A3 Flywheel hands-on inside client accounts.";
+
 const BOOKING_URL =
   "https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg";
 
@@ -53,6 +60,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-11-14",
     author: "Kunal Mondal",
     authorRole: "Co-founder, Acquirely",
+    authorBio: KUNAL_BIO,
     authorUrl: "https://www.linkedin.com/in/kunal-meta-ads/",
     authorImage: "/ecommerce/img/kunal-mondal.jpg",
     coverImage: "/blog/best-meta-ad-structure-after-andromeda-update.webp",
@@ -357,6 +365,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-10-27",
     author: "Mausam Arora",
     authorRole: "Co-founder, Acquirely",
+    authorBio: MAUSAM_BIO,
     authorUrl: "https://www.linkedin.com/in/mausamarora/",
     authorImage: "/ecommerce/img/mausam-arora-portrait.jpg",
     coverImage: "/blog/meta-ai-ad-tools-conversational-ads.jpg",
@@ -376,6 +385,7 @@ export const blogPosts: BlogPost[] = [
         text: "**Quick answer:** **Meta AI ad tools** are shifting advertising from static ads to conversations. You can now brief an AI business assistant inside Ads Manager, Advantage+ creative turns product images into video, and Meta Business Agent answers questions and closes sales in WhatsApp, Messenger and Instagram DMs. Your edge now comes from inputs: offers, creative concepts, catalog quality and first-party data.",
       },
       "Short on time? Scan the [status table](#status-table) below, then jump to the [5-step action plan](#action-plan).",
+      { type: "toc" },
 
       { type: "h2", text: 'What are conversational ads, and what does "static to conversational" mean?' },
       "For a decade, a Meta ad was a one-way broadcast: a fixed image or video, a headline and a button. The conversation, if it happened at all, started later on your website or with a sales rep.",

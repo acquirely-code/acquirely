@@ -63,7 +63,7 @@ function Block({ block, content }: { block: BlogBlock; content: BlogPost["conten
           <ol className="mt-3 list-decimal space-y-1.5 pl-6 text-[16px]">
             {h2s.map((h) => (
               <li key={h2Id(h)} className="pl-1">
-                <a href={`#${h2Id(h)}`} className="text-[var(--b-accent)] hover:underline">{h.text}</a>
+                <a href={`#${h2Id(h)}`} className="text-[var(--b-accent)] hover:underline">{h.text.replace(/^\d+\.\s+/, "") /* the list already numbers items */}</a>
               </li>
             ))}
           </ol>
