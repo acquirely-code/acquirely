@@ -3,15 +3,20 @@
 import { useEffect, useRef } from "react";
 import { ecomBody, ecomDisplay } from "@/lib/fonts";
 import { withImgDims } from "@/lib/img-dims";
+import { toggleTheme } from "@/app/ecommerce/theme";
 import { siteNav } from "./markup";
 import "@/app/ecommerce/ecommerce.css";
 import "@/app/(home)/(default)/home.css";
+import "@/app/ecommerce/ecommerce-dark.css";
 import "./site-chrome.css";
 
-const html = withImgDims(siteNav(false));
+const lightHtml = withImgDims(siteNav(false));
+const themedHtml = withImgDims(siteNav(false, true));
 
 // The homepage header for non-homepage routes. It takes no layout space: leave ~80px at the top of the page.
-export default function SiteHeader() {
+// themed: show the light/dark toggle and follow <html data-theme>. Pages without it keep a light header,
+// so only pass it on pages whose own content has dark styles (the blog).
+export default function SiteHeader({ themed = false }: { themed?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
 
   // Dropdowns close on outside click, Escape, or picking a link (same as the homepage).
@@ -33,9 +38,12 @@ export default function SiteHeader() {
         }
       });
     };
+    const toggle = ref.current?.querySelector(".theme-tg");
+    toggle?.addEventListener("click", toggleTheme);
     document.addEventListener("click", onDoc);
     document.addEventListener("keydown", onKey);
     return () => {
+      toggle?.removeEventListener("click", toggleTheme);
       document.removeEventListener("click", onDoc);
       document.removeEventListener("keydown", onKey);
     };
@@ -44,8 +52,8 @@ export default function SiteHeader() {
   return (
     <div
       ref={ref}
-      className={`ecom hm sc sc-head ${ecomDisplay.variable} ${ecomBody.variable}`}
-      dangerouslySetInnerHTML={{ __html: html }}
+      className={`ecom hm sc sc-head${themed ? " sc-themed" : ""} ${ecomDisplay.variable} ${ecomBody.variable}`}
+      dangerouslySetInnerHTML={{ __html: themed ? themedHtml : lightHtml }}
     />
   );
 }

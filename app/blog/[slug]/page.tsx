@@ -8,6 +8,7 @@ import SiteFooter from "@/components/site-chrome/SiteFooter";
 import BlogContent, { stripInline } from "@/components/BlogContent";
 import { getAllPosts, getPostBySlug } from "@/lib/blog-posts";
 import { SITE_URL } from "@/lib/site";
+import "../blog.css";
 
 interface Props {
   params: { slug: string };
@@ -90,14 +91,14 @@ export default function BlogPostPage({ params }: Props) {
 
   return (
     <>
-    <SiteHeader />
-    <main className="min-h-screen bg-white">
+    <SiteHeader themed />
+    <main className="blog min-h-screen bg-[var(--b-post)]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       {/* Space for the sticky SiteHeader */}
       <div className="h-[80px]" aria-hidden="true" />
 
       <article className="mx-auto max-w-[760px] px-5 py-16 md:py-24">
-        <span className="text-[13px] font-medium text-[#0052FF]">
+        <span className="text-[13px] font-medium text-[var(--b-accent)]">
           {new Date(post.date).toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
@@ -106,7 +107,7 @@ export default function BlogPostPage({ params }: Props) {
           · {post.author}
         </span>
 
-        <h1 className="font-Montserrat mt-3 text-[32px] font-bold leading-tight text-[#0F172A] md:text-[42px]">
+        <h1 className="font-Montserrat mt-3 text-[32px] font-bold leading-tight text-[var(--b-ink)] md:text-[42px]">
           {post.title}
         </h1>
 
@@ -118,9 +119,9 @@ export default function BlogPostPage({ params }: Props) {
               title={post.image.title}
               width={post.image.width}
               height={post.image.height}
-              className="h-auto w-full rounded-[12px] border border-gray-200"
+              className="h-auto w-full rounded-[12px] border border-[var(--b-line)]"
             />
-            <figcaption className="mt-3 text-[14px] leading-[20px] text-gray-500">
+            <figcaption className="mt-3 text-[14px] leading-[20px] text-[var(--b-muted)]">
               {post.image.description}
             </figcaption>
           </figure>
@@ -129,7 +130,7 @@ export default function BlogPostPage({ params }: Props) {
         <BlogContent content={post.content} />
 
         {post.authorRole && (
-          <div className="mt-14 flex items-center gap-4 rounded-[12px] border border-gray-200 bg-[#F8FAFC] p-5">
+          <div className="mt-14 flex items-center gap-4 rounded-[12px] border border-[var(--b-line)] bg-[var(--b-soft)] p-5">
             {post.authorImage && (
               <Image
                 src={post.authorImage}
@@ -140,14 +141,14 @@ export default function BlogPostPage({ params }: Props) {
               />
             )}
             <div>
-              <p className="text-[13px] font-medium uppercase tracking-wide text-gray-500">Written by</p>
-              <p className="text-[18px] font-bold text-[#0F172A]">{post.author}</p>
-              <p className="text-[15px] text-gray-600">
+              <p className="text-[13px] font-medium uppercase tracking-wide text-[var(--b-muted)]">Written by</p>
+              <p className="text-[18px] font-bold text-[var(--b-ink)]">{post.author}</p>
+              <p className="text-[15px] text-[var(--b-muted)]">
                 {post.authorRole}
                 {post.authorUrl && (
                   <>
                     {" · "}
-                    <a href={post.authorUrl} target="_blank" rel="noopener" className="font-medium text-[#0052FF] hover:underline">
+                    <a href={post.authorUrl} target="_blank" rel="noopener" className="font-medium text-[var(--b-accent)] hover:underline">
                       LinkedIn
                     </a>
                   </>
@@ -157,25 +158,25 @@ export default function BlogPostPage({ params }: Props) {
           </div>
         )}
 
-        <aside className="mt-16 border-t border-gray-200 pt-10">
-          <h2 className="font-Montserrat text-[22px] font-bold text-[#0F172A]">Keep reading</h2>
+        <aside className="mt-16 border-t border-[var(--b-line)] pt-10">
+          <h2 className="font-Montserrat text-[22px] font-bold text-[var(--b-ink)]">Keep reading</h2>
           <ul className="mt-5 space-y-3 text-[16px]">
             {getAllPosts()
               .filter((p) => p.slug !== post.slug)
               .map((p) => (
                 <li key={p.slug}>
-                  <Link href={`/blog/${p.slug}`} className="font-medium text-[#0052FF] hover:underline">
+                  <Link href={`/blog/${p.slug}`} className="font-medium text-[var(--b-accent)] hover:underline">
                     {p.title}
                   </Link>
                 </li>
               ))}
             <li>
-              <Link href="/ecommerce" className="font-medium text-[#0052FF] hover:underline">
+              <Link href="/ecommerce" className="font-medium text-[var(--b-accent)] hover:underline">
                 How we run Meta Ads for D2C and ecommerce brands
               </Link>
             </li>
             <li>
-              <Link href="/ecommerce-calculator" className="font-medium text-[#0052FF] hover:underline">
+              <Link href="/ecommerce-calculator" className="font-medium text-[var(--b-accent)] hover:underline">
                 Free ecommerce profit and break-even ROAS calculator
               </Link>
             </li>
@@ -183,7 +184,7 @@ export default function BlogPostPage({ params }: Props) {
         </aside>
       </article>
 
-      <SiteFooter />
+      <SiteFooter themed />
     </main>
     </>
   );

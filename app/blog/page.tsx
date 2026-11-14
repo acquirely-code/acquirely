@@ -4,6 +4,7 @@ import SiteHeader from "@/components/site-chrome/SiteHeader";
 import SiteFooter from "@/components/site-chrome/SiteFooter";
 import BlogCard from "@/components/BlogCard";
 import { getAllPosts } from "@/lib/blog-posts";
+import "./blog.css";
 
 export const metadata = {
   title: "Meta Ads & Ecommerce Growth Blog | Acquirely",
@@ -18,17 +19,17 @@ export default function BlogPage() {
 
   return (
     <>
-    <SiteHeader />
-    <main className="min-h-screen bg-[#F8FAFC]">
+    <SiteHeader themed />
+    <main className="blog min-h-screen bg-[var(--b-page)]">
       {/* Space for the sticky SiteHeader */}
       <div className="h-[80px]" aria-hidden="true" />
 
       <section className="mx-auto max-w-[1024px] px-5 py-16 md:py-24">
         <div className="mb-12 text-center">
-          <h1 className="font-Montserrat text-[36px] font-bold text-[#0F172A] md:text-[44px]">
+          <h1 className="font-Montserrat text-[36px] font-bold text-[var(--b-ink)] md:text-[44px]">
             Blog
           </h1>
-          <p className="mt-3 text-[16px] text-gray-600">
+          <p className="mt-3 text-[16px] text-[var(--b-muted)]">
             Playbooks and breakdowns from running paid growth for ecommerce
             and lead-gen brands.
           </p>
@@ -42,7 +43,7 @@ export default function BlogPage() {
 
         {archived.length > 0 && (
           <div className="mt-20">
-            <h2 className="font-Montserrat mb-8 border-t border-gray-200 pt-10 text-[24px] font-bold text-[#0F172A]">
+            <h2 className="font-Montserrat mb-8 border-t border-[var(--b-line)] pt-10 text-[24px] font-bold text-[var(--b-ink)]">
               Archive
             </h2>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -54,7 +55,7 @@ export default function BlogPage() {
         )}
       </section>
 
-      <SiteFooter />
+      <SiteFooter themed />
     </main>
     </>
   );

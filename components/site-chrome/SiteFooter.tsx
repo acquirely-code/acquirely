@@ -7,11 +7,11 @@ import "./site-chrome.css";
 
 const html = withImgDims(siteFooter(false));
 
-// The homepage footer for non-homepage routes.
-export default function SiteFooter() {
+// The homepage footer for non-homepage routes. themed: follow the light/dark theme (pair with <SiteHeader themed />).
+export default function SiteFooter({ themed = false }: { themed?: boolean }) {
   return (
     <div
-      className={`ecom hm sc sc-foot ${ecomDisplay.variable} ${ecomBody.variable}`}
+      className={`ecom hm sc sc-foot${themed ? " sc-themed" : ""} ${ecomDisplay.variable} ${ecomBody.variable}`}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );
