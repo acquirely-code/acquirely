@@ -36,3 +36,20 @@ If GTM also loads the Pixel or GA4 and fires its own Lead/generate_lead for this
 To check: set `META_CAPI_TEST_EVENT_CODE`, submit once per bucket, and confirm in Events Manager > Test events that each event shows as **Browser and Server, deduplicated**. Then remove the test code.
 
 Once this replaces the Zoho form, remove the Phase 1 redirect pages.
+
+## Environment variables
+
+There is deliberately no `.env.example`: hosts like Cloudflare read it and demand a value for every key. All are optional except the webhook.
+
+| Variable | Purpose | If blank |
+| --- | --- | --- |
+| `AUDIT_SHEET_WEBHOOK_URL` | Apps Script web app URL (ending `/exec`). Secret: keep it out of git. | Rows go to a local CSV; on a host the form answers "unavailable" |
+| `AUDIT_LOCAL_FILE` | Local CSV path, ignored when the webhook is set | `.data/audit-leads.csv` |
+| `NEXT_PUBLIC_AUDIT_BOOKING_URL` | Where qualified leads are sent | `https://booknow.acquirely.in/LGARC/#/LGARC` |
+| `NEXT_PUBLIC_META_PIXEL_ID` | Meta Pixel and CAPI | Meta tracking skipped |
+| `NEXT_PUBLIC_GA4_MEASUREMENT_ID` | GA4 | GA4 skipped |
+| `META_CAPI_ACCESS_TOKEN` | Events Manager > Pixel > Settings > Conversions API > Generate access token | CAPI skipped |
+| `META_CAPI_TEST_EVENT_CODE` | Events Manager > Test events, only while testing. `none` counts as blank | No test code sent |
+| `META_GRAPH_API_VERSION` | Graph API version for CAPI | `v23.0` |
+
+`NEXT_PUBLIC_*` values are baked in at build time, so redeploy after changing them.
