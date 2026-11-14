@@ -11,7 +11,8 @@ export default function BlogCard({ post }: { post: BlogPost }) {
       href={`/blog/${post.slug}`}
       className="group flex flex-col overflow-hidden rounded-[12px] border border-gray-200 bg-white shadow-[0_4px_24px_rgba(37,99,235,0.06)] transition hover:shadow-[0_8px_32px_rgba(37,99,235,0.12)]"
     >
-      <div className="relative h-[200px] w-full overflow-hidden bg-gray-100">
+      {/* Cover images are 1200×630 (1.91:1, the og:image size); matching that ratio shows them uncropped. */}
+      <div className="relative aspect-[1200/630] w-full overflow-hidden bg-gray-100">
         <Image
           src={post.coverImage}
           alt={post.title}

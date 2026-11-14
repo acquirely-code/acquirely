@@ -77,7 +77,7 @@ export function siteFooter(home: boolean) {
     </div>
     <div class="fine">
       <p>© 2026 Acquirely. All rights reserved.</p>
-      <p>This site is not part of the Meta or Facebook website and is not endorsed by Meta Platforms, Inc. Meta and Facebook are trademarks of Meta Platforms, Inc.</p>
+      ${home ? `<p>This site is not part of the Meta or Facebook website and is not endorsed by Meta Platforms, Inc. Meta and Facebook are trademarks of Meta Platforms, Inc.</p>` : ""}
     </div>
   </div>
 </footer>`;

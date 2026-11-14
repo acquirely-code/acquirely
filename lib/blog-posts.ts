@@ -4,7 +4,9 @@
 
 // Text in blocks supports **bold** and [link text](/path) inline.
 export type BlogBlock =
-  | { type: "h2"; text: string; id?: string }
+  | { type: "h2"; text: string; id?: string } // id defaults to a slug of the text
+  | { type: "h3"; text: string }
+  | { type: "toc" } // lists every h2 in the post, linked by id
   | { type: "p"; text: string }
   | { type: "callout"; text: string }
   | { type: "ul" | "ol"; items: string[] }
@@ -41,6 +43,310 @@ const BOOKING_URL =
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "best-meta-ad-structure-after-andromeda-update",
+    title: "Best Meta Ad Structure After the Andromeda Update: The A3 Flywheel (2026)",
+    metaTitle: "Best Meta Ad Structure After Andromeda Update",
+    metaDescription:
+      "Interest targeting stopped working after Andromeda. See the Meta Ads structure we now run across 20+ accounts, from creative Packs to day-of-week budgets.",
+    excerpt:
+      "The two-campaign Meta Ads structure we run across 20+ accounts after Andromeda: weekly creative Packs, a minimum spend rule and day-of-week budgets.",
+    date: "2026-11-14",
+    author: "Kunal Mondal",
+    authorRole: "Co-founder, Acquirely",
+    authorUrl: "https://www.linkedin.com/in/kunal-meta-ads/",
+    authorImage: "/ecommerce/img/kunal-mondal.jpg",
+    coverImage: "/blog/best-meta-ad-structure-after-andromeda-update.webp",
+    image: {
+      src: "/blog/best-meta-ad-structure-after-andromeda-update.webp",
+      alt: "Best Meta Ad structure after the Andromeda update: A3 Flywheel diagram",
+      title: "Best Meta Ad Structure After the Andromeda Update",
+      description:
+        "A post-Andromeda playbook to test, scale and retarget smarter with the A3 Flywheel.",
+      width: 1200,
+      height: 630,
+    },
+    content: [
+      "Read this before you restructure another Meta Ads account, because the interest-based setup that worked before Andromeda is now underperforming in most of the accounts we manage.",
+      {
+        type: "callout",
+        text: "**Quick answer:** The **best Meta Ad structure after the Andromeda update** is a simple two-campaign setup. You run one **Prospecting CBO campaign** with broad targeting that tests new creatives every week and scales the winners, plus one **Retention campaign** for past buyers. Creative testing, not interest targeting, now drives results.",
+      },
+      "In this guide, you will see the exact framework we built after testing and analysing more than 20 Meta ad accounts. We call it the A3 Flywheel.",
+      "Here is what you will get from it:",
+      {
+        type: "ul",
+        items: [
+          "A campaign structure that works with Meta's current algorithm instead of fighting it",
+          "A simple rule that makes sure every new creative actually gets spend",
+          "A weekly creative system that keeps fatigue away",
+          "A day-of-week budget method that moves money to your strongest days",
+          "A safe way to handle a winning ad when its ROAS starts to slide",
+        ],
+      },
+      "Want the structure first? Jump straight to the [A1 section](#a1) below, or see how Acquirely can [set this up in your ad account](/ecommerce).",
+      { type: "toc" },
+
+      { type: "h2", text: "What changed after Meta's Andromeda update?" },
+      "After Meta's Andromeda update, **interest-based targeting lost most of its edge**. Audience structures that delivered steady results before the update became much less effective across the majority of accounts we managed. Broad targeting paired with strong creative testing now performs better.",
+      "Before the update, interest stacks gave you consistent, predictable results. After it, the same setups started slipping, account after account.",
+      'So we stopped asking "which interests should we target?" and started asking a better question. How do you build a structure that lets Meta\'s algorithm find buyers, while you control the creative and the budget?',
+
+      { type: "h2", text: "What is the A3 Flywheel?" },
+      "The **A3 Flywheel** is a Meta Ads campaign framework built from patterns we saw across 20+ ad accounts after the Andromeda update. It replaces heavy interest targeting with three things: a clean campaign structure, a steady creative pipeline, and data-driven budget decisions.",
+      "It has three parts:",
+      {
+        type: "table",
+        head: ["Part", "What it covers", "What it solves"],
+        rows: [
+          ["A1: Foundation structure", "Prospecting CBO + Retention campaigns", "Wasted spend, audience overlap, unclear acquisition cost"],
+          ["A2: Creative framework", "Three creative production systems", "Creative fatigue and guesswork"],
+          ["A3: Micro analysis", "Day-of-week budget reallocation", "Spending the same on strong and weak days"],
+        ],
+      },
+      "Let's go through each part one by one.",
+
+      { type: "h2", id: "a1", text: "A1: The best Meta Ad structure for your campaigns" },
+      "Your account needs only two foundation campaigns:",
+      {
+        type: "ol",
+        items: [
+          "**Prospecting CBO campaign** for testing new creatives and scaling winners",
+          "**Retention campaign** for customers who have already bought from you",
+        ],
+      },
+      "We used to run a third, separate Scale campaign. We removed it, and you will see exactly why further down.",
+
+      { type: "h3", text: "Campaign 1: The Prospecting CBO campaign" },
+      "The Prospecting campaign is where you test and discover new winning creatives. It is also where those winners scale.",
+      "Every week, you launch a new batch of creatives. We call each weekly batch a **Pack**.",
+      "Each new Pack goes into a brand-new ad set with a broad audience.",
+
+      { type: "h3", text: "Why launch a new ad set every week if the audience is the same?" },
+      "You launch a new ad set for every Pack **to protect the learning of your existing winners**. Adding new creatives to an ad set that already has strong performers can change how Meta distributes budget and cut spend on ads that are already working.",
+      "A separate ad set lets you test fresh creatives on their own. Your current winners keep performing without disruption.",
+
+      { type: "h3", text: "Exclude your existing customers" },
+      "Exclude everyone who has ever bought from the brand. The Prospecting campaign has one job: **acquire net-new customers**.",
+      "You do not want Meta spending your prospecting budget on people who already bought. The Retention campaign handles them.",
+      "This split keeps Prospecting focused purely on acquisition. It also shows you the true cost of getting a new customer.",
+
+      { type: "h3", text: "The problem: new Packs don't get enough spend" },
+      "Here is the biggest challenge with this structure. When you launch a new Pack, Meta often keeps pushing most of the budget to older ad sets that already have a performance history.",
+      "Your new Pack may get very little spend. Sometimes it gets almost none.",
+      "That hurts the brand too. You invested time and money into those creatives. If they never get enough spend to produce real data, that investment is wasted.",
+
+      { type: "h3", text: "The fix: the Minimum Spend Rule" },
+      "The **Minimum Spend Rule** means you set an ad set-level minimum spend of roughly **1× your target Cost Per Result** on every new Pack, for **7 days**. For example, with a ₹1,000 target Cost Per Purchase, set about ₹1,000 per day of minimum spend for that new ad set.",
+      "Follow these steps:",
+      {
+        type: "ol",
+        items: [
+          "Launch the new Pack in a new ad set.",
+          "Set the minimum spend to about 1× your target Cost Per Result.",
+          "Keep it in place for 7 days.",
+          "Remove the minimum spend after day 7.",
+          "Let Meta decide the allocation from there.",
+        ],
+      },
+
+      { type: "h3", text: "Why 7 days?" },
+      "Seven days gives every new Pack a fair chance to get delivery, collect data and build early engagement. During this window, Meta gets enough signals to judge how the new creatives perform.",
+      "If the Pack performs well, Meta will often start spending more than the minimum on it.",
+      "Once you remove the minimum, the outcome is simple:",
+      {
+        type: "ul",
+        items: [
+          "**Strong creatives** keep getting spend without any help.",
+          "**Weak creatives** lose spend naturally as Meta stops favouring them.",
+        ],
+      },
+      "So every Pack gets a fair test, and you never force budget into creatives Meta does not find competitive.",
+
+      { type: "h3", text: "One important rule: apply minimum spend only once" },
+      "You apply the minimum spend to an ad set **only once**. After its 7-day test window ends, never apply it to that same ad set again.",
+      "From then on, the ad set has to earn its spend through performance.",
+
+      { type: "h3", text: "Campaign 2: The Retention campaign" },
+      "The Retention campaign targets only people who have already bought from the brand. Prospecting brings in new customers. Retention earns more revenue from the customers you already have.",
+      "In this campaign, you typically run:",
+      {
+        type: "ul",
+        items: [
+          "Exclusive or custom offers for existing customers",
+          "New arrival creatives",
+          "Bundle offers",
+          "Cross-sell and upsell offers",
+          "Repeat purchase messaging",
+        ],
+      },
+      "The goal is to bring past customers back and increase their lifetime value.",
+
+      { type: "h3", text: "Why we removed the separate Scale campaign" },
+      "The original A3 Flywheel had a third campaign. Winning creatives from Prospecting were moved into a dedicated **Scale campaign** to get more budget.",
+      "In update 1.1, we merged testing and scaling into one Prospecting CBO campaign. Here is how the two setups compare:",
+      {
+        type: "table",
+        head: ["", "❌ Old structure (3 campaigns)", "✅ New structure (2 campaigns)"],
+        rows: [
+          ["Campaigns", "Prospecting, Scale, Retention", "Prospecting CBO, Retention"],
+          ["Where winners scale", "Duplicated into the Scale campaign", "Inside Prospecting, by Meta's CBO"],
+          ["Audience overlap", "High: Prospecting and Scale chase the same broad users", "Low: one campaign for all new-customer spend"],
+          ["Internal auction competition", "Yes", "No"],
+          ["Account complexity", "Higher", "Lower"],
+        ],
+      },
+      "We made the change for two reasons.",
+      "**1. It reduces audience overlap.** Both campaigns were targeting largely the same broad audience, often with the same winning creatives. That makes them compete against each other for the same users in the auction.",
+      "**2. Prospecting was already scaling the winners.** When we checked our accounts, about **90% of the Prospecting budget** was already going to the strongest creatives. Meta was finding the winners on its own. Duplicating them into a Scale campaign was usually unnecessary.",
+      "The new flow is much simpler:",
+      { type: "callout", text: "**Test new creatives → Identify winners → Let Meta scale them inside the same Prospecting CBO.**" },
+
+      { type: "h2", text: "A2: The creative framework that prevents fatigue" },
+      "Your structure only works if you keep feeding it fresh creatives. The A3 Flywheel uses three creative production systems to keep new opportunities coming.",
+
+      { type: "h3", text: "1. Competitor-inspired creative research" },
+      "Every week, review the ad libraries of at least five key competitors. Look at what they are actively running.",
+      "Analyse their:",
+      { type: "ul", items: ["Creative angles", "Offers", "Concepts", "Hooks", "Formats", "Messaging patterns"] },
+      "Don't copy their ads. Spot the patterns that seem to be working in the market, then adapt them into creatives that fit your brand.",
+      "This cuts guesswork, because you build from proven market signals.",
+
+      { type: "h3", text: "2. Net-new creative concepts" },
+      "The second system creates completely original concepts. These are not based on your winners or on competitor ads.",
+      "You keep bringing in fresh ideas, new messaging, new visual directions and new customer angles.",
+      "This matters because existing concepts eventually cap your growth. Net-new creatives are how you discover entirely new winning directions.",
+
+      { type: "h3", text: "3. Winning creative iteration" },
+      "The third system builds on creatives that are already performing well.",
+      "Don't rush to replace a winner. First, work out why it works. Then make several variations around that same winning idea.",
+      "You can iterate on:",
+      { type: "ul", items: ["Hooks", "Opening scenes", "Headlines", "Offers", "Visuals", "Copy", "CTA", "Creative format"] },
+      "This extends the life of winning concepts and helps you find even stronger versions of them.",
+      "Together, the three systems create a continuous pipeline:",
+      { type: "callout", text: "**Learn from the market → Create new concepts → Iterate on proven winners.**" },
+
+      { type: "h2", text: "A3: Micro analysis and day-of-week budgeting" },
+      "Meta does not perform the same way every day of the week. So why spend the same amount every day?",
+      "When you look at a longer period of account data, clear day-of-week patterns often show up. For example:",
+      {
+        type: "table",
+        head: ["Day type", "Example ROAS", "What to do"],
+        rows: [
+          ["🟢 Best performing days", "5+", "Receive the budget moved from weak days"],
+          ["🟡 Neutral days", "Around 4", "Keep budget as is"],
+          ["🔴 Weak performing days", "Around 2.5", "Cut budget by about 50%"],
+        ],
+      },
+      "If some days consistently deliver better returns and others consistently lag, an equal daily budget is not the most efficient use of your spend.",
+
+      { type: "h3", text: "How to reallocate your budget by day" },
+      "Once you find statistically meaningful patterns, sort every day into one of three groups:",
+      {
+        type: "ul",
+        items: [
+          "**Best performing days:** consistently stronger ROAS and efficiency",
+          "**Neutral days:** close to the account average",
+          "**Weak performing days:** consistently lower ROAS than the rest of the week",
+        ],
+      },
+      "Then reduce budget on weak days by roughly 50% and move it to your historically strongest days.",
+      "The goal is not to cut your weekly budget. It is to spread the same budget more intelligently across the week.",
+
+      { type: "h3", text: "Why do you need 90 days of data?" },
+      "You need **at least 90 days of historical data** before calling any day consistently strong or weak. Daily Meta performance swings with competition, demand, seasonality, auction conditions and customer behaviour. Ninety days covers enough Mondays, Tuesdays and every other weekday to separate a real pattern from noise.",
+      "The principle is simple. Spend less when efficiency is consistently weak, and spend more when the odds of strong returns are historically higher.",
+
+      { type: "h2", text: "What to do when a winning creative's ROAS starts dropping" },
+      "This is update 1.2 to the A3 Flywheel, and it protects you from a common mistake.",
+      "Meta may give around 70% of a campaign's budget to just three or four creatives. Those creatives can perform for months. But after four or five months, one of them may keep getting the same spend, or more, while its ROAS slides from 4.5 to 3.5.",
+      "Your instinct says pause it. Don't.",
+      "Pausing it suddenly can make things worse. ROAS can drop from 3.5 to 2, because the account just lost a major source of conversions overnight.",
+
+      { type: "h3", text: "Should you pause a winning creative when its ROAS declines?" },
+      "No, you should not pause a major winning creative the moment its ROAS declines. **Reduce its share of spend gradually** instead, so other ad sets can absorb the budget. Switching it off abruptly removes a big source of conversions and can trigger a much sharper ROAS drop.",
+
+      { type: "h3", text: "Scenario 1: The ad set has one creative" },
+      {
+        type: "ol",
+        items: [
+          "Check what share of the campaign budget the creative is using.",
+          "If it uses 60%, set a maximum spend limit of about 50% on that ad set.",
+          "Lower the limit step by step over time.",
+          "Watch performance as budget moves to other ad sets.",
+        ],
+      },
+      "You reduce your reliance on one creative without suddenly losing its conversions.",
+
+      { type: "h3", text: "Scenario 2: The ad set has multiple creatives" },
+      {
+        type: "ol",
+        items: [
+          "Duplicate the individual creatives into a new ad set.",
+          "Pause the original ad set.",
+          "Apply the same gradual spend reduction to the new structure.",
+          "Monitor delivery and performance closely as spend shifts.",
+        ],
+      },
+      "Avoid abrupt changes that could disrupt results.",
+      "**Core principle:** never switch off a major winner abruptly. Reduce dependence on it gradually and let other ad sets take on more spend.",
+
+      { type: "h2", text: "The A3 Flywheel checklist" },
+      "Use this as your quick reference:",
+      {
+        type: "ul",
+        items: [
+          "Two campaigns only: Prospecting CBO and Retention",
+          "Broad audience in Prospecting, with all past buyers excluded",
+          "One new ad set for every weekly creative Pack",
+          "Minimum spend of about 1× target Cost Per Result for 7 days, applied once per ad set",
+          "Weekly creative mix: competitor research, net-new concepts, winner iterations",
+          "Day-of-week budget shifts only after 90+ days of data",
+          "Declining winners scaled down gradually, never paused abruptly",
+        ],
+      },
+
+      { type: "h2", text: "FAQ" },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "Does interest targeting still work after the Andromeda update?",
+            a: "Interest targeting works far less reliably after the Andromeda update. Across the 20+ accounts we analysed, interest-based campaigns became significantly less effective in the majority of them. Broad targeting combined with strong, frequent creative testing now delivers better and more consistent results for most brands.",
+          },
+          {
+            q: "How much minimum spend should you set for a new creative Pack?",
+            a: "Set the minimum spend for a new creative Pack at roughly 1× your target Cost Per Result, at the ad set level. If your target Cost Per Purchase is ₹1,000, set about ₹1,000 per day. Keep it for 7 days, then remove it and let Meta allocate budget naturally.",
+          },
+          {
+            q: "Should you run a separate scaling campaign on Meta Ads?",
+            a: "In most cases, you don't need a separate scaling campaign on Meta Ads. In our accounts, about 90% of the Prospecting budget already went to the top creatives. A separate Scale campaign mainly added audience overlap and internal auction competition, so we now scale winners inside one Prospecting CBO.",
+          },
+          {
+            q: "How much data do you need before changing budgets by day of week?",
+            a: "You need at least 90 days of historical data before changing budgets by day of week. Daily performance swings with competition, seasonality and auction conditions. Ninety days gives you enough of each weekday to confirm a recurring pattern instead of reacting to a temporary dip or spike.",
+          },
+          {
+            q: "Why should you exclude existing customers from prospecting?",
+            a: "You should exclude existing customers from prospecting so your budget goes only to net-new buyers. It stops Meta from spending acquisition money on people who already purchased, and it shows you your true customer acquisition cost. Past buyers are then reached through a dedicated Retention campaign instead.",
+          },
+        ],
+      },
+
+      { type: "h2", text: "Who this framework is for" },
+      "The A3 Flywheel fits you if you run Meta Ads for an e-commerce or D2C brand and:",
+      {
+        type: "ul",
+        items: [
+          "Your interest-based campaigns have declined since the Andromeda update",
+          "New creatives keep getting stuck with little or no spend",
+          "You run several campaigns that seem to compete with each other",
+          "You want predictable, repeatable acquisition instead of lucky months",
+        ],
+      },
+      `**Want this structure built into your account?** [Talk to the Acquirely team](${BOOKING_URL}) and we'll review your current setup against the A3 Flywheel.`,
+    ],
+  },
+  {
     slug: "meta-ai-ad-tools-conversational-ads",
     title: "From Static to Conversational: How Meta's New AI Tools Are Rewriting the Playbook",
     metaTitle: "Meta AI Ad Tools 2026: From Static to Conversational Ads",
@@ -69,7 +375,6 @@ export const blogPosts: BlogPost[] = [
         type: "callout",
         text: "**Quick answer:** **Meta AI ad tools** are shifting advertising from static ads to conversations. You can now brief an AI business assistant inside Ads Manager, Advantage+ creative turns product images into video, and Meta Business Agent answers questions and closes sales in WhatsApp, Messenger and Instagram DMs. Your edge now comes from inputs: offers, creative concepts, catalog quality and first-party data.",
       },
-      "In this guide, you will see what Meta announced at Advertising Week New York on October 6, 2026, which tools are live and which are still testing, and a practical playbook for [D2C and ecommerce brands](/ecommerce).",
       "Short on time? Scan the [status table](#status-table) below, then jump to the [5-step action plan](#action-plan).",
 
       { type: "h2", text: 'What are conversational ads, and what does "static to conversational" mean?' },

@@ -37,14 +37,39 @@ export function stripInline(text: string) {
   return text.replace(/\*\*([^*]+)\*\*/g, "$1").replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
 }
 
-function Block({ block }: { block: BlogBlock }) {
+const slugify = (text: string) =>
+  text.toLowerCase().replace(/['"]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const h2Id = (block: { text: string; id?: string }) => block.id ?? slugify(block.text);
+
+function Block({ block, content }: { block: BlogBlock; content: BlogPost["content"] }) {
   switch (block.type) {
     case "h2":
       return (
-        <h2 id={block.id} className="font-Montserrat !mt-12 scroll-mt-6 text-[24px] font-bold leading-snug text-[#0F172A] md:text-[28px]">
+        <h2 id={h2Id(block)} className="font-Montserrat !mt-12 scroll-mt-24 text-[24px] font-bold leading-snug text-[#0F172A] md:text-[28px]">
           {block.text}
         </h2>
       );
+    case "h3":
+      return (
+        <h3 className="font-Montserrat !mt-8 text-[19px] font-bold leading-snug text-[#0F172A] md:text-[21px]">
+          {block.text}
+        </h3>
+      );
+    case "toc": {
+      const h2s = content.flatMap((b) => (typeof b !== "string" && b.type === "h2" ? [b] : []));
+      return (
+        <nav aria-label="Table of contents" className="rounded-[12px] border border-gray-200 bg-[#F8FAFC] p-5">
+          <p className="font-Montserrat text-[15px] font-bold uppercase tracking-wide text-[#0F172A]">Table of contents</p>
+          <ol className="mt-3 list-decimal space-y-1.5 pl-6 text-[16px]">
+            {h2s.map((h) => (
+              <li key={h2Id(h)} className="pl-1">
+                <a href={`#${h2Id(h)}`} className="text-[#0052FF] hover:underline">{h.text}</a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      );
+    }
     case "p":
       return <p><Inline text={block.text} /></p>;
     case "callout":
@@ -116,7 +141,7 @@ export default function BlogContent({ content }: { content: BlogPost["content"] 
   return (
     <div className="mt-8 space-y-6 text-[17px] leading-[28px] text-gray-700">
       {content.map((item, i) =>
-        typeof item === "string" ? <p key={i}><Inline text={item} /></p> : <Block key={i} block={item} />
+        typeof item === "string" ? <p key={i}><Inline text={item} /></p> : <Block key={i} block={item} content={content} />
       )}
     </div>
   );

@@ -291,7 +291,7 @@ export default function EdTechLanding() {
 
       <section className={styles.applySection} id="book"><div className={`${styles.wrap} ${styles.applyPanel}`}><span className={styles.eyebrow}>Let&apos;s talk</span><h2>Get in front of the people who sign off.</h2><p>A short call to see how you reach schools today and how to get decision-makers booking meetings with you.</p><a className={styles.primaryButton} href={bookingUrl}>Book an Appointment <ArrowRight aria-hidden="true" /></a><div className={styles.chips}><span>✓ No lock-in</span><span>✓ Qualified-meeting floor guarantee</span><span>✓ Full transparency</span></div></div></section>
 
-      <footer className={styles.footer}><div className={`${styles.wrap} ${styles.footerInner}`}><a href="mailto:team@acquirely.in">team@acquirely.in</a></div><p className={`${styles.wrap} ${styles.disclaimer}`}>This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, this site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.</p></footer>
+      <footer className={styles.footer}><div className={`${styles.wrap} ${styles.footerInner}`}><a href="mailto:team@acquirely.in">team@acquirely.in</a></div><p className={`${styles.wrap} ${styles.disclaimer}`}>This site is not part of the Meta or Facebook website and is not endorsed by Meta Platforms, Inc. Meta and Facebook are trademarks of Meta Platforms, Inc.</p></footer>
     </main>
   );
 }

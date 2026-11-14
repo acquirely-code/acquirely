@@ -994,10 +994,6 @@ export default function DoneForYouLandingPage() {
               <Link href="/privacy-policy" className="hover:text-white">Privacy policy</Link>
               <Link href="/terms-and-condition" className="hover:text-white">Terms</Link>
             </nav>
-              <div className="flex text-center mt-4 items-center justify-center gap-6 order-1 md:order-2 md:text-[16px] text-[12px] text-white/90">
-            This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, This site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.
-          
-            </div>
             </div>
           </div>
         </div>
