@@ -69,9 +69,6 @@ export default function Navbar() {
               )}
             </div>
           
-            <Link href="/case-studies" className="text-[20px] text-[#0F172A] transition hover:text-[#0052FF]">
-              Case Studies
-            </Link>
             <Link href="/blog" className="text-[20px] text-[#0F172A] transition hover:text-[#0052FF]">
               Blog
             </Link>
@@ -138,13 +135,6 @@ export default function Navbar() {
               )}
             </div>
 
-            <Link 
-              href="/case-studies" 
-              className="text-lg font-medium text-[#0F172A] transition hover:text-[#0052FF]"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Case Studies
-            </Link>
             <Link 
               href="/about-us" 
               className="text-lg font-medium text-[#0F172A] transition hover:text-[#0052FF]"

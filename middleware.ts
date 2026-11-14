@@ -4,6 +4,15 @@ import { createClient } from '@/utils/supabase/middleware'
 export async function middleware(request: NextRequest) {
   // Old mixed-case URLs still used in ads, forms and shared links. Exact match, since Next's redirects() ignores case.
   const legacyPaths: Record<string, string> = { '/EdTech': '/edtech', '/EdTech-thank-you': '/edtech-thank-you' }
+  // Pages removed for good: answer 410 Gone so Google drops them faster than with a 404.
+  const gonePaths = new Set(['/case-studies', '/case-studies/'])
+  if (gonePaths.has(request.nextUrl.pathname)) {
+    return new NextResponse('410 Gone: this page has been permanently removed.', {
+      status: 410,
+      headers: { 'Content-Type': 'text/plain; charset=utf-8', 'X-Robots-Tag': 'noindex' },
+    })
+  }
+
   const newPath = legacyPaths[request.nextUrl.pathname]
   if (newPath) {
     const url = request.nextUrl.clone()

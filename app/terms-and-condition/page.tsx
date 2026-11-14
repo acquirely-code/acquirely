@@ -1,18 +1,21 @@
 
 
 import React from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import SiteHeader from "@/components/site-chrome/SiteHeader";
+import SiteFooter from "@/components/site-chrome/SiteFooter";
 import { Shield, Mail, Calendar, FileText } from "lucide-react";
 
 export const metadata = {
   title: "Terms of Service | Acquirely",
   description: "Review Acquirely's Terms of Service for performance marketing services, client responsibilities, and liability limitations.",
   alternates: { canonical: "/terms-and-condition" },
+  robots: { index: false, follow: true },
 };
 
 export default function page() {
   return (
+    <>
+    <SiteHeader />
     <main className="overflow-hidden bg-white text-[#0F172A]">
       {/* Premium Background Layers (Matching Homepage) */}
       <div className="fixed right-[-5%] top-[-10%] z-0 h-[300px] w-[300px] rounded-full bg-blue-600/10 blur-[60px] md:h-[600px] md:w-[600px]" />
@@ -20,10 +23,8 @@ export default function page() {
 
       <div className="relative z-10 mx-auto flex min-h-screen flex-col max-w-[1440px] px-4 sm:px-5 md:px-10 lg:px-[80px]">
         
-        {/* Navbar Integration */}
-        <div className="pt-8 md:pt-[46px]">
-          <Navbar />
-        </div>
+        {/* Space for the sticky SiteHeader */}
+        <div className="h-[80px]" aria-hidden="true" />
 
         {/* Page Content Wrapper */}
        <div className="mx-auto mt-10 max-w-4xl pt-10 space-y-10 rounded-2xl border border-[#E2E8F0] bg-white/80 p-6 shadow-sm backdrop-blur-sm sm:p-8 md:p-12 lg:p-14">
@@ -108,11 +109,10 @@ export default function page() {
       
     </div>
 
-        {/* Footer Integration */}
-    
       </div>
-          <Footer />
     </main>
+    <SiteFooter />
+    </>
   );
 }
 

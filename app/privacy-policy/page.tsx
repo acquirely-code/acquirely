@@ -1,18 +1,21 @@
 
 
 import React from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import SiteHeader from "@/components/site-chrome/SiteHeader";
+import SiteFooter from "@/components/site-chrome/SiteFooter";
 import { Shield, Mail, Calendar, FileText } from "lucide-react";
 
 export const metadata = {
   title: "Privacy Policy | Acquirely",
   description: "How Acquirely collects, uses and protects information from clients and their customers, including ad platform access and third-party tools.",
   alternates: { canonical: "/privacy-policy" },
+  robots: { index: false, follow: true },
 };
 
 export default function PrivacyAndTermsPage() {
   return (
+    <>
+    <SiteHeader />
     <main className="overflow-hidden bg-white text-[#0F172A]">
       {/* Premium Background Layers (Matching Homepage) */}
       <div className="fixed right-[-5%] top-[-10%] z-0 h-[300px] w-[300px] rounded-full bg-blue-600/10 blur-[60px] md:h-[600px] md:w-[600px]" />
@@ -20,10 +23,8 @@ export default function PrivacyAndTermsPage() {
 
       <div className="relative z-10 mx-auto flex min-h-screen flex-col max-w-[1440px] px-4 sm:px-5 md:px-10 lg:px-[80px]">
         
-        {/* Navbar Integration */}
-        <div className="pt-8 md:pt-[46px]">
-          <Navbar />
-        </div>
+        {/* Space for the sticky SiteHeader */}
+        <div className="h-[80px]" aria-hidden="true" />
 
         {/* Page Content Wrapper */}
         <div className="flex-grow py-12 md:py-20 lg:py-24">
@@ -132,10 +133,9 @@ export default function PrivacyAndTermsPage() {
           </div>
         </div>
 
-        {/* Footer Integration */}
-    
       </div>
-          <Footer />
     </main>
+    <SiteFooter />
+    </>
   );
 }

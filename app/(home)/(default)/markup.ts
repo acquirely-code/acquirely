@@ -187,7 +187,7 @@ ${siteNav(true)}
     </div>
     <div class="center-cta">
       <a class="btn" href="${BOOK}" ${ext}>Get the Same Diagnosis ${ARROW}</a>
-      <small>More results: <a href="/ecommerce#results">D2C &amp; ecommerce</a> · <a href="/lead-gen#results">Lead generation</a> · <a href="/case-studies">All case studies</a></small>
+      <small>More results: <a href="/ecommerce#results">D2C &amp; ecommerce</a> · <a href="/lead-gen#results">Lead generation</a></small>
     </div>
   </div>
 </section>

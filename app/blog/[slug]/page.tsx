@@ -170,11 +170,6 @@ export default function BlogPostPage({ params }: Props) {
                 </li>
               ))}
             <li>
-              <Link href="/case-studies" className="font-medium text-[#0052FF] hover:underline">
-                Meta Ads case studies: real ROAS and revenue results
-              </Link>
-            </li>
-            <li>
               <Link href="/ecommerce" className="font-medium text-[#0052FF] hover:underline">
                 How we run Meta Ads for D2C and ecommerce brands
               </Link>

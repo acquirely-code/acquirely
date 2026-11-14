@@ -990,7 +990,6 @@ export default function DoneForYouLandingPage() {
             </div>
             <div className="md:mt-4 mt-2 border-t border-white/20 pt-8 flex flex-col gap-6"></div>
             <nav aria-label="Footer" className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-white/80 md:text-sm">
-              <Link href="/case-studies" className="hover:text-white">Case studies</Link>
               <Link href="/about-us" className="hover:text-white">About us</Link>
               <Link href="/privacy-policy" className="hover:text-white">Privacy policy</Link>
               <Link href="/terms-and-condition" className="hover:text-white">Terms</Link>
