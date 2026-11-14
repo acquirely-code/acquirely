@@ -9,6 +9,7 @@ export async function middleware(request: NextRequest) {
     '/case-studies',
     '/blog/meta-ads-vs-google-ads-for-ecommerce',
     '/blog/how-we-scaled-modish-7x',
+    '/terms-and-condition',
   ])
   if (gonePaths.has(request.nextUrl.pathname.replace(/\/+$/, ''))) {
     return new NextResponse('410 Gone: this page has been permanently removed.', {

@@ -992,7 +992,6 @@ export default function DoneForYouLandingPage() {
             <nav aria-label="Footer" className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-white/80 md:text-sm">
               <Link href="/about-us" className="hover:text-white">About us</Link>
               <Link href="/privacy-policy" className="hover:text-white">Privacy policy</Link>
-              <Link href="/terms-and-condition" className="hover:text-white">Terms</Link>
             </nav>
             </div>
           </div>

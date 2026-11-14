@@ -63,9 +63,6 @@ export default function Footer() {
         <div className="lg:ml-8">
           <p className="font-Montserrat text-[16px] font-bold text-white">Legal</p>
           <div className="mt-6 flex flex-col space-y-4 text-[14px] text-[#8B92A5]">
-            <Link href="/terms-and-condition" className="transition hover:text-white">
-              Terms & Conditions
-            </Link>
             <Link href="/privacy-policy" className="transition hover:text-white">
               Privacy Policy
             </Link>
