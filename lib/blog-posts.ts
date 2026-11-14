@@ -179,7 +179,7 @@ export const blogPosts: BlogPost[] = [
 
       { type: "h2", text: "Where AI still needs a human" },
       "Meta's AI can execute faster than any media buyer. It cannot decide your positioning, invent a better offer or tell you the truth about incrementality, because Meta still grades its own homework.",
-      "The winning setup for 2026 is AI for execution and humans for strategy, creative direction and independent measurement. As we covered in our [Meta Ads vs Google Ads guide](/blog/meta-ads-vs-google-ads-for-ecommerce), channel choice still depends on your order value and catalog, not on which platform has the shinier AI.",
+      "The winning setup for 2026 is AI for execution and humans for strategy, creative direction and independent measurement. Channel choice still depends on your order value and catalog, not on which platform has the shinier AI.",
 
       { type: "h2", text: "Frequently asked questions" },
       {
@@ -222,47 +222,8 @@ export const blogPosts: BlogPost[] = [
 
       { type: "h2", text: "Conclusion: start with inputs, not settings" },
       "Meta's AI ad tools are moving the work from the buttons to the brief. Static ads and manual targeting are giving way to AI-built campaigns, auto-generated video and agents that sell inside the chat.",
-      "Brands that win this shift will feed the machine better: sharper offers, more creative concepts, cleaner data and a conversation strategy that converts. See how that approach played out in [how we scaled Modish 7x in ad spend](/blog/how-we-scaled-modish-7x).",
+      "Brands that win this shift will feed the machine better: sharper offers, more creative concepts, cleaner data and a conversation strategy that converts. See how we [run Meta Ads for D2C and ecommerce brands](/ecommerce).",
       `Want to know which of these tools your account should switch on first? [Book a free growth call with Acquirely](${BOOKING_URL}) and we will audit your Meta funnel.`,
-    ],
-  },
-  {
-    slug: "how-we-scaled-modish-7x",
-    title: "How We Scaled Modish 7x in Ad Spend While Tripling ROAS",
-    excerpt:
-      "A breakdown of the A3 Flywheel system we used to take Modish from below-breakeven to a 3.41 ROAS in 90 days.",
-    date: "2026-09-01",
-    author: "Acquirely Team",
-    archived: true,
-    coverImage: "/blog/modish-plan-backups.png",
-    image: {
-      src: "/blog/modish-plan-backups.png",
-      alt: "Generated plan backups dialog showing the files backup and four database backups completed",
-      title: "Modish store backups completed before scaling ad spend",
-      description:
-        "Full files backup and four database backups of the Modish store, all completed 5/5, taken before we scaled their Meta Ads spend 7x.",
-      width: 943,
-      height: 949,
-    },
-    content: [
-      "When Modish came to us, their ad spend was capped by an unpredictable ROAS...",
-      "We rebuilt their funnel around the A3 Flywheel, focusing first on creative testing velocity...",
-      "Within 90 days, daily spend went from ₹2K to ₹15K while ROAS climbed from 1.43 to 3.41.",
-    ],
-  },
-  {
-    slug: "meta-ads-vs-google-ads-for-ecommerce",
-    title: "Meta Ads vs Google Ads: Where Ecommerce Brands Should Start",
-    excerpt:
-      "Both channels work — but the right starting point depends on your average order value and catalog size.",
-    date: "2026-08-20",
-    author: "Acquirely Team",
-    archived: true,
-    coverImage: "/gallery/blog-placeholder.jpg",
-    content: [
-      "The 'which platform first' question comes up in almost every discovery call we run...",
-      "Meta tends to win for discovery and impulse-driven categories...",
-      "Google Ads (especially Shopping) tends to win when there's existing search intent...",
     ],
   },
 ];
