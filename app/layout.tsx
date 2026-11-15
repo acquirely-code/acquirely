@@ -23,6 +23,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
+        {/* Google AdSense. A plain tag, not next/script: AdSense warns about the data-nscript attribute that next/script adds. */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9481631653052680"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className="min-h-screen bg-[#f7f9fc] text-slate-950 antialiased">
         <Script src="/zf-lead-tracking.js" strategy="beforeInteractive" />
