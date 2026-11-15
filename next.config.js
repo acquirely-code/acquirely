@@ -57,6 +57,7 @@ const nextConfig = {
         destination: 'https://acquirely.in/:path*',
         permanent: true,
       },
+      { source: '/ecommerce/img/kunal-mondal.jpg', destination: '/ecommerce/img/kunal-mandal.jpg', permanent: true },
       { source: '/dropshipping-calculator', destination: '/ecommerce-calculator', permanent: true },
       {
         source: '/dropshipping-calculator/assets/og-dropshipping-calculator.png',

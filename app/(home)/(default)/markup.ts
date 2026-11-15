@@ -459,9 +459,9 @@ ${siteNav(true)}
         </div>
       </div>
       <div class="card person">
-        <div class="avatar"><img src="${IMG}/kunal-mondal.jpg" alt="Kunal Mondal" loading="lazy"></div>
+        <div class="avatar"><img src="${IMG}/kunal-mandal.jpg" alt="Kunal Mandal" loading="lazy"></div>
         <div>
-          <h3>Kunal Mondal</h3>
+          <h3>Kunal Mandal</h3>
           <p class="role">Co-founder · Meta strategy</p>
           <p>₹30Cr+ managed across 30+ brands in ecommerce, EdTech and real estate. A hands-on Meta strategist who runs full-funnel systems across Meta and Google.</p>
           <a href="https://www.linkedin.com/in/kunal-meta-ads/" ${ext}>${LINKEDIN}LinkedIn</a>

@@ -6,7 +6,7 @@ import { useState, type ReactNode } from "react";
 import Link from "next/link";
 import { Check, CheckCircle2, Quote,  XCircle } from "lucide-react";
 import flywheelImage from "@/app/assests/flywheelmodel.png";
-import kunalImage from "@/app/assests/kunalmondal.png";
+import kunalImage from "@/app/assests/kunalmandal.png";
 import mausamImage from "@/app/assests/mausamarora.png";
 import { Target, BarChart3, ClipboardEdit, IndianRupee } from "lucide-react";
 import { ShieldCheck, TrendingUp, UserCheck, Zap } from "lucide-react";
@@ -183,7 +183,7 @@ const founders = [
     ],
   },
   {
-    name: "Kunal Mondal",
+    name: "Kunal Mandal",
     role: "Founder, Acquirely",
     tag: "Performance Marketing Lead",
     image: kunalImage,

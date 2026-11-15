@@ -472,9 +472,9 @@ const markup = `
         </div>
       </div>
       <div class="card person">
-        <div class="avatar"><img src="/ecommerce/img/kunal-mondal.jpg" alt="Kunal Mondal" loading="lazy"></div>
+        <div class="avatar"><img src="/ecommerce/img/kunal-mandal.jpg" alt="Kunal Mandal" loading="lazy"></div>
         <div>
-          <h3>Kunal Mondal</h3>
+          <h3>Kunal Mandal</h3>
           <p class="role">Co-founder · Meta strategy</p>
           <p>₹30Cr+ managed across 30+ brands in ecommerce, EdTech and real estate. A hands-on Meta strategist who runs full-funnel systems across Meta and Google.</p>
           <a href="https://www.linkedin.com/in/kunal-meta-ads/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="#0A66C2"><path d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4 0-3.2-1.95-3.2S12.8 13.5 12.8 15.1V21H9z"/></svg>LinkedIn</a>

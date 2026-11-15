@@ -1,5 +1,5 @@
 import Link from "next/link";
-import kunalmandal from "@/app/assests/kunalmondal.png";
+import kunalmandal from "@/app/assests/kunalmandal.png";
 import mausamarora from "@/app/assests/mausamarora.png";
 import Image, { StaticImageData } from "next/image";
 import {Clock3, Instagram, ShieldCheck, Target, TrendingUp } from "lucide-react";
@@ -50,7 +50,7 @@ const founders = [
     ],
   },
   {
-    name: "Kunal Mondal",
+    name: "Kunal Mandal",
     role: "Founder, Acquirely",
     title: "PERFORMANCE MARKETING SPECIALIST",
     mainimage: kunalmandal,
@@ -77,7 +77,7 @@ const schoolVendorsFounders = [
     bullets: [],
   },
   {
-    name: "Kunal Mondal",
+    name: "Kunal Mandal",
     role: "Founder · Performance",
     title: "PERFORMANCE",
     mainimage: kunalmandal,

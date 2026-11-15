@@ -58,11 +58,11 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "The two-campaign Meta Ads structure we run across 20+ accounts after Andromeda: weekly creative Packs, a minimum spend rule and day-of-week budgets.",
     date: "2026-11-14",
-    author: "Kunal Mondal",
+    author: "Kunal Mandal",
     authorRole: "Co-founder, Acquirely",
     authorBio: KUNAL_BIO,
     authorUrl: "https://www.linkedin.com/in/kunal-meta-ads/",
-    authorImage: "/ecommerce/img/kunal-mondal.jpg",
+    authorImage: "/ecommerce/img/kunal-mandal.jpg",
     coverImage: "/blog/best-meta-ad-structure-after-andromeda-update.webp",
     image: {
       src: "/blog/best-meta-ad-structure-after-andromeda-update.webp",

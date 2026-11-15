@@ -62,7 +62,7 @@ const schema = {
         { "@type": "Country", name: "United States" },
       ],
       knowsAbout: ["Performance marketing", "Meta Ads", "Google Ads", "D2C ecommerce growth", "Lead generation", "Creative testing", "Conversion rate optimization"],
-      founder: [{ "@id": `${PAGE}#mausam-arora` }, { "@id": `${PAGE}#kunal-mondal` }],
+      founder: [{ "@id": `${PAGE}#mausam-arora` }, { "@id": `${PAGE}#kunal-mandal` }],
       contactPoint: { "@type": "ContactPoint", contactType: "sales", email: "team@acquirely.in", telephone: "+91-7060250253", areaServed: ["IN", "CA", "US"] },
       sameAs: [
         "https://www.linkedin.com/company/acquirelydm/",
@@ -83,11 +83,11 @@ const schema = {
     },
     {
       "@type": "Person",
-      "@id": `${PAGE}#kunal-mondal`,
-      name: "Kunal Mondal",
+      "@id": `${PAGE}#kunal-mandal`,
+      name: "Kunal Mandal",
       jobTitle: "Co-founder, Meta Strategy",
       worksFor: { "@id": ORG },
-      image: `${SITE_URL}/ecommerce/img/kunal-mondal.jpg`,
+      image: `${SITE_URL}/ecommerce/img/kunal-mandal.jpg`,
       knowsAbout: ["Meta Ads", "Google Ads", "Full-funnel acquisition", "ROAS scaling"],
       sameAs: ["https://www.linkedin.com/in/kunal-meta-ads/"],
     },

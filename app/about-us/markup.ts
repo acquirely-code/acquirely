@@ -8,11 +8,11 @@ const LINKEDIN = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentC
 export const faqs: { q: string; a: string }[] = [
   {
     q: "What is Acquirely?",
-    a: "<b>Acquirely is a full-funnel growth team</b> based in New Delhi, India. Founded in 2025 by Mausam Arora and Kunal Mondal, it scales D2C ecommerce and lead-generation brands with <b>Meta Ads and Google Ads</b>, using a weekly system called the A3 Flywheel. Clients are in India, Canada and the USA.",
+    a: "<b>Acquirely is a full-funnel growth team</b> based in New Delhi, India. Founded in 2025 by Mausam Arora and Kunal Mandal, it scales D2C ecommerce and lead-generation brands with <b>Meta Ads and Google Ads</b>, using a weekly system called the A3 Flywheel. Clients are in India, Canada and the USA.",
   },
   {
     q: "Who founded Acquirely?",
-    a: "<b>Acquirely was founded by Mausam Arora</b>, who leads funnels and go-to-market, <b>and Kunal Mondal</b>, who leads Meta strategy. Mausam spent 12 years building education businesses. Kunal has managed ₹30Cr+ in ad spend across 30+ brands. Both stay hands-on in client accounts.",
+    a: "<b>Acquirely was founded by Mausam Arora</b>, who leads funnels and go-to-market, <b>and Kunal Mandal</b>, who leads Meta strategy. Mausam spent 12 years building education businesses. Kunal has managed ₹30Cr+ in ad spend across 30+ brands. Both stay hands-on in client accounts.",
   },
   {
     q: "What is the A3 Flywheel?",
@@ -37,7 +37,7 @@ const markup = `
       <span class="eyebrow">About Acquirely</span>
       <h1 id="page-title">We build <span class="grad">growth systems</span>, not just ad campaigns</h1>
       <p class="because">Read this before you hire your next agency, because knowing who will actually run your budget tells you more than any sales deck.</p>
-      <p class="lede"><b>Acquirely is a full-funnel growth team in New Delhi, India.</b> Founded in 2025 by Mausam Arora and Kunal Mondal, we scale D2C ecommerce and lead-gen brands on <b>Meta Ads and Google Ads</b> with the A3 Flywheel, a weekly system that makes every month build on the last.</p>
+      <p class="lede"><b>Acquirely is a full-funnel growth team in New Delhi, India.</b> Founded in 2025 by Mausam Arora and Kunal Mandal, we scale D2C ecommerce and lead-gen brands on <b>Meta Ads and Google Ads</b> with the A3 Flywheel, a weekly system that makes every month build on the last.</p>
       <ul class="quick" aria-label="What we do">
         <li><a href="/ecommerce"><span class="dot"></span>D2C &amp; ecommerce growth</a></li>
         <li><a href="/lead-gen"><span class="dot"></span>Lead generation ads</a></li>
@@ -284,10 +284,10 @@ const markup = `
             <a class="li-link" href="https://www.linkedin.com/in/mausamarora/" target="_blank" rel="noopener">${LINKEDIN}Mausam on LinkedIn</a>
           </div>
         </article>
-        <article class="card person" id="kunal-mondal">
-          <div class="avatar"><img src="${IMG}/kunal-mondal.jpg" width="256" height="256" alt="Kunal Mondal, co-founder of Acquirely" loading="lazy"></div>
+        <article class="card person" id="kunal-mandal">
+          <div class="avatar"><img src="${IMG}/kunal-mandal.jpg" width="256" height="256" alt="Kunal Mandal, co-founder of Acquirely" loading="lazy"></div>
           <div>
-            <h3>Kunal Mondal</h3>
+            <h3>Kunal Mandal</h3>
             <p class="role">Co-founder · Meta strategy</p>
             <p>Kunal has managed ₹30Cr+ in ad spend across 30+ brands in ecommerce, EdTech and real estate. He builds acquisition systems that drive predictable revenue, not just traffic.</p>
             <p>His hands-on approach keeps the A3 Flywheel running without friction.</p>
