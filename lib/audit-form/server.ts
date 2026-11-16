@@ -43,9 +43,11 @@ export type StorageProblem = "webhook_not_set" | "webhook_invalid";
 
 export function auditStorageProblem(): StorageProblem | null {
   const url = webhookUrl();
-  if (url) return /^https:\/\/script\.google\.com\/\S+$/.test(url) ? null : "webhook_invalid";
-  // Without the webhook, leads go to a local CSV, which serverless hosting can't keep.
-  return process.env.VERCEL ? "webhook_not_set" : null;
+  // Must be the web app URL (…/macros/s/<id>/exec). A library or sheet link answers with a sign-in page.
+  if (url) return /^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(url) ? null : "webhook_invalid";
+  // Without the webhook, leads go to a local CSV, which only works in local dev: serverless hosts (Vercel,
+  // Cloudflare Workers) can't write files, so any production build needs the webhook.
+  return process.env.VERCEL || process.env.NODE_ENV === "production" ? "webhook_not_set" : null;
 }
 
 // Excel treats a cell starting with = + - @ as a formula. Prefixing ' keeps it as text. A plain "+91 98765..."
