@@ -2,13 +2,13 @@ import { createHash } from "node:crypto";
 import { LEAD_VALUE_INR, type AuditFields, type AuditOutcome } from "./rules";
 
 // Server-side copies of the browser Pixel events, sent through Meta's Conversions API. Both use the same event_id
-// ("lead_<id>", "ql_<id>"), so Meta keeps one of each pair. Skipped unless the Pixel ID and CAPI token are set.
+// ("ic_<id>", "lead_<id>", "ql_<id>"), so Meta keeps one of each pair. Skipped unless the Pixel ID and CAPI token are set.
 
 const CAPI_TIMEOUT_MS = 4000;
 
 const sha256 = (value: string) => createHash("sha256").update(value).digest("hex");
 
-export const auditEventIds = (leadId: string) => ({ lead: `lead_${leadId}`, qualified: `ql_${leadId}` });
+export const auditEventIds = (leadId: string) => ({ checkout: `ic_${leadId}`, lead: `lead_${leadId}`, qualified: `ql_${leadId}` });
 
 export function metaCapiConfigured() {
   return !!(process.env.NEXT_PUBLIC_META_PIXEL_ID && process.env.META_CAPI_ACCESS_TOKEN);
@@ -52,6 +52,8 @@ export function buildAuditCapiEvents({ leadId, outcome, lead, landingPageUrl, ip
   const ids = auditEventIds(leadId);
   const base = { event_time: Math.floor(Date.now() / 1000), action_source: "website", event_source_url: landingPageUrl || undefined, user_data };
   const events: Record<string, unknown>[] = [
+    // Every submitted application, whatever the bucket.
+    { ...base, event_name: "InitiateCheckout", event_id: ids.checkout, custom_data: { value: LEAD_VALUE_INR[outcome], currency: "INR", lead_bucket: outcome } },
     { ...base, event_name: "Lead", event_id: ids.lead, custom_data: { value: LEAD_VALUE_INR[outcome], currency: "INR", lead_bucket: outcome } },
   ];
   if (outcome === "qualified") {

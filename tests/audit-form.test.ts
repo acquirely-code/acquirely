@@ -172,11 +172,11 @@ describe("Google Sheet webhook (Apps Script)", () => {
 describe("Meta Conversions API events", () => {
   const sha = (v: string) => require("node:crypto").createHash("sha256").update(v).digest("hex");
 
-  it("builds Lead (+ QualifiedLead) with matching event IDs, values and hashed user data", async () => {
+  it("builds InitiateCheckout + Lead (+ QualifiedLead) with matching event IDs, values and hashed user data", async () => {
     const { buildAuditCapiEvents } = await import("@/lib/audit-form/meta-capi");
     const lead = validateAudit({ ...{ name: "Asha Rao", email: "Asha@Example.com ", countryCode: "+91", phone: "098765 43210", website: "example.com" }, revenue: "₹2Cr+", adSpend: "₹5L+", problem: "Not enough leads", budget: "Yes, that works" }).data!;
     const events = buildAuditCapiEvents({ leadId: "abc", outcome: "qualified", lead, landingPageUrl: "https://acquirely.in/lead-gen?fbclid=XYZ", ip: "1.2.3.4", userAgent: "UA", cookieHeader: "_fbp=fb.1.1.2; other=1" });
-    expect(events.map((e) => [e.event_name, e.event_id, (e.custom_data as any).value])).toEqual([["Lead", "lead_abc", 1000], ["QualifiedLead", "ql_abc", 1000]]);
+    expect(events.map((e) => [e.event_name, e.event_id, (e.custom_data as any).value])).toEqual([["InitiateCheckout", "ic_abc", 1000], ["Lead", "lead_abc", 1000], ["QualifiedLead", "ql_abc", 1000]]);
     const user = events[0]!.user_data as Record<string, any>;
     expect(user.em).toEqual([sha("asha@example.com")]);
     expect(user.ph).toEqual([sha("919876543210")]);
@@ -190,8 +190,8 @@ describe("Meta Conversions API events", () => {
     const { buildAuditCapiEvents } = await import("@/lib/audit-form/meta-capi");
     const lead = validateAudit(leadInput()).data!;
     const ctx = { leadId: "x", lead, landingPageUrl: "", ip: "unknown", userAgent: "", cookieHeader: null };
-    expect(buildAuditCapiEvents({ ...ctx, outcome: "nurture" }).map((e) => (e.custom_data as any).value)).toEqual([200]);
-    expect(buildAuditCapiEvents({ ...ctx, outcome: "rejected" }).map((e) => (e.custom_data as any).value)).toEqual([0]);
+    expect(buildAuditCapiEvents({ ...ctx, outcome: "nurture" }).map((e) => (e.custom_data as any).value)).toEqual([200, 200]);
+    expect(buildAuditCapiEvents({ ...ctx, outcome: "rejected" }).map((e) => (e.custom_data as any).value)).toEqual([0, 0]);
   });
 
   it("the route sends them after saving, and a CAPI failure doesn't fail the lead", async () => {
@@ -209,7 +209,7 @@ describe("Meta Conversions API events", () => {
       expect(res).toMatchObject({ status: 200, data: { ok: true, outcome: "qualified" } });
       expect(calls).toHaveLength(1);
       expect(calls[0]!.url).toContain("graph.facebook.com/v23.0/123/events");
-      expect(calls[0]!.body.data.map((e: any) => e.event_id)).toEqual([`lead_${res.data.leadId}`, `ql_${res.data.leadId}`]);
+      expect(calls[0]!.body.data.map((e: any) => e.event_id)).toEqual([`ic_${res.data.leadId}`, `lead_${res.data.leadId}`, `ql_${res.data.leadId}`]);
     } finally {
       globalThis.fetch = realFetch;
       for (const k of ["AUDIT_LOCAL_FILE", "LEAD_STORAGE", "NEXT_PUBLIC_META_PIXEL_ID", "META_CAPI_ACCESS_TOKEN"]) delete process.env[k];
