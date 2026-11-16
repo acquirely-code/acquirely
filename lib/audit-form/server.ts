@@ -68,8 +68,14 @@ export async function saveAuditLead(lead: AuditRecord) {
       redirect: "follow",
       signal: AbortSignal.timeout(WEBHOOK_TIMEOUT_MS),
     });
-    const result = (await response.json().catch(() => null)) as { ok?: boolean } | null;
-    if (!response.ok || !result?.ok) throw new Error(`Sheet webhook did not confirm the save (HTTP ${response.status})`);
+    const text = await response.text().catch(() => "");
+    let result: { ok?: boolean } | null = null;
+    try { result = JSON.parse(text); } catch { /* not JSON: e.g. a Google sign-in or error page */ }
+    if (!response.ok || !result?.ok) {
+      const type = response.headers.get("content-type") || "?";
+      const snippet = text.replace(/\s+/g, " ").slice(0, 80);
+      throw new Error(`Sheet webhook did not confirm the save (HTTP ${response.status}, ${type}, redirected=${response.redirected}): ${snippet}`);
+    }
     return;
   }
 

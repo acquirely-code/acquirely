@@ -117,9 +117,9 @@ export default function AuditFormModal({ open, onClose, fontClass = "" }: { open
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, company_fax: honeypot, landingPageUrl: window.location.href, utm: readUtm() }),
       });
-      const result = (await response.json().catch(() => ({}))) as { ok?: boolean; leadId?: string; outcome?: AuditOutcome; error?: string; reason?: string; fieldErrors?: AuditFieldErrors };
+      const result = (await response.json().catch(() => ({}))) as { ok?: boolean; leadId?: string; outcome?: AuditOutcome; error?: string; reason?: string; detail?: string; fieldErrors?: AuditFieldErrors };
       // The setup problem, for whoever opens the console. Visitors only see the friendly message.
-      if (result.reason) console.warn(`[audit-form] ${result.error}: ${result.reason}`);
+      if (result.reason) console.warn(`[audit-form] ${result.error}: ${result.reason}${result.detail ? ` (${result.detail})` : ""}`);
       // Couldn't save, but qualified: still send them to book (Zoho Bookings records them) and still fire the browser
       // events, so a storage problem never hides qualified leads from Meta/GA4. The server sent no CAPI events for this
       // lead, so a fresh ID can't create duplicates.

@@ -51,8 +51,11 @@ export async function POST(request: Request) {
   try {
     await saveAuditLead(record);
   } catch (error) {
-    console.error("[audit-form] Save failed:", error instanceof Error ? error.message : "unknown error");
-    return json({ ok: false, error: "save_failed", reason: "sheet_rejected", outcome }, 502);
+    const message = error instanceof Error ? `${error.name}: ${error.message}` : "unknown error";
+    console.error("[audit-form] Save failed:", message);
+    // A short, URL-free diagnostic so a hosting problem can be read from the browser console without server logs.
+    const detail = message.replace(/https?:\/\/\S+/g, "[url]").slice(0, 240);
+    return json({ ok: false, error: "save_failed", reason: "sheet_rejected", detail, outcome }, 502);
   }
 
   // Only after a successful save. The browser fires the same events with the same event IDs once this returns.
