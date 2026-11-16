@@ -27,7 +27,7 @@ The script writes the header row itself on the first submission. If you change t
 
 Fired only after the server has saved the lead, never on button click.
 
-- **Meta Pixel (browser):** `Lead` with `{value, currency: "INR"}` and eventID `lead_<id>`; for qualified also `QualifiedLead` (custom) with value 1000 and eventID `ql_<id>`.
+- **Meta Pixel (browser):** `Lead` with `{value, currency: "INR"}` and eventID `lead_<id>`; for qualified also `InitiateCheckout` with value 1000 and eventID `ic_<id>`.
 - **Meta Conversions API (server):** the same events with the same `event_id`, so Meta de-duplicates each pair. Includes SHA-256 hashed email, phone (with country code), first/last name and lead ID, plus IP, user agent, `_fbp` and `_fbc` (or one built from `fbclid`). Needs `NEXT_PUBLIC_META_PIXEL_ID` and `META_CAPI_ACCESS_TOKEN`. A CAPI failure is logged and never fails the lead.
 - **GA4:** `generate_lead` with value, currency and `lead_bucket`; for qualified also `qualify_lead`. Mark `generate_lead` / `qualify_lead` as key events in GA4. Needs `NEXT_PUBLIC_GA4_MEASUREMENT_ID`.
 

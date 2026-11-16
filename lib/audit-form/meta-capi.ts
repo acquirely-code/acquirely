@@ -6,13 +6,13 @@ import { META_PIXEL_ID } from "@/lib/meta-pixel";
 const pixelId = () => process.env.NEXT_PUBLIC_META_PIXEL_ID || META_PIXEL_ID;
 
 // Server-side copies of the browser Pixel events, sent through Meta's Conversions API. Both use the same event_id
-// ("ic_<id>", "lead_<id>", "ql_<id>"), so Meta keeps one of each pair. Skipped unless the CAPI token is set.
+// ("lead_<id>", "ic_<id>"), so Meta keeps one of each pair. Skipped unless the CAPI token is set.
 
 const CAPI_TIMEOUT_MS = 4000;
 
 const sha256 = (value: string) => createHash("sha256").update(value).digest("hex");
 
-export const auditEventIds = (leadId: string) => ({ checkout: `ic_${leadId}`, lead: `lead_${leadId}`, qualified: `ql_${leadId}` });
+export const auditEventIds = (leadId: string) => ({ checkout: `ic_${leadId}`, lead: `lead_${leadId}` });
 
 export function metaCapiConfigured() {
   return !!process.env.META_CAPI_ACCESS_TOKEN;
@@ -59,10 +59,9 @@ export function buildAuditCapiEvents({ leadId, outcome, lead, landingPageUrl, ip
     // Every submitted application, whatever the bucket.
     { ...base, event_name: "Lead", event_id: ids.lead, custom_data: { value: LEAD_VALUE_INR[outcome], currency: "INR", lead_bucket: outcome } },
   ];
-  // Qualified only: InitiateCheckout and QualifiedLead. Nurture and rejected leads get neither.
+  // Qualified only: InitiateCheckout. Nurture and rejected leads get just Lead.
   if (outcome === "qualified") {
     events.push({ ...base, event_name: "InitiateCheckout", event_id: ids.checkout, custom_data: { value: LEAD_VALUE_INR.qualified, currency: "INR", lead_bucket: outcome } });
-    events.push({ ...base, event_name: "QualifiedLead", event_id: ids.qualified, custom_data: { value: LEAD_VALUE_INR.qualified, currency: "INR" } });
   }
   return events;
 }
