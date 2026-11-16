@@ -48,20 +48,17 @@ function ensureFbq(id: string) {
   loadScript("https://connect.facebook.net/en_US/fbevents.js");
 }
 
-// Meta: Lead for every bucket (valued by bucket), plus InitiateCheckout for qualified only. The event IDs match the
-// server's Conversions API events (lib/audit-form/meta-capi.ts), so Meta de-duplicates each pair.
+// Meta: InitiateCheckout for qualified only, with the same event ID as the server's Conversions API event
+// (lib/audit-form/meta-capi.ts) so Meta de-duplicates the pair. Lead is NOT sent here: it fires on
+// /lead-gen-thank-you once the visitor has actually booked (trackBookedLead).
 // GA4: generate_lead for every bucket, plus qualify_lead for qualified only.
 export function trackAuditLead(leadId: string, bucket: "qualified" | "nurture" | "rejected", value: number, qualifiedValue: number) {
   if (typeof window === "undefined") return;
   const ga4Id = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID;
-  const pixelId = META_PIXEL_ID;
 
-  if (pixelId) {
-    ensureFbq(pixelId);
-    window.fbq?.("track", "Lead", { value, currency: "INR", lead_bucket: bucket }, { eventID: `lead_${leadId}` });
-    if (bucket === "qualified") {
-      window.fbq?.("track", "InitiateCheckout", { value: qualifiedValue, currency: "INR", lead_bucket: bucket }, { eventID: `ic_${leadId}` });
-    }
+  if (bucket === "qualified") {
+    ensureFbq(META_PIXEL_ID);
+    window.fbq?.("track", "InitiateCheckout", { value: qualifiedValue, currency: "INR", lead_bucket: bucket }, { eventID: `ic_${leadId}` });
   }
   if (ga4Id) {
     ensureGtag(ga4Id);
@@ -70,4 +67,17 @@ export function trackAuditLead(leadId: string, bucket: "qualified" | "nurture" |
       window.gtag?.("event", "qualify_lead", { send_to: ga4Id, value: qualifiedValue, currency: "INR", form_id: "lead_gen_audit" });
     }
   }
+}
+
+// Meta Lead, fired on /lead-gen-thank-you: Zoho Bookings redirects there after a call is booked, so a Lead means a
+// booked call, not just a filled form. Once per browser session, so a refresh or back-navigation doesn't count twice.
+const BOOKED_KEY = "acq_lead_booked";
+export function trackBookedLead(value: number) {
+  if (typeof window === "undefined") return;
+  try {
+    if (sessionStorage.getItem(BOOKED_KEY)) return;
+    sessionStorage.setItem(BOOKED_KEY, "1");
+  } catch { /* storage blocked: still fire once for this page view */ }
+  ensureFbq(META_PIXEL_ID);
+  window.fbq?.("track", "Lead", { value, currency: "INR", lead_bucket: "booked" }, { eventID: `lead_booked_${Date.now()}` });
 }

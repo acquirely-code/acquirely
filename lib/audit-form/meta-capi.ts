@@ -5,14 +5,14 @@ import { META_PIXEL_ID } from "@/lib/meta-pixel";
 // Read at call time so a runtime env override applies; falls back to the site pixel.
 const pixelId = () => process.env.NEXT_PUBLIC_META_PIXEL_ID || META_PIXEL_ID;
 
-// Server-side copies of the browser Pixel events, sent through Meta's Conversions API. Both use the same event_id
-// ("lead_<id>", "ic_<id>"), so Meta keeps one of each pair. Skipped unless the CAPI token is set.
+// Server-side copy of the browser InitiateCheckout, sent through Meta's Conversions API. Both use the same event_id
+// ("ic_<id>"), so Meta keeps one of the pair. Skipped unless the CAPI token is set.
 
 const CAPI_TIMEOUT_MS = 4000;
 
 const sha256 = (value: string) => createHash("sha256").update(value).digest("hex");
 
-export const auditEventIds = (leadId: string) => ({ checkout: `ic_${leadId}`, lead: `lead_${leadId}` });
+export const auditEventIds = (leadId: string) => ({ checkout: `ic_${leadId}` });
 
 export function metaCapiConfigured() {
   return !!process.env.META_CAPI_ACCESS_TOKEN;
@@ -55,15 +55,10 @@ export function buildAuditCapiEvents({ leadId, outcome, lead, landingPageUrl, ip
   };
   const ids = auditEventIds(leadId);
   const base = { event_time: Math.floor(Date.now() / 1000), action_source: "website", event_source_url: landingPageUrl || undefined, user_data };
-  const events: Record<string, unknown>[] = [
-    // Every submitted application, whatever the bucket.
-    { ...base, event_name: "Lead", event_id: ids.lead, custom_data: { value: LEAD_VALUE_INR[outcome], currency: "INR", lead_bucket: outcome } },
-  ];
-  // Qualified only: InitiateCheckout. Nurture and rejected leads get just Lead.
-  if (outcome === "qualified") {
-    events.push({ ...base, event_name: "InitiateCheckout", event_id: ids.checkout, custom_data: { value: LEAD_VALUE_INR.qualified, currency: "INR", lead_bucket: outcome } });
-  }
-  return events;
+  // Qualified only: InitiateCheckout. Nurture and rejected send nothing. Lead isn't sent at submit time: it fires in
+  // the browser on /lead-gen-thank-you once the call is booked.
+  if (outcome !== "qualified") return [];
+  return [{ ...base, event_name: "InitiateCheckout", event_id: ids.checkout, custom_data: { value: LEAD_VALUE_INR.qualified, currency: "INR", lead_bucket: outcome } }];
 }
 
 // Never throws: a tracking failure must not fail a lead that is already saved.
@@ -71,7 +66,9 @@ export async function sendAuditCapiEvents(context: Context) {
   if (!metaCapiConfigured()) return;
   const version = process.env.META_GRAPH_API_VERSION || "v23.0";
   const url = `https://graph.facebook.com/${version}/${encodeURIComponent(pixelId())}/events`;
-  const body: Record<string, unknown> = { data: buildAuditCapiEvents(context), access_token: process.env.META_CAPI_ACCESS_TOKEN };
+  const data = buildAuditCapiEvents(context);
+  if (!data.length) return; // nurture/rejected: nothing to send
+  const body: Record<string, unknown> = { data, access_token: process.env.META_CAPI_ACCESS_TOKEN };
   // "none" counts as unset, for hosts that won't save an empty variable.
   const testCode = process.env.META_CAPI_TEST_EVENT_CODE?.trim();
   if (testCode && testCode.toLowerCase() !== "none") body.test_event_code = testCode;

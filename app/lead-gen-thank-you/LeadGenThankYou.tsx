@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 import { ecomBody as openSans, ecomDisplay as montserrat } from "@/lib/fonts";
 import markup from "./markup";
 import useLandingScripts from "../ecommerce/useLandingScripts";
+import { trackBookedLead } from "@/lib/audit-form/tracking";
+import { LEAD_VALUE_INR } from "@/lib/audit-form/rules";
 import "../ecommerce/ecommerce.css";
 import "../ecommerce-thank-you/thank-you.css";
 import "../ecommerce/ecommerce-dark.css";
@@ -11,6 +13,9 @@ import "../ecommerce/ecommerce-dark.css";
 export default function LeadGenThankYou() {
   const rootRef = useRef<HTMLDivElement>(null);
   useLandingScripts(rootRef);
+
+  // Zoho Bookings lands here after a call is booked: that's the Meta Lead.
+  useEffect(() => trackBookedLead(LEAD_VALUE_INR.qualified), []);
 
   // Greet by first name when the form redirect passes ?name= (or ?tve_name=).
   useEffect(() => {
