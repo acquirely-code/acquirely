@@ -6,8 +6,7 @@ import Script from "next/script";
 import { GoogleTagManager } from '@next/third-parties/google';
 import { SITE_URL } from "@/lib/site";
 import { THEME_INIT } from "./ecommerce/theme";
-
-const META_PIXEL_ID = "1087526939518742";
+import { META_PIXEL_ID } from "@/lib/meta-pixel";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

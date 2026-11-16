@@ -1,8 +1,12 @@
 import { createHash } from "node:crypto";
 import { LEAD_VALUE_INR, type AuditFields, type AuditOutcome } from "./rules";
+import { META_PIXEL_ID } from "@/lib/meta-pixel";
+
+// Read at call time so a runtime env override applies; falls back to the site pixel.
+const pixelId = () => process.env.NEXT_PUBLIC_META_PIXEL_ID || META_PIXEL_ID;
 
 // Server-side copies of the browser Pixel events, sent through Meta's Conversions API. Both use the same event_id
-// ("ic_<id>", "lead_<id>", "ql_<id>"), so Meta keeps one of each pair. Skipped unless the Pixel ID and CAPI token are set.
+// ("ic_<id>", "lead_<id>", "ql_<id>"), so Meta keeps one of each pair. Skipped unless the CAPI token is set.
 
 const CAPI_TIMEOUT_MS = 4000;
 
@@ -11,7 +15,7 @@ const sha256 = (value: string) => createHash("sha256").update(value).digest("hex
 export const auditEventIds = (leadId: string) => ({ checkout: `ic_${leadId}`, lead: `lead_${leadId}`, qualified: `ql_${leadId}` });
 
 export function metaCapiConfigured() {
-  return !!(process.env.NEXT_PUBLIC_META_PIXEL_ID && process.env.META_CAPI_ACCESS_TOKEN);
+  return !!process.env.META_CAPI_ACCESS_TOKEN;
 }
 
 function cookie(header: string | null, name: string) {
@@ -67,7 +71,7 @@ export function buildAuditCapiEvents({ leadId, outcome, lead, landingPageUrl, ip
 export async function sendAuditCapiEvents(context: Context) {
   if (!metaCapiConfigured()) return;
   const version = process.env.META_GRAPH_API_VERSION || "v23.0";
-  const url = `https://graph.facebook.com/${version}/${encodeURIComponent(process.env.NEXT_PUBLIC_META_PIXEL_ID as string)}/events`;
+  const url = `https://graph.facebook.com/${version}/${encodeURIComponent(pixelId())}/events`;
   const body: Record<string, unknown> = { data: buildAuditCapiEvents(context), access_token: process.env.META_CAPI_ACCESS_TOKEN };
   // "none" counts as unset, for hosts that won't save an empty variable.
   const testCode = process.env.META_CAPI_TEST_EVENT_CODE?.trim();

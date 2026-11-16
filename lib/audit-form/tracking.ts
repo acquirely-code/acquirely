@@ -1,4 +1,5 @@
 // Browser conversion events for the /lead-gen audit application. Call only after the server has saved the lead.
+import { META_PIXEL_ID } from "@/lib/meta-pixel";
 
 type Tracker = (...args: unknown[]) => void;
 
@@ -53,7 +54,7 @@ function ensureFbq(id: string) {
 export function trackAuditLead(leadId: string, bucket: "qualified" | "nurture" | "rejected", value: number, qualifiedValue: number) {
   if (typeof window === "undefined") return;
   const ga4Id = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID;
-  const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+  const pixelId = META_PIXEL_ID;
 
   if (pixelId) {
     ensureFbq(pixelId);
