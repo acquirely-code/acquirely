@@ -57,8 +57,8 @@ function ensureFbq(id: string) {
 }
 
 // Meta: InitiateCheckout for qualified only, with the same event ID as the server's Conversions API event
-// (lib/audit-form/meta-capi.ts) so Meta de-duplicates the pair. Lead is NOT sent here: it fires on
-// /lead-gen-thank-you once the visitor has actually booked (trackBookedLead).
+// (lib/audit-form/meta-capi.ts) so Meta de-duplicates the pair. Lead is NOT sent from code: a Meta Event setup
+// tool rule fires it on /lead-gen-thank-you, where Zoho Bookings lands after a call is booked.
 // GA4: generate_lead for every bucket, plus qualify_lead for qualified only.
 export function trackAuditLead(leadId: string, bucket: "qualified" | "nurture" | "rejected", value: number, qualifiedValue: number) {
   if (typeof window === "undefined") return;
@@ -75,17 +75,4 @@ export function trackAuditLead(leadId: string, bucket: "qualified" | "nurture" |
       window.gtag?.("event", "qualify_lead", { send_to: ga4Id, value: qualifiedValue, currency: "INR", form_id: "lead_gen_audit" });
     }
   }
-}
-
-// Meta Lead, fired on /lead-gen-thank-you: Zoho Bookings redirects there after a call is booked, so a Lead means a
-// booked call, not just a filled form. Once per browser session, so a refresh or back-navigation doesn't count twice.
-const BOOKED_KEY = "acq_lead_booked";
-export function trackBookedLead(value: number) {
-  if (typeof window === "undefined") return;
-  try {
-    if (sessionStorage.getItem(BOOKED_KEY)) return;
-    sessionStorage.setItem(BOOKED_KEY, "1");
-  } catch { /* storage blocked: still fire once for this page view */ }
-  ensureFbq(META_PIXEL_ID);
-  window.fbq?.("track", "Lead", { value, currency: "INR", lead_bucket: "booked" }, { eventID: `lead_booked_${Date.now()}` });
 }
