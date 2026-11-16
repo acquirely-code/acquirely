@@ -32,8 +32,16 @@ function ensureGtag(id: string) {
   loadScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`);
 }
 
+// The root layout always defines fbq (to switch off autoConfig) but leaves init to GTM, which doesn't run the pixel
+// tag on every page. So init here once regardless: Meta ignores a repeat init of the same pixel ID.
+let fbqInitialised = false;
 function ensureFbq(id: string) {
-  if (window.fbq) return;
+  if (window.fbq) {
+    if (!fbqInitialised) window.fbq("init", id);
+    fbqInitialised = true;
+    return;
+  }
+  fbqInitialised = true;
   const fbq: NonNullable<Window["fbq"]> = (...args: unknown[]) => {
     if (fbq.callMethod) fbq.callMethod(...args);
     else fbq.queue?.push(args);
