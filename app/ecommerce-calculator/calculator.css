@@ -21,7 +21,7 @@
   --section-y: clamp(2.75rem, 1.9rem + 4vw, 5rem);
   --card-pad: clamp(1rem, .8rem + 1vw, 1.5rem);
   --radius: 16px;
-  --header-h: 4rem;
+  --header-h: 5.25rem;                                /* floating nav card + its top offset */
   --focus: var(--primary);
 }
 
@@ -31,8 +31,10 @@ html:has(.ecalc) { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scrol
 @media (prefers-reduced-motion: no-preference) { html:has(.ecalc) { scroll-behavior: smooth; } }
 .ecalc {
   font-family: var(--sans); font-size: 1rem; line-height: 1.55; color: var(--ink);
-  background: var(--bg); -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
+/* Page background and horizontal clipping belong on body: overflow on a wrapper div would break the sticky header. */
+html:has(.ecalc) body { background: var(--bg); overflow-x: hidden; }
 .ecalc a { color: var(--primary); text-underline-offset: 2px; }
 .ecalc ul, .ecalc ol { padding-left: 1.2rem; }
 .ecalc h1, .ecalc h2, .ecalc h3 { font-family: var(--sans); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; color: var(--heading); overflow-wrap: break-word; text-wrap: balance; }
@@ -81,13 +83,19 @@ html:has(.ecalc) { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scrol
 .ecalc .btn-sm { min-height: 44px; padding: .55rem 1rem; font-size: .92rem; }
 
 
-.ecalc .site-header { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, .92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); padding-top: env(safe-area-inset-top); }
-.ecalc .nav-in { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: var(--header-h); }
-.ecalc .brand { display: inline-flex; align-items: center; padding-block: .6rem; }
-.ecalc .brand img { display: block; height: 30px; width: auto; }
-.ecalc .site-nav ul { display: flex; gap: .25rem; list-style: none; padding: 0; }
-.ecalc .site-nav a { display: inline-flex; align-items: center; min-height: 44px; padding-inline: .75rem; color: var(--muted); font-weight: 700; font-size: .92rem; text-decoration: none; border-radius: 8px; }
-.ecalc .site-nav a:hover { color: var(--heading); }
+/* Header: floating card, same as the ROI calculator and acquirely.in */
+.ecalc .site-header { position: sticky; top: 14px; z-index: 50; margin-top: 14px; padding-inline: max(var(--gutter), env(safe-area-inset-left)) max(var(--gutter), env(safe-area-inset-right)); }
+.ecalc .nav-in {
+  max-width: 1140px; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  background: rgba(255, 255, 255, .75); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border: 1px solid #E5E7EB; border-radius: 12px; padding: .5rem .6rem .5rem 1.1rem;
+  box-shadow: 0 10px 30px -12px rgba(99, 102, 241, .18);
+}
+.ecalc .brand { display: inline-flex; align-items: center; }
+.ecalc .brand img { display: block; height: 34px; width: auto; }
+.ecalc .site-nav ul { display: flex; gap: .4rem; list-style: none; padding: 0; }
+.ecalc .site-nav a { display: inline-flex; align-items: center; min-height: 44px; padding-inline: .7rem; color: var(--ink); font-weight: 500; font-size: .94rem; text-decoration: none; border-radius: 8px; }
+@media (hover: hover) { .ecalc .site-nav a:hover { color: var(--primary); background: var(--bg-tint); } }
 @media (max-width: 559px) { .ecalc .site-nav .opt { display: none; } }
 
 
@@ -96,7 +104,9 @@ html:has(.ecalc) { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scrol
     radial-gradient(640px 400px at 92% -10%, rgba(37, 99, 235, .12), transparent 70%),
     radial-gradient(640px 400px at -5% 110%, rgba(168, 85, 247, .12), transparent 70%),
     linear-gradient(180deg, #F8FBFF, #F3F8FF);
-  color: var(--ink); border-bottom: 1px solid var(--line); padding-block: clamp(2.25rem, 1.4rem + 3.5vw, 4.25rem);
+  color: var(--ink); border-bottom: 1px solid var(--line);
+  /* Runs up behind the floating header so the gradient shows around it. */
+  margin-top: calc(-1 * var(--header-h)); padding-block: calc(var(--header-h) + clamp(2.25rem, 1.4rem + 3.5vw, 4.25rem)) clamp(2.25rem, 1.4rem + 3.5vw, 4.25rem);
 }
 .ecalc .hero h1 { color: var(--heading); font-size: clamp(2rem, 1.2rem + 3.6vw, 3.6rem); line-height: 1.06; margin-block: .8rem; max-width: 18ch; }
 

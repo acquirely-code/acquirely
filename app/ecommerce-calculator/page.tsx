@@ -33,7 +33,7 @@ export default function Page() {
       <a className="skip-link" href="#calculator">Skip to calculator</a>
 
       <header className="site-header">
-        <div className="wrap nav-in">
+        <div className="nav-in">
           <a className="brand" href={`${SITE_URL}/`}><Logo /></a>
           <nav className="site-nav" aria-label="On this page">
             <ul>
