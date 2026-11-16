@@ -5,7 +5,7 @@ import "@/app/ecommerce/ecommerce.css";
 import "@/app/(home)/(default)/home.css";
 import "./site-chrome.css";
 
-const html = withImgDims(siteFooter(false));
+const html = withImgDims(siteFooter());
 
 // The homepage footer for non-homepage routes. themed: follow the light/dark theme (pair with <SiteHeader themed />).
 export default function SiteFooter({ themed = false }: { themed?: boolean }) {

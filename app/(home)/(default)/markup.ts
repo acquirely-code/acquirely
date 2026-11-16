@@ -544,7 +544,7 @@ ${siteNav(true)}
   </div>
 </section>
 
-${siteFooter(true)}
+${siteFooter()}
 
 <div class="mcta"><a class="btn" href="${BOOK}" ${ext}>Book a Growth Diagnosis Call</a></div>
 `;

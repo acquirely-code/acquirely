@@ -62,19 +62,18 @@ export function siteNav(home: boolean, toggle = home) {
 </div>`;
 }
 
-export function siteFooter(home: boolean) {
-  const s = home ? "#" : "/#";
+export function siteFooter() {
   return `
 <footer>
   <div class="wrap">
     <div class="foot">
       <div>
         <div class="brand"><img src="${IMG}/28-acquirely-the-science-behind-scale.png" alt="Acquirely — The Science Behind Scale" loading="lazy" style="height:52px;width:auto"></div>
-        <p style="margin-top:10px;max-width:32ch">A full-funnel growth team for D2C and lead-gen brands. Measured on revenue.</p>
+        <p style="margin-top:10px;max-width:32ch">Your full-funnel growth team for D2C and lead-gen brands. Judged on revenue.</p>
       </div>
-      <div><p class="fh">Services</p><ul><li><a href="/ecommerce">D2C &amp; ecommerce growth</a></li><li><a href="/lead-gen">Lead generation</a></li><li><a href="/publishers">Education publishers</a></li><li><a href="/edtech">EdTech for schools</a></li><li><a href="${s}services">Website &amp; CRO</a></li></ul></div>
-      <div><p class="fh">More from Acquirely</p><ul><li><a href="/about-us">About us</a></li><li><a href="/blog">Blog</a></li><li><a href="/ecommerce-calculator">Ecommerce profit calculator</a></li><li><a href="/roi-calculator">ROI calculator</a></li></ul></div>
-      <div><p class="fh">Contact</p><ul><li><a href="mailto:team@acquirely.in">team@acquirely.in</a></li><li><a href="tel:+917060250253">+91 70602 50253</a></li><li>New Delhi, India</li><li><a href="/privacy-policy">Privacy policy</a></li></ul></div>
+      <div><p class="fh">Services</p><ul><li><a href="/ecommerce">D2C &amp; ecommerce growth</a></li><li><a href="/lead-gen">Lead generation</a></li></ul></div>
+      <div><p class="fh">Pages</p><ul><li><a href="/about-us">About us</a></li><li><a href="/privacy-policy">Privacy policy</a></li></ul></div>
+      <div><p class="fh">Contact</p><ul><li><a href="mailto:team@acquirely.in">team@acquirely.in</a></li><li><a href="tel:+917060250253">+91 70602 50253</a></li><li>New Delhi, India</li></ul></div>
     </div>
     <div class="fine">
       <p>© 2026 Acquirely. All rights reserved.</p>
