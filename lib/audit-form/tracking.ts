@@ -47,7 +47,7 @@ function ensureFbq(id: string) {
   loadScript("https://connect.facebook.net/en_US/fbevents.js");
 }
 
-// Meta: InitiateCheckout and Lead for every bucket (valued by bucket), plus QualifiedLead for qualified only. The event IDs match the
+// Meta: Lead for every bucket (valued by bucket), plus InitiateCheckout and QualifiedLead for qualified only. The event IDs match the
 // server's Conversions API events (lib/audit-form/meta-capi.ts), so Meta de-duplicates each pair.
 // GA4: generate_lead for every bucket, plus qualify_lead for qualified only.
 export function trackAuditLead(leadId: string, bucket: "qualified" | "nurture" | "rejected", value: number, qualifiedValue: number) {
@@ -57,9 +57,9 @@ export function trackAuditLead(leadId: string, bucket: "qualified" | "nurture" |
 
   if (pixelId) {
     ensureFbq(pixelId);
-    window.fbq?.("track", "InitiateCheckout", { value, currency: "INR", lead_bucket: bucket }, { eventID: `ic_${leadId}` });
     window.fbq?.("track", "Lead", { value, currency: "INR", lead_bucket: bucket }, { eventID: `lead_${leadId}` });
     if (bucket === "qualified") {
+      window.fbq?.("track", "InitiateCheckout", { value: qualifiedValue, currency: "INR", lead_bucket: bucket }, { eventID: `ic_${leadId}` });
       window.fbq?.("trackCustom", "QualifiedLead", { value: qualifiedValue, currency: "INR" }, { eventID: `ql_${leadId}` });
     }
   }

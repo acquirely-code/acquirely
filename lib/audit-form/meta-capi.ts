@@ -53,10 +53,11 @@ export function buildAuditCapiEvents({ leadId, outcome, lead, landingPageUrl, ip
   const base = { event_time: Math.floor(Date.now() / 1000), action_source: "website", event_source_url: landingPageUrl || undefined, user_data };
   const events: Record<string, unknown>[] = [
     // Every submitted application, whatever the bucket.
-    { ...base, event_name: "InitiateCheckout", event_id: ids.checkout, custom_data: { value: LEAD_VALUE_INR[outcome], currency: "INR", lead_bucket: outcome } },
     { ...base, event_name: "Lead", event_id: ids.lead, custom_data: { value: LEAD_VALUE_INR[outcome], currency: "INR", lead_bucket: outcome } },
   ];
+  // Qualified only: InitiateCheckout and QualifiedLead. Nurture and rejected leads get neither.
   if (outcome === "qualified") {
+    events.push({ ...base, event_name: "InitiateCheckout", event_id: ids.checkout, custom_data: { value: LEAD_VALUE_INR.qualified, currency: "INR", lead_bucket: outcome } });
     events.push({ ...base, event_name: "QualifiedLead", event_id: ids.qualified, custom_data: { value: LEAD_VALUE_INR.qualified, currency: "INR" } });
   }
   return events;
