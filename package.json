@@ -1,4 +1,5 @@
 {
+  "name": "acquirely",
   "private": true,
   "scripts": {
     "dev": "next dev",
