@@ -12,7 +12,7 @@ export const CONTACT_EMAIL = "team@acquirely.in";
 export const AUDIT_HREF = `mailto:${CONTACT_EMAIL}?subject=Profitability%20audit`;
 
 export const SITE_NAME = "Acquirely Ecommerce Profit Calculator";
-export const OG_IMAGE_URL = `${PAGE_URL}/assets/og-ecommerce-calculator.png`;
+export const OG_IMAGE_URL = `${PAGE_URL}/assets/og-ecommerce-calculator.png?v=2`; // bump ?v= when the image changes so social previews refetch it
 
 /**
  * Bump whenever the guide copy or calculator model changes. Drives the visible
