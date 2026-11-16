@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useState, type ReactNode } from "react";
 import Link from "next/link";
+import AuditFormModal from "@/components/audit-form/AuditFormModal";
 import { Check, CheckCircle2, Quote,  XCircle } from "lucide-react";
 import flywheelImage from "@/app/assests/flywheelmodel.png";
 import kunalImage from "@/app/assests/kunalmandal.png";
@@ -477,8 +478,11 @@ function FaqAccordion() {
 }
 
 export default function DoneForYouLandingPage() {
+  // Both CTAs open the inbuilt audit application form.
+  const [auditOpen, setAuditOpen] = useState(false);
   return (
     <main className="bg-white text-[#1F2937]">
+      <AuditFormModal open={auditOpen} onClose={() => setAuditOpen(false)} />
 <section className="bg-[linear-gradient(115.83deg,#0F0C29_0%,#1A1560_40%,#24243E_100%)]">
   <div className="mx-auto max-w-[1440px] px-4 pb-10 pt-7 sm:px-8 sm:pb-12 lg:px-20 lg:pb-16">
     <Link href="/">
@@ -514,14 +518,13 @@ export default function DoneForYouLandingPage() {
           Same ad spend. Better lead quality. Higher ROI. Powered by our A3 Flywheel for Lead Gen.
         </p>
         
-        <Link href="https://forms.zohopublic.in/acquirely/form/LeadGenLeadQualityAuditApplication/formperma/tarjzTcaGroYp223otiICGImBsKYklsyS8iy06CI8LM">
           <button
             type="button"
+            onClick={() => setAuditOpen(true)}
             className="mt-7 inline-flex rounded-xl bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-5 py-3.5 text-center text-sm font-bold text-white shadow-[0_20px_25px_-5px_rgba(43,127,255,0.25),0_8px_10px_-6px_rgba(43,127,255,0.25)] sm:mt-8 sm:px-8 sm:py-4 sm:text-base lg:text-lg"
           >
         <span className="rotate-90 "><Pointer/></span><span className="pl-2">Get Leads Your Sales Team Will Love</span>
           </button>
-        </Link>
         
         <div className="mt-7 flex flex-col gap-2.5 font-['Open_Sans'] text-xs text-[#99A1AF] sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-6 sm:text-sm">
           <div className="flex items-center gap-2">
@@ -974,15 +977,13 @@ export default function DoneForYouLandingPage() {
               <br className="hidden sm:block" />
               Stop optimizing for volume. Start optimizing for qualified leads.
             </p>
-            <Link href="https://forms.zohopublic.in/acquirely/form/LeadGenLeadQualityAuditApplication/formperma/tarjzTcaGroYp223otiICGImBsKYklsyS8iy06CI8LM">
-            
             <button
               type="button"
+              onClick={() => setAuditOpen(true)}
               className="mt-7 inline-flex min-h-[52px] hover:bg-gray-200 items-center justify-center rounded-xl bg-white px-4 py-3.5 text-center text-[12px] font-bold text-[#0F172A] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] sm:mt-8 sm:min-h-[56px] sm:px-8 sm:py-4 sm:text-base lg:px-10 lg:text-[20px]"
             >
              <span className="rotate-90 "><Pointer/></span> <span className="pl-2">Book Your Lead Gen Growth Audit</span>
             </button>
-              </Link>
             <div className="mt-5 flex flex-col items-center justify-center gap-2 text-xs text-[#BEDBFF] sm:mt-6 sm:flex-row sm:gap-8 sm:text-sm">
               <span>No lock-in</span>
               <span>75-day risk reversal</span>

@@ -19,7 +19,9 @@ export default function LeadGenLanding() {
     const root = rootRef.current;
     if (!root) return;
     const onClick = (e: MouseEvent) => {
-      if ((e.target as Element | null)?.closest("[data-audit-open]")) setAuditOpen(true);
+      if (!(e.target as Element | null)?.closest("[data-audit-open]")) return;
+      e.preventDefault(); // CTAs are links (href="#apply"); keep the page from jumping.
+      setAuditOpen(true);
     };
     root.addEventListener("click", onClick);
     return () => root.removeEventListener("click", onClick);
