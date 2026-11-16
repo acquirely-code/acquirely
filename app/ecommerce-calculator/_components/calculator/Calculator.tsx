@@ -479,7 +479,7 @@ export function Calculator() {
             <h3 id="audit-title">Want help improving your ecommerce unit economics?</h3>
             <p>We&apos;ll go through your numbers with you: delivery rate, CPA and pricing.</p>
           </div>
-          <CtaLink className="btn" href={AUDIT_HREF} cta="audit">Get a Profitability Audit</CtaLink>
+          <CtaLink className="btn" href={AUDIT_HREF} target="_blank" rel="noopener" cta="audit">Get a Profitability Audit</CtaLink>
         </aside>
       </div>
 

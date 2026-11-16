@@ -8,8 +8,8 @@ export const BASE_PATH = "/ecommerce-calculator";
 export const PAGE_URL = `${SITE_URL}${BASE_PATH}`;
 
 export const CONTACT_EMAIL = "team@acquirely.in";
-/** "Get a Profitability Audit" target. Swap for a dedicated booking form if one exists. */
-export const AUDIT_HREF = `mailto:${CONTACT_EMAIL}?subject=Profitability%20audit`;
+/** "Get a Profitability Audit" target: the Zoho "Acquirely Leads" form. Opens in a new tab. */
+export const AUDIT_HREF = "https://forms.zoho.in/acquirely/form/AcquirelyLeads";
 
 /** E-E-A-T: who checked the maths. Same reviewer as /roi-calculator. */
 export { REVIEWER, ABOUT_URL } from "@/app/roi-calculator/_lib/site";

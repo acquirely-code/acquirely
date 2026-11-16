@@ -247,7 +247,7 @@ Break-even ROAS     = delivered revenue ÷ break-even ad spend`}</p>
           <li><strong>COD-heavy sellers</strong>, especially in India, where RTO decides whether a product makes money.</li>
           <li><strong>Media buyers</strong> who need a break-even CPA or ROAS target before scaling Meta or Google Ads.</li>
         </ul>
-        <p>If your numbers show thin or negative headroom, <a href="#calculator">adjust one input at a time</a> to see which lever moves profit most. Want a second pair of eyes? <a href={AUDIT_HREF}>Ask us for a profitability audit</a>.</p>
+        <p>If your numbers show thin or negative headroom, <a href="#calculator">adjust one input at a time</a> to see which lever moves profit most. Want a second pair of eyes? <a href={AUDIT_HREF} target="_blank" rel="noopener">Ask us for a profitability audit</a>.</p>
 
         <h2 id="faq">Frequently Asked Questions</h2>
         <div className="faq">
