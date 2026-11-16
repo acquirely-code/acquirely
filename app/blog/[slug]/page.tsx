@@ -11,15 +11,16 @@ import { SITE_URL } from "@/lib/site";
 import "../blog.css";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }> | { slug: string };
 }
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
 }
 
-export function generateMetadata({ params }: Props) {
-  const post = getPostBySlug(params.slug);
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) return { title: "Blog | Acquirely" };
   const title = post.metaTitle ?? `${post.title} | Acquirely`;
   const description = post.metaDescription ?? post.excerpt;
@@ -52,8 +53,9 @@ export function generateMetadata({ params }: Props) {
   };
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const post = getPostBySlug(params.slug);
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) return notFound();
 
   const faqs = post.content.flatMap((b) => (typeof b !== "string" && b.type === "faq" ? b.items : []));
