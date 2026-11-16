@@ -1,6 +1,6 @@
 import { Calculator } from "@/app/ecommerce-calculator/_components/calculator/Calculator";
-import { CtaLink } from "@/app/ecommerce-calculator/_components/CtaLink";
 import { Guide } from "@/app/ecommerce-calculator/_components/Guide";
+import { ThemeToggle } from "@/app/roi-calculator/_components/ThemeToggle";
 import Image from "next/image";
 import { BASE_PATH, CONTACT_EMAIL, SITE_URL } from "@/app/ecommerce-calculator/_lib/site";
 import { faqJsonLd, pageJsonLd } from "@/app/ecommerce-calculator/_lib/seo";
@@ -38,25 +38,26 @@ export default function Page() {
           <nav className="site-nav" aria-label="On this page">
             <ul>
               <li><a href="#calculator">Calculator</a></li>
-              <li className="opt"><a href="#how-it-works">How it works</a></li>
-              <li className="opt"><a href="#break-even-cpa">Break-even CPA</a></li>
-              <li className="opt"><a href="#faq">FAQ</a></li>
+              <li><a href="#how-it-works">How it works</a></li>
+              <li><a href="#break-even-cpa">Break-even CPA</a></li>
+              <li><a href="#faq">FAQ</a></li>
             </ul>
           </nav>
+          <ThemeToggle />
         </div>
       </header>
 
       <main id="main">
         <section className="hero" aria-labelledby="page-title">
           <div className="wrap">
-            <span className="eyebrow">Free tool for COD &amp; prepaid sellers</span>
-            <h1 id="page-title">Ecommerce <span className="grad">Profit &amp; ROI</span> Calculator</h1>
-            <p className="sub">Calculate your ecommerce profit, margins, ROAS, <a href="#rto">RTO costs</a> and <a href="#break-even-cpa">break-even CPA</a> before scaling your campaigns. Built for <a href="#cod-vs-prepaid">COD and prepaid</a> orders.</p>
+            <span className="badge"><span className="badge-chip">Free tool</span>For <span className="hl">D2C &amp; dropshipping</span> stores</span>
+            <h1 id="page-title"><span className="grad">Ecommerce Calculator</span> for Profit, ROAS &amp; Break-Even</h1>
+            <p className="sub">Use this free ecommerce calculator to see what your store <strong>really keeps after every cost</strong>. Get net profit, <a href="#profit-margin">profit margin</a>, ROAS and <a href="#break-even-cpa">break-even CPA</a> in one place, with <a href="#rto">RTO</a> and <a href="#cod-vs-prepaid">COD vs prepaid</a> built in.</p>
             <div className="cta-row">
-              <CtaLink className="btn btn-lg" href="#calculator" cta="hero">Calculate My Profit <span aria-hidden="true">↓</span></CtaLink>
               <ul className="trust">
-                <li><Check />Free calculator. No signup required.</li>
-                <li><Check />Runs in your browser. Your numbers stay on your device.</li>
+                <li><Check />Free, no signup</li>
+                <li><Check />Shopify, D2C &amp; dropshipping</li>
+                <li><Check />Your numbers stay on your device</li>
               </ul>
             </div>
           </div>
@@ -69,8 +70,8 @@ export default function Page() {
 
       <footer className="site-footer">
         <div className="wrap foot-in">
-          <p className="brand"><Logo white /></p>
-          <p><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> <span aria-hidden="true">·</span> <a href={`${SITE_URL}/`}>acquirely.in</a></p>
+          <a className="brand" href={`${SITE_URL}/`}><Logo white /></a>
+          <p><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> <span aria-hidden="true">·</span> © {new Date().getFullYear()} Acquirely</p>
         </div>
       </footer>
     </>

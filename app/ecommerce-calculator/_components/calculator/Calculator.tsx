@@ -328,7 +328,7 @@ export function Calculator() {
       <div className="wrap">
         <div className="calc-head">
           <div>
-            <h2 id="calc-title">Ecommerce Profit Calculator</h2>
+            <h2 id="calc-title">Calculate Your Ecommerce Profit</h2>
             <p>Results update as you type. Enter monthly averages from your store, courier and ad accounts.</p>
           </div>
           <div className="toolbar">
@@ -476,7 +476,7 @@ export function Calculator() {
         {/* ============ SOFT CTA ============ */}
         <aside className="cta-card" aria-labelledby="audit-title">
           <div>
-            <h3 id="audit-title">Want help improving your eCommerce unit economics?</h3>
+            <h3 id="audit-title">Want help improving your ecommerce unit economics?</h3>
             <p>We&apos;ll go through your numbers with you: delivery rate, CPA and pricing.</p>
           </div>
           <CtaLink className="btn" href={AUDIT_HREF} cta="audit">Get a Profitability Audit</CtaLink>

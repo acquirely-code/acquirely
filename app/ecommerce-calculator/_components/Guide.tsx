@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { AUDIT_HREF, BASE_PATH, CONTACT_EMAIL, LAST_UPDATED, SITE_URL } from "@/app/ecommerce-calculator/_lib/site";
+import { ABOUT_URL, AUDIT_HREF, BASE_PATH, CONTACT_EMAIL, LAST_UPDATED, REVIEWER, SITE_URL } from "@/app/ecommerce-calculator/_lib/site";
 import { FAQ } from "@/app/ecommerce-calculator/_lib/seo";
 
 /** Renders `**bold**` markers from FAQ copy as <strong>. */
 const rich = (s: string) =>
   s.split(/\*\*(.+?)\*\*/g).map((part, i) => (i % 2 ? <strong key={i}>{part}</strong> : part));
 
-/** 1280×720 WebP illustration from public/assets/guide/. Lazy-loaded: all of them sit below the calculator. */
+/** 1280×720 WebP illustration from public/ecommerce-calculator/assets/guide/. Lazy-loaded: all of them sit below the calculator. */
 const Figure = ({ name, alt, caption }: { name: string; alt: string; caption: string }) => (
   <figure className="figure">
     <Image src={`${BASE_PATH}/assets/guide/ecommerce-${name}.webp`} alt={alt} width={1280} height={720} unoptimized loading="lazy" sizes="(max-width: 800px) 100vw, 760px" />
@@ -14,15 +14,30 @@ const Figure = ({ name, alt, caption }: { name: string; alt: string; caption: st
   </figure>
 );
 
+const Example = ({ children }: { children: React.ReactNode }) => (
+  <div className="example">
+    <span className="eyebrow">Illustrative example</span>
+    <p>{children}</p>
+  </div>
+);
+
+const Yes = () => <span aria-hidden="true">✅ </span>;
+const Warn = () => <span aria-hidden="true">⚠️ </span>;
+const No = () => <span aria-hidden="true">❌ </span>;
+
 /** H2 sections, in page order. Feeds the table of contents (Google can show these as jump links). */
 const TOC = [
-  { id: "how-it-works", label: "How the calculator works" },
-  { id: "profit-calculation", label: "How ecommerce profit is calculated" },
+  { id: "what-is", label: "What is an ecommerce calculator?" },
+  { id: "how-it-works", label: "How the ecommerce calculator works" },
+  { id: "profit-calculation", label: "How to calculate ecommerce profit" },
+  { id: "profit-margin", label: "Ecommerce profit margin: gross vs net" },
   { id: "rto", label: "How RTO impacts COD profitability" },
   { id: "cod-vs-prepaid", label: "COD vs prepaid orders" },
   { id: "break-even-cpa", label: "How to calculate break-even CPA" },
   { id: "break-even-roas", label: "How to calculate break-even ROAS" },
-  { id: "who-its-for", label: "Who this calculator is for" },
+  { id: "pricing", label: "How to price a product with the calculator" },
+  { id: "marketplaces", label: "Shopify, Amazon, Flipkart and Meesho fees" },
+  { id: "who-its-for", label: "Who this ecommerce calculator is for" },
   { id: "faq", label: "FAQ" },
 ];
 
@@ -36,18 +51,20 @@ export function Guide() {
     <article className="content" aria-labelledby="guide-title">
       <div className="wrap narrow">
 
-        <h2 id="guide-title" className="sr-only">Ecommerce profit guide</h2>
+        <h2 id="guide-title" className="sr-only">Ecommerce calculator guide</h2>
 
-        <Figure name="cover" alt="Ecommerce profit breakdown: ₹11,61,725 delivered revenue minus ads, product, shipping, RTO and fees leaves ₹3,52,931 net profit" caption="What a store really keeps: the calculator's example month, cost by cost." />
+        <Figure name="cover" alt="Ecommerce profit breakdown from the calculator: ₹11,61,725 delivered revenue minus ads, product, shipping, RTO and fees leaves ₹3,52,931 net profit" caption="What a store really keeps: the ecommerce calculator's example month, cost by cost." />
+
+        <p className="lead">Read this before you raise your ad budget, because a store can show a strong ROAS in Meta Ads and still lose money once shipping, RTO and fees are paid.</p>
 
         {/* Answer first: the 2-3 sentence answer AI Overviews and snippets lift. */}
         <div className="quick-answer">
           <span className="eyebrow">Quick answer</span>
-          <p><strong>Ecommerce profit</strong> is delivered revenue minus product cost, ad spend, shipping, RTO, fulfilment, COD and gateway fees, and fixed costs. Count revenue only on orders that were actually delivered, not on every order your ads report. Your <strong>break-even CPA</strong> is the most you can pay per order before that profit reaches zero.</p>
+          <p>An <strong>ecommerce calculator</strong> turns your orders, prices, costs and ad spend into net profit, margin, ROAS and break-even numbers. To calculate <strong>ecommerce profit</strong>, take revenue from delivered orders and subtract product cost, ads, shipping, RTO, fees and fixed costs. Your <strong>break-even CPA</strong> is the most you can pay per order before that profit hits zero.</p>
         </div>
 
-        <p>Read this guide before you raise your ad budget, because a product that looks profitable in Meta Ads can still lose money once RTO and shipping are counted.</p>
-        <p>You&apos;ll learn how each cost is charged, how RTO and COD change your margin, and how to find your break-even CPA and ROAS. Every example uses the default numbers in the calculator above, so you can check them yourself.</p>
+        <p>In this guide you&apos;ll see how each ecommerce metric is calculated, with worked examples taken straight from the calculator above.</p>
+        <p>You&apos;ll learn the difference between gross and net margin, how RTO and COD change your profit, and how to find your break-even CPA and ROAS. <a href="#calculator">Try your own numbers in the ecommerce calculator</a> as you read.</p>
 
         <nav className="toc" aria-labelledby="toc-title">
           <p id="toc-title" className="toc-title">On this page</p>
@@ -56,8 +73,30 @@ export function Guide() {
           </ol>
         </nav>
 
+        <h2 id="what-is">What Is an Ecommerce Calculator?</h2>
+        <p>An <strong>ecommerce calculator</strong> is a free online tool that shows whether your store, product or campaign makes money. You enter orders, prices, costs and ad spend. It returns net profit, profit margin, ROAS and the break-even numbers you need before scaling ads.</p>
+        <p>Most free ecommerce calculators answer one question at a time. This one connects them, so a change in delivery rate or CPA flows through to profit, margin and break-even in one step.</p>
+        <div className="table-wrap">
+          <table className="compare-table">
+            <caption className="sr-only">Types of ecommerce calculators and which ones this tool covers</caption>
+            <thead>
+              <tr><th scope="col">Ecommerce calculator</th><th scope="col">What it tells you</th><th scope="col">In this tool</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Profit calculator</th><td>What you keep after every cost</td><td><Yes />Net profit per month and per order</td></tr>
+              <tr><th scope="row">Profit margin calculator</th><td>Profit as a share of revenue</td><td><Yes />Net margin on delivered revenue</td></tr>
+              <tr><th scope="row">ROAS calculator</th><td>Revenue per rupee of ad spend</td><td><Yes />ROAS on delivered revenue</td></tr>
+              <tr><th scope="row">Break-even calculator</th><td>The ad cost where profit hits zero</td><td><Yes />Break-even CPA and ROAS</td></tr>
+              <tr><th scope="row">COD and RTO calculator</th><td>What failed deliveries cost you</td><td><Yes />Separate COD and prepaid rates</td></tr>
+              <tr><th scope="row">Pricing calculator</th><td>What price to charge</td><td><Warn />Test prices by changing order value</td></tr>
+              <tr><th scope="row">Marketplace fee calculator</th><td>Amazon, Flipkart or Meesho fees</td><td><Warn />Add fees as other cost per order</td></tr>
+              <tr><th scope="row">Shipping rate calculator</th><td>Courier price per parcel</td><td><No />Use your courier&apos;s rate card</td></tr>
+            </tbody>
+          </table>
+        </div>
+
         <h2 id="how-it-works">How the Ecommerce Calculator Works</h2>
-        <p>An ecommerce profit calculator turns the numbers you already track into one answer: after every cost, is this product making money?</p>
+        <p>This ecommerce calculator turns the numbers you already track into one answer: after every cost, is this product making money?</p>
         <p>Your ads dashboard can&apos;t tell you that, because it has no idea how many orders were actually delivered. This calculator follows an order from click to cash:</p>
         <ol>
           <li><strong>Orders generated</strong>: what your ads and store produce in a month.</li>
@@ -70,8 +109,8 @@ export function Guide() {
         <p>That last step is where most spreadsheets go wrong. Ad spend is paid on every order. Shipping and packing are paid on every dispatched order. Revenue only arrives on delivered orders.</p>
         <p>Mix up those three bases and a losing product can look healthy.</p>
 
-        <h2 id="profit-calculation">How Ecommerce Profit Is Calculated</h2>
-        <p>Net profit is delivered revenue minus everything it cost to get there:</p>
+        <h2 id="profit-calculation">How to Calculate Ecommerce Profit</h2>
+        <p>To calculate ecommerce profit, take delivered revenue and subtract everything it cost to get there:</p>
         <p className="formula">{`Delivered revenue = delivered orders × average order value
 
 Net profit = delivered revenue
@@ -99,16 +138,24 @@ Net profit = delivered revenue
         <p>A store doing ₹10 lakh a month in delivered revenue can easily keep less than ₹1 lakh once ads, shipping and returns are paid. Net margin (net profit ÷ delivered revenue) shows whether growth is worth it.</p>
         <Figure name="revenue-breakdown" alt="Stacked bar of where ₹11.6 lakh delivered revenue goes: ads 30.1%, product 26.7%, shipping 6.9%, fulfilment 2.6%, RTO 1.5%, fees 1.8%, net profit 30.4%" caption="Ads and product cost take more than half of delivered revenue in the example." />
 
+        <h2 id="profit-margin">Ecommerce Profit Margin: Gross vs Net</h2>
+        <p>The main difference between <strong>gross margin and net margin</strong> is which costs you subtract. Gross margin only removes product cost. Net margin removes every cost, including ads, shipping, RTO, fees and fixed costs.</p>
+        <p className="formula">{`Gross margin = (price − product cost) ÷ price × 100
+Net margin   = net profit ÷ delivered revenue × 100`}</p>
+        <Example>The calculator&apos;s example product sells for ₹1,499 and costs ₹400. Its gross margin is <strong>73.3%</strong>. After ads, shipping, RTO and fees, the store keeps a net margin of <strong>30.4%</strong>. Plan your ad budget on the second number, not the first.</Example>
+
+        <h3>What is a good ecommerce profit margin?</h3>
+        <p>A good ecommerce profit margin is one that survives a bad month. There&apos;s no single target, because category, price, ad costs and COD share all change it.</p>
+        <p>A safer test is to stress your numbers. In the example, a 20% jump in CPA (₹350 to ₹420) drops net margin from 30.4% to 24.4%. The store is still comfortably profitable.</p>
+        <p>The calculator flags any result within 5% of zero as <strong>near break-even</strong>. If one bad week of CPA or RTO would push you there, fix the margin before you scale.</p>
+
         <h3>Markup vs margin</h3>
         <p>Markup is profit divided by cost. Margin is profit divided by selling price. A product bought at ₹400 and sold at ₹1,000 has a 150% markup but only a 60% gross margin.</p>
         <p>Always plan ad budgets on margin. Planning on markup makes every product look far more profitable than it is.</p>
 
         <h3>How product cost affects contribution margin</h3>
         <p>Contribution margin is what each order leaves you after its variable costs and before fixed costs. Product cost is usually the largest piece after ads, so small changes matter.</p>
-        <div className="example">
-          <span className="eyebrow">Illustrative example</span>
-          <p>With the example values in the calculator (1,000 orders, ₹1,499 AOV, 70% COD), raising product cost from ₹400 to ₹550 lowers estimated net profit from about ₹3.53 lakh to ₹2.37 lakh. Break-even CPA falls from ₹703 to ₹587. A ₹150 supplier increase takes ₹116 off the most you can pay per order in ads.</p>
-        </div>
+        <Example>With the example values in the calculator (1,000 orders, ₹1,499 AOV, 70% COD), raising product cost from ₹400 to ₹550 lowers estimated net profit from about ₹3.53 lakh to ₹2.37 lakh. Break-even CPA falls from ₹703 to ₹587. A ₹150 supplier increase takes ₹116 off the most you can pay per order in ads.</Example>
         <p>The &quot;Charge product cost on&quot; setting matters here too. If returned units are resold, charge product cost on delivered orders only.</p>
         <p>If returns are often damaged, or your supplier bills every dispatched unit, charge it on all dispatched orders.</p>
 
@@ -116,10 +163,7 @@ Net profit = delivered revenue
         <p>RTO (return to origin) happens when a COD customer refuses the parcel or can&apos;t be reached. By then you have already paid for the ad click, the product pick, the packing and the outbound shipping.</p>
         <p>Then you pay again for the parcel to come back, and you collect nothing. That&apos;s why delivery rate matters so much for COD sellers: a lower rate cuts revenue and adds costs at the same time.</p>
         <Figure name="rto-cost" alt="One RTO order costs ₹540: ₹350 ad cost, ₹80 forward shipping, ₹30 fulfilment and ₹80 return shipping, with ₹0 revenue" caption="Every refused COD parcel is a loss of about ₹540 in the example, before counting any product damage." />
-        <div className="example">
-          <span className="eyebrow">Illustrative example</span>
-          <p>Keep every other example value the same and drop COD delivery rate from 70% to 55%. Delivered orders fall from 775 to 670, RTO cost rises from ₹18,000 to ₹26,400, and estimated net profit falls from about ₹3.53 lakh to ₹2.32 lakh. If returned stock also can&apos;t be resold, profit drops to about ₹1.0 lakh.</p>
-        </div>
+        <Example>Keep every other example value the same and drop COD delivery rate from 70% to 55%. Delivered orders fall from 775 to 670, RTO cost rises from ₹18,000 to ₹26,400, and estimated net profit falls from about ₹3.53 lakh to ₹2.32 lakh. If returned stock also can&apos;t be resold, profit drops to about ₹1.0 lakh.</Example>
 
         <h2 id="cod-vs-prepaid">COD vs Prepaid Orders: What&apos;s the Difference?</h2>
         <p>The main difference between COD and prepaid orders is when the money arrives. Prepaid customers pay at checkout, so most parcels are delivered and the main cost is a gateway fee. COD customers pay on delivery, which lifts conversion but brings more RTO and a flat COD fee.</p>
@@ -132,12 +176,12 @@ Net profit = delivered revenue
             </thead>
             <tbody>
               <tr><th scope="row">When you get paid</th><td>After delivery, via the courier</td><td>At checkout</td></tr>
-              <tr><th scope="row">Conversion rate</th><td><span aria-hidden="true">✅ </span>Usually higher</td><td><span aria-hidden="true">⚠️ </span>Usually lower</td></tr>
-              <tr><th scope="row">Delivery rate (example)</th><td><span aria-hidden="true">⚠️ </span>70%</td><td><span aria-hidden="true">✅ </span>95%</td></tr>
+              <tr><th scope="row">Conversion rate</th><td><Yes />Usually higher</td><td><Warn />Usually lower</td></tr>
+              <tr><th scope="row">Delivery rate (example)</th><td><Warn />70%</td><td><Yes />95%</td></tr>
               <tr><th scope="row">Payment fee</th><td>Flat COD fee per delivered order</td><td>Gateway % of revenue</td></tr>
-              <tr><th scope="row">RTO cost on 1,000 orders</th><td><span aria-hidden="true">⚠️ </span>₹24,000</td><td><span aria-hidden="true">✅ </span>₹4,000</td></tr>
-              <tr><th scope="row">Net profit on 1,000 orders</th><td>₹2.68 lakh</td><td><span aria-hidden="true">✅ </span>₹5.52 lakh</td></tr>
-              <tr><th scope="row">Break-even CPA</th><td>₹618</td><td><span aria-hidden="true">✅ </span>₹902</td></tr>
+              <tr><th scope="row">RTO cost on 1,000 orders</th><td><Warn />₹24,000</td><td><Yes />₹4,000</td></tr>
+              <tr><th scope="row">Net profit on 1,000 orders</th><td>₹2.68 lakh</td><td><Yes />₹5.52 lakh</td></tr>
+              <tr><th scope="row">Break-even CPA</th><td>₹618</td><td><Yes />₹902</td></tr>
             </tbody>
           </table>
         </div>
@@ -167,7 +211,8 @@ Break-even ROAS     = delivered revenue ÷ break-even ad spend`}</p>
         <h3>Why the &quot;1 ÷ margin&quot; shortcut fails for COD stores</h3>
         <p>Many ROAS calculators use break-even ROAS = 1 ÷ gross margin. On the example product (₹1,499 price, ₹400 product cost, ₹80 shipping) that gives a 68% margin and a break-even ROAS of <strong>1.47x</strong>.</p>
         <p>The shortcut ignores RTO, failed deliveries and fees. Counting them, the real break-even is <strong>1.65x</strong> on delivered revenue.</p>
-        <p>Meta Ads reports ROAS on every purchase, delivered or not. In those platform terms the same product needs <strong>2.13x</strong> just to break even. If you run it at the 1.47x the shortcut suggests, you pay about ₹1,020 per order against a break-even CPA of ₹703, and every sale loses money.</p>
+        <p>Meta Ads reports ROAS on every purchase, delivered or not. In those platform terms the same product needs <strong>2.13x</strong> just to break even.</p>
+        <p>Run it at the 1.47x the shortcut suggests and you pay about ₹1,020 per order against a break-even CPA of ₹703. Every sale loses money.</p>
         <Figure name="break-even-roas" alt="Break-even ROAS comparison: 1.47x shortcut, 1.65x real on delivered revenue, 2.13x real in Meta Ads terms" caption="The shortcut target sits well below the real break-even once RTO and platform reporting are counted." />
 
         <h3>Using the calculator before scaling Meta or Google Ads</h3>
@@ -180,9 +225,25 @@ Break-even ROAS     = delivered revenue ÷ break-even ad spend`}</p>
         </ol>
         <p>Rerun the numbers whenever your courier, product cost or COD share changes.</p>
 
-        <h2 id="who-its-for">Who This Calculator Is For</h2>
+        <h2 id="pricing">How to Price a Product With the Calculator</h2>
+        <p>Price is the lever most sellers test last, but it moves profit fastest. Every extra rupee of price on a delivered order goes straight to profit, while most costs stay the same.</p>
+        <Example>Keep every other example value the same. At ₹1,299, estimated net profit is about ₹1.99 lakh. At ₹1,499 it&apos;s ₹3.53 lakh, and at ₹1,699 it&apos;s ₹5.07 lakh. Break-even CPA moves from ₹549 to ₹703 to ₹857.</Example>
+        <p>A higher price can lower your conversion rate, which raises CPA. So change the average order value and the CPA together, and check which combination leaves the most headroom.</p>
+
+        <h2 id="marketplaces">Using the Calculator for Shopify, Amazon, Flipkart and Meesho</h2>
+        <p>The calculator doesn&apos;t connect to any platform, so it works with any store or marketplace. Map each fee to the closest field:</p>
         <ul>
-          <li><strong>Ecommerce sellers and D2C brands</strong> selling on Shopify, WooCommerce or their own store.</li>
+          <li><strong>Shopify or WooCommerce:</strong> enter your payment gateway percentage, and add app or platform fees as other cost per order.</li>
+          <li><strong>Amazon, Flipkart or Meesho:</strong> convert commission and closing fees to rupees per order, then enter them as other cost per order.</li>
+          <li><strong>Fixed costs:</strong> add your plan fees, staff and software as monthly fixed costs.</li>
+        </ul>
+        <Example>A 10% commission on the ₹1,499 example product is about ₹150 per order. Adding it cuts estimated net profit from ₹3.53 lakh to ₹2.03 lakh, and break-even CPA from ₹703 to ₹553.</Example>
+        <p>Other cost per order is charged on every dispatched order, so this is a slightly cautious estimate. Check each marketplace&apos;s own fee page for exact rates.</p>
+
+        <h2 id="who-its-for">Who This Ecommerce Calculator Is For</h2>
+        <ul>
+          <li><strong>D2C brands and dropshippers</strong> selling on Shopify, WooCommerce or their own store.</li>
+          <li><strong>Marketplace sellers</strong> on Amazon, Flipkart or Meesho who want profit after every fee.</li>
           <li><strong>COD-heavy sellers</strong>, especially in India, where RTO decides whether a product makes money.</li>
           <li><strong>Media buyers</strong> who need a break-even CPA or ROAS target before scaling Meta or Google Ads.</li>
         </ul>
@@ -198,11 +259,12 @@ Break-even ROAS     = delivered revenue ÷ break-even ad spend`}</p>
           ))}
         </div>
 
-        {/* E-E-A-T: who made this and how to reach them. */}
+        {/* E-E-A-T: who made this, who checked it and how to reach them. */}
         <aside className="about-box" aria-labelledby="about-title">
-          <h2 id="about-title">About this calculator</h2>
-          <p>Built by <a href={`${SITE_URL}/`}>Acquirely</a>, a performance marketing team that runs Meta Ads for eCommerce and D2C brands. It exists because ad dashboards count every purchase, while your bank account only counts delivered orders.</p>
-          <p>The model and every example on this page are checked against the calculator itself. Questions or corrections: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+          <h2 id="about-title">About this ecommerce calculator</h2>
+          <p>Built by <a href={`${SITE_URL}/`}>Acquirely</a>, a full-funnel growth team for D2C and lead-gen brands, based in New Delhi. The formulas and every example on this page are checked against the calculator itself.</p>
+          <p className="reviewer">Reviewed by <a href={REVIEWER.linkedin} rel="author">{REVIEWER.name}</a>, {REVIEWER.role}. {REVIEWER.bio}</p>
+          <p>Learn more <a href={ABOUT_URL}>about Acquirely</a>, or send questions and corrections to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
           <p className="updated">Last updated: <time dateTime={LAST_UPDATED}>{updated}</time></p>
         </aside>
       </div>
