@@ -59,14 +59,14 @@ export async function saveAuditLead(lead: AuditRecord) {
   row.phone = `${lead.countryCode} ${lead.phone}`;
 
   if (webhookUrl()) {
-    // Apps Script answers with a redirect to the result, which fetch follows.
+    // Apps Script answers with a redirect to the result, which fetch follows. No `cache` option: Cloudflare Workers
+    // (where the site runs) throw on it unless a compatibility flag is set, and POSTs are never cached anyway.
     const response = await fetch(webhookUrl(), {
       method: "POST",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify(row),
       redirect: "follow",
       signal: AbortSignal.timeout(WEBHOOK_TIMEOUT_MS),
-      cache: "no-store",
     });
     const result = (await response.json().catch(() => null)) as { ok?: boolean } | null;
     if (!response.ok || !result?.ok) throw new Error(`Sheet webhook did not confirm the save (HTTP ${response.status})`);

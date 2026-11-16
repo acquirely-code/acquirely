@@ -82,7 +82,6 @@ export async function sendAuditCapiEvents(context: Context) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
       signal: AbortSignal.timeout(CAPI_TIMEOUT_MS),
-      cache: "no-store",
     });
     if (!response.ok) console.error(`[audit-form] Meta CAPI responded with ${response.status}: ${(await response.text()).slice(0, 300)}`);
   } catch (error) {

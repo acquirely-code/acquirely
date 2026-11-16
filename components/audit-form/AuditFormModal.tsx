@@ -120,8 +120,11 @@ export default function AuditFormModal({ open, onClose, fontClass = "" }: { open
       const result = (await response.json().catch(() => ({}))) as { ok?: boolean; leadId?: string; outcome?: AuditOutcome; error?: string; reason?: string; fieldErrors?: AuditFieldErrors };
       // The setup problem, for whoever opens the console. Visitors only see the friendly message.
       if (result.reason) console.warn(`[audit-form] ${result.error}: ${result.reason}`);
-      // Couldn't save, but qualified: still send them to book. Zoho Bookings records them; nothing is tracked.
+      // Couldn't save, but qualified: still send them to book (Zoho Bookings records them) and still fire the browser
+      // events, so a storage problem never hides qualified leads from Meta/GA4. The server sent no CAPI events for this
+      // lead, so a fresh ID can't create duplicates.
       if (!result.ok && result.outcome === "qualified") {
+        trackAuditLead(result.leadId || `unsaved_${crypto.randomUUID()}`, "qualified", LEAD_VALUE_INR.qualified, LEAD_VALUE_INR.qualified);
         setStatus({ kind: "done", outcome: "qualified" });
         window.setTimeout(() => window.location.assign(prefilledBookingUrl), 1500);
         return;
