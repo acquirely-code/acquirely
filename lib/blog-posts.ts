@@ -255,7 +255,7 @@ export const blogPosts: BlogPost[] = [
 
       { type: "h2", text: "Need help adapting to Andromeda?" },
       "If your results dropped after the update and nothing you tried brought them back, the problem is usually structure and creative, not budget.",
-      `[Book a Growth Diagnosis Call with Acquirely](${BOOKING_URL}). We will review your account against the A3 Flywheel, the system we built after Andromeda changed the rules.`,
+      `[Book a Growth Diagnosis Call with Acquirely](https://booknow.acquirely.in/D2CFRC). We will review your account against the A3 Flywheel, the system we built after Andromeda changed the rules.`,
     ],
   },
   {
