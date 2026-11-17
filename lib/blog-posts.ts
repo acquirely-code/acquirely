@@ -560,7 +560,7 @@ export const blogPosts: BlogPost[] = [
           "You want predictable, repeatable acquisition instead of lucky months",
         ],
       },
-      `**Want this structure built into your account?** [Talk to the Acquirely team](${BOOKING_URL}) and we'll review your current setup against the A3 Flywheel.`,
+      `**Want this structure built into your account?** [Talk to the Acquirely team](https://booknow.acquirely.in/D2CFRC) and we'll review your current setup against the A3 Flywheel.`,
     ],
   },
   {
