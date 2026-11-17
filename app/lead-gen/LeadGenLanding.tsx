@@ -20,7 +20,7 @@ export default function LeadGenLanding() {
   const rootRef = useRef<HTMLDivElement>(null);
   useLandingScripts(rootRef);
 
-  // The CTAs link to the Zoho form in a new tab. Zoho's tracking script only fills UTMs into embedded forms,
+  // The CTAs open the Zoho form in the same tab. Zoho's tracking script only fills UTMs into embedded forms,
   // so pass them on in the form URL: from this page's URL, else the cookies that script keeps for 7 days.
   useEffect(() => {
     const root = rootRef.current;
