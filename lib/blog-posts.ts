@@ -45,8 +45,7 @@ const MAUSAM_BIO =
 const KUNAL_BIO =
   "Kunal has managed ₹30Cr+ in ad spend across 30+ brands in ecommerce, EdTech and real estate. He leads Meta strategy at Acquirely and runs the A3 Flywheel hands-on inside client accounts.";
 
-const BOOKING_URL =
-  "https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg";
+const BOOKING_URL = "https://booknow.acquirely.in/D2CFRC";
 
 const STRUCTURE_POST = "/blog/best-meta-ad-structure-after-andromeda-update";
 
