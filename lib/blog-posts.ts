@@ -48,7 +48,216 @@ const KUNAL_BIO =
 const BOOKING_URL =
   "https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg";
 
+const STRUCTURE_POST = "/blog/best-meta-ad-structure-after-andromeda-update";
+
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "meta-andromeda-update-explained",
+    title: "Meta Andromeda Update Explained: What Changed for Advertisers (With Examples)",
+    metaTitle: "Meta Andromeda Update Explained: What Changed 2026",
+    metaDescription:
+      "Meta's Andromeda update changed how Facebook and Instagram ads get delivered. Learn what it is, what changed for advertisers, and real examples.",
+    excerpt:
+      "What the Meta Andromeda update is, why interest targeting stopped working, and four real examples of what changed inside Meta ad accounts.",
+    date: "2026-11-17",
+    author: "Kunal Mandal",
+    authorRole: "Co-founder, Acquirely",
+    authorBio: KUNAL_BIO,
+    authorUrl: "https://www.linkedin.com/in/kunal-meta-ads/",
+    authorImage: "/ecommerce/img/kunal-mandal.jpg",
+    coverImage: "/blog/meta-andromeda-update-explained.webp",
+    image: {
+      src: "/blog/meta-andromeda-update-explained.webp",
+      alt: "Meta Andromeda update explained: how ad retrieval works",
+      title: "Meta Andromeda Update Explained: What Changed for Advertisers",
+      description:
+        "Meta Andromeda update explained: what the new ad retrieval engine changed inside Ads Manager for advertisers.",
+      width: 1200,
+      height: 630,
+    },
+    content: [
+      "If your Meta Ads started behaving unpredictably in 2025, keep reading, because the cause is almost certainly Andromeda, and the fix is not what most advertisers try first.",
+      {
+        type: "callout",
+        text: "**Quick answer:** The **Meta Andromeda update** is a new AI ad retrieval engine that decides which ads are even considered for each person before the auction starts. Meta announced it in December 2024 and rolled it out through 2025. The big change for you: creative now does the targeting, so distinct ad concepts matter more than audience settings.",
+      },
+      "In this guide, you will learn what Andromeda actually is, in plain language, and what it changed inside your ad account. You will also see real examples from the 20+ accounts we manage at Acquirely.",
+      "By the end, you will know:",
+      {
+        type: "ul",
+        items: [
+          "What Andromeda does, and where it sits in Meta's ad system",
+          "Why your old interest-based setup stopped working",
+          'What Meta means by "creative diversification"',
+          "The exact changes to make in your account now",
+        ],
+      },
+      `Already know the theory? Skip to the [examples](#examples), or go straight to our guide on the [best Meta Ad structure after the Andromeda update](${STRUCTURE_POST}).`,
+      { type: "toc" },
+
+      { type: "h2", text: "What is the Meta Andromeda update?" },
+      "The **Meta Andromeda update** is Meta's next-generation **ad retrieval engine**. It is the first step in ad delivery: from all the ads that could be shown to someone, it picks the small set worth sending to the auction. Meta built it to power Advantage+ automation across Facebook and Instagram.",
+      "Think of it as the gatekeeper. If your ad does not get through retrieval, it never reaches the auction, whatever your bid or budget.",
+
+      { type: "h3", text: "How Meta's ad delivery works now" },
+      "Every time someone opens Facebook or Instagram, Meta runs three steps in a fraction of a second:",
+      {
+        type: "ol",
+        items: [
+          "**Retrieval (Andromeda):** narrows tens of millions of eligible ads down to a few thousand candidates for that person.",
+          "**Ranking:** scores those candidates in more detail to predict which ones the person is most likely to act on.",
+          "**Auction:** combines those predictions with bids to decide which ad is actually shown.",
+        ],
+      },
+      "Before Andromeda, retrieval could only use simple models, so it relied heavily on the targeting signals you set. Andromeda uses far more complex AI models at this first step. That means it can judge what is inside your ad, and who it suits, much earlier.",
+
+      { type: "h3", text: "What Meta has officially said" },
+      {
+        type: "table",
+        head: ["Date", "What Meta announced", "Key numbers"],
+        rows: [
+          ["Dec 2024", "Andromeda introduced as the retrieval engine behind Advantage+, built on NVIDIA Grace Hopper and Meta's own MTIA chips", "+6% retrieval recall, +8% ads quality on selected segments, 10,000x more complex retrieval models"],
+          ["2025", 'Gradual rollout to advertisers, plus guidance on "creative diversification"', "No single launch date for advertisers"],
+          ["Oct 2026", "Next generation of Andromeda", "Over 1 billion ads scored per second, about 100x the 2024 throughput, 2.4% more conversions on Facebook since 2025"],
+        ],
+      },
+      "Sources: [Meta Engineering, Dec 2024](https://engineering.fb.com/2024/12/02/production-engineering/meta-andromeda-advantage-automation-next-gen-personalized-ads-retrieval-engine/) and [Meta Engineering, Oct 2026](https://engineering.fb.com/2026/10/28/ml-applications/meta-andromeda-next-gen-ads-retrieval-gpu-co-design/).",
+      "One important detail: there is no Andromeda switch in Ads Manager. You cannot turn it on or off. It runs underneath every campaign.",
+
+      { type: "h2", text: "What changed for advertisers after Andromeda?" },
+      "The main change after the Andromeda update is that **creative now does the targeting**. Meta reads what your ad shows and says, then finds the people it suits. Narrow interest stacks and many near-identical ad variations lost their edge, while distinct creative concepts and broad audiences gained it.",
+      "Here is how the old playbook compares with what works now:",
+      {
+        type: "table",
+        head: ["", "❌ Before Andromeda", "✅ After Andromeda"],
+        rows: [
+          ["Who finds the customer", "You, through interests and lookalikes", "Meta, through your creative"],
+          ["Audience setup", "Narrow, stacked interest audiences", "Broad audiences with few constraints"],
+          ["Creative variety", "4 to 5 ads, small tweaks (colour, headline)", "Many genuinely different concepts"],
+          ["Campaign structure", "Many ad sets split by audience", "Fewer, consolidated campaigns"],
+          ["Main growth lever", "Finding a new interest", "Shipping new creative concepts"],
+          ["Creative refresh", "When an ad looked tired", "A weekly, structured routine"],
+        ],
+      },
+
+      { type: "h3", text: "1. Interest targeting lost its edge" },
+      "Across the 20+ accounts we manage, interest-based campaigns that had been steady for months became significantly less effective after the update.",
+      "The reason is simple. Andromeda is better at finding buyers from your creative than you are at guessing them from interests. Tight audiences now mostly limit how far it can search.",
+
+      { type: "h3", text: '2. "Creative diversification" became Meta\'s main advice' },
+      "Meta's own guidance is clear: small tweaks like a new background colour or a changed text overlay are **not** creative diversification.",
+      "Real diversification means changing the idea itself, for example:",
+      {
+        type: "ul",
+        items: [
+          "A founder story vs a product demo vs a customer testimonial",
+          "A problem-led hook vs an offer-led hook",
+          "Static image vs short video vs carousel",
+          "Different customer types, use cases or pain points",
+        ],
+      },
+
+      { type: "h3", text: "3. Similar ads now compete with each other" },
+      "Many practitioners report that Andromeda treats very similar ads as one idea. So 20 versions of the same concept may get no more reach than one. Meta has not confirmed exactly how this works, but it matches what we see: distinct concepts get delivery, near-duplicates fight over it.",
+
+      { type: "h3", text: "4. Fragmented account structures started hurting" },
+      "When you split the same broad audience across several campaigns, they can end up competing for the same people. Under Andromeda, consolidated structures with more creative inside them usually perform better.",
+
+      { type: "h2", id: "examples", text: "Andromeda examples: what it looks like in a real ad account" },
+      "Theory is useful, but you probably want to know what this looks like day to day. Here are four patterns we see again and again across client accounts.",
+
+      { type: "h3", text: "Example 1: The interest stack that stopped working" },
+      "**Before:** A D2C brand runs five ad sets, each with a different interest stack, and the same three ads in every ad set. Results are steady for months.",
+      "**After Andromeda:** Performance slides across all five ad sets at once. Changing or adding interests does not bring it back.",
+      "**What fixed it:** Moving to one broad Prospecting campaign, excluding past buyers, and putting the effort into new creative concepts instead of new audiences.",
+
+      { type: "h3", text: "Example 2: Ten ads that were really one ad" },
+      "This one is an illustration of a common mistake.",
+      "A brand launches 10 new ads. The same product photo appears on 10 different background colours with slightly different headlines.",
+      "To you, that is 10 ads. To Andromeda, it is basically one idea, so most of them barely get delivery.",
+      "Now compare a batch of five genuinely different ads:",
+      {
+        type: "table",
+        head: ["Ad", "Concept", "Format"],
+        rows: [
+          ["1", "Founder explains why the product exists", "Video"],
+          ["2", "Customer unboxing and first reaction", "UGC video"],
+          ["3", "Before vs after comparison", "Static"],
+          ["4", '"3 mistakes people make" problem hook', "Carousel"],
+          ["5", "Limited-time offer", "Static"],
+        ],
+      },
+      "Five distinct concepts give Meta five different ways to reach five different kinds of buyer.",
+
+      { type: "h3", text: "Example 3: New creatives that never got spend" },
+      'One of the most common post-Andromeda complaints we hear: "We launched new creatives and Meta spent nothing on them."',
+      "What happens is that Meta keeps pushing budget to older ad sets with a proven history. New creatives get almost no delivery, so they never collect enough data to prove themselves.",
+      "Our fix is a **Minimum Spend Rule**. Each new batch of creatives goes into its own ad set with a minimum spend of about 1× the target Cost Per Result for 7 days. After that, it has to earn its budget.",
+
+      { type: "h3", text: "Example 4: The winning ad you should not pause" },
+      "In many accounts, Meta puts around 70% of a campaign's budget behind just three or four creatives. After four or five months, one of them may still take the same spend while its ROAS slips from 4.5 to 3.5.",
+      "Pausing it overnight feels logical. In practice, it can drop ROAS even further, to around 2, because the account suddenly loses a major source of conversions.",
+      "The safer move is to cut its share of spend gradually, using spend limits, so other ad sets can take over.",
+
+      { type: "h2", text: "How to adapt your Meta Ads to Andromeda: 6 steps" },
+      "Follow these steps to bring your account in line with how Meta delivers ads now.",
+      {
+        type: "ol",
+        items: [
+          "**Go broad.** Replace stacked interest audiences with broad targeting in your prospecting campaigns. Let the creative find the buyer.",
+          "**Exclude past buyers from prospecting.** Keep acquisition budget for net-new customers, and reach existing customers through a separate Retention campaign.",
+          "**Consolidate your structure.** Fewer campaigns chasing the same audience means less internal competition. We now run just two: a Prospecting CBO and a Retention campaign.",
+          "**Ship distinct concepts every week.** Treat creative like a production line. New angles, new hooks, new formats, not just new colours.",
+          "**Give new creatives a fair test.** Use a temporary minimum spend so new ads get enough delivery to prove themselves, then let Meta decide.",
+          "**Clean up your tracking.** Andromeda can only learn from the signals you send. Check that your Pixel and Conversions API are passing purchase or lead events correctly.",
+        ],
+      },
+      `Want the full setup, with budgets and rules? Read our step-by-step guide to the [best Meta Ad structure after the Andromeda update](${STRUCTURE_POST}).`,
+
+      { type: "h3", text: "Andromeda myths to ignore" },
+      {
+        type: "table",
+        head: ["Myth", "Reality"],
+        rows: [
+          ['"Targeting doesn\'t matter at all now"', "Exclusions, location and campaign objective still matter. Narrow interest guessing is what lost value."],
+          ['"More ads always means better results"', "More **different** ads helps. More copies of one idea mostly compete with each other."],
+          ['"You can switch Andromeda off"', "There is no setting for it. It runs underneath every campaign."],
+          ['"Andromeda ruined Meta Ads"', "It changed what works. Accounts that adapted their structure and creative system can perform better than before."],
+        ],
+      },
+
+      { type: "h2", text: "FAQ" },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "When did the Meta Andromeda update roll out?",
+            a: "The Meta Andromeda update was first described by Meta's engineering team in December 2024 and rolled out to advertisers gradually through 2025. Meta never gave one launch date in Ads Manager. In October 2026, Meta announced a next-generation version that scores over one billion ads per second.",
+          },
+          {
+            q: "Is interest targeting dead after Andromeda?",
+            a: "Interest targeting is not gone, but it has lost most of its edge after Andromeda. Meta now finds buyers mainly through your creative, so narrow interest stacks tend to limit delivery. Across the 20+ accounts we manage, broad audiences with strong creative testing have outperformed interest-based setups.",
+          },
+          {
+            q: "How many creatives do you need for Andromeda?",
+            a: "There is no fixed number of creatives you need for Andromeda. What matters is how different they are. A handful of genuinely distinct concepts, such as a demo, a testimonial and an offer, usually beats dozens of near-identical variations. Add new concepts every week to keep learning going.",
+          },
+          {
+            q: "Does Andromeda affect lead generation campaigns?",
+            a: "Yes, Andromeda affects lead generation campaigns as well as e-commerce. It works at the retrieval step for all ads on Facebook and Instagram. The same rules apply: broad audiences, distinct creative concepts and clean conversion signals, ideally optimising for qualified leads rather than raw form fills.",
+          },
+          {
+            q: "Can you turn off Meta Andromeda?",
+            a: "No, you cannot turn off Meta Andromeda. It is part of Meta's core ad delivery system, not a campaign setting, so it runs underneath every campaign in every account. The only thing you control is how well your structure, creative and tracking work with it.",
+          },
+        ],
+      },
+
+      { type: "h2", text: "Need help adapting to Andromeda?" },
+      "If your results dropped after the update and nothing you tried brought them back, the problem is usually structure and creative, not budget.",
+      `[Book a Growth Diagnosis Call with Acquirely](${BOOKING_URL}). We will review your account against the A3 Flywheel, the system we built after Andromeda changed the rules.`,
+    ],
+  },
   {
     slug: "best-meta-ad-structure-after-andromeda-update",
     title: "Best Meta Ad Structure After the Andromeda Update: The A3 Flywheel (2026)",
@@ -96,7 +305,7 @@ export const blogPosts: BlogPost[] = [
 
       { type: "h2", text: "What changed after Meta's Andromeda update?" },
       "After Meta's Andromeda update, **interest-based targeting lost most of its edge**. Audience structures that delivered steady results before the update became much less effective across the majority of accounts we managed. Broad targeting paired with strong creative testing now performs better.",
-      "Before the update, interest stacks gave you consistent, predictable results. After it, the same setups started slipping, account after account.",
+      "Before the update, interest stacks gave you consistent, predictable results. After it, the same setups started slipping, account after account. (New to Andromeda? Start with the [Meta Andromeda update explained](/blog/meta-andromeda-update-explained), with real account examples.)",
       'So we stopped asking "which interests should we target?" and started asking a better question. How do you build a structure that lets Meta\'s algorithm find buyers, while you control the creative and the budget?',
 
       { type: "h2", text: "What is the A3 Flywheel?" },
