@@ -126,6 +126,10 @@
 /* A3 Flywheel */
 .ab .fly{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:32px;align-items:center;padding:clamp(22px,3vw,36px)}
 .ab .fly svg{width:100%;max-width:400px;margin:0 auto;display:block}
+.ab .fly.fly-img{grid-template-columns:1fr;gap:28px}
+.ab .fly-diagram-link{display:block;cursor:zoom-in}
+.ab .fly-diagram{display:block;width:100%;height:auto;max-width:1100px;margin-inline:auto;border-radius:14px;background:#fff}
+@media (min-width:860px){.ab .fly-img .stages{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}}
 .ab .stages{display:grid;gap:12px}
 .ab .stage{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:18px;border:1px solid var(--line);border-radius:12px;background:var(--card);transition:border-color .2s,box-shadow .2s}
 .ab .stage:hover{border-color:#c7d2fe;box-shadow:0 8px 24px -12px rgba(99,102,241,.35)}

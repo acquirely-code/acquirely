@@ -181,30 +181,8 @@ const markup = `
         <h2 id="h-a3">How does the A3 Flywheel work?</h2>
         <p><b style="color:var(--ink)">The A3 Flywheel is our weekly system for scaling Meta and Google Ads.</b> One structure, three systems, run every week, refined across 20+ ad accounts after Meta's Andromeda update.</p>
       </div>
-      <div class="card fly">
-        <svg viewBox="0 0 400 400" role="img" aria-label="A3 Flywheel: A1 Structure feeds A2 Creative, which feeds A3 Micro Analysis, which feeds back into A1">
-          <defs>
-            <marker id="ab-ar" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#6366F1"/></marker>
-            <linearGradient id="ab-ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366F1"/><stop offset="1" stop-color="#F97316"/></linearGradient>
-          </defs>
-          <circle class="fly-ring" cx="200" cy="200" r="135" stroke-width="1.5" stroke-dasharray="4 7"/>
-          <path d="M238 70 A135 135 0 0 1 318 268" fill="none" stroke="url(#ab-ring)" stroke-width="3" stroke-linecap="round" marker-end="url(#ab-ar)"/>
-          <path d="M285 316 A135 135 0 0 1 112 304" fill="none" stroke="url(#ab-ring)" stroke-width="3" stroke-linecap="round" marker-end="url(#ab-ar)"/>
-          <path d="M78 258 A135 135 0 0 1 154 74" fill="none" stroke="url(#ab-ring)" stroke-width="3" stroke-linecap="round" marker-end="url(#ab-ar)"/>
-          <g font-family="Montserrat,sans-serif" text-anchor="middle">
-            <circle cx="200" cy="66" r="44" fill="#2B7FFF"/>
-            <text x="200" y="64" fill="#fff" font-weight="800" font-size="20">A1</text>
-            <text x="200" y="82" fill="#E0ECFF" font-size="10.5" font-weight="600">Structure</text>
-            <circle cx="316" cy="270" r="44" fill="#F37513"/>
-            <text x="316" y="268" fill="#fff" font-weight="800" font-size="20">A2</text>
-            <text x="316" y="286" fill="#FFE8D6" font-size="10.5" font-weight="600">Creative</text>
-            <circle cx="84" cy="270" r="44" fill="#6366F1"/>
-            <text x="84" y="268" fill="#fff" font-weight="800" font-size="20">A3</text>
-            <text x="84" y="286" fill="#E0E7FF" font-size="9.5" font-weight="600">Micro Analysis</text>
-            <text class="fly-sub" x="200" y="196" font-weight="700" font-size="11" letter-spacing="3">RUNS</text>
-            <text class="fly-main" x="200" y="222" font-weight="800" font-size="24">WEEKLY</text>
-          </g>
-        </svg>
+      <div class="card fly fly-img">
+        <a class="fly-diagram-link" href="/images/a3-flywheel.png" target="_blank" rel="noopener" aria-label="Open the A3 Flywheel diagram full size"><img class="fly-diagram" src="/images/a3-flywheel.png" width="3000" height="1800" loading="lazy" decoding="async" alt="A3 Flywheel account structure: Campaign 1 is a Prospecting CBO running dated Broad Packs of creatives, whose winners are found and scaled; Campaign 2 is a Retention campaign fed by new arrivals and custom offers"></a>
         <div class="stages">
           <div class="stage"><span class="code">A1</span><div><h3>Foundation Structure</h3><p>Two campaigns, not five. One Prospecting CBO that tests and scales new-customer ads, and one Retention campaign for people who have already bought.</p></div></div>
           <div class="stage"><span class="code">A2</span><div><h3>Creative Framework</h3><p>A new creative Pack every week, built from competitor research, net-new concepts and iterations of proven winners.</p></div></div>

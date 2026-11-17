@@ -183,6 +183,11 @@ html:has(.ecom){scroll-behavior:smooth;scroll-padding-top:100px}
 @media (max-width:900px){.ecom .fly{grid-template-columns:1fr}
 }
 .ecom .fly svg{width:100%;max-width:400px;height:auto;margin-inline:auto;display:block}
+/* A3 Flywheel image: wide diagram, so it takes the full card width with the A1-A3 stages in a row below. */
+.ecom .fly.fly-img{grid-template-columns:1fr;gap:28px}
+.ecom .fly-diagram-link{display:block;cursor:zoom-in}
+.ecom .fly-diagram{display:block;width:100%;height:auto;max-width:1100px;margin-inline:auto;border-radius:14px;background:#fff}
+@media (min-width:900px){.ecom .fly-img .stages{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}}
 .ecom .stages{display:grid;gap:12px}
 .ecom .stage{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:18px;border:1px solid var(--line);border-radius:12px;background:#fff;transition:border-color .2s,box-shadow .2s}
 .ecom .stage:hover{border-color:#C7D2FE;box-shadow:0 8px 24px -12px rgba(99,102,241,.35)}
