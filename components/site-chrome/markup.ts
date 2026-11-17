@@ -5,7 +5,7 @@ import { THEME_TOGGLE } from "@/app/ecommerce/theme";
 // `home` is true only on the homepage: section links stay as in-page anchors (#faq) there and become
 // /#faq everywhere else. The light/dark toggle only shows on the homepage.
 
-const BOOK = "https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg";
+const BOOK = "https://booknow.acquirely.in/D2CFRC";
 const IMG = "/ecommerce/img";
 const ext = `target="_blank" rel="noopener"`;
 const icon = (path: string, stroke: string) =>
