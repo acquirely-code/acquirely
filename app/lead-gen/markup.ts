@@ -1,8 +1,9 @@
 import { withImgDims } from "@/lib/img-dims";
 import { THEME_TOGGLE } from "../ecommerce/theme";
 // Page markup for /lead-gen, rendered by LeadGenLanding. Shares ecommerce.css; lead-gen-only styles live in lead-gen.css.
-// Every CTA opens the inbuilt audit application form (LeadGenLanding catches [data-audit-open]).
-const CTA = `href="#apply" data-audit-open`;
+// Every CTA links straight to the LGARC booking page.
+const BOOK = "https://booknow.acquirely.in/LGARC";
+const CTA = `href="${BOOK}" target="_blank" rel="noopener"`;
 const ARROW = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
 const TICK = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`;
 const LINKEDIN = `<svg width="14" height="14" viewBox="0 0 24 24" fill="#0A66C2"><path d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4 0-3.2-1.95-3.2S12.8 13.5 12.8 15.1V21H9z"/></svg>`;
@@ -284,7 +285,7 @@ const markup = `
       <h1><span class="ln">Learn why <span class="grad">fast-growing lead-gen businesses</span></span> <span class="ln">trust Acquirely to fill their sales pipeline</span></h1>
       <p class="lede">From principals paying <b>₹20K for a conference</b> to fintech registrations at <b>₹13.39</b>, we turn Meta and Google Ads into leads your team actually wants to call.</p>
       <div class="hero-cta">
-        <button class="btn" type="button" data-audit-open>Book a Lead Quality Audit ${ARROW}</button>
+        <a class="btn" ${CTA}>Book a Lead Quality Audit ${ARROW}</a>
         <div class="blogos" aria-label="Businesses growing with Acquirely"><span class="bl lg-bl-txt" title="Kashti">Kashti</span><span class="bl" style="background:#FFFFFF" title="RSA Aviation"><img src="/publishers/img/logo-rsa-aviation.png" alt="RSA Aviation"></span><span class="bl wide" style="background:#FFFFFF" title="International Schooling"><img src="/publishers/img/logo-international-schooling.png" alt="International Schooling"></span><span class="bl lg-bl-txt" title="Global Proptech">Global<br>Proptech</span></div>
       </div>
       <div class="trust-row">
@@ -600,7 +601,7 @@ const markup = `
   </div>
 </footer>
 
-<div class="mcta"><button class="btn" type="button" data-audit-open>Book a Lead Quality Audit</button></div>
+<div class="mcta"><a class="btn" ${CTA}>Book a Lead Quality Audit</a></div>
 `;
 
 export default withImgDims(markup);
