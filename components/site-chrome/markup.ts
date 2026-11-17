@@ -16,7 +16,7 @@ const CHEVRON = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" str
 const BURGER = `<span class="hm-burger" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path class="b1" d="M4 7h16"/><path class="b2" d="M4 12h16"/><path class="b3" d="M4 17h16"/></svg></span>`;
 
 // toggle: show the light/dark switch (homepage and blog; other pages using the shared chrome are light-only).
-export function siteNav(home: boolean, toggle = home) {
+export function siteNav(home: boolean, toggle = home, book = BOOK) {
   const s = home ? "#" : "/#";
   return `
 <div class="nav">
@@ -57,7 +57,7 @@ export function siteNav(home: boolean, toggle = home) {
       </details>
       <a href="${s}faq">FAQ</a>
     </nav>
-    <div class="nav-act">${toggle ? THEME_TOGGLE : ""}<a class="btn blue" href="${BOOK}" ${ext}>Book a Call</a></div>
+    <div class="nav-act">${toggle ? THEME_TOGGLE : ""}<a class="btn blue" href="${book}" ${ext}>Book a Call</a></div>
   </div>
 </div>`;
 }

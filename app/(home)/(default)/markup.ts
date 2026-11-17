@@ -1,7 +1,8 @@
 import { withImgDims } from "@/lib/img-dims";
 import { siteNav, siteFooter } from "@/components/site-chrome/markup";
 // Page markup for the homepage, rendered by HomeLanding. Shares ecommerce.css; homepage-only styles live in home.css.
-const BOOK = "https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg";
+// Booking CTAs go straight to the D2C Funnel Review Call booking page (Zoho Bookings).
+const BOOK = "https://booknow.acquirely.in/D2CFRC";
 const PLAYBOOK = "https://forms.zoho.in/acquirely/form/A3Playbook";
 const IMG = "/ecommerce/img";
 const ARROW = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
@@ -101,7 +102,7 @@ const faqs: [string, string][] = [
 
 const markup = `
 <!-- ============ NAV ============ -->
-${siteNav(true)}
+${siteNav(true, true, BOOK)}
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
