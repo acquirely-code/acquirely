@@ -4,7 +4,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { POST } from "@/app/api/lead/audit/route";
-import { AD_SPEND_OPTIONS, BUDGET_OPTIONS, qualifyAudit, REVENUE_OPTIONS, validateAudit } from "@/lib/audit-form/rules";
+import { AD_SPEND_OPTIONS, BUDGET_OPTIONS, qualifyAudit, qualifyAuditTesting, rulesetFor, REVENUE_OPTIONS, validateAudit } from "@/lib/audit-form/rules";
 import { resetRateLimitForTests as resetStoreForTests } from "@/lib/audit-form/http";
 
 const lead = (overrides: Record<string, unknown> = {}) => ({
@@ -24,6 +24,35 @@ const post = async (body: unknown, ip = "10.0.0.1") => {
   const response = await POST(new Request("http://test.local/api/lead/audit", { method: "POST", headers: { "Content-Type": "application/json", "x-real-ip": ip }, body: JSON.stringify(body) }));
   return { status: response.status, data: (await response.json()) as Record<string, any> };
 };
+
+describe("qualifyAuditTesting (/lead-gen-testing rules)", () => {
+  it("rejects when not running ads, whatever else", () => {
+    for (const budget of BUDGET_OPTIONS) expect(qualifyAuditTesting(lead({ adSpend: "Not running ads yet", budget }))).toBe("rejected");
+  });
+  it("qualifies running ads + budget not \"Not right now\", ignoring revenue", () => {
+    expect(qualifyAuditTesting(lead({ adSpend: "Under ₹1L", budget: "Need to think about it", revenue: "Under ₹10L" }))).toBe("qualified");
+    expect(qualifyAuditTesting(lead())).toBe("qualified");
+  });
+  it("puts running ads + \"Not right now\" in nurture", () => {
+    expect(qualifyAuditTesting(lead({ budget: "Not right now" }))).toBe("nurture");
+  });
+  it("is picked only by its ruleset name", () => {
+    expect(rulesetFor("lead-gen-testing").qualify).toBe(qualifyAuditTesting);
+    for (const other of [undefined, "default", "toString", 5]) expect(rulesetFor(other).qualify).toBe(qualifyAudit);
+  });
+  it("asks only ad spend and budget: revenue and problem aren't required", () => {
+    const { revenue, problem, ...rest } = lead();
+    expect(validateAudit(rest).data).toBeNull();
+    const { data } = validateAudit({ ...rest, revenue: "junk" }, rulesetFor("lead-gen-testing").skip);
+    expect(data?.revenue).toBe("");
+    expect(data?.problem).toBe("");
+  });
+  it("the API applies it when the form sends ruleset", async () => {
+    const { revenue, problem, ...rest } = lead({ adSpend: "Under ₹1L" });
+    const { data } = await post({ ...rest, ruleset: "lead-gen-testing" });
+    expect(data.outcome).toBe("qualified");
+  });
+});
 
 describe("qualifyAudit (Zoho rules)", () => {
   it("qualifies budget yes + revenue 10L+ + spend 1L+", () => {

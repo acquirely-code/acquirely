@@ -96,9 +96,11 @@ export function validateAuditField(name: AuditFieldName, all: Record<string, unk
   return rules[name](all[name], all);
 }
 
-export function validateAudit(input: Record<string, unknown>): { data: AuditFields | null; errors: AuditFieldErrors } {
+// `skip`: questions this form doesn't ask. They aren't checked and are saved empty.
+export function validateAudit(input: Record<string, unknown>, skip: readonly AuditFieldName[] = []): { data: AuditFields | null; errors: AuditFieldErrors } {
   const errors: AuditFieldErrors = {};
   for (const name of AUDIT_FIELD_ORDER) {
+    if (skip.includes(name)) continue;
     const error = rules[name](input[name], input);
     if (error) errors[name] = error;
   }
@@ -111,9 +113,9 @@ export function validateAudit(input: Record<string, unknown>): { data: AuditFiel
       countryCode,
       phone: normalizePhone(str(input.phone), countryCode),
       website: str(input.website),
-      revenue: str(input.revenue),
+      revenue: skip.includes("revenue") ? "" : str(input.revenue),
       adSpend: str(input.adSpend),
-      problem: str(input.problem),
+      problem: skip.includes("problem") ? "" : str(input.problem),
       budget: str(input.budget),
     },
     errors,
@@ -128,3 +130,23 @@ export function qualifyAudit(lead: Pick<AuditFields, "revenue" | "adSpend" | "bu
   if (lead.budget === "Yes, that works" && lead.revenue !== "Under ₹10L" && (lead.adSpend === "₹1L – ₹5L" || lead.adSpend === "₹5L+")) return "qualified";
   return "nurture";
 }
+
+// /lead-gen-testing rules (its own Zoho form rules). Revenue doesn't count here.
+// Rejected: ad spend "Not running ads yet".
+// Qualified: running ads and budget not "Not right now".
+// Anything else (running ads, budget "Not right now") matches neither rule: nurture.
+export function qualifyAuditTesting(lead: Pick<AuditFields, "revenue" | "adSpend" | "budget">): AuditOutcome {
+  if (lead.adSpend === "Not running ads yet") return "rejected";
+  if (lead.budget !== "Not right now") return "qualified";
+  return "nurture";
+}
+
+// Per form: the qualify rules and the questions it leaves out. The browser names one; the server decides with it.
+export const AUDIT_RULESETS = {
+  default: { qualify: qualifyAudit, skip: [] as AuditFieldName[] },
+  // Asks only ad spend and the ₹75K question, besides contact details.
+  "lead-gen-testing": { qualify: qualifyAuditTesting, skip: ["revenue", "problem"] as AuditFieldName[] },
+};
+export type AuditRuleset = keyof typeof AUDIT_RULESETS;
+export const rulesetFor = (ruleset: unknown) =>
+  typeof ruleset === "string" && Object.hasOwn(AUDIT_RULESETS, ruleset) ? AUDIT_RULESETS[ruleset as AuditRuleset] : AUDIT_RULESETS.default;

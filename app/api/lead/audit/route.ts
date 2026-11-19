@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { clientIp, json, overLimit, readBody } from "@/lib/audit-form/http";
-import { qualifyAudit, UTM_KEYS, validateAudit } from "@/lib/audit-form/rules";
+import { rulesetFor, UTM_KEYS, validateAudit } from "@/lib/audit-form/rules";
 import { auditStorageProblem, saveAuditLead, type AuditRecord } from "@/lib/audit-form/server";
 import { sendAuditCapiEvents } from "@/lib/audit-form/meta-capi";
 
@@ -14,12 +14,13 @@ const httpUrl = (value: unknown) => {
   return /^https?:\/\//i.test(text) ? text : "";
 };
 
-// Lead Quality Audit application from /lead-gen. The outcome is decided here, not trusted from the browser.
+// Lead Quality Audit application (/done-for-you, /lead-gen-testing). body.ruleset picks the qualify rules. The outcome is decided here, not trusted from the browser.
 export async function POST(request: Request) {
   const body = await readBody(request);
   if (!body) return json({ ok: false, error: "invalid_request" }, 400);
 
-  const { data, errors } = validateAudit(body);
+  const { qualify: qualifyAudit, skip } = rulesetFor(body.ruleset);
+  const { data, errors } = validateAudit(body, skip);
   if (!data) return json({ ok: false, error: "invalid_fields", fieldErrors: errors }, 422);
 
   // Honeypot: a hidden field people never fill. Nothing is saved or tracked (no leadId), but the answer still

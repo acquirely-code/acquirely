@@ -17,6 +17,8 @@ import {
   type AuditFieldErrors,
   type AuditFieldName,
   type AuditOutcome,
+  type AuditRuleset,
+  rulesetFor,
 } from "@/lib/audit-form/rules";
 import styles from "./AuditFormModal.module.css";
 
@@ -26,7 +28,7 @@ const BOOKING_URL = process.env.NEXT_PUBLIC_AUDIT_BOOKING_URL || "https://bookno
 // The booking page with Full Name, Email, Contact Number and Company website filled in from the form, so
 // qualified leads don't type them twice. Zoho Bookings reads these after the "#/LGARC?" route, keyed by
 // the field's label. They stay editable there.
-function bookingUrlFor(data: { name: string; email: string; countryCode: string; phone: string; website: string }) {
+function bookingUrlFor(base: string, data: { name: string; email: string; countryCode: string; phone: string; website: string }) {
   const params: Record<string, string> = {
     // Our Zoho form labels the name field "Full Name"; "Name" is Zoho's default label, kept in case it's renamed back.
     "Full Name": data.name,
@@ -37,7 +39,7 @@ function bookingUrlFor(data: { name: string; email: string; countryCode: string;
   };
   // encodeURIComponent (not URLSearchParams) so spaces become %20 and the "+" in the phone stays a "+".
   const query = Object.entries(params).map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join("&");
-  return `${BOOKING_URL}${BOOKING_URL.includes("?") ? "&" : "?"}${query}`;
+  return `${base}${base.includes("?") ? "&" : "?"}${query}`;
 }
 
 type Values = Record<AuditFieldName, string>;
@@ -65,14 +67,27 @@ const SERVER_ERRORS: Record<string, string> = {
   save_failed: "We couldn't save your details just now. Please try again in a few minutes, or email team@acquirely.in.",
 };
 
-export default function AuditFormModal({ open, onClose, fontClass = "" }: { open: boolean; onClose: () => void; fontClass?: string }) {
+type Props = {
+  open: boolean;
+  onClose: () => void;
+  fontClass?: string;
+  // Qualify rules the server applies (lib/audit-form/rules.ts AUDIT_RULESETS).
+  ruleset?: AuditRuleset;
+  // Zoho Bookings page for qualified leads, in the "/<page>/#/<page>" form so the prefill works.
+  bookingBase?: string;
+  // Shown to rejected leads.
+  rejectedMessage?: string;
+};
+
+export default function AuditFormModal({ open, onClose, fontClass = "", ruleset = "default", bookingBase = BOOKING_URL, rejectedMessage }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [values, setValues] = useState<Values>(EMPTY);
   const [errors, setErrors] = useState<AuditFieldErrors>({});
   const [touched, setTouched] = useState<Partial<Record<AuditFieldName, boolean>>>({});
   const [status, setStatus] = useState<Status>({ kind: "form" });
   const [formError, setFormError] = useState("");
-  const [bookingUrl, setBookingUrl] = useState(BOOKING_URL);
+  const [bookingUrl, setBookingUrl] = useState(bookingBase);
+  const { skip } = rulesetFor(ruleset);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -103,19 +118,19 @@ export default function AuditFormModal({ open, onClose, fontClass = "" }: { open
     event.preventDefault();
     if (status.kind === "sending") return;
     setFormError("");
-    const { data, errors: errs } = validateAudit(values);
+    const { data, errors: errs } = validateAudit(values, skip);
     setErrors(errs);
     if (!data) return focusFirstError(errs);
 
     const honeypot = (event.currentTarget.elements.namedItem("company_fax") as HTMLInputElement | null)?.value || "";
-    const prefilledBookingUrl = bookingUrlFor(data);
+    const prefilledBookingUrl = bookingUrlFor(bookingBase, data);
     setBookingUrl(prefilledBookingUrl);
     setStatus({ kind: "sending" });
     try {
       const response = await fetch("/api/lead/audit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, company_fax: honeypot, landingPageUrl: window.location.href, utm: readUtm() }),
+        body: JSON.stringify({ ...data, ruleset, company_fax: honeypot, landingPageUrl: window.location.href, utm: readUtm() }),
       });
       const result = (await response.json().catch(() => ({}))) as { ok?: boolean; leadId?: string; outcome?: AuditOutcome; error?: string; reason?: string; detail?: string; fieldErrors?: AuditFieldErrors };
       // The setup problem, for whoever opens the console. Visitors only see the friendly message.
@@ -203,7 +218,7 @@ export default function AuditFormModal({ open, onClose, fontClass = "" }: { open
               <div className={styles.badge} aria-hidden="true">✓</div>
               <p className={styles.doneLead}>
                 {status.outcome === "rejected"
-                  ? "Thank you for sharing your details. Our team will review them and get in touch if there's a suitable opportunity."
+                  ? rejectedMessage || "Thank you for sharing your details. Our team will review them and get in touch if there's a suitable opportunity."
                   : "Thank you for sharing your details. Our team will get back to you shortly."}
               </p>
               <button type="button" className={styles.submit} onClick={close}>Close</button>
@@ -241,9 +256,9 @@ export default function AuditFormModal({ open, onClose, fontClass = "" }: { open
             {err("website")}
           </div>
 
-          {radios("revenue", "Monthly revenue", REVENUE_OPTIONS)}
+          {!skip.includes("revenue") && radios("revenue", "Monthly revenue", REVENUE_OPTIONS)}
           {radios("adSpend", "Current monthly ad spend (Meta + Google)", AD_SPEND_OPTIONS)}
-          {radios("problem", "What's the main problem right now?", PROBLEM_OPTIONS)}
+          {!skip.includes("problem") && radios("problem", "What's the main problem right now?", PROBLEM_OPTIONS)}
           {radios("budget", BUDGET_QUESTION, BUDGET_OPTIONS)}
 
           {/* Honeypot for bots: hidden from people and screen readers. */}
