@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { ecomBody as openSans, ecomDisplay as montserrat } from "@/lib/fonts";
+import { trackMetaLead } from "@/lib/audit-form/tracking";
 import markup from "./markup";
 import useLandingScripts from "../ecommerce/useLandingScripts";
 import "../ecommerce/ecommerce.css";
@@ -11,6 +12,11 @@ import "../ecommerce/ecommerce-dark.css";
 export default function LeadGenTestingThankYou() {
   const rootRef = useRef<HTMLDivElement>(null);
   useLandingScripts(rootRef);
+
+  // Reaching this page means a call was booked: count it as a Meta Lead.
+  useEffect(() => {
+    trackMetaLead();
+  }, []);
 
   // Greet by first name when the form redirect passes ?name= (or ?tve_name=).
   useEffect(() => {

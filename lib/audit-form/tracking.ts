@@ -56,6 +56,14 @@ function ensureFbq(id: string) {
   loadScript("https://connect.facebook.net/en_US/fbevents.js");
 }
 
+// Meta Lead for /lead-gen-testing-thank-you, where the leadgenaudit booking page lands. Fired from code because the
+// Meta Event setup tool's Lead rule only matches /lead-gen-thank-you, so the two never double up.
+export function trackMetaLead() {
+  if (typeof window === "undefined") return;
+  ensureFbq(META_PIXEL_ID);
+  window.fbq?.("track", "Lead");
+}
+
 // Meta: InitiateCheckout for qualified only, with the same event ID as the server's Conversions API event
 // (lib/audit-form/meta-capi.ts) so Meta de-duplicates the pair. Lead is NOT sent from code: a Meta Event setup
 // tool rule fires it on /lead-gen-thank-you, where Zoho Bookings lands after a call is booked.
