@@ -174,4 +174,4 @@
 
 /* Qualified: "Pick a time now" link styled as the button */
 a.submit { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
-.doneLead { font-size: 17px !important; font-weight: 600; color: var(--af-ink); max-width: 560px !important; }
+.doneLead { font-size: 17px !important; font-weight: 600; color: var(--af-ink); max-width: 560px !important; white-space: pre-line; }

@@ -12,7 +12,7 @@ import "../ecommerce/ecommerce-dark.css";
 // Qualified leads book here (name, email, phone and website prefilled).
 const BOOKING_BASE = "https://booknow.acquirely.in/leadgenaudit/#/leadgenaudit";
 const REJECTED_MESSAGE =
-  "Thank you for your interest in Acquirely! Based on the details you shared, we may not be the right fit for your business at this stage. We’d love to stay in touch, so feel free to reach out again as your brand grows.";
+  "Thank you for your interest in Acquirely!\nBased on the details you shared, we may not be the right fit for your business at this stage. We’d love to stay in touch, so feel free to reach out again as your brand grows.";
 
 export default function LeadGenTestingLanding() {
   const rootRef = useRef<HTMLDivElement>(null);
