@@ -77,9 +77,11 @@ type Props = {
   bookingBase?: string;
   // Shown to rejected leads.
   rejectedMessage?: string;
+  // Shown to leads that matched neither rule (nurture).
+  nurtureMessage?: string;
 };
 
-export default function AuditFormModal({ open, onClose, fontClass = "", ruleset = "default", bookingBase = BOOKING_URL, rejectedMessage }: Props) {
+export default function AuditFormModal({ open, onClose, fontClass = "", ruleset = "default", bookingBase = BOOKING_URL, rejectedMessage, nurtureMessage }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [values, setValues] = useState<Values>(EMPTY);
   const [errors, setErrors] = useState<AuditFieldErrors>({});
@@ -199,7 +201,7 @@ export default function AuditFormModal({ open, onClose, fontClass = "", ruleset 
   return (
     <dialog ref={dialogRef} className={`${styles.dialog} ${fontClass}`} onClose={close} onCancel={close} aria-labelledby="af-title">
       <div className={styles.head}>
-        <h2 id="af-title" className={styles.title}>Lead Gen Lead Quality Audit Application</h2>
+        <h2 id="af-title" className={styles.title}>Lead Gen Quality Audit Application</h2>
         <button type="button" className={styles.close} onClick={close} aria-label="Close">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
         </button>
@@ -219,7 +221,7 @@ export default function AuditFormModal({ open, onClose, fontClass = "", ruleset 
               <p className={styles.doneLead}>
                 {status.outcome === "rejected"
                   ? rejectedMessage || "Thank you for sharing your details. Our team will review them and get in touch if there's a suitable opportunity."
-                  : "Thank you for sharing your details. Our team will get back to you shortly."}
+                  : nurtureMessage || "Thank you for sharing your details. Our team will get back to you shortly."}
               </p>
               <button type="button" className={styles.submit} onClick={close}>Close</button>
             </>

@@ -46,6 +46,7 @@ export default function LeadGenTestingLanding() {
         ruleset="lead-gen-testing"
         bookingBase={BOOKING_BASE}
         rejectedMessage={REJECTED_MESSAGE}
+        nurtureMessage={REJECTED_MESSAGE}
       />
     </>
   );
