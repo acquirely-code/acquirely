@@ -43,13 +43,186 @@ export interface BlogPost {
 const MAUSAM_BIO =
   "Mausam spent 12 years building education businesses, from 300+ books to distribution across 2,000+ schools. At Acquirely he leads funnel strategy and go-to-market, turning ad spend into acquisition systems that compound.";
 const KUNAL_BIO =
-  "Kunal has managed ₹30Cr+ in ad spend across 30+ brands in ecommerce, EdTech and real estate. He leads Meta strategy at Acquirely and runs the A3 Flywheel hands-on inside client accounts.";
+  "₹30Cr+ managed across 30+ brands in ecommerce and leadgen. A hands-on Meta strategist who runs full-funnel systems across Meta and Google.";
 
 const BOOKING_URL = "https://booknow.acquirely.in/D2CFRC";
 
 const STRUCTURE_POST = "/blog/best-meta-ad-structure-after-andromeda-update";
+const ANDROMEDA_POST = "/blog/meta-andromeda-update-explained";
+const TARGETING_POST = "/blog/broad-targeting-vs-interest-targeting-meta";
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "broad-targeting-vs-interest-targeting-meta",
+    title: "Broad Targeting vs Interest Targeting on Meta: Which Is Best for You in 2026?",
+    metaTitle: "Broad vs Interest Targeting on Meta: Which Is Best in 2026?",
+    metaDescription:
+      "Broad or interest targeting on Meta? Compare both side by side, see what changed in 2026, and learn which one fits your brand, from 20+ ad accounts.",
+    excerpt:
+      "Broad or interest targeting on Meta? A side-by-side comparison, what changed in 2025 and 2026, and how to move to broad without breaking results.",
+    date: "2026-11-20",
+    author: "Kunal Mandal",
+    authorRole: "Co-founder, Acquirely",
+    authorBio: KUNAL_BIO,
+    authorUrl: "https://www.linkedin.com/in/kunal-meta-ads/",
+    authorImage: "/ecommerce/img/kunal-mandal.jpg",
+    coverImage: "/blog/broad-targeting-vs-interest-targeting-meta.webp",
+    image: {
+      src: "/blog/broad-targeting-vs-interest-targeting-meta.webp",
+      alt: "Broad targeting vs interest targeting on Meta Ads comparison",
+      title: "Broad Targeting vs Interest Targeting on Meta: Which Is Best in 2026?",
+      description:
+        "Broad targeting vs interest targeting on Meta Ads: who picks the audience, what changed in 2026, and which one fits your brand.",
+      width: 1200,
+      height: 628,
+    },
+    content: [
+      "Read this before you build your next ad set, because choosing the wrong targeting in 2026 can quietly cap your results no matter how good your ads are.",
+      {
+        type: "callout",
+        text: "**Quick answer:** The main difference between **broad targeting** and **interest targeting** on Meta is who chooses the audience. With broad targeting, you set only the basics, like location and age, and Meta's AI finds buyers through your creative. With interest targeting, you pick interests yourself, which Meta now mostly treats as suggestions, not strict filters.",
+      },
+      "In this guide, you will see a side-by-side comparison of both approaches. You will also see what changed in 2025 and 2026, and what we found after testing across 20+ ad accounts at Acquirely.",
+      "You will learn:",
+      {
+        type: "ul",
+        items: [
+          "What broad and interest targeting actually mean in Ads Manager today",
+          "Why broad targeting usually wins after the Andromeda update",
+          "The few situations where interest targeting still makes sense",
+          "How to move your account from interests to broad without breaking results",
+        ],
+      },
+      `Short on time? Jump to the [comparison table](#comparison), or read our guide to the [best Meta Ad structure after the Andromeda update](${STRUCTURE_POST}).`,
+      { type: "toc" },
+
+      { type: "h2", text: "What is broad targeting on Meta?" },
+      "**Broad targeting** on Meta means running ads with only basic settings, such as location, language and age, and no interests or behaviours added. Meta's AI then decides who sees each ad, using signals from your creative, your pixel data and how people respond. You give it the widest pool to search.",
+      "In Ads Manager today, broad targeting usually means **Advantage+ audience** with few or no suggestions added.",
+
+      { type: "h2", text: "What is interest targeting on Meta?" },
+      '**Interest targeting** on Meta, called **detailed targeting** in Ads Manager, means choosing interests, behaviours or demographics you think your buyers have, such as "yoga" or "online shoppers". You are telling Meta who to look for, instead of letting it work that out from your ads.',
+      "Before 2025, these interests worked as strict filters. That has changed.",
+
+      { type: "h2", text: "What changed in 2025 and 2026" },
+      "Meta has steadily reduced how much interest targeting controls delivery:",
+      {
+        type: "ul",
+        items: [
+          '**Interests are now "suggestions" by default.** Meta describes detailed targeting as audience suggestions: it shows ads to people matching them, and to other people when that is likely to improve performance.',
+          "**Many interests were merged or removed.** Meta began consolidating narrow interests into broader categories in mid-2025, and removed more interest categories in January 2026.",
+          "**Interest exclusions are gone.** You can no longer exclude people based on interests, behaviours or detailed demographics.",
+          `**Andromeda changed delivery.** Meta's ad retrieval engine now reads what your creative shows and says, and matches it to people far earlier in the process. (New to it? Read the [Meta Andromeda update explained](${ANDROMEDA_POST}).)`,
+        ],
+      },
+      "What still works as a hard control: **location, language, minimum age and Custom Audience exclusions**, such as excluding your past buyers.",
+      "In short, the interest box is still there, but in most setups it is now a hint, not a rule.",
+
+      { type: "h2", id: "comparison", text: "Broad targeting vs interest targeting: side-by-side comparison" },
+      {
+        type: "table",
+        head: ["", "🌐 Broad targeting", "🎯 Interest targeting"],
+        rows: [
+          ["Who picks the audience", "Meta's AI, guided by your creative", "You, through chosen interests"],
+          ["Audience size", "Very large", "Smaller, but Meta may expand it"],
+          ["How Meta treats your inputs", "Basic hard controls only", "Mostly as suggestions in 2026"],
+          ["Works best with", "Strong, varied creative and good conversion data", "New accounts with little data, very niche offers"],
+          ["Setup effort", "Low: one broad ad set", "High: many ad sets, many interest stacks"],
+          ["Risk of audience overlap", "Low", "High when ad sets share similar interests"],
+          ["Main growth lever", "New creative concepts", "Finding new interests"],
+          ["Fit with Andromeda", "Strong", "Weaker"],
+        ],
+      },
+
+      { type: "h2", text: "Why broad targeting usually wins in 2026" },
+
+      { type: "h3", text: "1. Your creative is now the targeting" },
+      'After the Andromeda update, Meta reads what is inside your ad and works out who it suits. A video about busy mums meal-prepping already tells Meta who to show it to. Adding a "cooking" interest on top mostly narrows where it is allowed to look.',
+
+      { type: "h3", text: "2. Interest targeting stopped delivering for us" },
+      "Across the 20+ accounts we manage, interest-based campaigns that had been steady for months became significantly less effective after the update. Broad setups with strong creative testing performed better and more consistently.",
+
+      { type: "h3", text: "3. Fewer ad sets means less internal competition" },
+      "Interest targeting usually means splitting your budget across many ad sets. When those audiences overlap, your own ad sets end up bidding against each other for the same people. One broad structure removes that problem.",
+
+      { type: "h3", text: "4. Meta is already expanding beyond your interests" },
+      "Since your interests are mostly treated as suggestions, Meta will show ads outside them anyway when it predicts better results. You keep the extra work of building interest stacks, but lose most of the control.",
+
+      { type: "h2", text: "When interest targeting still makes sense" },
+      "Broad is the right default for most brands, but not every brand. Interest targeting can still help you in a few cases:",
+      {
+        type: "ul",
+        items: [
+          "**Brand-new ad accounts or pixels** with almost no conversion data. A few relevant interests can give Meta a starting point while it learns.",
+          "**Very small budgets.** When you can only afford limited delivery, a hint about where to start can reduce wasted early spend.",
+          "**Very niche B2B or professional offers**, where the right buyers are a tiny share of the population and your creative alone may not signal it clearly.",
+          "**Controlled tests**, where you deliberately want to compare a specific audience against broad.",
+        ],
+      },
+      "Even then, treat interests as a starting hint. Plan to test broad once you have steady conversion data.",
+
+      { type: "h2", text: "Which one is best for you? A quick decision guide" },
+      {
+        type: "table",
+        head: ["Your situation", "What to use"],
+        rows: [
+          ["Steady conversions every week, regular new creatives", "✅ Broad targeting"],
+          ["D2C or e-commerce brand scaling past a plateau", "✅ Broad targeting"],
+          ["Running several overlapping interest ad sets today", "✅ Move to broad, consolidate"],
+          ["New pixel with very few conversions", "🟡 Start with a few interests as suggestions, then test broad"],
+          ["Very niche B2B offer, small budget", "🟡 Interests as suggestions, with creative that clearly names the buyer"],
+          ["Few creatives, rarely refreshed", "⚠️ Fix creative first: neither option will save weak ads"],
+        ],
+      },
+      "The last row matters most. Broad targeting only works when you feed it strong, varied creative. If your ads are weak, Meta will simply show them to a wider, less interested audience.",
+
+      { type: "h2", text: "How to switch from interest targeting to broad targeting in 6 steps" },
+      "Don't switch everything off in one day. Follow these steps to move over without a sudden drop in results.",
+      {
+        type: "ol",
+        items: [
+          "**Audit your current ad sets.** List every interest-based ad set, its spend share and its results. Note which ones carry most of your conversions.",
+          "**Build one broad Prospecting campaign.** Use a CBO campaign with location, language and age only, and Advantage+ audience with few or no suggestions.",
+          "**Exclude past buyers.** Add your customer list or purchaser Custom Audience as an exclusion, so prospecting budget goes only to net-new customers.",
+          "**Launch fresh, distinct creatives.** Put a new batch of genuinely different concepts into the broad ad set. Don't just move old ads across.",
+          "**Give it a fair test.** Set a temporary minimum spend on the new ad set, about 1× your target Cost Per Result for 7 days, so it gets enough delivery to prove itself.",
+          "**Wind down interest ad sets gradually.** As the broad campaign takes over, lower budgets on the old interest ad sets step by step instead of pausing them all at once.",
+        ],
+      },
+      `Want the full structure, including retention and scaling? Read our guide to the [best Meta Ad structure after the Andromeda update](${STRUCTURE_POST}). New to the update itself? Start with [Meta Andromeda update explained](${ANDROMEDA_POST}).`,
+
+      { type: "h2", text: "FAQ" },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "Is broad targeting better than interest targeting on Meta?",
+            a: "For most brands in 2026, broad targeting is better than interest targeting on Meta. Meta's AI now finds buyers mainly through your creative, and treats interests mostly as suggestions anyway. Across the 20+ accounts we manage, broad setups with strong, varied creative have outperformed interest-based ones after the Andromeda update.",
+          },
+          {
+            q: "Does interest targeting still work on Meta in 2026?",
+            a: "Interest targeting still exists on Meta in 2026, but it works far less reliably. Many interests were merged or removed, interest exclusions are gone, and Meta mostly treats your selections as suggestions. It can still help brand-new accounts or very niche offers get a starting point before switching to broad.",
+          },
+          {
+            q: "What is Advantage+ audience?",
+            a: "Advantage+ audience is Meta's AI targeting setting that finds people likely to convert, using your interests, Custom Audiences or lookalikes only as optional suggestions. Location, language, minimum age and Custom Audience exclusions stay as hard limits. In practice, Advantage+ audience with few suggestions is how most advertisers run broad targeting today.",
+          },
+          {
+            q: "Can you still exclude audiences with broad targeting?",
+            a: "Yes, you can still exclude Custom Audiences with broad targeting, such as past purchasers or existing leads. What Meta removed is the option to exclude people by interests, behaviours or detailed demographics. Excluding past buyers from prospecting is one of the most useful settings you can keep in a broad campaign.",
+          },
+          {
+            q: "How long should you test broad targeting before deciding?",
+            a: "Test broad targeting for at least 7 days with enough budget to exit early learning, and judge it on several weeks of results. Make sure it has fresh, distinct creatives and a fair share of spend. Comparing a brand-new broad ad set against a mature interest ad set after two days is not a fair test.",
+          },
+        ],
+      },
+
+      { type: "h2", text: "Need help moving to broad targeting?" },
+      "If your interest-based campaigns have slowed down and you are not sure how to restructure, start with a review.",
+      `[Book a Growth Diagnosis Call with Acquirely](${BOOKING_URL}). We will check your targeting, structure and creative pipeline against the A3 Flywheel, the system we built after the Andromeda update.`,
+    ],
+  },
   {
     slug: "meta-andromeda-update-explained",
     title: "Meta Andromeda Update Explained: What Changed for Advertisers (With Examples)",
@@ -203,7 +376,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "ol",
         items: [
-          "**Go broad.** Replace stacked interest audiences with broad targeting in your prospecting campaigns. Let the creative find the buyer.",
+          `**Go broad.** Replace stacked interest audiences with broad targeting in your prospecting campaigns. Let the creative find the buyer. (Not sure yet? Compare [broad targeting vs interest targeting](${TARGETING_POST}).)`,
           "**Exclude past buyers from prospecting.** Keep acquisition budget for net-new customers, and reach existing customers through a separate Retention campaign.",
           "**Consolidate your structure.** Fewer campaigns chasing the same audience means less internal competition. We now run just two: a Prospecting CBO and a Retention campaign.",
           "**Ship distinct concepts every week.** Treat creative like a production line. New angles, new hooks, new formats, not just new colours.",
@@ -303,7 +476,7 @@ export const blogPosts: BlogPost[] = [
       { type: "toc" },
 
       { type: "h2", text: "What changed after Meta's Andromeda update?" },
-      "After Meta's Andromeda update, **interest-based targeting lost most of its edge**. Audience structures that delivered steady results before the update became much less effective across the majority of accounts we managed. Broad targeting paired with strong creative testing now performs better.",
+      `After Meta's Andromeda update, **interest-based targeting lost most of its edge**. Audience structures that delivered steady results before the update became much less effective across the majority of accounts we managed. Broad targeting paired with strong creative testing now performs better. (See the full [broad targeting vs interest targeting](${TARGETING_POST}) comparison.)`,
       "Before the update, interest stacks gave you consistent, predictable results. After it, the same setups started slipping, account after account. (New to Andromeda? Start with the [Meta Andromeda update explained](/blog/meta-andromeda-update-explained), with real account examples.)",
       'So we stopped asking "which interests should we target?" and started asking a better question. How do you build a structure that lets Meta\'s algorithm find buyers, while you control the creative and the budget?',
 
