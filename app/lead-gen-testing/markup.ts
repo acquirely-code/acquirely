@@ -194,13 +194,12 @@ const tiers: Tier[] = [
   {
     id: "lead", name: "Lead Engine", price: "₹75,000", line: "Founding rate · <s>₹1,00,000</s>",
     tagline: "Meta ads that bring in screened leads.",
-    inc: [["Facebook &amp; Instagram Ads, fully managed"], ["Unlimited creatives + landing pages"], ["Lead scoring + OTP validation"]],
-    off: ["Google, YouTube &amp; LinkedIn Ads", "No-show reminders + nurture sequences", "Closed deals fed back to Meta &amp; Google", "Qualified-Lead Floor guarantee"],
+    inc: [["Facebook &amp; Instagram Ads, fully managed"], ["Unlimited creatives"], ["Lead scoring + OTP validation"]],
+    off: ["Google, YouTube &amp; LinkedIn Ads", "Landing pages + lead capture", "No-show reminders + nurture sequences", "Closed deals fed back to Meta &amp; Google", "Qualified-Lead Floor guarantee"],
     more: [
       ["Full Facebook &amp; Instagram Ads", "Launch, management and daily optimisation."],
       ["GTM + conversion tracking", "Every lead traced to the ad, audience and city that brought it."],
       ["All static creatives + video editing", "Unlimited angle testing, never billed per asset."],
-      ["Landing pages + lead capture", "Mobile-first pages built to turn a click into a booked call."],
       ["Lead scoring + intent filtering", "People who can't buy, filtered out before your team sees them."],
       ["Phone / OTP validation", "Fake numbers killed at the source."],
     ],
@@ -211,14 +210,15 @@ const tiers: Tier[] = [
     flag: "Most clients pick this", badge: "Save ₹50,000/month",
     tagline: "Leads and the follow-up system that turns them into closed deals.",
     inc: [
-      ["Everything in Lead Engine"], ["Google Search, PMax, YouTube &amp; LinkedIn Ads"], ["WhatsApp + email no-show reminders"],
+      ["Everything in Lead Engine"], ["Google Search, PMax, YouTube &amp; LinkedIn Ads"], ["Landing pages + lead capture"], ["WhatsApp + email no-show reminders"],
       ["Automated nurture for leads not ready yet"], ["Closed deals fed back to Meta &amp; Google", "The big lever"],
       ["<b>Qualified-Lead Floor:</b> we work free until we hit your number"],
     ],
     more: [
-      ["Everything in Lead Engine", "Meta ads, tracking, creatives, landing pages, lead scoring, OTP validation."],
+      ["Everything in Lead Engine", "Meta ads, tracking, creatives, lead scoring, OTP validation."],
       ["Google Ads (Search, PMax &amp; YouTube)", "Meta creates demand; Google captures it the moment someone searches."],
       ["LinkedIn Ads", "Reach owners and directors by job title and company."],
+      ["Landing pages + lead capture", "Mobile-first pages built to turn a click into a booked call."],
       ["WhatsApp + email reminders", "Cuts no-shows. The lead who booked actually turns up."],
       ["Automated nurture sequences", "Leads not ready this month stay warm."],
       ["Conversion API + offline conversions", "Closed deals fed back to Meta &amp; Google so they hunt buyers, not clicks."],
@@ -247,7 +247,7 @@ const faqs: [string, string][] = [
   ["Do you close the leads too?", "No. We generate and qualify leads; your sales or counselling team closes them. That's why we ask for feedback on lead outcomes, and why we're picky about fit."],
   ["Will my cost per lead go up?", "Sometimes, a little. At RSA it held steady at ~₹150 while the qualified share went from 10% to 50%. A slightly higher CPL that brings 5x more qualified leads is a much cheaper cost per sale."],
   ["Which industries do you work with?", "Education and EdTech, pilot and professional training, fintech and lending, real estate, B2B and healthcare. Anywhere a sale starts with a lead and a conversation."],
-  ["Are creatives and landing pages included?", "Yes. A weekly creative Pack and lead form / landing page testing are part of the fee. Paid creator fees and shoots are billed separately."],
+  ["Are creatives and landing pages included?", "Creatives, yes: a weekly creative pack is part of every plan. Landing pages and lead capture come with Growth Engine and above. Paid creator fees and shoots are billed separately."],
   ["Do you run campaigns outside India?", "Yes. International Schooling runs across 9+ countries with us, and we manage accounts in Canada, the USA and other markets with the same system."],
 ];
 
@@ -548,7 +548,7 @@ const markup = `
         <div>
           <h3>Kunal Mandal</h3>
           <p class="role">Co-founder · Meta strategy</p>
-          <p>₹30Cr+ managed across 30+ brands in ecommerce, EdTech and real estate. A hands-on Meta strategist who runs full-funnel systems across Meta and Google.</p>
+          <p>₹30Cr+ managed across 30+ brands in ecommerce and leadgen. A hands-on Meta strategist who runs full-funnel systems across Meta and Google.</p>
           <a href="https://www.linkedin.com/in/kunal-meta-ads/" target="_blank" rel="noopener">${LINKEDIN}LinkedIn</a>
         </div>
       </div>
