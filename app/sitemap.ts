@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 import { getAllPosts } from "@/lib/blog-posts";
 
-// Only indexable, canonical URLs. Thank-you pages, /applynow, /done-for-you, /lead-gen-linkedin-ads (canonical to /lead-gen), the noindexed /lead-gen-testing pages and the noindexed legal pages are left out.
+// Only indexable, canonical URLs. Thank-you pages, /applynow, /done-for-you, /lead-gen-linkedin-ads (canonical to /lead-gen), and the noindexed legal pages are left out.
 // lastModified is omitted for static pages: stamping every URL with the build time teaches Google to ignore lastmod.
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages: MetadataRoute.Sitemap = [

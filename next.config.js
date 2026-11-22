@@ -70,6 +70,10 @@ const nextConfig = {
         permanent: true,
       },
       { source: '/dropshipping-calculator/:path*', destination: '/ecommerce-calculator/:path*', permanent: true },
+      // The /lead-gen-testing pages were folded into /lead-gen. A booking page still redirecting to the old thank-you
+      // URL lands on /lead-gen-thank-you (query kept), where the Meta Event setup tool fires Lead.
+      { source: '/lead-gen-testing', destination: '/lead-gen', permanent: true },
+      { source: '/lead-gen-testing-thank-you', destination: '/lead-gen-thank-you', permanent: true },
     ];
   },
 

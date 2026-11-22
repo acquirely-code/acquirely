@@ -131,11 +131,11 @@ export function qualifyAudit(lead: Pick<AuditFields, "revenue" | "adSpend" | "bu
   return "nurture";
 }
 
-// /lead-gen-testing rules (its own Zoho form rules). Revenue doesn't count here.
+// /lead-gen rules. Revenue doesn't count here.
 // Rejected: ad spend "Not running ads yet".
 // Qualified: running ads and budget not "Not right now".
 // Anything else (running ads, budget "Not right now") matches neither rule: nurture.
-export function qualifyAuditTesting(lead: Pick<AuditFields, "revenue" | "adSpend" | "budget">): AuditOutcome {
+export function qualifyAuditLeadGen(lead: Pick<AuditFields, "revenue" | "adSpend" | "budget">): AuditOutcome {
   if (lead.adSpend === "Not running ads yet") return "rejected";
   if (lead.budget !== "Not right now") return "qualified";
   return "nurture";
@@ -145,7 +145,7 @@ export function qualifyAuditTesting(lead: Pick<AuditFields, "revenue" | "adSpend
 export const AUDIT_RULESETS = {
   default: { qualify: qualifyAudit, skip: [] as AuditFieldName[] },
   // Asks only ad spend and the ₹75K question, besides contact details.
-  "lead-gen-testing": { qualify: qualifyAuditTesting, skip: ["revenue", "problem"] as AuditFieldName[] },
+  "lead-gen": { qualify: qualifyAuditLeadGen, skip: ["revenue", "problem"] as AuditFieldName[] },
 };
 export type AuditRuleset = keyof typeof AUDIT_RULESETS;
 export const rulesetFor = (ruleset: unknown) =>

@@ -1,9 +1,8 @@
 import { withImgDims } from "@/lib/img-dims";
 import { THEME_TOGGLE } from "../ecommerce/theme";
 // Page markup for /lead-gen, rendered by LeadGenLanding. Shares ecommerce.css; lead-gen-only styles live in lead-gen.css.
-// Every CTA opens the Lead Quality Audit Zoho form.
-const BOOK = "https://forms.zohopublic.in/acquirely/form/leadgenqualityaudit/formperma/YJ2TJ_BfYMjE3rYd93mKYSmE52XAuriXo77rCoC4GNY";
-const CTA = `href="${BOOK}"`;
+// Every CTA opens the inbuilt audit application form (LeadGenLanding catches [data-audit-open]).
+const CTA = `href="#apply" data-audit-open`;
 const ARROW = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
 const TICK = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`;
 const LINKEDIN = `<svg width="14" height="14" viewBox="0 0 24 24" fill="#0A66C2"><path d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4 0-3.2-1.95-3.2S12.8 13.5 12.8 15.1V21H9z"/></svg>`;

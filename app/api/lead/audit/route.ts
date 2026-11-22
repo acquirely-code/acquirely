@@ -14,7 +14,7 @@ const httpUrl = (value: unknown) => {
   return /^https?:\/\//i.test(text) ? text : "";
 };
 
-// Lead Quality Audit application (/done-for-you, /lead-gen-testing). body.ruleset picks the qualify rules. The outcome is decided here, not trusted from the browser.
+// Lead Quality Audit application (/done-for-you, /lead-gen). body.ruleset picks the qualify rules. The outcome is decided here, not trusted from the browser.
 export async function POST(request: Request) {
   const body = await readBody(request);
   if (!body) return json({ ok: false, error: "invalid_request" }, 400);
