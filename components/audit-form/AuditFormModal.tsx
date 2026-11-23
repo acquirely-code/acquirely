@@ -36,6 +36,11 @@ function bookingUrlFor(base: string, data: { name: string; email: string; countr
     Email: data.email,
     "Contact Number": `${data.countryCode}${data.phone}`,
     "Company website": data.website,
+    // The D2CFRC (Funnel Review Call) page labels these "Work Email", "Phone Number" and "Company Website".
+    // Labels a page doesn't have are ignored, so one URL fills every booking page.
+    "Work Email": data.email,
+    "Phone Number": `${data.countryCode}${data.phone}`,
+    "Company Website": data.website,
   };
   // encodeURIComponent (not URLSearchParams) so spaces become %20 and the "+" in the phone stays a "+".
   const query = Object.entries(params).map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join("&");
