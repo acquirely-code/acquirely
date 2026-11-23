@@ -30,8 +30,6 @@ export function siteNav(home: boolean, toggle = home, book = BOOK) {
           <p class="hm-dd-h">Services</p>
           ${navItem("/ecommerce", false, '<path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/>', "D2C &amp; Ecommerce", "Revenue and ROAS on Meta and Google")}
           ${navItem("/lead-gen", true, '<circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 11h5"/><path d="M18.5 8.5v5"/>', "Lead Generation", "Qualified leads, not form fills")}
-          ${navItem("/publishers", false, '<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/><path d="M8 7h7"/>', "Education Publishers", "School decision-makers who book calls")}
-          ${navItem("/edtech", true, '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/>', "EdTech for Schools", "Reach principals, not the front desk")}
           <a class="hm-dd-all" href="${s}services">See everything we do →</a>
           <div class="hm-dd-mob">
             <a href="${s}results">Case Studies</a>
@@ -71,7 +69,7 @@ export function siteFooter() {
         <div class="brand"><img src="${IMG}/28-acquirely-the-science-behind-scale.png" alt="Acquirely — The Science Behind Scale" loading="lazy" style="height:52px;width:auto"></div>
         <p style="margin-top:10px;max-width:32ch">Your full-funnel growth team for D2C and lead-gen brands. Judged on revenue.</p>
       </div>
-      <div><p class="fh">Services</p><ul><li><a href="/ecommerce">D2C &amp; ecommerce growth</a></li><li><a href="/lead-gen">Lead generation</a></li></ul></div>
+      <div><p class="fh">Services</p><ul><li><a href="/ecommerce">Ecommerce Growth</a></li><li><a href="/lead-gen">Lead generation</a></li></ul></div>
       <div><p class="fh">Pages</p><ul><li><a href="/about-us">About us</a></li><li><a href="/privacy-policy">Privacy policy</a></li><li><a href="/terms-and-conditions">Terms and conditions</a></li></ul></div>
       <div><p class="fh">Contact</p><ul><li><a href="mailto:team@acquirely.in">team@acquirely.in</a></li><li><a href="tel:+917060250253">+91 70602 50253</a></li><li>New Delhi, India</li></ul></div>
     </div>
