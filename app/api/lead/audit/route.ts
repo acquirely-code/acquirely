@@ -14,12 +14,13 @@ const httpUrl = (value: unknown) => {
   return /^https?:\/\//i.test(text) ? text : "";
 };
 
-// Lead Quality Audit application (/done-for-you, /lead-gen). body.ruleset picks the qualify rules. The outcome is decided here, not trusted from the browser.
+// Lead Quality Audit application (/done-for-you, /lead-gen) and the homepage Funnel Review Call. body.ruleset picks the qualify rules. The outcome is decided here, not trusted from the browser.
 export async function POST(request: Request) {
   const body = await readBody(request);
   if (!body) return json({ ok: false, error: "invalid_request" }, 400);
 
-  const { qualify: qualifyAudit, skip } = rulesetFor(body.ruleset);
+  const ruleset = rulesetFor(body.ruleset);
+  const { qualify: qualifyAudit, skip } = ruleset;
   const { data, errors } = validateAudit(body, skip);
   if (!data) return json({ ok: false, error: "invalid_fields", fieldErrors: errors }, 422);
 
@@ -43,14 +44,14 @@ export async function POST(request: Request) {
 
   // If the lead can't be saved, the answer still carries the bucket, so a qualified visitor can go on to book
   // (Zoho Bookings records them). Nothing is tracked for an unsaved lead.
-  const problem = auditStorageProblem();
+  const problem = auditStorageProblem(ruleset);
   if (problem) {
     console.error(`[audit-form] Not configured: ${problem}`);
     return json({ ok: false, error: "unavailable", reason: problem, outcome }, 503);
   }
 
   try {
-    await saveAuditLead(record);
+    await saveAuditLead(record, ruleset);
   } catch (error) {
     const message = error instanceof Error ? `${error.name}: ${error.message}` : "unknown error";
     console.error("[audit-form] Save failed:", message);

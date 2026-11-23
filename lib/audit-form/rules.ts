@@ -141,11 +141,21 @@ export function qualifyAuditLeadGen(lead: Pick<AuditFields, "revenue" | "adSpend
   return "nurture";
 }
 
-// Per form: the qualify rules and the questions it leaves out. The browser names one; the server decides with it.
+// Per form: the qualify rules, the questions it leaves out, the env variable holding its Google Sheet webhook,
+// its GA4 form_id and its local-dev CSV. The browser names one; the server decides with it.
+const LEAD_GEN_SHEET = { sheetEnv: "AUDIT_SHEET_WEBHOOK_URL", formId: "lead_gen_audit", localFile: ".data/audit-leads.csv" };
 export const AUDIT_RULESETS = {
-  default: { qualify: qualifyAudit, skip: [] as AuditFieldName[] },
+  default: { qualify: qualifyAudit, skip: [] as AuditFieldName[], ...LEAD_GEN_SHEET },
   // Asks only ad spend and the ₹75K question, besides contact details.
-  "lead-gen": { qualify: qualifyAuditLeadGen, skip: ["revenue", "problem"] as AuditFieldName[] },
+  "lead-gen": { qualify: qualifyAuditLeadGen, skip: ["revenue", "problem"] as AuditFieldName[], ...LEAD_GEN_SHEET },
+  // Homepage Funnel Review Call: same questions and rules as /lead-gen, saved to its own sheet.
+  "funnel-review": {
+    qualify: qualifyAuditLeadGen,
+    skip: ["revenue", "problem"] as AuditFieldName[],
+    sheetEnv: "FUNNEL_REVIEW_SHEET_WEBHOOK_URL",
+    formId: "funnel_review_call",
+    localFile: ".data/funnel-review-leads.csv",
+  },
 };
 export type AuditRuleset = keyof typeof AUDIT_RULESETS;
 export const rulesetFor = (ruleset: unknown) =>

@@ -23,6 +23,17 @@ To connect the sheet:
 
 The script writes the header row itself on the first submission. If you change the script later, use **Deploy → Manage deployments → Edit → New version**, which keeps the same URL. Only the website's server calls the URL; the browser never sees it. In production the form answers "isn't available right now" (`webhook_not_set`) until the URL is set.
 
+## Funnel Review Call form (homepage)
+
+Every booking CTA on the homepage, including the header's "Book a Call", opens the same form titled **Funnel Review Call** (`ruleset="funnel-review"` in `app/(home)/(default)/HomeLanding.tsx`). It asks the same questions and uses the same rules as `/lead-gen`: rejected if not running ads, qualified if running ads and the budget answer isn't "Not right now", nurture otherwise. Qualified leads go to `FRC_BOOKING_BASE` in `HomeLanding.tsx`.
+
+It saves to its own sheet. Set it up the same way as above, with two differences:
+
+- Paste `scripts/funnel-review-sheet-webhook.gs` into the new sheet's Apps Script (it has no revenue or main-problem columns).
+- Put the web app URL in the Cloudflare Worker secret `FUNNEL_REVIEW_SHEET_WEBHOOK_URL`.
+
+GA4 events from this form carry `form_id: "funnel_review_call"`. Locally, without the webhook, rows go to `.data/funnel-review-leads.csv`.
+
 ## Tracking
 
 Fired only after the server has saved the lead, never on button click.
@@ -44,6 +55,7 @@ There is deliberately no `.env.example`: hosts like Cloudflare read it and deman
 | Variable | Purpose | If blank |
 | --- | --- | --- |
 | `AUDIT_SHEET_WEBHOOK_URL` | Apps Script web app URL (ending `/exec`). Secret: keep it out of git. | Rows go to a local CSV; on a host the form answers "unavailable" |
+| `FUNNEL_REVIEW_SHEET_WEBHOOK_URL` | Apps Script web app URL for the homepage Funnel Review Call sheet. Secret. | Same as above, for that form |
 | `AUDIT_LOCAL_FILE` | Local CSV path, ignored when the webhook is set | `.data/audit-leads.csv` |
 | `NEXT_PUBLIC_AUDIT_BOOKING_URL` | Where qualified leads are sent | `https://booknow.acquirely.in/LGARC/#/LGARC` |
 | `NEXT_PUBLIC_META_PIXEL_ID` | Meta Pixel and CAPI | Meta tracking skipped |

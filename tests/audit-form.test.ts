@@ -280,3 +280,29 @@ describe("setup problems", () => {
     }
   });
 });
+
+describe("Funnel Review Call (homepage)", () => {
+  it("uses the /lead-gen rules and saves to its own sheet", async () => {
+    const urls: string[] = [];
+    const realFetch = globalThis.fetch;
+    globalThis.fetch = (async (url: string) => {
+      urls.push(String(url));
+      return new Response(JSON.stringify({ ok: true }), { status: 200 });
+    }) as typeof fetch;
+    process.env.AUDIT_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/audit/exec";
+    process.env.FUNNEL_REVIEW_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/frc/exec";
+    resetStoreForTests();
+    try {
+      expect(rulesetFor("funnel-review").qualify).toBe(qualifyAuditLeadGen);
+      const { revenue, problem, ...rest } = lead();
+      const res = await post({ ...rest, ruleset: "funnel-review" });
+      expect(res.data).toMatchObject({ ok: true, outcome: "qualified" });
+      await post({ ...rest, ruleset: "lead-gen" }, "10.0.0.2");
+      expect(urls).toEqual(["https://script.google.com/macros/s/frc/exec", "https://script.google.com/macros/s/audit/exec"]);
+    } finally {
+      globalThis.fetch = realFetch;
+      process.env.AUDIT_SHEET_WEBHOOK_URL = "";
+      delete process.env.FUNNEL_REVIEW_SHEET_WEBHOOK_URL;
+    }
+  });
+});

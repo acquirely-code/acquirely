@@ -79,9 +79,11 @@ type Props = {
   rejectedMessage?: string;
   // Shown to leads that matched neither rule (nurture).
   nurtureMessage?: string;
+  // Dialog heading.
+  title?: string;
 };
 
-export default function AuditFormModal({ open, onClose, fontClass = "", ruleset = "default", bookingBase = BOOKING_URL, rejectedMessage, nurtureMessage }: Props) {
+export default function AuditFormModal({ open, onClose, fontClass = "", ruleset = "default", bookingBase = BOOKING_URL, rejectedMessage, nurtureMessage, title = "Lead Gen Quality Audit Application" }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [values, setValues] = useState<Values>(EMPTY);
   const [errors, setErrors] = useState<AuditFieldErrors>({});
@@ -89,7 +91,7 @@ export default function AuditFormModal({ open, onClose, fontClass = "", ruleset 
   const [status, setStatus] = useState<Status>({ kind: "form" });
   const [formError, setFormError] = useState("");
   const [bookingUrl, setBookingUrl] = useState(bookingBase);
-  const { skip } = rulesetFor(ruleset);
+  const { skip, formId } = rulesetFor(ruleset);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -141,7 +143,7 @@ export default function AuditFormModal({ open, onClose, fontClass = "", ruleset 
       // events, so a storage problem never hides qualified leads from Meta/GA4. The server sent no CAPI events for this
       // lead, so a fresh ID can't create duplicates.
       if (!result.ok && result.outcome === "qualified") {
-        trackAuditLead(result.leadId || `unsaved_${crypto.randomUUID()}`, "qualified", LEAD_VALUE_INR.qualified, LEAD_VALUE_INR.qualified);
+        trackAuditLead(result.leadId || `unsaved_${crypto.randomUUID()}`, "qualified", LEAD_VALUE_INR.qualified, LEAD_VALUE_INR.qualified, formId);
         setStatus({ kind: "done", outcome: "qualified" });
         window.setTimeout(() => window.location.assign(prefilledBookingUrl), 1500);
         return;
@@ -158,7 +160,7 @@ export default function AuditFormModal({ open, onClose, fontClass = "", ruleset 
       setStatus({ kind: "done", outcome: result.outcome });
       // Saved: now fire Meta + GA4, with event IDs matching the server's Conversions API events.
       // (No leadId means the server dropped it as spam, so nothing is tracked.)
-      if (result.leadId) trackAuditLead(result.leadId, result.outcome, LEAD_VALUE_INR[result.outcome], LEAD_VALUE_INR.qualified);
+      if (result.leadId) trackAuditLead(result.leadId, result.outcome, LEAD_VALUE_INR[result.outcome], LEAD_VALUE_INR.qualified, formId);
       // Qualified: on to the booking page. The short pause shows the message and lets the Pixel/GA4 requests leave
       // the browser before the page changes.
       if (result.outcome === "qualified") window.setTimeout(() => window.location.assign(prefilledBookingUrl), 1500);
@@ -201,7 +203,7 @@ export default function AuditFormModal({ open, onClose, fontClass = "", ruleset 
   return (
     <dialog ref={dialogRef} className={`${styles.dialog} ${fontClass}`} onClose={close} onCancel={close} aria-labelledby="af-title">
       <div className={styles.head}>
-        <h2 id="af-title" className={styles.title}>Lead Gen Quality Audit Application</h2>
+        <h2 id="af-title" className={styles.title}>{title}</h2>
         <button type="button" className={styles.close} onClick={close} aria-label="Close">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
         </button>
@@ -213,7 +215,7 @@ export default function AuditFormModal({ open, onClose, fontClass = "", ruleset 
             <>
               <div className={`${styles.badge} ${styles.badgeGood}`} aria-hidden="true">✓</div>
               <p className={styles.doneLead}>Thanks! Looks like we could be a great fit. Taking you to pick a time for a 30-minute strategy call…</p>
-              <a className={styles.submit} href={bookingUrl}>Pick a time now</a>
+              <a className={styles.submit} href={bookingUrl} rel="nofollow">Pick a time now</a>
             </>
           ) : (
             <>

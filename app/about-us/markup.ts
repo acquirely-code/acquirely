@@ -345,7 +345,7 @@ const markup = `
           <span class="eyebrow">Work with us</span>
           <h2 id="h-final">Want an agency that treats your budget <span class="grad">like its own?</span></h2>
           <p>Book a 30-minute Growth Diagnosis. We'll look at your ads, website and funnel, show you where it's leaking, and tell you straight whether we can help.</p>
-          <a class="btn" href="${BOOK}" target="_blank" rel="noopener">Book a Growth Diagnosis Call</a>
+          <a class="btn" href="${BOOK}" target="_blank" rel="noopener nofollow">Book a Growth Diagnosis Call</a>
         </div>
       </div>
     </div>

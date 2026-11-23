@@ -139,7 +139,7 @@ export default function QualificationSection() {
                 </li>
               ))}
             </ul>
-<Link href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg">
+<Link rel="nofollow" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg">
             <button className="w-full bg-[#059669] hover:bg-[#047857] transition-colors text-white text-[14px] font-bold py-3.5 rounded-md flex items-center justify-center font-['Inter']">
               Yes, I'm Ready — Apply Now <ArrowRightIcon />
             </button>

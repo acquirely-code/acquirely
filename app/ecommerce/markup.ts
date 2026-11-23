@@ -21,7 +21,7 @@ const markup = `
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <div class="nav-act">${THEME_TOGGLE}<a class="btn blue" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener">Book a Call</a></div>
+    <div class="nav-act">${THEME_TOGGLE}<a class="btn blue" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener nofollow">Book a Call</a></div>
   </div>
 </div>
 
@@ -33,7 +33,7 @@ const markup = `
       <h1><span class="ln">Learn why <span class="grad">20+ D2C &amp; ecommerce brands</span> trust</span> <span class="ln">Acquirely to scale their Paid Ads profitably</span></h1>
       <p class="lede">Our clients have grown revenue up to <b>5x in 90 days</b>, pushed ROAS from <b>2.7 to 4.2</b>, and cut cost per lead by <b>98%</b>, after Meta's Andromeda update broke what used to work.</p>
       <div class="hero-cta">
-        <a class="btn" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener">Book a Growth Diagnosis Call <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener nofollow">Book a Growth Diagnosis Call <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <div class="blogos" aria-label="Brands scaling with Acquirely"><span class="bl" style="background:#F3EEE8" title="TacTow"><img src="/ecommerce/img/02-tactow.png" alt="TacTow"></span><span class="bl" style="background:#1F3D13" title="Gharaana"><img src="/ecommerce/img/03-gharaana.png" alt="Gharaana"></span><span class="bl" style="background:#FFFFFF" title="Patoola"><img src="/ecommerce/img/04-patoola.png" alt="Patoola"></span><span class="bl" style="background:#FDF7E6" title="Creste Kids"><img src="/ecommerce/img/05-creste-kids.png" alt="Creste Kids"></span><span class="bl" style="background:#FFFFFF" title="Sevora"><img src="/ecommerce/img/06-sevora.png" alt="Sevora"></span><span class="bl" style="background:#FFFFFF" title="Sofara"><img src="/ecommerce/img/07-sofara.png" alt="Sofara"></span><span class="bl more">+14</span></div>
       </div>
       <div class="trust-row">
@@ -118,7 +118,7 @@ const markup = `
           </dl>
           <p class="story">We first worked with TacTow's founder in 2025 on his earlier gaming brand, Old School Station, until a factory fire shut it down. When he launched TacTow and was ready to scale fast, he came back. We consolidated the ad accounts, built spend around the proven hero product, and ran the A3 Flywheel: one Prospecting CBO, a new creative Pack every week, and a creative engine that turned a single winning creator ad into a steady stream of iterations.</p>
           <!-- QUOTE: TacTow founder -->
-          <a class="btn line" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener">Get the same diagnosis →</a>
+          <a class="btn line" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener nofollow">Get the same diagnosis →</a>
         </div>
       </article>
 
@@ -140,7 +140,7 @@ const markup = `
             <div><dt>90-day result</dt><dd><b>$7,000 a month online. A 7x jump.</b></dd></div>
           </dl>
           <p class="story">Offline, the business was strong. Online, it was stuck at just $1,000 a month. In June 2026, we built a combined Meta Ads and Google Ads system: Google to capture buyers already searching for safety gear, Meta to reach new ones. In 90 days, online revenue grew to $7,000 a month.</p>
-          <a class="btn line" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener">Get the same diagnosis →</a>
+          <a class="btn line" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener nofollow">Get the same diagnosis →</a>
         </div>
       </article>
 
@@ -164,7 +164,7 @@ const markup = `
           </dl>
           <p class="story">Gharaana had a strong year on Meta until the Andromeda update flattened it. When they onboarded in May 2026, the founder was certain open targeting would fail. We ran the A3 Flywheel anyway: broad audiences inside one Prospecting CBO, a fresh creative Pack every week, and a creative engine built on market research, net-new concepts and iterations of proven winners. The right structure beat interest targeting.</p>
           <!-- QUOTE: Gharaana founder on switching to broad -->
-          <a class="btn line" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener">Get the same diagnosis →</a>
+          <a class="btn line" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener nofollow">Get the same diagnosis →</a>
         </div>
       </article>
 
@@ -187,7 +187,7 @@ const markup = `
           </dl>
           <p class="story">Every ad in Patoola's account was creator-led, and that capped how far it could scale. We ran the A3 Flywheel and added a new creative direction: founder-led ads that tell customers the story and the person behind the label, alongside the creator content. With a fresh Pack tested every week and winners scaled inside one Prospecting CBO, revenue nearly tripled in two months, and ROAS went up, not down.</p>
           <!-- QUOTE: Patoola founder -->
-          <a class="btn line" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener">Get the same diagnosis →</a>
+          <a class="btn line" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener nofollow">Get the same diagnosis →</a>
         </div>
       </article>
 
@@ -211,7 +211,7 @@ const markup = `
           </dl>
           <p class="story">Two years of tweaking campaign settings hadn't moved Creste. We diagnosed the real bottleneck as creative, set up a creator pipeline for a steady supply of authentic content, and ran it through the A3 Flywheel: a new creative Pack every week in one Prospecting CBO, winners iterated, and past buyers handled separately in a Retention campaign.</p>
           <!-- QUOTE: Creste founder -->
-          <a class="btn line" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener">Get the same diagnosis →</a>
+          <a class="btn line" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener nofollow">Get the same diagnosis →</a>
         </div>
       </article>
 
@@ -318,7 +318,7 @@ const markup = `
         <span class="eyebrow">Free · 2-minute form</span>
         <h3>Send me the playbook</h3>
         <p>Tell us where to send it and your monthly ad spend. The playbook lands in your inbox and on WhatsApp.</p>
-        <a class="btn blue" href="https://forms.zoho.in/acquirely/form/A3Playbook" target="_blank" rel="noopener">Send Me the Playbook <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn blue" href="https://forms.zoho.in/acquirely/form/A3Playbook" target="_blank" rel="noopener nofollow">Send Me the Playbook <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <p class="note"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>No spam. We never share your details.</p>
       </div>
     </div>
@@ -374,7 +374,7 @@ const markup = `
       </div>
     </div>
     <div class="center-cta">
-      <a class="btn" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener">Yes, I'm Ready. Apply Now <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener nofollow">Yes, I'm Ready. Apply Now <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <small>Not sure? Apply anyway. We reply within 24 hours.</small>
     </div>
   </div>
@@ -398,7 +398,7 @@ const markup = `
           <li>Influencer management</li>
           <li>Daily monitoring and weekly optimisation</li>
         </ul>
-        <a class="btn" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener">Book a Growth Call</a>
+        <a class="btn" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener nofollow">Book a Growth Call</a>
       </div>
       <div class="card inhouse">
         <h3>What the same team costs in-house</h3>
@@ -506,7 +506,7 @@ const markup = `
       <div style="display:grid;align-content:center">
         <span class="eyebrow">Your move</span>
         <h3 style="margin-top:10px">Book your diagnosis call</h3>
-        <a class="btn blue" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener" style="margin-top:22px;width:100%;padding:16px 22px;font-size:16px">Book Your Free Call! <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn blue" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener nofollow" style="margin-top:22px;width:100%;padding:16px 22px;font-size:16px">Book Your Free Call! <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <p class="note"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>3 spots open this month. We reply within 24 hours.</p>
       </div>
     </div>
@@ -522,7 +522,7 @@ const markup = `
   </div>
 </footer>
 
-<div class="mcta"><a class="btn" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener">Book a Growth Diagnosis Call</a></div>
+<div class="mcta"><a class="btn" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener nofollow">Book a Growth Diagnosis Call</a></div>
 `;
 
 export default withImgDims(markup);

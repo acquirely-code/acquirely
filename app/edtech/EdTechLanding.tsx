@@ -133,7 +133,7 @@ export default function EdTechLanding() {
         <div className={`${styles.wrap} ${styles.navInner}`}>
           <a href="/" className={styles.logo} aria-label="Acquirely home"><Image src={acquirelyLogo} alt="Acquirely" priority /></a>
           <button type="button" className={styles.themeToggle} onClick={toggleTheme} aria-label="Toggle dark mode" title="Toggle dark mode"><Moon className={styles.iconMoon} aria-hidden="true" /><Sun className={styles.iconSun} aria-hidden="true" /></button>
-          <a className={styles.navCta} href={bookingUrl}>Book an Appointment</a>
+          <a className={styles.navCta} href={bookingUrl} rel="nofollow">Book an Appointment</a>
         </div>
       </header>
 
@@ -144,7 +144,7 @@ export default function EdTechLanding() {
             <h1><span>You built something</span> <span>schools need.</span> <em><span>You&apos;re stuck talking</span> <span>to the front desk.</span></em></h1>
             <p className={styles.heroSub}>We get principals, directors and trustees, the people who actually sign off, booking calls with you.</p>
             <HeroVideo className={styles.heroVideoMobile} />
-            <div className={styles.ctaRow}><a className={styles.primaryButton} href={bookingUrl}>Book an Appointment <ArrowRight aria-hidden="true" /></a></div>
+            <div className={styles.ctaRow}><a className={styles.primaryButton} href={bookingUrl} rel="nofollow">Book an Appointment <ArrowRight aria-hidden="true" /></a></div>
             <p className={styles.urgency}>Only 3 spots available this quarter. <strong>We work each account personally.</strong></p>
             <div className={styles.trustRow}>
               <div><strong>11+</strong><span>Years inside education</span></div>
@@ -230,7 +230,7 @@ export default function EdTechLanding() {
               <span className={styles.groupLabel}>Qualification</span>
               <PlanFeatures items={leadQualification} />
               <p className={styles.bestFor}><strong>Best for:</strong> teams with the demo &amp; closing muscle who just need warm meetings with the right people on the calendar.</p>
-              <a className={styles.secondaryButton} href={bookingUrl}>Start with Lead Engine</a>
+              <a className={styles.secondaryButton} href={bookingUrl} rel="nofollow">Start with Lead Engine</a>
             </article>
             <article className={`${styles.priceCard} ${styles.priceFeatured}`}>
               <span className={styles.popular}>Most clients pick this</span>
@@ -243,7 +243,7 @@ export default function EdTechLanding() {
               <span className={`${styles.groupLabel} ${styles.groupLabelAccent}`}>Plus — the Meta + Google engine</span>
               <PlanFeatures items={growthExtras} />
               <p className={styles.bestFor}><strong>Best for:</strong> teams who want the meetings <strong>and</strong> the follow-up system that turns a demo into a signed order.</p>
-              <a className={styles.primaryButton} href={bookingUrl}>Book an Appointment <ArrowRight aria-hidden="true" /></a>
+              <a className={styles.primaryButton} href={bookingUrl} rel="nofollow">Book an Appointment <ArrowRight aria-hidden="true" /></a>
             </article>
           </div>
 
@@ -259,7 +259,7 @@ export default function EdTechLanding() {
 
           <div className={styles.foundingRate}><span aria-hidden="true" /><p><strong>Founding rate.</strong> Lock ₹75K / ₹1L for 6 months if you start before <strong>{deadline}</strong>. Rates step up as we add clients — what you lock today is what you pay.</p></div>
           <p className={styles.lossLine}>Every month you wait is another month of reps stuck at the front desk — while a competitor gets the principal&apos;s meeting. The gate doesn&apos;t open itself.</p>
-          <div className={styles.offerCta}><a className={styles.primaryButton} href={bookingUrl}>Book an Appointment <ArrowRight aria-hidden="true" /></a><p>15-minute fit call. If we&apos;re not right for you, we&apos;ll say so — and point you to who is.</p></div>
+          <div className={styles.offerCta}><a className={styles.primaryButton} href={bookingUrl} rel="nofollow">Book an Appointment <ArrowRight aria-hidden="true" /></a><p>15-minute fit call. If we&apos;re not right for you, we&apos;ll say so — and point you to who is.</p></div>
         </div>
       </section>
 
@@ -289,7 +289,7 @@ export default function EdTechLanding() {
         <div className={`${styles.wrap} ${styles.faqWrap}`}><div className={`${styles.sectionHead} ${styles.center}`}><span className={styles.eyebrow}>Questions</span><h2>Quick answers.</h2></div><div className={styles.faqList}>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</div></div>
       </section>
 
-      <section className={styles.applySection} id="book"><div className={`${styles.wrap} ${styles.applyPanel}`}><span className={styles.eyebrow}>Let&apos;s talk</span><h2>Get in front of the people who sign off.</h2><p>A short call to see how you reach schools today and how to get decision-makers booking meetings with you.</p><a className={styles.primaryButton} href={bookingUrl}>Book an Appointment <ArrowRight aria-hidden="true" /></a><div className={styles.chips}><span>✓ No lock-in</span><span>✓ Qualified-meeting floor guarantee</span><span>✓ Full transparency</span></div></div></section>
+      <section className={styles.applySection} id="book"><div className={`${styles.wrap} ${styles.applyPanel}`}><span className={styles.eyebrow}>Let&apos;s talk</span><h2>Get in front of the people who sign off.</h2><p>A short call to see how you reach schools today and how to get decision-makers booking meetings with you.</p><a className={styles.primaryButton} href={bookingUrl} rel="nofollow">Book an Appointment <ArrowRight aria-hidden="true" /></a><div className={styles.chips}><span>✓ No lock-in</span><span>✓ Qualified-meeting floor guarantee</span><span>✓ Full transparency</span></div></div></section>
 
       <footer className={styles.footer}><div className={`${styles.wrap} ${styles.footerInner}`}><a href="mailto:team@acquirely.in">team@acquirely.in</a></div><p className={`${styles.wrap} ${styles.disclaimer}`}>This site is not part of the Meta or Facebook website and is not endorsed by Meta Platforms, Inc. Meta and Facebook are trademarks of Meta Platforms, Inc.</p></footer>
     </main>

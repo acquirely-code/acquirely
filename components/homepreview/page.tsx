@@ -125,7 +125,7 @@ export default function HomePage() {
               </p>
 
               <div className="mt-8 flex w-full flex-col items-center gap-5 sm:w-auto sm:flex-row md:mt-10 md:gap-4">
-                 <Link href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg">
+                 <Link rel="nofollow" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg">
                 <button className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[linear-gradient(102.78deg,#6366F1_0%,#4F46E5_100%)] px-6 py-4 text-sm font-bold text-white shadow-[0_10px_15px_-3px_rgba(99,102,241,0.25)] transition hover:scale-[1.02] sm:w-auto md:px-10 md:py-5 md:text-lg">
                   Book a Growth Call Here!
                   <ArrowRight className="h-5 w-5" />

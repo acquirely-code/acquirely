@@ -1,4 +1,4 @@
-// Browser conversion events for the /lead-gen audit application. Call only after the server has saved the lead.
+// Browser conversion events for the inbuilt audit / Funnel Review Call forms. Call only after the server has saved the lead.
 import { META_PIXEL_ID } from "@/lib/meta-pixel";
 
 type Tracker = (...args: unknown[]) => void;
@@ -60,7 +60,7 @@ function ensureFbq(id: string) {
 // (lib/audit-form/meta-capi.ts) so Meta de-duplicates the pair. Lead is NOT sent from code: a Meta Event setup
 // tool rule fires it on /lead-gen-thank-you, where Zoho Bookings lands after a call is booked.
 // GA4: generate_lead for every bucket, plus qualify_lead for qualified only.
-export function trackAuditLead(leadId: string, bucket: "qualified" | "nurture" | "rejected", value: number, qualifiedValue: number) {
+export function trackAuditLead(leadId: string, bucket: "qualified" | "nurture" | "rejected", value: number, qualifiedValue: number, formId = "lead_gen_audit") {
   if (typeof window === "undefined") return;
   const ga4Id = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID;
 
@@ -70,9 +70,9 @@ export function trackAuditLead(leadId: string, bucket: "qualified" | "nurture" |
   }
   if (ga4Id) {
     ensureGtag(ga4Id);
-    window.gtag?.("event", "generate_lead", { send_to: ga4Id, value, currency: "INR", lead_bucket: bucket, form_id: "lead_gen_audit" });
+    window.gtag?.("event", "generate_lead", { send_to: ga4Id, value, currency: "INR", lead_bucket: bucket, form_id: formId });
     if (bucket === "qualified") {
-      window.gtag?.("event", "qualify_lead", { send_to: ga4Id, value: qualifiedValue, currency: "INR", form_id: "lead_gen_audit" });
+      window.gtag?.("event", "qualify_lead", { send_to: ga4Id, value: qualifiedValue, currency: "INR", form_id: formId });
     }
   }
 }

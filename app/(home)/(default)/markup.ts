@@ -1,8 +1,8 @@
 import { withImgDims } from "@/lib/img-dims";
 import { siteNav, siteFooter } from "@/components/site-chrome/markup";
 // Page markup for the homepage, rendered by HomeLanding. Shares ecommerce.css; homepage-only styles live in home.css.
-// Booking CTAs go straight to the D2C Funnel Review Call booking page (Zoho Bookings).
-const BOOK = "https://booknow.acquirely.in/D2CFRC";
+// Booking CTAs (and the header's "Book a Call") open the inbuilt Funnel Review Call form (HomeLanding catches [data-audit-open]).
+const CTA = `href="#apply" data-audit-open`;
 const PLAYBOOK = "https://forms.zoho.in/acquirely/form/A3Playbook";
 const IMG = "/ecommerce/img";
 const ARROW = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
@@ -54,7 +54,7 @@ const caseCard = (c: Case, i: number) => {
             <div><dt>Result</dt><dd>${c.facts[2]}</dd></div>
           </dl>
           <p class="story">${c.story}</p>
-          <a class="btn line" href="${BOOK}" ${ext}>Get the same diagnosis →</a>
+          <a class="btn line" ${CTA}>Get the same diagnosis →</a>
         </div>
       </article>`;
 };
@@ -102,7 +102,7 @@ const faqs: [string, string][] = [
 
 const markup = `
 <!-- ============ NAV ============ -->
-${siteNav(true, true, BOOK)}
+${siteNav(true, true, CTA)}
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
@@ -112,7 +112,7 @@ ${siteNav(true, true, BOOK)}
       <h1><span class="ln">Learn why <span class="grad">20+ D2C &amp; lead-gen brands</span> trust</span> <span class="ln">Acquirely to run their whole growth funnel</span></h1>
       <p class="lede">Our clients have grown revenue <b>up to 5x in 90 days</b>, lifted qualified leads <b>from 10% to 50%</b>, and scaled ad spend <b>80% at the same cost per lead</b>, with one team running their Meta, Google, LinkedIn, marketplaces, website and conversion.</p>
       <div class="hero-cta">
-        <a class="btn" href="${BOOK}" ${ext}>Book a Growth Diagnosis Call ${ARROW}</a>
+        <a class="btn" ${CTA}>Book a Growth Diagnosis Call ${ARROW}</a>
         <div class="blogos" aria-label="Brands growing with Acquirely"><span class="bl" style="background:#F3EEE8" title="TacTow"><img src="${IMG}/02-tactow.png" alt="TacTow"></span><span class="bl" style="background:#1F3D13" title="Gharaana"><img src="${IMG}/03-gharaana.png" alt="Gharaana"></span><span class="bl" style="background:#FFFFFF" title="Patoola"><img src="${IMG}/04-patoola.png" alt="Patoola"></span><span class="bl" style="background:#FDF7E6" title="Creste Kids"><img src="${IMG}/05-creste-kids.png" alt="Creste Kids"></span><span class="bl" style="background:#FFFFFF" title="Sevora"><img src="${IMG}/06-sevora.png" alt="Sevora"></span><span class="bl" style="background:#FFFFFF" title="Sofara"><img src="${IMG}/07-sofara.png" alt="Sofara"></span><span class="bl more">+14</span></div>
       </div>
       <div class="trust-row">
@@ -187,7 +187,7 @@ ${siteNav(true, true, BOOK)}
     <div class="cases">${cases.map(caseCard).join("")}
     </div>
     <div class="center-cta">
-      <a class="btn" href="${BOOK}" ${ext}>Get the Same Diagnosis ${ARROW}</a>
+      <a class="btn" ${CTA}>Get the Same Diagnosis ${ARROW}</a>
       <small>More results: <a href="/ecommerce#results">D2C &amp; ecommerce</a> · <a href="/lead-gen#results">Lead generation</a></small>
     </div>
   </div>
@@ -256,7 +256,7 @@ ${siteNav(true, true, BOOK)}
         ['<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/>', "Every decision, shown to you", "Every scale or cut decision comes with the numbers behind it."],
       ], "At most agencies the founder sells and a junior delivers. Here, the people on your diagnosis call are the people in your account.")}
     </div>
-    <div class="center-cta"><a class="btn" href="${BOOK}" ${ext}>Book a Growth Diagnosis Call ${ARROW}</a></div>
+    <div class="center-cta"><a class="btn" ${CTA}>Book a Growth Diagnosis Call ${ARROW}</a></div>
   </div>
 </section>
 
@@ -313,7 +313,7 @@ ${siteNav(true, true, BOOK)}
         <span class="eyebrow">Free · 2-minute form</span>
         <h3>Send me the playbook</h3>
         <p>Tell us where to send it and your monthly ad spend. The playbook lands in your inbox and on WhatsApp.</p>
-        <a class="btn blue" href="${PLAYBOOK}" ${ext}>Send Me the Playbook ${ARROW}</a>
+        <a class="btn blue" href="${PLAYBOOK}" target="_blank" rel="noopener nofollow">Send Me the Playbook ${ARROW}</a>
         <p class="note"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>No spam. We never share your details.</p>
       </div>
     </div>
@@ -356,7 +356,7 @@ ${siteNav(true, true, BOOK)}
     <div class="wins">${wins.map(([src, alt, who, line]) => `
       <figure class="win"><img src="${IMG}/${src}" alt="${alt}" loading="lazy"><figcaption><span>${who}</span>${line}</figcaption></figure>`).join("")}
     </div>
-    <div class="center-cta"><a class="btn" href="${BOOK}" ${ext}>Book a Growth Diagnosis Call ${ARROW}</a></div>
+    <div class="center-cta"><a class="btn" ${CTA}>Book a Growth Diagnosis Call ${ARROW}</a></div>
   </div>
 </section>
 
@@ -398,7 +398,7 @@ ${siteNav(true, true, BOOK)}
       </div>
     </div>
     <div class="center-cta">
-      <a class="btn" href="${BOOK}" ${ext}>Yes, I'm Ready. Apply Now ${ARROW}</a>
+      <a class="btn" ${CTA}>Yes, I'm Ready. Apply Now ${ARROW}</a>
       <small>Not sure? Apply anyway. We reply within 24 hours.</small>
     </div>
   </div>
@@ -516,7 +516,7 @@ ${siteNav(true, true, BOOK)}
       <div style="display:grid;align-content:center">
         <span class="eyebrow">Your move</span>
         <h3 style="margin-top:10px">Book your diagnosis call</h3>
-        <a class="btn blue" href="${BOOK}" ${ext} style="margin-top:22px;width:100%;padding:16px 22px;font-size:16px">Book Your Free Call! ${ARROW}</a>
+        <a class="btn blue" ${CTA} style="margin-top:22px;width:100%;padding:16px 22px;font-size:16px">Book Your Free Call! ${ARROW}</a>
         <p class="note"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>3 spots open this month. We reply within 24 hours.</p>
       </div>
     </div>
@@ -525,7 +525,7 @@ ${siteNav(true, true, BOOK)}
 
 ${siteFooter()}
 
-<div class="mcta"><a class="btn" href="${BOOK}" ${ext}>Book a Growth Diagnosis Call</a></div>
+<div class="mcta"><a class="btn" ${CTA}>Book a Growth Diagnosis Call</a></div>
 `;
 
 export default withImgDims(markup);

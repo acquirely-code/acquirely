@@ -17,7 +17,7 @@ const markup = `
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <div class="nav-act">${THEME_TOGGLE}<a class="btn blue" href="${BOOK}" target="_blank" rel="noopener">Book an Appointment</a></div>
+    <div class="nav-act">${THEME_TOGGLE}<a class="btn blue" href="${BOOK}" target="_blank" rel="noopener nofollow">Book an Appointment</a></div>
   </div>
 </div>
 
@@ -29,7 +29,7 @@ const markup = `
       <h1><span class="ln">You publish great books.</span> <span class="ln">You sell them <span class="grad">one school visit at a time.</span></span></h1>
       <p class="lede">We get school decision-makers to <b>book calls with you</b> right when they're choosing next year's books.</p>
       <div class="hero-cta">
-        <a class="btn" href="${BOOK}" target="_blank" rel="noopener">Book a Call to Understand How ${ARROW}</a>
+        <a class="btn" href="${BOOK}" target="_blank" rel="noopener nofollow">Book a Call to Understand How ${ARROW}</a>
         <div class="blogos" aria-label="Education brands growing with Acquirely"><span class="bl" style="background:#0A4AA8" title="IP Study Hub"><img src="/publishers/img/logo-ipstudyhub.png" alt="IP Study Hub"></span><span class="bl" style="background:#FFFFFF" title="Propel Curriculum"><img src="/publishers/img/logo-propel.png" alt="Propel Curriculum"></span><span class="bl" style="background:#FFFFFF" title="Agastya International Foundation"><img src="/publishers/img/logo-agastya.png" alt="Agastya International Foundation"></span><span class="bl" style="background:#F8FAFF" title="International Schooling"><img src="/publishers/img/logo-international-schooling.png" alt="International Schooling"></span><span class="bl" style="background:#000000" title="RSA Aviation"><img src="/publishers/img/logo-rsa-aviation.png" alt="RSA Aviation"></span></div>
       </div>
       <div class="trust-row">
@@ -111,7 +111,7 @@ const markup = `
             <div><dt>2-month result</dt><dd><b>150+ registrations. ₹2.3Cr+ revenue on ₹3L spend.</b></dd></div>
           </dl>
           <p class="story">Instead of hiring salespeople, we proposed that Propel host Immersion, a 3-day residential conference in Delhi for school leaders, priced at ₹20,000. Principals are among the hardest audiences to reach on Meta, and asking them to pay for a conference is harder still. Through the A3 Flywheel, we tested new creative angles every week and scaled the winners. The result: 150+ paid seats at about ₹2,000 each, ₹2Cr+ in curriculum orders after the event, and adoption by City Montessori School, Lucknow, the world’s largest school.</p>
-          <a class="btn line" href="${BOOK}" target="_blank" rel="noopener">Get the same diagnosis →</a>
+          <a class="btn line" href="${BOOK}" target="_blank" rel="noopener nofollow">Get the same diagnosis →</a>
         </div>
       </article>
 
@@ -143,7 +143,7 @@ const markup = `
             <div><dt>30-day result</dt><dd><b>300+ genuine leads. About 40% lower cost per school won (projected).</b></dd></div>
           </dl>
           <p class="story">IP Study’s reps visited about 10,000 schools a year. Most samples never reached a decision-maker, and the company kept paying travel, hotel and sampling costs regardless. We flipped the model: Meta Ads find interested schools first. A product expert gives the demo, and reps visit only for scheduled meetings with principals and HoDs. Running on the A3 Flywheel, the campaign delivered 300+ leads in under a month. The projection for this year is 30% higher conversion and about 40% lower cost per school won.</p>
-          <a class="btn line" href="${BOOK}" target="_blank" rel="noopener">Get the same diagnosis →</a>
+          <a class="btn line" href="${BOOK}" target="_blank" rel="noopener nofollow">Get the same diagnosis →</a>
         </div>
       </article>
 
@@ -166,7 +166,7 @@ const markup = `
             <div><dt>Results so far (live)</dt><dd><b>40+ paid registrations at about ₹5,000 each.</b></dd></div>
           </dl>
           <p class="story">Agastya’s Education Leaders Conclave 2026, The Future of Learning in the AI Era, runs 10–12 December at its campus in Kuppam, Andhra Pradesh. The goal is 100 school founders, principals and academic heads at up to ₹20,000 each. That meant a premium ticket, a trip most attendees had never made, and an ad account with almost no history. Building on the Propel playbook and the A3 Flywheel, we tested new angles every week. Within ₹2L of spend, 40+ leaders had paid, and the campaign is now scaling toward the target.</p>
-          <a class="btn line" href="${BOOK}" target="_blank" rel="noopener">Get the same diagnosis →</a>
+          <a class="btn line" href="${BOOK}" target="_blank" rel="noopener nofollow">Get the same diagnosis →</a>
         </div>
       </article>
     </div>
@@ -277,7 +277,7 @@ const markup = `
         </ul>
 
         <p class="pub-best"><b>Best for:</b> teams with the demo &amp; closing muscle who just need warm meetings with the right people on the calendar.</p>
-        <a class="btn line" href="${BOOK}" target="_blank" rel="noopener">Start with Lead Engine</a>
+        <a class="btn line" href="${BOOK}" target="_blank" rel="noopener nofollow">Start with Lead Engine</a>
       </div>
 
       <!-- Growth Engine -->
@@ -308,7 +308,7 @@ const markup = `
         </ul>
 
         <p class="pub-best"><b>Best for:</b> teams who want the meetings <b>and</b> the follow-up system that turns a demo into a signed order.</p>
-        <a class="btn blue" href="${BOOK}" target="_blank" rel="noopener">Book an Appointment ${ARROW}</a>
+        <a class="btn blue" href="${BOOK}" target="_blank" rel="noopener nofollow">Book an Appointment ${ARROW}</a>
       </div>
     </div>
 
@@ -390,7 +390,7 @@ const markup = `
       </div>
     </div>
     <div class="center-cta">
-      <a class="btn" href="${BOOK}" target="_blank" rel="noopener">Yes, I'm Ready. Book a Call ${ARROW}</a>
+      <a class="btn" href="${BOOK}" target="_blank" rel="noopener nofollow">Yes, I'm Ready. Book a Call ${ARROW}</a>
       <small>Not sure? Book anyway. We reply within 24 hours.</small>
     </div>
   </div>
@@ -459,7 +459,7 @@ const markup = `
       <div style="display:grid;align-content:center">
         <span class="eyebrow">Let's talk</span>
         <h3 style="margin-top:10px">Book a Funnel Review Call</h3>
-        <a class="btn blue" href="${BOOK}" target="_blank" rel="noopener" style="margin-top:22px;width:100%;padding:16px 22px;font-size:16px">Book Your Free Call! ${ARROW.replace(/18/g, "16")}</a>
+        <a class="btn blue" href="${BOOK}" target="_blank" rel="noopener nofollow" style="margin-top:22px;width:100%;padding:16px 22px;font-size:16px">Book Your Free Call! ${ARROW.replace(/18/g, "16")}</a>
         <p class="note"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Only 3 spots this season. We reply within 24 hours.</p>
       </div>
     </div>
@@ -475,7 +475,7 @@ const markup = `
   </div>
 </footer>
 
-<div class="mcta"><a class="btn" href="${BOOK}" target="_blank" rel="noopener">Book a Call</a></div>
+<div class="mcta"><a class="btn" href="${BOOK}" target="_blank" rel="noopener nofollow">Book a Call</a></div>
 `;
 
 export default withImgDims(markup);

@@ -4,6 +4,8 @@ import Link from "next/link";
 import { BlogBlock, BlogPost } from "@/lib/blog-posts";
 
 const INLINE = /(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g;
+// Zoho Forms and Zoho Bookings links (including our forms./booknow. subdomains) are nofollow.
+const NOFOLLOW = /^https:\/\/(forms\.zoho\.|forms\.zohopublic\.|forms\.acquirely\.in|booknow\.acquirely\.in)/;
 
 // Renders **bold** and [text](href) inside a block's text.
 function Inline({ text }: { text: string }) {
@@ -23,7 +25,7 @@ function Inline({ text }: { text: string }) {
           return href.startsWith("#") ? (
             <a key={i} href={href} className={cls}>{label}</a>
           ) : (
-            <a key={i} href={href} target="_blank" rel="noopener" className={cls}>{label}</a>
+            <a key={i} href={href} target="_blank" rel={NOFOLLOW.test(href) ? "noopener nofollow" : "noopener"} className={cls}>{label}</a>
           );
         }
         return <React.Fragment key={i}>{part}</React.Fragment>;
