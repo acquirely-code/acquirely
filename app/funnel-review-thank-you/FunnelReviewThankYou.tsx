@@ -1,0 +1,81 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { ecomBody as openSans, ecomDisplay as montserrat } from "@/lib/fonts";
+import { trackMetaLead } from "@/lib/audit-form/tracking";
+import markup from "./markup";
+import "../ecommerce/ecommerce.css";
+import "../ecommerce-thank-you/thank-you.css";
+import "../ecommerce/ecommerce-dark.css";
+
+export default function FunnelReviewThankYou() {
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  // Reaching this page means a Funnel Review Call was booked: count it as a Meta Lead.
+  useEffect(() => {
+    trackMetaLead();
+  }, []);
+
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const cleanups: (() => void)[] = [];
+    const on = (el: EventTarget, type: string, fn: EventListener) => {
+      el.addEventListener(type, fn);
+      cleanups.push(() => el.removeEventListener(type, fn));
+    };
+
+    // Greet by first name when the form redirect passes ?name= (or ?tve_name=).
+    const q = new URLSearchParams(window.location.search);
+    const name = (q.get("name") || q.get("tve_name") || "").trim().split(/\s+/)[0];
+    const greet = root.querySelector("#tyName");
+    if (name && name.length < 40 && greet) {
+      greet.textContent = `${name}, a calendar invite and WhatsApp confirmation are on their way. Before we speak, discover…`;
+    }
+
+    // Hero video: plays inline once data-video is set.
+    root.querySelectorAll<HTMLElement>(".vid").forEach((v) => {
+      const b = v.querySelector(".vid-screen");
+      if (!b) return;
+      on(b, "click", () => {
+        const u = v.getAttribute("data-video");
+        if (!u) return;
+        const f = document.createElement("iframe");
+        f.src = u;
+        f.allow = "autoplay; encrypted-media; picture-in-picture";
+        f.allowFullscreen = true;
+        b.replaceWith(f);
+      });
+    });
+
+    // Testimonial lightbox (attached on first open, so no src-less <img> sits in the DOM)
+    const lb = document.createElement("div");
+    lb.className = "lb";
+    const lbImg = document.createElement("img");
+    lbImg.alt = "";
+    lb.appendChild(lbImg);
+    cleanups.push(() => lb.remove());
+    root.querySelectorAll<HTMLImageElement>(".tst figure img").forEach((im) => {
+      on(im, "click", () => {
+        lbImg.src = im.src;
+        lbImg.alt = im.alt;
+        if (!lb.isConnected) root.appendChild(lb);
+        lb.classList.add("open");
+      });
+    });
+    on(lb, "click", () => lb.classList.remove("open"));
+    on(document, "keydown", (e) => {
+      if ((e as KeyboardEvent).key === "Escape") lb.classList.remove("open");
+    });
+
+    return () => cleanups.forEach((fn) => fn());
+  }, []);
+
+  return (
+    <div
+      ref={rootRef}
+      className={`ecom ${montserrat.variable} ${openSans.variable}`}
+      dangerouslySetInnerHTML={{ __html: markup }}
+    />
+  );
+}

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ecomBody as openSans, ecomDisplay as montserrat } from "@/lib/fonts";
 import AuditFormModal from "@/components/audit-form/AuditFormModal";
+import { trackCtaAddToCart } from "@/lib/audit-form/tracking";
 import markup from "./markup";
 import useLandingScripts from "../../ecommerce/useLandingScripts";
 import "../../ecommerce/ecommerce.css";
@@ -25,8 +26,10 @@ export default function HomeLanding() {
     const root = rootRef.current;
     if (!root) return;
     const onClick = (e: MouseEvent) => {
-      if (!(e.target as Element | null)?.closest("[data-audit-open]")) return;
+      const cta = (e.target as Element | null)?.closest("[data-audit-open]");
+      if (!cta) return;
       e.preventDefault(); // CTAs are links (href="#apply"); keep the page from jumping.
+      trackCtaAddToCart(cta);
       setFormOpen(true);
     };
     root.addEventListener("click", onClick);
