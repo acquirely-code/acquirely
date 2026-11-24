@@ -50,8 +50,184 @@ const BOOKING_URL = "https://booknow.acquirely.in/D2CFRC";
 const STRUCTURE_POST = "/blog/best-meta-ad-structure-after-andromeda-update";
 const ANDROMEDA_POST = "/blog/meta-andromeda-update-explained";
 const TARGETING_POST = "/blog/broad-targeting-vs-interest-targeting-meta";
+const NOT_SPENDING_POST = "/blog/meta-ads-not-spending";
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "meta-ads-not-spending",
+    title: "Why Your New Meta Ads Aren't Spending (And How to Fix It)",
+    metaTitle: "Why Your New Meta Ads Aren't Spending (And How to Fix It)",
+    metaDescription:
+      "New Meta ads not spending? Learn why Meta keeps backing old ad sets, and use our 7-day Minimum Spend Rule to give every new creative a fair test.",
+    excerpt:
+      "New Meta ads not spending? Why Meta keeps backing older ad sets, a 6-point checklist to rule out simpler problems, and the 7-day Minimum Spend Rule we use across 20+ accounts.",
+    date: "2026-11-23",
+    author: "Kunal Mandal",
+    authorRole: "Co-founder, Acquirely",
+    authorBio: KUNAL_BIO,
+    authorUrl: "https://www.linkedin.com/in/kunal-meta-ads/",
+    authorImage: "/ecommerce/img/kunal-mandal.jpg",
+    coverImage: "/blog/meta-ads-not-spending.webp",
+    image: {
+      src: "/blog/meta-ads-not-spending.webp",
+      alt: "Why new Meta ads aren't spending and how the Minimum Spend Rule fixes it",
+      title: "Why Your New Meta Ads Aren't Spending (And How to Fix It)",
+      description:
+        "Why Meta keeps spending on older ad sets instead of your new creatives, and how a 7-day minimum spend gives every new Pack a fair test.",
+      width: 1200,
+      height: 628,
+    },
+    content: [
+      "If you have ever launched a fresh batch of creatives and watched Meta spend almost nothing on them, keep reading, because the problem is rarely the creatives themselves.",
+      {
+        type: "callout",
+        text: "**Quick answer: New Meta ads often aren't spending** because Meta keeps pushing budget to older ad sets that already have a proven performance history. Your new ads never get enough delivery to prove themselves. The fix is a temporary **minimum spend** on each new ad set, roughly 1× your target Cost Per Result for 7 days.",
+      },
+      "In this guide, you will find out exactly why this happens and how to diagnose it in a few minutes. You will also get the Minimum Spend Rule we use across the 20+ ad accounts we manage at Acquirely.",
+      "You will learn:",
+      {
+        type: "ul",
+        items: [
+          "The real reasons new ads get little or no spend",
+          "A quick checklist to rule out simpler problems first",
+          "The Minimum Spend Rule, step by step, with a worked example",
+          "What to do after the 7-day test, and the mistakes to avoid",
+        ],
+      },
+      `Want to see where this rule fits in a full account setup? Read our guide to the [best Meta Ad structure after the Andromeda update](${STRUCTURE_POST}).`,
+      { type: "toc" },
+
+      { type: "h2", text: "Why aren't my new Meta ads spending?" },
+      "Your new Meta ads usually aren't spending because **Meta favours what it already trusts**. In a campaign budget (CBO) setup, older ad sets have weeks of conversion data, so Meta keeps sending them most of the budget. New ads start with zero history, so they get very little delivery and never collect enough data to compete.",
+      "Here are the most common causes, from most to least likely.",
+      { type: "h3", text: "1. Older ad sets have the performance history" },
+      "This is the big one. With Advantage+ campaign budget, Meta moves spend to the ad sets it predicts will perform best. An ad set that has been converting for months looks far safer than one that launched this morning.",
+      "The result: your new Pack of creatives sits in the campaign, technically live, while the old ad sets take almost all the spend.",
+      { type: "h3", text: "2. You added new ads into an existing ad set" },
+      "When you drop new creatives into an ad set that already has a winner, Meta usually keeps backing the winner. The new ads get a tiny share of impressions.",
+      "Worse, adding new ads can also change how Meta distributes budget inside that ad set, and cut spend on the ads that were already working. That is why we launch every new creative batch in its own new ad set.",
+      { type: "h3", text: "3. Your new ads are too similar to old ones" },
+      "After the Andromeda update, many practitioners report that Meta treats very similar ads as the same idea. If your new ads are the old winner with a different background colour, Meta has little reason to give them separate delivery.",
+      { type: "h3", text: "4. Your budget is too small for your Cost Per Result" },
+      "If your target Cost Per Purchase is ₹1,000 and the whole campaign spends ₹2,000 a day, there is simply not enough budget for new ad sets to get a fair share alongside proven ones.",
+      { type: "h3", text: "5. Something technical is blocking delivery" },
+      "Sometimes it is not about budget at all. The ads may still be in review, rejected, scheduled for later, or limited by a setting you forgot about.",
+
+      { type: "h2", text: "Check these 6 things before you change anything" },
+      "Rule out the simple problems first. It takes five minutes and saves you from fixing the wrong thing.",
+      {
+        type: "ul",
+        items: [
+          '**Ad status:** are all new ads approved and "Active", not "In review" or "Rejected"?',
+          "**Schedule:** is the ad set scheduled to start now, not at a later date?",
+          "**Spend limits:** is there an old maximum spend limit on the ad set capping it?",
+          "**Account issues:** any billing problems or account spending limits reached?",
+          "**Budget vs Cost Per Result:** is the campaign budget big enough to fund new tests alongside proven ad sets?",
+          "**Creative difference:** are the new ads genuinely new concepts, or small tweaks of old ones?",
+        ],
+      },
+      "If everything checks out and the new ad set is still getting little or no spend, the cause is almost certainly budget allocation. Meta is backing your proven ad sets. That is exactly what the Minimum Spend Rule fixes.",
+
+      { type: "h2", text: "The fix: the Minimum Spend Rule" },
+      "The **Minimum Spend Rule** means you give every new creative ad set a temporary **minimum daily spend of about 1× your target Cost Per Result**, for **7 days**. After 7 days, you remove it and let Meta decide. Each new batch gets a fair test, without forcing budget into ads that don't perform.",
+      "We built this rule after testing it across our client accounts. It solves a real business problem too: brands invest serious time and money in new creatives, and that investment is wasted if the ads never get spend.",
+      { type: "h3", text: "How to set it up in 6 steps" },
+      {
+        type: "ol",
+        items: [
+          "**Launch each new creative batch in its own new ad set.** We call each weekly batch a Pack. Use the same broad audience as your other prospecting ad sets.",
+          "**Open the ad set's budget settings.** In a campaign using Advantage+ campaign budget, turn on ad set spending limits.",
+          "**Set the minimum daily spend to about 1× your target Cost Per Result.** Leave the maximum empty.",
+          '**Note the start date.** Add it to the ad set name, for example "Pack 12 | Min spend until 21 Nov".',
+          "**Leave it alone for 7 days.** Don't judge it after day 2.",
+          "**Remove the minimum spend on day 7.** From here, the ad set has to earn its budget.",
+        ],
+      },
+      { type: "h3", text: "Worked example" },
+      {
+        type: "table",
+        head: ["Setting", "Value"],
+        rows: [
+          ["Target Cost Per Purchase", "₹1,000"],
+          ["Minimum daily spend on the new ad set", "About ₹1,000"],
+          ["Duration", "7 days"],
+          ["Minimum test spend for the Pack", "About ₹7,000"],
+          ["After day 7", "Minimum removed, Meta allocates naturally"],
+        ],
+      },
+      "Two practical notes:",
+      {
+        type: "ul",
+        items: [
+          "**Keep room in your campaign budget.** If several new ad sets have minimums at once, make sure their total still leaves plenty of budget for your proven ad sets.",
+          "**Treat the limit as an average.** Meta has moved ad set spending limits towards a daily average rather than a strict daily figure, so expect some daily variation.",
+        ],
+      },
+      { type: "h3", text: "Why 7 days?" },
+      "Seven days gives a new Pack enough delivery to collect data and build early engagement across every day of the week. It also gives Meta enough signals to judge how the new creatives really perform.",
+      "If the Pack is strong, Meta often starts spending **more** than the minimum on it, even before day 7.",
+
+      { type: "h2", text: "What happens after the 7-day test?" },
+      "Once you remove the minimum spend, Meta makes the call on its own. There are only two outcomes:",
+      {
+        type: "table",
+        head: ["Outcome", "What you see", "What to do"],
+        rows: [
+          ["✅ The Pack is competitive", "Meta keeps spending on it, often more than the old minimum", "Leave it running. Iterate on the winning ads in your next Pack."],
+          ["❌ The Pack is not competitive", "Spend drops off, or stops almost completely", "Let it go. Learn from what didn't work and test new concepts next week."],
+        ],
+      },
+      "Either way, you now have a real answer, based on real spend, instead of a guess based on almost no data.",
+      { type: "h3", text: "The one rule you must not break" },
+      "**Apply the minimum spend to an ad set only once.**",
+      "After its 7-day test, never put a minimum spend back on that same ad set. If Meta stopped spending on it, that is the answer. Forcing budget back into it just means paying for ads Meta has already decided are less competitive.",
+      "A new idea deserves a new ad set and a fresh test. An old ad set has to earn its spend.",
+
+      { type: "h2", text: "5 mistakes that keep new ads from spending" },
+      {
+        type: "ol",
+        items: [
+          "**Adding new ads to old ad sets.** It protects nobody: the new ads get ignored and the old winner can lose spend. Use a new ad set for every batch.",
+          "**Judging too early.** Pausing a new ad set after two days of low spend means you never gave it a real test.",
+          "**Leaving the minimum on forever.** A permanent minimum forces budget into ads that may not deserve it. Remove it on day 7.",
+          "**Setting minimums your budget can't support.** Five new ad sets at ₹1,000 minimum each will squeeze a ₹6,000 a day campaign. Launch fewer Packs or raise the budget.",
+          "**Testing tweaks instead of ideas.** A new background colour is not a new ad. Give Meta genuinely different concepts so they have a reason to get delivery.",
+        ],
+      },
+      `New to how Meta delivers ads now? Read [Meta Andromeda update explained](${ANDROMEDA_POST}) for the background.`,
+
+      { type: "h2", text: "FAQ" },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "Why is Meta not spending on my new ad set?",
+            a: "Meta is not spending on your new ad set because it prefers ad sets with a proven performance history. In a campaign budget setup, older ad sets with steady conversions look safer, so they take most of the spend. A temporary minimum spend on the new ad set gives it enough delivery to prove itself.",
+          },
+          {
+            q: "How much minimum spend should I set for new Meta ads?",
+            a: "Set the minimum spend for new Meta ads at roughly 1× your target Cost Per Result per day, at the ad set level. If your target Cost Per Purchase is ₹1,000, set about ₹1,000 per day. Keep it for 7 days, then remove it and let Meta allocate budget on performance.",
+          },
+          {
+            q: "Should I add new creatives to an existing ad set?",
+            a: "No, you should usually not add new creatives to an existing ad set that already has a winner. Meta tends to keep backing the proven ad, so new creatives get little delivery, and the change can also disrupt the winner. Launch each new batch of creatives in its own new ad set instead.",
+          },
+          {
+            q: "How long should I wait before judging new Meta ads?",
+            a: "Wait at least 7 days before judging new Meta ads, and make sure they actually received meaningful spend in that time. Judging after one or two days, or after almost no spend, tells you very little. Seven days covers every day of the week and gives Meta enough signals.",
+          },
+          {
+            q: "Can I use ad set minimum spend without CBO?",
+            a: "Ad set spending limits are a feature of Advantage+ campaign budget, also called CBO. Without it, each ad set has its own budget, so you control spend directly by setting that ad set's daily budget. The same idea still applies: give each new test enough budget for a fair 7-day test.",
+          },
+        ],
+      },
+
+      { type: "h2", text: "Still struggling to get new ads to spend?" },
+      "If you have tried everything and your best new creatives still sit unused, the problem is usually your account structure.",
+      `[Book a Growth Diagnosis Call with Acquirely](${BOOKING_URL}). We will check your campaign structure, budgets and creative testing setup against the A3 Flywheel.`,
+    ],
+  },
   {
     slug: "broad-targeting-vs-interest-targeting-meta",
     title: "Broad Targeting vs Interest Targeting on Meta: Which Is Best for You in 2026?",
@@ -364,7 +540,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h3", text: "Example 3: New creatives that never got spend" },
       'One of the most common post-Andromeda complaints we hear: "We launched new creatives and Meta spent nothing on them."',
       "What happens is that Meta keeps pushing budget to older ad sets with a proven history. New creatives get almost no delivery, so they never collect enough data to prove themselves.",
-      "Our fix is a **Minimum Spend Rule**. Each new batch of creatives goes into its own ad set with a minimum spend of about 1× the target Cost Per Result for 7 days. After that, it has to earn its budget.",
+      `Our fix is a **Minimum Spend Rule**. Each new batch of creatives goes into its own ad set with a minimum spend of about 1× the target Cost Per Result for 7 days. After that, it has to earn its budget. (Step by step: [why your new Meta ads aren't spending](${NOT_SPENDING_POST}).)`,
 
       { type: "h3", text: "Example 4: The winning ad you should not pause" },
       "In many accounts, Meta puts around 70% of a campaign's budget behind just three or four creatives. After four or five months, one of them may still take the same spend while its ROAS slips from 4.5 to 3.5.",
@@ -540,6 +716,7 @@ export const blogPosts: BlogPost[] = [
 
       { type: "h3", text: "Why 7 days?" },
       "Seven days gives every new Pack a fair chance to get delivery, collect data and build early engagement. During this window, Meta gets enough signals to judge how the new creatives perform.",
+      `For the full walkthrough, including a diagnostic checklist and a worked example, read [why your new Meta ads aren't spending (and how to fix it)](${NOT_SPENDING_POST}).`,
       "If the Pack performs well, Meta will often start spending more than the minimum on it.",
       "Once you remove the minimum, the outcome is simple:",
       {
