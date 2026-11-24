@@ -131,11 +131,16 @@ export function qualifyAudit(lead: Pick<AuditFields, "revenue" | "adSpend" | "bu
   return "nurture";
 }
 
-// /lead-gen rules. Revenue doesn't count here.
+// /lead-gen rules. Only the budget answer counts; every lead is either qualified or rejected.
+export function qualifyAuditLeadGen(lead: Pick<AuditFields, "revenue" | "adSpend" | "budget">): AuditOutcome {
+  return lead.budget === "Yes, that works" ? "qualified" : "rejected";
+}
+
+// Homepage Funnel Review Call rules. Revenue doesn't count here.
 // Rejected: ad spend "Not running ads yet".
 // Qualified: running ads and budget not "Not right now".
 // Anything else (running ads, budget "Not right now") matches neither rule: nurture.
-export function qualifyAuditLeadGen(lead: Pick<AuditFields, "revenue" | "adSpend" | "budget">): AuditOutcome {
+export function qualifyAuditFunnelReview(lead: Pick<AuditFields, "revenue" | "adSpend" | "budget">): AuditOutcome {
   if (lead.adSpend === "Not running ads yet") return "rejected";
   if (lead.budget !== "Not right now") return "qualified";
   return "nurture";
@@ -148,9 +153,9 @@ export const AUDIT_RULESETS = {
   default: { qualify: qualifyAudit, skip: [] as AuditFieldName[], ...LEAD_GEN_SHEET },
   // Asks only ad spend and the ₹75K question, besides contact details.
   "lead-gen": { qualify: qualifyAuditLeadGen, skip: ["revenue", "problem"] as AuditFieldName[], ...LEAD_GEN_SHEET },
-  // Homepage Funnel Review Call: same questions and rules as /lead-gen, saved to its own sheet.
+  // Homepage Funnel Review Call: same questions as /lead-gen, its own rules, saved to its own sheet.
   "funnel-review": {
-    qualify: qualifyAuditLeadGen,
+    qualify: qualifyAuditFunnelReview,
     skip: ["revenue", "problem"] as AuditFieldName[],
     sheetEnv: "FUNNEL_REVIEW_SHEET_WEBHOOK_URL",
     formId: "funnel_review_call",

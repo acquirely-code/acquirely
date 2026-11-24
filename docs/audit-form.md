@@ -2,7 +2,9 @@
 
 The **Test form** button in the `/lead-gen` hero opens an inbuilt copy of the Zoho "Lead Gen Lead Quality Audit Application" (`components/audit-form/`, rules in `lib/audit-form/rules.ts`, route `app/api/lead/audit`).
 
-The server sorts each lead with the same rules as Zoho:
+On `/lead-gen` only the budget answer counts: "Yes, that works" is qualified, "Need to think about it" and "Not right now" are rejected.
+
+On `/done-for-you` the server sorts each lead with the same rules as Zoho:
 
 | Bucket | Rule | Visitor sees | Lead value |
 | --- | --- | --- | --- |
@@ -21,15 +23,15 @@ To connect the sheet:
 3. **Deploy → New deployment → Web app**. Set **Execute as** to **Me** and **Who has access** to **Anyone**, then deploy and approve the permissions.
 4. Copy the web app URL (ending in `/exec`) into the Cloudflare Worker as a runtime variable: **Workers & Pages → acquirely worker → Settings → Variables and Secrets** → add `AUDIT_SHEET_WEBHOOK_URL` (type Secret), then deploy. A *build* variable is not enough: the server reads it at runtime. For local testing, put it in `.env.local`. Never commit it: the repo is public and anyone with the URL can add rows.
 
-The script writes the header row itself on the first submission. If you change the script later, use **Deploy → Manage deployments → Edit → New version**, which keeps the same URL. Only the website's server calls the URL; the browser never sees it. In production the form answers "isn't available right now" (`webhook_not_set`) until the URL is set.
+The script writes the header row itself on the first submission. Its columns match the `/lead-gen` form, so the revenue and main-problem answers from `/done-for-you` are not saved to the sheet. If you change the script later, use **Deploy → Manage deployments → Edit → New version**, which keeps the same URL. Only the website's server calls the URL; the browser never sees it. In production the form answers "isn't available right now" (`webhook_not_set`) until the URL is set.
 
 ## Funnel Review Call form (homepage)
 
-Every booking CTA on the homepage, including the header's "Book a Call", opens the same form titled **Funnel Review Call** (`ruleset="funnel-review"` in `app/(home)/(default)/HomeLanding.tsx`). It asks the same questions and uses the same rules as `/lead-gen`: rejected if not running ads, qualified if running ads and the budget answer isn't "Not right now", nurture otherwise. Qualified leads go to `FRC_BOOKING_BASE` in `HomeLanding.tsx`.
+Every booking CTA on the homepage, including the header's "Book a Call", opens the same form titled **Funnel Review Call** (`ruleset="funnel-review"` in `app/(home)/(default)/HomeLanding.tsx`). It asks the same questions as `/lead-gen` but has its own rules: rejected if not running ads, qualified if running ads and the budget answer isn't "Not right now", nurture otherwise. Qualified leads go to `FRC_BOOKING_BASE` in `HomeLanding.tsx`.
 
 It saves to its own sheet. Set it up the same way as above, with two differences:
 
-- Paste `scripts/funnel-review-sheet-webhook.gs` into the new sheet's Apps Script (it has no revenue or main-problem columns).
+- Paste `scripts/funnel-review-sheet-webhook.gs` into the new sheet's Apps Script.
 - Put the web app URL in the Cloudflare Worker secret `FUNNEL_REVIEW_SHEET_WEBHOOK_URL`.
 
 GA4 events from this form carry `form_id: "funnel_review_call"`. Locally, without the webhook, rows go to `.data/funnel-review-leads.csv`.

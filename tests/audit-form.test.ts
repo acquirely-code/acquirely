@@ -4,7 +4,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { POST } from "@/app/api/lead/audit/route";
-import { AD_SPEND_OPTIONS, BUDGET_OPTIONS, qualifyAudit, qualifyAuditLeadGen, rulesetFor, REVENUE_OPTIONS, validateAudit } from "@/lib/audit-form/rules";
+import { AD_SPEND_OPTIONS, BUDGET_OPTIONS, qualifyAudit, qualifyAuditFunnelReview, qualifyAuditLeadGen, rulesetFor, REVENUE_OPTIONS, validateAudit } from "@/lib/audit-form/rules";
 import { resetRateLimitForTests as resetStoreForTests } from "@/lib/audit-form/http";
 
 const lead = (overrides: Record<string, unknown> = {}) => ({
@@ -25,16 +25,24 @@ const post = async (body: unknown, ip = "10.0.0.1") => {
   return { status: response.status, data: (await response.json()) as Record<string, any> };
 };
 
-describe("qualifyAuditLeadGen (/lead-gen rules)", () => {
+describe("qualifyAuditFunnelReview (homepage rules)", () => {
   it("rejects when not running ads, whatever else", () => {
-    for (const budget of BUDGET_OPTIONS) expect(qualifyAuditLeadGen(lead({ adSpend: "Not running ads yet", budget }))).toBe("rejected");
+    for (const budget of BUDGET_OPTIONS) expect(qualifyAuditFunnelReview(lead({ adSpend: "Not running ads yet", budget }))).toBe("rejected");
   });
   it("qualifies running ads + budget not \"Not right now\", ignoring revenue", () => {
-    expect(qualifyAuditLeadGen(lead({ adSpend: "Under ₹1L", budget: "Need to think about it", revenue: "Under ₹10L" }))).toBe("qualified");
-    expect(qualifyAuditLeadGen(lead())).toBe("qualified");
+    expect(qualifyAuditFunnelReview(lead({ adSpend: "Under ₹1L", budget: "Need to think about it", revenue: "Under ₹10L" }))).toBe("qualified");
+    expect(qualifyAuditFunnelReview(lead())).toBe("qualified");
   });
   it("puts running ads + \"Not right now\" in nurture", () => {
-    expect(qualifyAuditLeadGen(lead({ budget: "Not right now" }))).toBe("nurture");
+    expect(qualifyAuditFunnelReview(lead({ budget: "Not right now" }))).toBe("nurture");
+  });
+});
+
+describe("qualifyAuditLeadGen (/lead-gen rules)", () => {
+  it("qualifies only \"Yes, that works\" and rejects the rest, whatever the ad spend", () => {
+    for (const adSpend of AD_SPEND_OPTIONS)
+      for (const budget of BUDGET_OPTIONS)
+        expect(qualifyAuditLeadGen(lead({ adSpend, budget }))).toBe(budget === "Yes, that works" ? "qualified" : "rejected");
   });
   it("is picked only by its ruleset name", () => {
     expect(rulesetFor("lead-gen").qualify).toBe(qualifyAuditLeadGen);
@@ -293,7 +301,7 @@ describe("Funnel Review Call (homepage)", () => {
     process.env.FUNNEL_REVIEW_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/frc/exec";
     resetStoreForTests();
     try {
-      expect(rulesetFor("funnel-review").qualify).toBe(qualifyAuditLeadGen);
+      expect(rulesetFor("funnel-review").qualify).toBe(qualifyAuditFunnelReview);
       const { revenue, problem, ...rest } = lead();
       const res = await post({ ...rest, ruleset: "funnel-review" });
       expect(res.data).toMatchObject({ ok: true, outcome: "qualified" });
