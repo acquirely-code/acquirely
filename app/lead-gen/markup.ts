@@ -10,13 +10,16 @@ const LINKEDIN = `<svg width="14" height="14" viewBox="0 0 24 24" fill="#0A66C2"
 const phone = (domain: string, img: string, name: string, cat: string) =>
   `<figure class="ph"><div class="ph-frame"><div class="ph-bar"><span></span><b>${domain}</b><span></span></div><div class="ph-screen"><img src="${img}" alt="${name} website on mobile" loading="lazy"></div></div><figcaption><b>${name}</b><span class="ph-cat">${cat}</span></figcaption></figure>`;
 
-// Four phones are narrower than a wide screen, so the set is repeated 3x in the markup (useLandingScripts then
+// Seven phones are narrower than a wide screen, so the set is repeated 3x in the markup (useLandingScripts then
 // doubles the track for the seamless -50% loop). Repeats are aria-hidden so screen readers hear each brand once.
 const phoneSet = [
   phone("kashti.com", "/ecommerce/img/31-kashti-website-on-mobile.jpg", "Kashti", "Fintech app"),
   phone("rightsourceaviation.com", "/ecommerce/img/33-rsa-aviation-website-on-mobile.jpg", "RSA Aviation", "Pilot training academy"),
   phone("internationalschooling.org", "/ecommerce/img/30-international-schooling-website-on-mobile.jpg", "International Schooling", "Online school · 9+ countries"),
   phone("globalproptech.in", "/ecommerce/img/29-global-proptech-website-on-mobile.jpg", "Global Proptech", "Luxury real estate · Gurugram"),
+  phone("2ndcareers.com", "/ecommerce/img/34-2nd-careers-website-on-mobile.jpg", "2nd Careers", "Career platform"),
+  phone("adasupply.com", "/ecommerce/img/35-ada-supplies-website-on-mobile.jpg", "ADA Supplies", "Safety equipment · USA"),
+  phone("silverzone.org", "/ecommerce/img/36-silverzone-website-on-mobile.jpg", "SilverZone", "School Olympiads"),
 ].join("");
 
 // Results band card. `before` is optional: "₹1,000+" renders as "₹1,000+ → ₹13.39".

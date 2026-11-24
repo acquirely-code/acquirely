@@ -117,3 +117,6 @@
 @media (max-width:520px){.lg .lg-floor{grid-template-columns:1fr}
 }
 
+/* Phone banner: 7 cards instead of 4, so scale the duration to keep the same scroll speed */
+.lg .ph-track{animation-duration:84s}
+@media (max-width:600px){.lg .ph-track{animation-duration:63s}}
