@@ -38,7 +38,7 @@ const markup = `
       </div>
       <div class="trust-row">
         <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Founders on your account</span>
-        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Flat 10% of ad spend</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>₹1L or 10% of ad spend, whichever is higher</span>
         <span class="spots"><i></i>Only 3 onboarding spots open this month</span>
       </div>
     </div>
@@ -276,7 +276,7 @@ const markup = `
       <div class="reveal">
         <div class="r-head"><span class="num">03</span><h3>We get paid when you grow</h3></div>
         <div class="r-body">
-          <div class="card"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B7FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 017.5-2"/></svg></span><h4>Flat 10% of ad spend</h4><p>No hidden fees.</p></div>
+          <div class="card"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B7FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 017.5-2"/></svg></span><h4>₹1L or 10% of ad spend</h4><p>Whichever is higher. No hidden fees.</p></div>
           <div class="card"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B7FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/></svg></span><h4>Every decision, shown to you</h4><p>Every scale or cut decision comes with the numbers behind it.</p></div>
           <div class="card"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B7FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></span><h4>Founders on your account</h4><p>Not a junior with a template.</p></div>
         </div>
@@ -356,7 +356,7 @@ const markup = `
       <div class="card yes">
         <h3>A good fit if you</h3>
         <ul>
-          <li>Spend ₹5L+ a month on Meta &amp; Google Ads</li>
+          <li>Already spend on Meta &amp; Google Ads every month</li>
           <li>Have a product that already sells</li>
           <li>Hit a ceiling when you try to scale</li>
           <li>See ROAS swing with no clear reason</li>
@@ -389,15 +389,25 @@ const markup = `
     </div>
     <div class="price">
       <div class="card tier">
-        <span class="eyebrow">For ₹5L+ monthly ad spend</span>
+        <span class="eyebrow">₹1 Lakh or 10% of ad spend, whichever is higher</span>
         <div class="big grad">10%</div>
-        <p class="sub">of monthly ad spend. Nothing hidden.</p>
+        <p class="sub">of monthly ad spend, ₹1 Lakh minimum. Nothing hidden.</p>
         <ul>
           <li>Meta campaign strategy and management on the A3 Flywheel</li>
+          <li>Google Search, PMax, YouTube &amp; LinkedIn Ads</li>
           <li>A new creative Pack every week</li>
           <li>Influencer management</li>
           <li>Daily monitoring and weekly optimisation</li>
         </ul>
+        <details class="tier-more"><summary>See everything included</summary><dl>
+          <div><dt>Meta Ads on the A3 Flywheel</dt><dd>Prospecting and retention campaigns, launched and managed for you.</dd></div>
+          <div><dt>Google Ads (Search, PMax &amp; YouTube)</dt><dd>Meta creates demand; Google captures it the moment someone searches.</dd></div>
+          <div><dt>LinkedIn Ads</dt><dd>Reach decision-makers by job title and company.</dd></div>
+          <div><dt>A new creative Pack every week</dt><dd>Competitor research, net-new concepts and iterations of proven winners.</dd></div>
+          <div><dt>Influencer management</dt><dd>We run the creator pipeline. Paid creator fees are billed separately.</dd></div>
+          <div><dt>Micro Analysis</dt><dd>90 days of your data decides which days get more budget.</dd></div>
+          <div><dt>Daily monitoring + weekly optimisation</dt><dd>Every scale or cut comes with the numbers behind it.</dd></div>
+        </dl></details>
         <a class="btn" href="https://forms.acquirely.in/acquirely/form/FunnelReviewCallECom/formperma/muJYVHXbKDbQ7N3xEPr_lrjkOuBMe33JPNULGFJm9Kg" target="_blank" rel="noopener nofollow">Book a Growth Call</a>
       </div>
       <div class="card inhouse">
@@ -426,7 +436,7 @@ const markup = `
     <div class="promise">
       <div class="stat"><b style="font-size:18px">A fair 75–90 day window</b><span>Micro Analysis needs 90 days of your data. That's when the system shows what it can do.</span></div>
       <div class="stat"><b style="font-size:18px">Top 1% experts only</b><span>5+ years running ads and ₹10Cr+ managed in a year, each. A Meta and a Google specialist on every account.</span></div>
-      <div class="stat"><b style="font-size:18px">Fees tied to growth</b><span>10% of your ad spend. We earn more only when your spend scales profitably.</span></div>
+      <div class="stat"><b style="font-size:18px">Fees tied to growth</b><span>₹1L or 10% of your ad spend, whichever is higher. We earn more only when your spend scales profitably.</span></div>
       <div class="stat"><b style="font-size:18px">Data-backed decisions</b><span>Every scale or cut has a number behind it you can see.</span></div>
     </div>
   </div>

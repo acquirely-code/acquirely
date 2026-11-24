@@ -231,7 +231,7 @@ html:has(.ecom){scroll-behavior:smooth;scroll-padding-top:100px}
 .ecom .fit .no li::before{content:"";width:20px;height:20px;border-radius:50%;background:#FEF2F2 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23EF4444' stroke-width='3.2' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E") center/11px no-repeat;margin-top:2px}
 .ecom .center-cta{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:36px;text-align:center}
 .ecom .center-cta small{color:var(--muted);font-size:14px}
-.ecom .price{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;max-width:980px;margin-inline:auto}
+.ecom .price{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;max-width:980px;margin-inline:auto;align-items:start}
 @media (max-width:860px){.ecom .price{grid-template-columns:1fr}
 }
 .ecom .tier{padding:34px;position:relative;overflow:hidden;border:1.5px solid #C7D2FE}
@@ -242,6 +242,11 @@ html:has(.ecom){scroll-behavior:smooth;scroll-padding-top:100px}
 .ecom .tier ul{list-style:none;margin:22px 0 0;padding:20px 0 0;border-top:1px solid var(--line);display:grid;gap:12px;font-size:15px;color:var(--ink)}
 .ecom .tier li{display:grid;grid-template-columns:22px 1fr;gap:10px}
 .ecom .tier li::before{content:"";width:18px;height:18px;margin-top:3px;border-radius:50%;background:#EEF2FF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F46E5' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4L18 8'/%3E%3C/svg%3E") center/11px no-repeat}
+.ecom .tier .tier-more,.ecom .tier .tier-more[open]{margin-top:20px;background:var(--bg);border:0;box-shadow:none;border-radius:10px;padding:0 14px}
+.ecom .tier-more summary{font-size:14px;color:var(--indigo-2);padding:12px 28px 12px 0}
+.ecom .tier-more dl{margin:0;padding:0 0 14px;display:grid;gap:10px}
+.ecom .tier-more dt{font-weight:700;font-size:13.5px;color:var(--ink)}
+.ecom .tier-more dd{margin:1px 0 0;font-size:13.5px;color:var(--text);line-height:1.5}
 .ecom .tier .btn{margin-top:26px;width:100%}
 .ecom .inhouse{padding:34px}
 .ecom .inhouse h3{font-size:18px;margin-bottom:14px}
