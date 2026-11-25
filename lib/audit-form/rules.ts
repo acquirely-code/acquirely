@@ -131,9 +131,9 @@ export function qualifyAudit(lead: Pick<AuditFields, "revenue" | "adSpend" | "bu
   return "nurture";
 }
 
-// /lead-gen rules. Only the budget answer counts; every lead is either qualified or rejected.
+// /lead-gen rules. Only the budget answer counts: "Not right now" is rejected, anything else is qualified.
 export function qualifyAuditLeadGen(lead: Pick<AuditFields, "revenue" | "adSpend" | "budget">): AuditOutcome {
-  return lead.budget === "Yes, that works" ? "qualified" : "rejected";
+  return lead.budget === "Not right now" ? "rejected" : "qualified";
 }
 
 // Homepage Funnel Review Call rules. Revenue doesn't count here.

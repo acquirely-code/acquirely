@@ -2,7 +2,7 @@
 
 The **Test form** button in the `/lead-gen` hero opens an inbuilt copy of the Zoho "Lead Gen Lead Quality Audit Application" (`components/audit-form/`, rules in `lib/audit-form/rules.ts`, route `app/api/lead/audit`).
 
-On `/lead-gen` only the budget answer counts: "Yes, that works" is qualified, "Need to think about it" and "Not right now" are rejected.
+On `/lead-gen` only the budget answer counts: "Yes, that works" and "Need to think about it" are qualified, "Not right now" is rejected.
 
 On `/done-for-you` the server sorts each lead with the same rules as Zoho:
 

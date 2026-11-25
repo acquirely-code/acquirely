@@ -39,10 +39,10 @@ describe("qualifyAuditFunnelReview (homepage rules)", () => {
 });
 
 describe("qualifyAuditLeadGen (/lead-gen rules)", () => {
-  it("qualifies only \"Yes, that works\" and rejects the rest, whatever the ad spend", () => {
+  it("rejects only \"Not right now\" and qualifies the rest, whatever the ad spend", () => {
     for (const adSpend of AD_SPEND_OPTIONS)
       for (const budget of BUDGET_OPTIONS)
-        expect(qualifyAuditLeadGen(lead({ adSpend, budget }))).toBe(budget === "Yes, that works" ? "qualified" : "rejected");
+        expect(qualifyAuditLeadGen(lead({ adSpend, budget }))).toBe(budget === "Not right now" ? "rejected" : "qualified");
   });
   it("is picked only by its ruleset name", () => {
     expect(rulesetFor("lead-gen").qualify).toBe(qualifyAuditLeadGen);
