@@ -51,8 +51,218 @@ const STRUCTURE_POST = "/blog/best-meta-ad-structure-after-andromeda-update";
 const ANDROMEDA_POST = "/blog/meta-andromeda-update-explained";
 const TARGETING_POST = "/blog/broad-targeting-vs-interest-targeting-meta";
 const NOT_SPENDING_POST = "/blog/meta-ads-not-spending";
+const ABO_CBO_POST = "/blog/abo-vs-cbo-meta-ads";
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "abo-vs-cbo-meta-ads",
+    title: "ABO vs CBO on Meta Ads: What's the Difference?",
+    metaTitle: "ABO vs CBO on Meta Ads: What's the Difference? (2026)",
+    metaDescription:
+      "ABO or CBO on Meta Ads? See how each budget option works, the pros and cons, when to use which, and how we test and scale inside one CBO campaign.",
+    excerpt:
+      "ABO or CBO on Meta Ads? How each budget option works, the newer budget sharing option in between, when to use which, and why we run one CBO campaign across 20+ accounts.",
+    date: "2026-11-28",
+    author: "Kunal Mandal",
+    authorRole: "Co-founder, Acquirely",
+    authorBio: KUNAL_BIO,
+    authorUrl: "https://www.linkedin.com/in/kunal-meta-ads/",
+    authorImage: "/ecommerce/img/kunal-mandal.jpg",
+    coverImage: "/blog/abo-vs-cbo-meta-ads.webp",
+    image: {
+      src: "/blog/abo-vs-cbo-meta-ads.webp",
+      alt: "ABO vs CBO on Meta Ads comparison",
+      title: "ABO vs CBO on Meta Ads: What's the Difference?",
+      description:
+        "How ad set budgets (ABO) and campaign budgets (CBO) differ on Meta Ads, and when to use each.",
+      width: 1200,
+      height: 628,
+    },
+    content: [
+      "Read this before you set the budget on your next Meta campaign, because ABO and CBO decide who controls your money: you or Meta.",
+      {
+        type: "callout",
+        text: "**The main difference between ABO and CBO on Meta Ads is where the budget sits.** With **ABO (ad set budget)**, you set a budget on each ad set and control exactly how much each one spends. With **CBO (campaign budget)**, you set one budget for the whole campaign, and Meta moves spend to the ad sets it predicts will perform best.",
+      },
+      'In this guide, you will see a clear comparison of both, the newer "budget sharing" option in between, and when to use each. You will also see the setup we run across the 20+ ad accounts we manage at Acquirely, and why we chose CBO.',
+      "You will learn:",
+      {
+        type: "ul",
+        items: [
+          "What ABO and CBO mean in today's Ads Manager",
+          "The pros and cons of each, side by side",
+          "When ABO still makes sense, and when CBO is the better choice",
+          "How to test new creatives fairly inside a CBO campaign",
+        ],
+      },
+      `Want our full account setup? Read the guide to the [best Meta Ad structure after the Andromeda update](${STRUCTURE_POST}).`,
+      { type: "toc" },
+
+      { type: "h2", text: "What is ABO on Meta Ads?" },
+      "**ABO** stands for **ad set budget optimisation**. You set a separate daily or lifetime budget on every ad set in the campaign, and each ad set spends its own budget, no matter how the others perform. You get full control over how much each audience or creative test receives.",
+      "Example: three ad sets at ₹2,000 a day each. Each one spends about ₹2,000, even if one is clearly beating the other two.",
+
+      { type: "h2", text: "What is CBO on Meta Ads?" },
+      "**CBO** stands for **campaign budget optimisation**. Meta now calls it **Advantage+ campaign budget**. You set one budget at the campaign level, and Meta distributes it across your ad sets in real time, sending more to the ad sets it expects to deliver the best results.",
+      "Example: one ₹6,000 campaign budget across the same three ad sets. Meta might spend ₹4,000 on the strongest, ₹1,500 on the next and ₹500 on the weakest.",
+      "You can still guide CBO with **ad set spending limits**, a minimum or maximum per ad set. Meta now treats these as daily averages rather than strict daily figures.",
+
+      { type: "h2", text: "What is ad set budget sharing?" },
+      "**Ad set budget sharing** is a middle option for ABO campaigns. You still set a budget per ad set, but Meta can move **up to 20%** of one ad set's daily budget to another ad set in the same campaign when it predicts better results. Your total campaign spend stays the same.",
+      "Think of it as ABO with a little CBO-style flexibility added. It needs at least two ad sets in the campaign.",
+
+      { type: "h2", text: "ABO vs CBO: side-by-side comparison" },
+      {
+        type: "table",
+        head: ["", "🔢 ABO (ad set budget)", "🤖 CBO (campaign budget)"],
+        rows: [
+          ["Where the budget is set", "On each ad set", "Once, on the campaign"],
+          ["Who decides the split", "You", "Meta's AI"],
+          ["Control over each ad set", "High", "Lower, guided by spend limits"],
+          ["Spend on weak ad sets", "Continues until you change it", "Reduced automatically"],
+          ["Spend on new, untested ad sets", "Guaranteed", "Often very low without a minimum spend"],
+          ["Management effort", "High: many budgets to adjust", "Low: one budget to manage"],
+          ["Scaling", "Raise each ad set's budget", "Raise one campaign budget"],
+          ["Best for", "Strict tests, very different audiences or offers", "Testing and scaling with similar broad ad sets"],
+          ["Fit after Andromeda", "Good for controlled tests", "Strong for consolidated, broad structures"],
+        ],
+      },
+      { type: "h3", text: "ABO pros and cons" },
+      "**Pros**",
+      {
+        type: "ul",
+        items: [
+          "Every ad set gets exactly the spend you set",
+          "Clean, fair comparisons between tests",
+          "Useful when audiences or offers are very different",
+        ],
+      },
+      "**Cons**",
+      {
+        type: "ul",
+        items: [
+          "Budget keeps flowing to weak ad sets until you step in",
+          "More manual work as the account grows",
+          "Scaling means editing many budgets one by one",
+        ],
+      },
+      { type: "h3", text: "CBO pros and cons" },
+      "**Pros**",
+      {
+        type: "ul",
+        items: [
+          "Meta moves budget to the best performers automatically",
+          "One budget to manage and scale",
+          "Works well with broad targeting and a consolidated structure",
+        ],
+      },
+      "**Cons**",
+      {
+        type: "ul",
+        items: [
+          "New ad sets can get almost no spend next to proven ones",
+          "Less control over how each ad set is funded",
+          "Meta can put most of the budget behind a few ads, which creates risk when they fatigue",
+        ],
+      },
+
+      { type: "h2", text: "When should you use ABO vs CBO?" },
+      {
+        type: "table",
+        head: ["Your situation", "Use"],
+        rows: [
+          ["Several broad ad sets with similar audiences", "✅ CBO"],
+          ["Weekly creative testing plus scaling winners in one place", "✅ CBO with minimum spend on new ad sets"],
+          ["Steady conversion data and you want less manual work", "✅ CBO"],
+          ["Very different audiences, offers or locations that need fixed budgets", "🔢 ABO"],
+          ["A strict A/B test where each side must get equal spend", "🔢 ABO"],
+          ["You want ABO control but some flexibility", "🔀 ABO with budget sharing"],
+        ],
+      },
+      "**Rule of thumb:** use ABO when you need control over each ad set. Use CBO when your ad sets are similar and you want Meta to find the winners.",
+
+      { type: "h2", text: "How we use CBO for both testing and scaling" },
+      "At Acquirely, we run one **Prospecting CBO campaign** that handles both creative testing and scaling, plus a separate Retention campaign for past buyers.",
+      "We used to run separate testing and scaling campaigns. We merged them for two reasons:",
+      {
+        type: "ol",
+        items: [
+          "**Less audience overlap.** Both campaigns were chasing the same broad audience, often with the same winning ads, so they competed in the same auctions.",
+          "**CBO was already scaling the winners.** In our accounts, about **90% of the Prospecting budget** was already going to the strongest creatives. Duplicating them into a scale campaign was usually unnecessary.",
+        ],
+      },
+      { type: "h3", text: "Fixing CBO's biggest weakness: new ad sets not getting spend" },
+      "CBO's main downside is that it favours ad sets with history. A brand-new batch of creatives can sit in the campaign and get almost nothing.",
+      "We solve this with the **Minimum Spend Rule**:",
+      {
+        type: "ul",
+        items: [
+          "Launch each weekly creative batch in its **own new ad set**",
+          "Set a minimum spend of about **1× your target Cost Per Result** on it",
+          "Keep it for **7 days**, then remove it",
+          "Apply it **only once** per ad set",
+        ],
+      },
+      `This gives you ABO-style fairness for new tests, while CBO still scales the winners. The full method is in our post on [why new Meta ads aren't spending](${NOT_SPENDING_POST}).`,
+
+      { type: "h2", text: "5 common ABO and CBO mistakes" },
+      {
+        type: "ol",
+        items: [
+          "**Mixing very different ad sets in one CBO.** If one ad set targets past buyers and another targets cold audiences, CBO will pour budget into the easy one. Keep retargeting and retention in their own campaign.",
+          "**Adding new ads to a proven ad set.** Meta usually keeps backing the existing winner, so new ads get ignored. Launch new creatives in a new ad set.",
+          "**Judging new CBO ad sets too early.** A new ad set with two days of tiny spend has not been tested. Give it a fair minimum spend for 7 days first.",
+          "**Making big, sudden budget jumps.** Large changes can push campaigns back into the learning phase. Increase budgets in steady steps and watch results.",
+          "**Running too many ABO ad sets on the same audience.** They end up bidding against each other. If the audiences are the same, consolidate into one CBO.",
+        ],
+      },
+
+      { type: "h2", text: "How to switch from ABO to CBO" },
+      "Follow these steps to move over without a sudden dip in results:",
+      {
+        type: "ol",
+        items: [
+          "**List your ABO ad sets and results.** Note which ones bring in most of your conversions.",
+          "**Create a new CBO campaign.** Set the campaign budget roughly equal to the total of the ABO ad sets you are replacing.",
+          "**Rebuild your best ad sets inside it.** Use broad audiences and your strongest creatives, with past buyers excluded.",
+          "**Add a minimum spend to any brand-new test ad sets.** About 1× your target Cost Per Result, for 7 days.",
+          "**Wind down the ABO campaign gradually.** Lower its budgets step by step as the CBO campaign takes over, instead of pausing everything at once.",
+        ],
+      },
+      `Not sure about the targeting side? Read [broad targeting vs interest targeting on Meta](${TARGETING_POST}).`,
+
+      { type: "h2", text: "FAQ" },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "Is CBO better than ABO on Meta Ads?",
+            a: "CBO is better than ABO for most Meta Ads accounts that run similar, broad ad sets and want to scale. Meta automatically moves budget to the strongest ad sets, which saves time and money. ABO is better when you need strict, equal budgets, such as for controlled tests or very different audiences.",
+          },
+          {
+            q: "What does CBO stand for in Meta Ads?",
+            a: "CBO stands for campaign budget optimisation in Meta Ads. Meta now calls it Advantage+ campaign budget. It means you set one budget at the campaign level, and Meta distributes that budget across your ad sets in real time, based on which ones it predicts will perform best.",
+          },
+          {
+            q: "Is ABO better for testing new creatives?",
+            a: "ABO is easier for testing because every ad set gets the spend you set. But you can test fairly inside CBO too. Launch each new creative batch in its own ad set with a temporary minimum spend of about 1× your target Cost Per Result for 7 days, then remove it.",
+          },
+          {
+            q: "What is ad set budget sharing on Meta?",
+            a: "Ad set budget sharing is a Meta option for ad set budget campaigns. It lets Meta move up to 20% of one ad set's daily budget to another ad set in the same campaign when it predicts better results. Total campaign spend stays the same. It sits between strict ABO and full CBO.",
+          },
+          {
+            q: "Can you switch from ABO to CBO on an existing campaign?",
+            a: "You can change the budget type on an existing campaign, but it is usually safer to build a new CBO campaign. That way, you keep your ABO results running while the new campaign learns. Then lower the ABO budgets step by step as the CBO campaign takes over, instead of switching everything overnight.",
+          },
+        ],
+      },
+
+      { type: "h2", text: "Not sure which setup fits your account?" },
+      "The right budget setup depends on your structure, creative pipeline and conversion volume.",
+      `[Book a Growth Diagnosis Call with Acquirely](${BOOKING_URL}). We will review your campaigns against the A3 Flywheel and show you exactly where your budget is leaking.`,
+    ],
+  },
   {
     slug: "meta-ads-not-spending",
     title: "Why Your New Meta Ads Aren't Spending (And How to Fix It)",
@@ -682,7 +892,7 @@ export const blogPosts: BlogPost[] = [
       "We used to run a third, separate Scale campaign. We removed it, and you will see exactly why further down.",
 
       { type: "h3", text: "Campaign 1: The Prospecting CBO campaign" },
-      "The Prospecting campaign is where you test and discover new winning creatives. It is also where those winners scale.",
+      `The Prospecting campaign is where you test and discover new winning creatives. It is also where those winners scale. (Why a campaign budget and not ad set budgets? See [ABO vs CBO on Meta Ads](${ABO_CBO_POST}).)`,
       "Every week, you launch a new batch of creatives. We call each weekly batch a **Pack**.",
       "Each new Pack goes into a brand-new ad set with a broad audience.",
 
